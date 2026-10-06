@@ -1,0 +1,54 @@
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 04:45:39 on Oct 05,2026
+# vlog -work work_runtime -sv ../../fpga/uisrc/03_ip/ui_isp/ui_ram_demosaic/ui_ram_demosaic.v ../../fpga/uisrc/03_ip/ui_isp/ui_BLC.v ui_top_demosaic.v ../../fpga/uisrc/03_ip/ui_isp/ui_raw_matrix_3x3_buffer.v ui_bilinear_interpolation.v tb_bayer_runtime.sv 
+# -- Compiling module ui_ram_demosaic
+# -- Compiling module ui_ram_demosaic_eram_infer
+# -- Compiling module ui_BLC
+# -- Compiling module ui_top_demosaic
+# -- Compiling module ui_raw_matrix_3x3_buffer
+# -- Compiling module ui_bilinear_interpolation
+# -- Compiling module runtime_case
+# -- Compiling module tb_bayer_runtime
+# 
+# Top level modules:
+# 	ui_ram_demosaic
+# 	tb_bayer_runtime
+# End time: 04:45:39 on Oct 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs="+acc" -onfinish stop work_runtime.tb_bayer_runtime 
+# Start time: 04:45:39 on Oct 05,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_bayer_runtime(fast)
+# Loading work.runtime_case(fast)
+# Loading work.ui_BLC(fast)
+# Loading work.ui_top_demosaic(fast)
+# Loading work.ui_raw_matrix_3x3_buffer(fast)
+# Loading work.ui_ram_demosaic_eram_infer(fast)
+# Loading work.ui_bilinear_interpolation(fast)
+# PASS RGGB 4x1 frames=4 holes=0 stalls=1
+# PASS RGGB 8x2 frames=4 holes=1 stalls=1
+# PASS RGGB 16x6 frames=8 holes=0 stalls=1
+# PASS RGGB 20x7 frames=8 holes=1 stalls=1
+# PASS RGGB 1280x720 frames=4 holes=1 stalls=1
+# PASS RGGB 1920x1080 frames=4 holes=1 stalls=1
+# BAYER RUNTIME GOLDEN PASS: four modes between frames, ignored mid-frame writes, all pixels/markers under stalls
+# ** Note: $finish    : tb_bayer_runtime.sv(146)
+#    Time: 59987052 ns  Iteration: 2  Instance: /tb_bayer_runtime
+# Break in Module tb_bayer_runtime at tb_bayer_runtime.sv line 146
+# Stopped at tb_bayer_runtime.sv line 146
+# End time: 04:47:12 on Oct 05,2026, Elapsed time: 0:01:33
+# Errors: 0, Warnings: 0

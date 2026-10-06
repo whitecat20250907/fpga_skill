@@ -1,0 +1,13 @@
+`define P0_Available_cwc
+`define P10_Available_cwc
+`define P11_Available_cwc
+`define P12_Available_cwc
+`define P1_Available_cwc
+`define P2_Available_cwc
+`define P3_Available_cwc
+`define P4_Available_cwc
+`define P5_Available_cwc
+`define P6_Available_cwc
+`define P7_Available_cwc
+`define P8_Available_cwc
+`define P9_Available_cwc

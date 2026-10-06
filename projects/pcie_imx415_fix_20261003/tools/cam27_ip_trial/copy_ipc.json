@@ -1,0 +1,22 @@
+{
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\IpTool.exe",
+    "E:/qianrufpga/TD",
+    "-app_path",
+    "E:/qianrufpga/TD/bin/td.exe",
+    "-user",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/cam27_trial.ipc",
+    "-export_to",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/generated",
+    "-comp",
+    "cam27_generated",
+    "-use_value",
+    "copy",
+    "-quiet",
+    "-no_server_monitor"
+  ],
+  "pid": 28392,
+  "returncode": 1,
+  "timed_out": true,
+  "elapsed_seconds": 20.893
+}

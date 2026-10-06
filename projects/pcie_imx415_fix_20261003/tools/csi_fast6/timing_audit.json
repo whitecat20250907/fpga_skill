@@ -1,0 +1,79 @@
+{
+  "source": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\fpga\\uisrc\\03_ip\\mipi_csi_2\\csi_rx_hs_data_phy.v",
+  "source_sha256": "ae3e15af71213a38b186a56f4f89592d4b895e08ddf8199492e3eddb138c47aa",
+  "candidate_sha256": "9623dbb888879c26043bd8ea4bed8141e25293b661c96e4ee803076b1585b8b2",
+  "report_scheme": "10 end points per group; 1 path per endpoint",
+  "negative_paths": [
+    {
+      "slack_ns": -1.96,
+      "Begin Point": "u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/hs_reset_sync_reg[1]_syn_2.clk (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout  { rise@0.000000ns  fall@4.488000ns  period=8.976000 })",
+      "End Point": "mipi_data_hs_p[2]_syn_2.rst (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout  { rise@0.000000ns  fall@1.122000ns  period=2.244000 })",
+      "Check Type": "recovery",
+      "Budget": "2.244ns { u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout rising@2.244ns - u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout rising@0.000ns }",
+      "Data Path Delay": "2.186ns (cell 1.168ns (53%), net 1.018ns (47%))",
+      "Clock Skew": "1.978ns",
+      "Logic Level": "1 ( LUT1=1 )",
+      "Max Fanout": "653"
+    },
+    {
+      "slack_ns": -1.881,
+      "Begin Point": "u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/hs_reset_sync_reg[1]_syn_2.clk (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout  { rise@0.000000ns  fall@4.488000ns  period=8.976000 })",
+      "End Point": "mipi_data_hs_p[3]_syn_2.rst (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout  { rise@0.000000ns  fall@1.122000ns  period=2.244000 })",
+      "Check Type": "recovery",
+      "Budget": "2.244ns { u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout rising@2.244ns - u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout rising@0.000ns }",
+      "Data Path Delay": "2.110ns (cell 1.168ns (55%), net 0.942ns (45%))",
+      "Clock Skew": "1.975ns",
+      "Logic Level": "1 ( LUT1=1 )",
+      "Max Fanout": "653"
+    },
+    {
+      "slack_ns": -1.707,
+      "Begin Point": "u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/hs_reset_sync_reg[1]_syn_2.clk (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout  { rise@0.000000ns  fall@4.488000ns  period=8.976000 })",
+      "End Point": "mipi_data_hs_p[1]_syn_2.rst (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout  { rise@0.000000ns  fall@1.122000ns  period=2.244000 })",
+      "Check Type": "recovery",
+      "Budget": "2.244ns { u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout rising@2.244ns - u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout rising@0.000ns }",
+      "Data Path Delay": "1.941ns (cell 1.168ns (60%), net 0.773ns (40%))",
+      "Clock Skew": "1.970ns",
+      "Logic Level": "1 ( LUT1=1 )",
+      "Max Fanout": "653"
+    },
+    {
+      "slack_ns": -1.674,
+      "Begin Point": "u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/hs_reset_sync_reg[1]_syn_2.clk (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout  { rise@0.000000ns  fall@4.488000ns  period=8.976000 })",
+      "End Point": "mipi_data_hs_p[0]_syn_2.rst (rising edge triggered by clock u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout  { rise@0.000000ns  fall@1.122000ns  period=2.244000 })",
+      "Check Type": "recovery",
+      "Budget": "2.244ns { u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout rising@2.244ns - u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout rising@0.000ns }",
+      "Data Path Delay": "1.908ns (cell 1.168ns (61%), net 0.740ns (39%))",
+      "Clock Skew": "1.970ns",
+      "Logic Level": "1 ( LUT1=1 )",
+      "Max Fanout": "653"
+    }
+  ],
+  "byte_domain_setup_wns_ns": 1.438,
+  "user_domain_setup_wns_ns": 0.382,
+  "candidate_staged_only": true,
+  "not_run": [
+    "TD_candidate_implementation",
+    "board_sampling_calibration_crc_images"
+  ],
+  "simulation": {
+    "return_code": 0,
+    "compared_byte_cycles": 3828,
+    "nonzero_cycles": 2964,
+    "resets": 12,
+    "clock_stops": 5,
+    "errors": 0,
+    "warnings": 0,
+    "actual_vendor_models": true,
+    "log": "tools/csi_fast6/evidence_sampler6.log",
+    "qualified_aligned_lane_bytes": 844,
+    "actual_log_dir": "tools/csi_fast6/evidence/sampler_20261005_044754_11352/",
+    "inactive_byte_negative": "tools/csi_fast6/evidence_sampler6_inactive_negative.log; RC1; valid vectors both0000; not a qualified byte mismatch"
+  },
+  "files_sha256": {
+    "csi_rx_hs_data_phy.v": "9623dbb888879c26043bd8ea4bed8141e25293b661c96e4ee803076b1585b8b2",
+    "csi_rx_hs_data_phy_reference.v": "9d755c072c487705bbe06054d25932da437661fdff095863033595a699da8a54",
+    "sampler_reset.do": "0f49fb8110e46e1e56b61912c332ba08560bd24ce9c228945379e8a662235bee",
+    "tb_sampler_reset.sv": "babba8ed03e42863a3c5ccd117c8563e68bc8952bc0e380ca0224d206f5e348d"
+  }
+}

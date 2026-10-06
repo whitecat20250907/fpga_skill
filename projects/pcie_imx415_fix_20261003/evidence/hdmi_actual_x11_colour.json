@@ -1,0 +1,656 @@
+{
+  "status": "PASS_X11_WINDOW_PATCH_RGB8",
+  "actual_xwd": "evidence/hdmi_pattern_colour06/actual_0001.xwd",
+  "scope": "actual X11 window pixel evidence; not physical HDMI colourimetry or camera pipeline PASS",
+  "xwd_sha256": "a2e42a754e6d581caacc79ef87718fea52e687f03a1506a3b1bd4698e4864dd1",
+  "header": {
+    "header_size": 107,
+    "file_version": 7,
+    "pixmap_format": 2,
+    "pixmap_depth": 24,
+    "pixmap_width": 1920,
+    "pixmap_height": 1080,
+    "xoffset": 0,
+    "byte_order": 0,
+    "bitmap_unit": 32,
+    "bitmap_bit_order": 0,
+    "bitmap_pad": 32,
+    "bits_per_pixel": 32,
+    "bytes_per_line": 7680,
+    "visual_class": 4,
+    "red_mask": 16711680,
+    "green_mask": 65280,
+    "blue_mask": 255,
+    "bits_per_rgb": 8,
+    "colormap_entries": 256,
+    "ncolors": 256,
+    "window_width": 1920,
+    "window_height": 1080,
+    "window_x": 0,
+    "window_y": 0,
+    "window_bdrwidth": 0,
+    "window_name": "xwdump",
+    "channel_bits": [
+      8,
+      8,
+      8
+    ],
+    "pixel_data_offset": 3179,
+    "bitmap_bit_order_policy": "ZPixmap byte-aligned pixel values use byte_order; no XY bitmap interpretation",
+    "rgb_policy": "mask-code values scaled to RGB8; not HDMI panel gamma/colourimetry proof"
+  },
+  "actual_rgb8_sha256": "9d3ae28bee5bda63be787ff2824e1ea7d33e41147790c8f32d404959e6d91bb7",
+  "generation": 1,
+  "command": {
+    "mode": "chart",
+    "id": "initial"
+  },
+  "patches": [
+    {
+      "name": "RED",
+      "roi": [
+        192,
+        108,
+        448,
+        252
+      ],
+      "expected_rgb8": [
+        255,
+        0,
+        0
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          255.0,
+          0.0,
+          0.0
+        ],
+        "median_rgb8": [
+          255.0,
+          0.0,
+          0.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          255.0,
+          0.0,
+          0.0
+        ],
+        "max_rgb8": [
+          255.0,
+          0.0,
+          0.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "GREEN",
+      "roi": [
+        832,
+        108,
+        1088,
+        252
+      ],
+      "expected_rgb8": [
+        0,
+        255,
+        0
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          0.0,
+          255.0,
+          0.0
+        ],
+        "median_rgb8": [
+          0.0,
+          255.0,
+          0.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          0.0,
+          255.0,
+          0.0
+        ],
+        "max_rgb8": [
+          0.0,
+          255.0,
+          0.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "BLUE",
+      "roi": [
+        1472,
+        108,
+        1728,
+        252
+      ],
+      "expected_rgb8": [
+        0,
+        0,
+        255
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          0.0,
+          0.0,
+          255.0
+        ],
+        "median_rgb8": [
+          0.0,
+          0.0,
+          255.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          0.0,
+          0.0,
+          255.0
+        ],
+        "max_rgb8": [
+          0.0,
+          0.0,
+          255.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          1.0,
+          1.0,
+          0.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "WHITE",
+      "roi": [
+        192,
+        468,
+        448,
+        612
+      ],
+      "expected_rgb8": [
+        255,
+        255,
+        255
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "median_rgb8": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "max_rgb8": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 0.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "GRAY",
+      "roi": [
+        832,
+        468,
+        1088,
+        612
+      ],
+      "expected_rgb8": [
+        128,
+        128,
+        128
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          128.0,
+          128.0,
+          128.0
+        ],
+        "median_rgb8": [
+          128.0,
+          128.0,
+          128.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          128.0,
+          128.0,
+          128.0
+        ],
+        "max_rgb8": [
+          128.0,
+          128.0,
+          128.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          0.21586050011404642,
+          0.21586050011404642,
+          0.21586050011404642
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 0.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "BLACK",
+      "roi": [
+        1472,
+        468,
+        1728,
+        612
+      ],
+      "expected_rgb8": [
+        0,
+        0,
+        0
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "median_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 0.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "ORANGE",
+      "roi": [
+        192,
+        828,
+        448,
+        972
+      ],
+      "expected_rgb8": [
+        255,
+        128,
+        0
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          255.0,
+          128.0,
+          0.0
+        ],
+        "median_rgb8": [
+          255.0,
+          128.0,
+          0.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          255.0,
+          128.0,
+          0.0
+        ],
+        "max_rgb8": [
+          255.0,
+          128.0,
+          0.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          1.0,
+          0.21586050011404642,
+          0.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "CYAN",
+      "roi": [
+        832,
+        828,
+        1088,
+        972
+      ],
+      "expected_rgb8": [
+        0,
+        255,
+        255
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          0.0,
+          255.0,
+          255.0
+        ],
+        "median_rgb8": [
+          0.0,
+          255.0,
+          255.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          0.0,
+          255.0,
+          255.0
+        ],
+        "max_rgb8": [
+          0.0,
+          255.0,
+          255.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    },
+    {
+      "name": "MAGENTA",
+      "roi": [
+        1472,
+        828,
+        1728,
+        972
+      ],
+      "expected_rgb8": [
+        255,
+        0,
+        255
+      ],
+      "stats": {
+        "pixel_count": 36864,
+        "mean_rgb8": [
+          255.0,
+          0.0,
+          255.0
+        ],
+        "median_rgb8": [
+          255.0,
+          0.0,
+          255.0
+        ],
+        "std_rgb8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min_rgb8": [
+          255.0,
+          0.0,
+          255.0
+        ],
+        "max_rgb8": [
+          255.0,
+          0.0,
+          255.0
+        ],
+        "clipped_low_fraction_by_channel": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "clipped_high_fraction_by_channel": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "srgb_inverse_transfer_mean": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "linearization_assumption": "sRGB inverse transfer only; actual camera ISP gamma is not verified",
+        "mean_chroma_fraction": 1.0
+      },
+      "max_channel_error": [
+        0,
+        0,
+        0
+      ],
+      "mismatched_pixel_count": 0,
+      "exact_rgb8": true
+    }
+  ],
+  "capture_event": {
+    "event": "actual_xwd",
+    "generation": 1,
+    "returncode": 0,
+    "path": "/home/linaro/pcie_fix_20261003/evidence/hdmi_pattern_colour06/actual_0001.xwd",
+    "stable_generation": true,
+    "stderr": "",
+    "unix": 1777345537.1844125
+  },
+  "ready_sha256": "f8ee4b4dc89bc74d046a6b270bf4afa0485cd0237a6310b79104dfe5832a8f9d",
+  "events_sha256": "7a2094a101c38e0eefe12aae45c55da70a453f89e7268605f097c4985ae58d10",
+  "reference_png_opened_or_used_as_actual_pixels": false
+}

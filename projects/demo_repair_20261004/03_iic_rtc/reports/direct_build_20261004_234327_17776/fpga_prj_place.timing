@@ -1,0 +1,717 @@
+Created by          : Tang Dynasty Release_2026.1_SP2
+                    : Copyright (c) 2012-2026 Anlogic Inc.
+Generated           : Sun Oct  4 23:44:07 2026
+
+Top Model           : rtc_clock_ds1337
+Device              : PH1A90SEG324
+Speed               : 2
+STA coverage        : 77.69%
+Constraint File     : E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/uisrc/04_pin/timing.sdc;
+Confidence          : Placed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 35.856ns, STNS: 0.000ns
+	HWNS: 0.000ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       25.000          123   sysclk
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0   Inferred GCLK            0.000     20.000                40.000          25.000                 4.144         241.313           35.856      0.000            0.000      0.000            0.000              123                6             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     sysclk -> sysclk
+Type           :     Self
+From Clock     :     sysclk
+To Clock       :     sysclk
+Min Period     :     4.144ns
+Fmax           :     241.313MHz
+
+Statistics:
+Max            : SWNS     35.856ns, STNS      0.000ns,         0 Viol Endpoints,       328 Total Endpoints,      2843 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 35.856ns
+Begin Point         : add1_syn_200.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : TS_S_reg[1]_syn_2.ia (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 4.016ns (cell 1.520ns (37%), net 2.496ns (63%))
+Clock Skew          : 0.000ns
+Logic Level         : 5 ( LUT6=2  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: add1_syn_200.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y132z6          0.181    f     0.181          pin: add1_syn_200.oqb
+net (fo=2)                              0.224          0.405          net: t_cnt[18],  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_163.ia
+LUT4                x025y134z6          0.240    r     0.645       1  pin: mux20_syn_163.ofb
+net (fo=1)                              0.136          0.781          net: mux20_syn_142,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_161.ia
+LUT5                x025y134z4          0.240    r     1.021       2  pin: mux20_syn_161.ofb
+net (fo=1)                              0.136          1.157          net: mux20_syn_144,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_162.ia
+LUT6                x025y134z5          0.238    r     1.395       3  pin: mux20_syn_162.ofb
+net (fo=1)                              0.323          1.718          net: mux20_syn_148,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_158.imb
+LUT2                x025y130z1          0.165    r     1.883       4  pin: mux20_syn_158.ofb
+net (fo=32)                             1.677          3.560          net: t_en,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: TS_S_reg[1]_syn_2.ia
+LUT6 (reg)          x019y072z3          0.456    r     4.016       5  net: TS_S_reg_syn_1[1],  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(91)
+--------------------------------------------------------------------  ---------------
+Arrival                                                4.016               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: TS_S_reg[1]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.856               
+
+Slack               : 35.932ns
+Begin Point         : add1_syn_200.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : TS_S_reg[0]_syn_2.ib (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.940ns (cell 1.409ns (35%), net 2.531ns (65%))
+Clock Skew          : 0.000ns
+Logic Level         : 5 ( LUT4=2  LUT6=1  LUT5=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: add1_syn_200.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y132z6          0.181    f     0.181          pin: add1_syn_200.oqb
+net (fo=2)                              0.224          0.405          net: t_cnt[18],  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_163.ia
+LUT4                x025y134z6          0.240    r     0.645       1  pin: mux20_syn_163.ofb
+net (fo=1)                              0.136          0.781          net: mux20_syn_142,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_161.ia
+LUT5                x025y134z4          0.240    r     1.021       2  pin: mux20_syn_161.ofb
+net (fo=1)                              0.136          1.157          net: mux20_syn_144,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_162.ia
+LUT6                x025y134z5          0.238    r     1.395       3  pin: mux20_syn_162.ofb
+net (fo=1)                              0.323          1.718          net: mux20_syn_148,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_158.imb
+LUT2                x025y130z1          0.165    r     1.883       4  pin: mux20_syn_158.ofb
+net (fo=32)                             1.712          3.595          net: t_en,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: TS_S_reg[0]_syn_2.ib
+LUT4 (reg)          x019y070z3          0.345    f     3.940       5  net: TS_S_reg_syn_1[0],  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(91)
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.940               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: TS_S_reg[0]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.932               
+
+Slack               : 37.025ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.ic (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.847ns (cell 1.547ns (54%), net 1.300ns (46%))
+Clock Skew          : 0.000ns
+Logic Level         : 6 ( LUT4=2  LUT2=2  LUT5=1  LUT3=1 )
+Max Fanout          : 4
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.id
+LUT2                x031y064z2          0.188    f     1.929       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofa
+net (fo=1)                              0.136          2.065          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_8,  ..\../uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_14.ib
+LUT2                x031y064z5          0.242    r     2.307       5  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_14.ofb
+net (fo=1)                              0.232          2.539          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_6,  ..\../uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.ic
+LUT3 (reg)          x032y065z3          0.308    f     2.847       6  net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt[2],  ..\../uisrc/03_ip/uiuart_tx.v(60)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.847               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.025               
+
+Slack               : 37.054ns
+Begin Point         : X_ui_i2c/clkdiv_reg[4]_syn_5.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/O_iic_scl_reg_syn_8.ima (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.818ns (cell 0.998ns (35%), net 1.820ns (65%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( LUT6=2  LUT2=1 )
+Max Fanout          : 4
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/clkdiv_reg[4]_syn_5.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x020y071z1          0.175    r     0.175          pin: X_ui_i2c/clkdiv_reg[4]_syn_5.oqa
+net (fo=2)                              0.423          0.598          net: X_ui_i2c/clkdiv[4],  ..\../uisrc/03_ip/uii2c.v(78)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_b1[0]_syn_6.imf
+LUT2                x025y069z7          0.212    f     0.810       1  pin: X_ui_uart_tx_block/tx_buffer_b1[0]_syn_6.ofa
+net (fo=4)                              0.418          1.228          net: X_ui_i2c/scl_clk_reg_syn_5,  ..\../uisrc/03_ip/uii2c.v(95)
+                                                                      pin: X_ui_i2c/O_iic_scl_reg_syn_10.ia
+LUT6                x019y071z7          0.238    r     1.466       2  pin: X_ui_i2c/O_iic_scl_reg_syn_10.ofb
+net (fo=1)                              0.349          1.815          net: X_ui_i2c/scl_offset,  ..\../uisrc/03_ip/uii2c.v(89)
+                                                                      pin: X_ui_i2c/O_iic_scl_reg_syn_9.ia
+LUT6                x014y072z5          0.238    r     2.053       3  pin: X_ui_i2c/O_iic_scl_reg_syn_9.ofb
+net (fo=1)                              0.630          2.683          net: X_ui_i2c/O_iic_scl_reg_syn_3,  ..\../uisrc/03_ip/uii2c.v(105)
+                                                                      pin: X_ui_i2c/O_iic_scl_reg_syn_8.ima
+reg                 x001y074z0          0.135    r     2.818          net: O_iic_scl_dup_3,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(44)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.818               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/O_iic_scl_reg_syn_8.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.054               
+
+Slack               : 37.107ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.ic (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.765ns (cell 1.465ns (52%), net 1.300ns (48%))
+Clock Skew          : 0.000ns
+Logic Level         : 6 ( LUT4=3  LUT2=2  LUT5=1 )
+Max Fanout          : 4
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.id
+LUT2                x031y064z2          0.188    f     1.929       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofa
+net (fo=1)                              0.136          2.065          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_8,  ..\../uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_14.ib
+LUT2                x031y064z5          0.242    r     2.307       5  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_14.ofb
+net (fo=1)                              0.232          2.539          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_6,  ..\../uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.ic
+LUT4 (reg)          x032y065z3          0.226    f     2.765       6  net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt[3],  ..\../uisrc/03_ip/uiuart_tx.v(60)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.765               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_7.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.107               
+
+Slack               : 37.301ns
+Begin Point         : X_ui_uart_tx_block/S_UART_TX_reg[0]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/tx_buffer_reg[24]_syn_2.ima (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.571ns (cell 1.206ns (46%), net 1.365ns (54%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT4=2  LUT3=1  LUT2=1 )
+Max Fanout          : 15
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/S_UART_TX_reg[0]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x024y067z7          0.175    r     0.175          pin: X_ui_uart_tx_block/S_UART_TX_reg[0]_syn_2.oqa
+net (fo=3)                              0.317          0.492          net: X_ui_uart_tx_block/S_UART_TX_reg_syn_1[0],  ..\../uisrc/03_ip/uart_tx_block.v(72)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_b1[0]_syn_6.ib
+LUT4                x025y069z7          0.242    r     0.734       1  pin: X_ui_uart_tx_block/tx_buffer_b1[0]_syn_6.ofb
+net (fo=15)                             0.345          1.079          net: X_ui_uart_tx_block/tx_buffer_b1[0]_syn_2,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_reg[27]_syn_2.ib
+LUT4                x020y068z1          0.324    f     1.403       2  pin: X_ui_uart_tx_block/tx_buffer_reg[27]_syn_2.ofa
+net (fo=1)                              0.431          1.834          net: X_ui_uart_tx_block/tx_buffer_b1[27],  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_reg[52]_syn_2.imb
+LUT3                x023y066z6          0.165    r     1.999       3  pin: X_ui_uart_tx_block/tx_buffer_reg[52]_syn_2.ofb
+net (fo=1)                              0.136          2.135          net: X_ui_uart_tx_block/tx_buffer_b1[28],  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_reg[48]_syn_2.imb
+LUT2                x023y066z0          0.165    r     2.300       4  pin: X_ui_uart_tx_block/tx_buffer_reg[48]_syn_2.ofb
+net (fo=1)                              0.136          2.436          net: X_ui_uart_tx_block/tx_buffer_b1[24],  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_reg[24]_syn_2.ima
+reg                 x023y066z1          0.135    r     2.571          net: X_ui_uart_tx_block/tx_buffer[24],  ..\../uisrc/03_ip/uart_tx_block.v(60)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.571               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/tx_buffer_reg[24]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.301               
+
+Slack               : 37.341ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.cea (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.531ns (cell 1.051ns (41%), net 1.480ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT5=2  LUT4=2 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ib
+LUT5                x031y064z6          0.242    r     1.983       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ofb
+net (fo=10)                             0.548          2.531          net: X_ui_uart_tx_block/X_ui_uart_tx/mux5_syn_2[9],  ..\../uisrc/03_ip/uiuart_tx.v(108)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.cea
+reg                 x024y070z6          0.000    f     2.531               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.531               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.341               
+
+Slack               : 37.341ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.ceb (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.531ns (cell 1.051ns (41%), net 1.480ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT5=2  LUT4=2 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ib
+LUT5                x031y064z6          0.242    r     1.983       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ofb
+net (fo=10)                             0.548          2.531          net: X_ui_uart_tx_block/X_ui_uart_tx/mux5_syn_2[9],  ..\../uisrc/03_ip/uiuart_tx.v(108)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.ceb
+reg                 x024y070z6          0.000    f     2.531               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.531               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[2]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.341               
+
+Slack               : 37.350ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[0]_syn_3.ceb (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.522ns (cell 1.051ns (41%), net 1.471ns (59%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT5=2  LUT4=2 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ib
+LUT5                x031y064z6          0.242    r     1.983       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ofb
+net (fo=10)                             0.539          2.522          net: X_ui_uart_tx_block/X_ui_uart_tx/mux5_syn_2[9],  ..\../uisrc/03_ip/uiuart_tx.v(108)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[0]_syn_3.ceb
+reg                 x019y062z0          0.000    f     2.522               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.522               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[0]_syn_3.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.350               
+
+Slack               : 37.445ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[3]_syn_2.cea (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 2.427ns (cell 1.051ns (43%), net 1.376ns (57%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT5=2  LUT4=2 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.060ns (sdc uncertainty: 0.000ns, default uncertainty: 0.060ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x025y068z1          0.175    r     0.175          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3]_syn_2.oqa
+net (fo=4)                              0.215          0.390          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  ..\../uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ib
+LUT4                x025y067z0          0.242    r     0.632       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_40.ofb
+net (fo=2)                              0.445          1.077          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  ..\../uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ic
+LUT5                x031y064z1          0.150    f     1.227       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[1]_syn_2.ofb
+net (fo=1)                              0.136          1.363          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  ..\../uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ib
+LUT4                x031y064z2          0.242    r     1.605       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_13.ofb
+net (fo=2)                              0.136          1.741          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ib
+LUT5                x031y064z6          0.242    r     1.983       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[0]_syn_7.ofb
+net (fo=10)                             0.444          2.427          net: X_ui_uart_tx_block/X_ui_uart_tx/mux5_syn_2[9],  ..\../uisrc/03_ip/uiuart_tx.v(108)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[3]_syn_2.cea
+reg                 x023y067z7          0.000    f     2.427               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.427               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                 x000y057            0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=1)                              0.000          0.000          net: I_sysclk_dup_1,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: I_sysclk_dup_1_created_gclkinst.clkin[0]
+GCLK                x037y099z0          0.000          0.000          pin: I_sysclk_dup_1_created_gclkinst.clkout
+net (fo=123)                            0.000          0.000          net: I_sysclk_syn_9,  ..\../uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/uart_wdata_r_reg[3]_syn_2.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.068         39.932               
+clock uncertainty                      -0.060         39.872               
+clock pessimism                         0.000         39.872               
+--------------------------------------------------------------------  ---------------
+Required                                              39.872               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.445               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

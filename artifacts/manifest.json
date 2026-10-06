@@ -1,0 +1,80 @@
+[
+  {
+    "path": "artifacts/rtc03_sta_pass_not_board_tested.bit",
+    "sha256": "bb5051ac351a8f9455756ba7470d204b8ecb1035660131bf94dec51dea554f56",
+    "bytes": 4850278,
+    "status": "TD_PASS_BOARD_NOT_TESTED",
+    "source_path": "projects/demo_repair_20261004/03_iic_rtc/reports/direct_build_20261005_045937_38024/fpga_prj.bit"
+  },
+  {
+    "path": "artifacts/ddr04_sta_pass_not_board_tested.bit",
+    "sha256": "7f467eb693151033d61a9cc34c8a6a206afa5dc3055cbf06249c47a6632d8007",
+    "bytes": 4850319,
+    "status": "TD_PASS_BOARD_NOT_TESTED",
+    "source_path": "projects/demo_repair_20261004/04_ddr3_axi_fdma_test/reports/direct_build_20261004_235718_32084/fpga_prj.bit"
+  },
+  {
+    "path": "artifacts/pcie09_static_pass_BAR_precheck_failed.bit",
+    "sha256": "82554d7fde3a72545d417813b27fdcbd7fec4a8f3a8ef3f5e6af664f6054b8fc",
+    "bytes": 2924037,
+    "status": "STATIC_PASS_RUNTIME_BAR_PRECHECK_FAILED_NO_CAPTURE",
+    "source_path": "projects/pcie_imx415_fix_20261003/evidence/direct_build_20261005_071615_17980/imx415_pcie_4k_compress.bit"
+  },
+  {
+    "path": "artifacts/boot_pcie_cma64.img.gz",
+    "sha256": "62402a1b83b4cab5db5a22f5a42c9717866cf8e13f946e57721ffe106a227d13",
+    "decompressed_sha256": "acd036d8de113cfd4166a5e34a71e7222429297dc1ed13de7db51828b35cd247",
+    "decompressed_bytes": 67108864,
+    "bytes": 14295113,
+    "status": "FLASH_READBACK_REBOOT_CMA64_VERIFIED_PCIe1_USB1_MUTUALLY_EXCLUSIVE"
+  },
+  {
+    "path": "artifacts/historical_six/01_uart_loop_compress.bit",
+    "sha256": "f85abe83b5ba04864330a2a9bb42330fe1565c5fedc34cbc11e7628095b29886",
+    "bytes": 326352,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/historical_six/02_i2c_eeprom_compress.bit",
+    "sha256": "a625e98582fde441dd2db8ca064ca6e6f82a77f33f66f9ec5270d6f7fe42c83b",
+    "bytes": 402113,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/historical_six/03_iic_rtc_compress.bit",
+    "sha256": "61066cf997dd7cfb785bb8fc28ab2a7aa6c6bd390e99f49eca4e488dbe251d5e",
+    "bytes": 242648,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/historical_six/04_ddr3_axi_fdma_test_compress.bit",
+    "sha256": "307c2e19b0a07415ff0f75b73b58682633cce7d2592d3bf1f51192a5c2d0f325",
+    "bytes": 1469313,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/historical_six/05_tpg_dsi_7cun_compress.bit",
+    "sha256": "c335fac44f56f2767dbbbb497557191ef4996adbc034ecf7701d7d6b31196b43",
+    "bytes": 388224,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/historical_six/06_csi_2_dsi_imx415_7cun_compress.bit",
+    "sha256": "16bd293b4ed8b7030087c769cc1c6816afe0a46ffffb824b2919c783750e84bd",
+    "bytes": 2973120,
+    "status": "HISTORICAL_BIT_HASH_MATCHES_INVENTORY_NOT_A_NEW_FIX_ACCEPTANCE",
+    "note": "User confirmed demo success historically; source inventory alone does not bind that board test to this exact bit"
+  },
+  {
+    "path": "artifacts/t3_s4b_75m_historical_stage_compress.bit",
+    "sha256": "901843bd7998b80952adddd1c01e90e18b6b88172b76795bdca8e636bfceb6c6",
+    "bytes": 2558467,
+    "status": "ARCHIVED_LOCAL_STAGE_BIT_PRIOR_STAGE_10_FRAME_CRC_EVIDENCE_NO_NEW_BOARD_TEST",
+    "note": "See t3_basic6 README; sticky overflow and compressed-link detection positive case remain unverified"
+  }
+]

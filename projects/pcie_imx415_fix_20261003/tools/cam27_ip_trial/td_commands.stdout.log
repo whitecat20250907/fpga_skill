@@ -1,0 +1,15 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Sun Oct  4 23:05:12 2026
+
+   Run on =     ’‘º“∫¿D’¸æ»’ﬂ
+============================================================
+READ_ONLY_TCL_COMMAND_DISCOVERY
+config_chipwatcher create_syn_ip export_chipprobe_config export_chipwatcher export_flow_script export_ip_lib export_ip_max_hold export_ip_pins export_ip_sdc ext_qor_script import_chipprobe_config import_ip2pid_lib import_ip_pin_list ipgen_synip open_chip_viewer print_ip_channel print_ip_config read_ip_adc read_ipc_file report_ip_tree set_ip_property set_ipinst_assignment set_ippin_assignment set_sippin_assignment xmlipgen zip_project
+derive_pll_clocks update_pll_param
+autogen_hpiob_import_lib_cmds autogen_io_import_lib_cmds autogen_serdes_import_lib_cmds bitgen create_generated_clock export_autogen_constr export_bitgen_param gen_aes_key_svf gen_bsdl gen_cmd_import_lib gen_error_bit_file gen_jtag_axis_vec gen_lib gen_lib_attr gen_license gen_partial_bit gen_ph2_rsb_timinglib gen_tandem_bit generate_elaborate_package generate_estimator_cfg generate_gate generate_license generate_module_stub_file generate_serdes generate_simulation generate_text_report generate_wrapper_file ipgen_synip read_hxt_gen_clks read_libgen_cas_tlib svfgen xmlipgen

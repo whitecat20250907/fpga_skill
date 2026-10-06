@@ -1,0 +1,141 @@
+--- driver06/anlogic_pci_lib.c
++++ driver07/anlogic_pci_lib.c
+@@ -4318,6 +4318,22 @@
+ 	return rv;
+ }
+ 
++static int engine_destroy(struct anlogic_dev *sgdev,
++			  struct anlogic_dma_engine *engine);
++
++/* Probe is serialized and channel IRQs are still disabled here. The engine
++ * lock/list/work/waitqueues were initialized before any resource allocation.
++ * Reuse the stop/drain teardown before releasing a programmed WB target. */
++static void engine_init_rollback(struct anlogic_dev *sgdev,
++				 struct anlogic_dma_engine *engine)
++{
++	if (engine->dir == DMA_TO_DEVICE)
++		sgdev->mask_irq_h2c &= ~engine->irq_bitmask;
++	else
++		sgdev->mask_irq_c2h &= ~engine->irq_bitmask;
++	engine_destroy(sgdev, engine);
++}
++
+ static int engine_init(struct anlogic_dma_engine *engine, struct anlogic_dev *sgdev,
+ 			   int offset, enum dma_data_direction dir, int channel)
+ {
+@@ -4325,9 +4341,6 @@
+ 	u32 val;
+ 
+ 	dbg_init("channel %d, offset 0x%x, dir %d.\n", channel, offset, dir);
+-
+-	/* set magic */
+-	engine->magic = MAGIC_ENGINE;
+ 
+ 	engine->channel = channel;
+ 
+@@ -4385,16 +4398,25 @@
+ 
+ 	rv = engine_alloc_resource(engine);
+ 	if (rv)
+-		return rv;
++		goto rollback;
+ 
+ 	rv = engine_init_regs(engine);
+ 	if (rv)
+-		return rv;
+-
++		goto rollback;
++
++	/* Publish only fully initialized engines to normal teardown/clients. */
++	engine->magic = MAGIC_ENGINE;
+ 	if (poll_mode)
+ 		sgdma_thread_add_work(engine);
+ 
+ 	return 0;
++
++rollback:
++	/* engine_alloc_resource already frees allocations it never exposed to
++	 * hardware. Remaining/programmed allocations are released only after
++	 * the same physical STOP confirmation used by normal driver06 teardown. */
++	engine_init_rollback(sgdev, engine);
++	return rv;
+ }
+ 
+ static int get_engine_channel_id(struct engine_regs *regs)
+@@ -4452,13 +4474,14 @@
+ 	engine_id = get_engine_id(regs);
+ 	channel_id = get_engine_channel_id(regs);
+ 
+-	if ((engine_id != engine_id_expected) || (channel_id != channel)) {
++	if ((engine_id != engine_id_expected) || (channel_id != (u32)channel)) {
+ 		dbg_init(
+ 			"%s %d engine, reg off 0x%x, id mismatch 0x%x,0x%x,exp 0x%x,0x%x, SKIP.\n",
+ 			dir == DMA_TO_DEVICE ? "H2C" : "C2H", channel, offset,
+ 			engine_id, channel_id, engine_id_expected,
+-			channel_id != channel);
+-		return -EINVAL;
++			channel_id != (u32)channel);
++		/* End of implemented channels, distinct from initialization failure. */
++		return -ENODEV;
+ 	}
+ 
+ 	dbg_init("found AXI %s %d engine, reg. off 0x%x.\n",
+@@ -4567,7 +4590,8 @@
+ static int probe_engines(struct anlogic_dev *sgdev)
+ {
+ 	int i;
+-	int rv = 0;
++	int rv;
++	int h2c_count = 0, c2h_count = 0;
+ 
+ 	if (!sgdev) {
+ 		pr_err("Invalid sgdev\n");
+@@ -4577,19 +4601,42 @@
+ 	/* iterate over channels */
+ 	for (i = 0; i < sgdev->h2c_channel_max; i++) {
+ 		rv = probe_for_engine(sgdev, DMA_TO_DEVICE, i);
++		if (rv == -ENODEV)
++			break;
+ 		if (rv)
+-			break;
+-	}
+-	sgdev->h2c_channel_max = i;
++			goto rollback;
++		h2c_count++;
++	}
+ 
+ 	for (i = 0; i < sgdev->c2h_channel_max; i++) {
+ 		rv = probe_for_engine(sgdev, DMA_FROM_DEVICE, i);
++		if (rv == -ENODEV)
++			break;
+ 		if (rv)
+-			break;
+-	}
+-	sgdev->c2h_channel_max = i;
++			goto rollback;
++		c2h_count++;
++	}
++	if (!h2c_count && !c2h_count) {
++		rv = -ENODEV;
++		goto rollback;
++	}
++	sgdev->h2c_channel_max = h2c_count;
++	sgdev->c2h_channel_max = c2h_count;
+ 
+ 	return 0;
++
++rollback:
++	/* The failed partial engine was already rolled back by engine_init.
++	 * Undo previously published engines in reverse initialization order.
++	 * This joins their poll leases/deferred work before descriptors/WB free.
++	 * Device-open cleanup then joins the global threads without double free. */
++	for (i = c2h_count - 1; i >= 0; i--)
++		engine_init_rollback(sgdev, &sgdev->engine_c2h[i]);
++	for (i = h2c_count - 1; i >= 0; i--)
++		engine_init_rollback(sgdev, &sgdev->engine_h2c[i]);
++	sgdev->h2c_channel_max = 0;
++	sgdev->c2h_channel_max = 0;
++	return rv;
+ }
+ 
+ void *anlogic_device_open(const char *mname, struct pci_dev *pdev,int *user_max,int *h2c_channel_max, int *c2h_channel_max)

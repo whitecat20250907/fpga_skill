@@ -1,0 +1,118 @@
+# puts "PHY_DIAG08_OUTPUT=$out"
+# vmap -c
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c 
+# Copying D:/Modelsim/soft/win64/../modelsim.ini to modelsim.ini
+# vlib work
+# vlog -sv [file join $source isp_header_stubs.v] [file join $source rx_digital_stubs.v] \
+#     [file join $root fpga uisrc 03_ip vid_pipeline csi_stats_snapshot.v] \
+#     [file join $root fpga uisrc 03_ip mipi_csi_2 csi_rx_hdr_ecc.v] \
+#     [file join $root fpga uisrc 03_ip mipi_csi_2 csi_rx_packet_handler.v] \
+#     [file join $source mipi_csi_rx.v] [file join $source cam_video_source.v] \
+#     [file join $source tb_phy_diag08.sv]
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 06:01:58 on Oct 05,2026
+# vlog -sv E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/isp_header_stubs.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/rx_digital_stubs.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/vid_pipeline/csi_stats_snapshot.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_hdr_ecc.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_packet_handler.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/mipi_csi_rx.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/cam_video_source.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv 
+# -- Compiling module image_correction
+# -- Compiling module pack4_rgb24_to_128
+# -- Compiling module sync_fifo_130
+# -- Compiling module ui_BLC
+# -- Compiling module ui_Brightness_adj
+# -- Compiling module ui_Contrast_adj
+# -- Compiling module ui_Saturation_adj
+# -- Compiling module ui_awb
+# -- Compiling module ui_data128_96
+# -- Compiling module ui_data96_128
+# -- Compiling module ui_gamma
+# -- Compiling module ui_image_cut
+# -- Compiling module ui_top_demosaic
+# -- Compiling module csi_rx_phy
+# -- Compiling module csi_rx_word_align
+# -- Compiling module csi_rx_word_gear_box
+# -- Compiling module csi_rx_10bit_unpack
+# -- Compiling module csi_rx_vid2stream
+# -- Compiling module csi_stats_snapshot
+# -- Compiling module csi_rx_hdr_ecc
+# -- Compiling module csi_rx_packet_handler
+# -- Compiling module mipi_csi_rx
+# -- Compiling module cam_video_source
+# -- Compiling module tb_phy_diag08
+# 
+# Top level modules:
+# 	tb_phy_diag08
+# End time: 06:01:58 on Oct 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=+acc -onfinish stop work.tb_phy_diag08
+# vsim -c -voptargs="+acc" -onfinish stop work.tb_phy_diag08 
+# Start time: 06:01:59 on Oct 05,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 39, found 21.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'dbg_best_len'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'csi_clock_delta'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'csi_snapshot_status'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'phy_diag1_clock_delta'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'phy_diag0_clock_delta'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'dbg_delay'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'dbg_mipi'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'mipi_tvalid_out'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'auto_delay_done'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'mipi_div_clk_out'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'active_bayer_mode'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'frame_count_out'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'eof'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'sof'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'm_frame_last'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'm_tlast'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'm_tvalid'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(11): (vopt-2718) [TFMPC] - Missing connection for port 'm_tdata'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "csi_rx_packet_handler(fast)".
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_phy_diag08(fast)
+# Loading work.cam_video_source(fast)
+# Loading work.csi_stats_snapshot(fast)
+# Loading work.mipi_csi_rx(fast)
+# Loading work.csi_stats_snapshot(fast__1)
+# Loading work.csi_rx_phy(fast)
+# Loading work.csi_rx_word_align(fast)
+# Loading work.csi_rx_word_gear_box(fast)
+# Loading work.csi_rx_packet_handler(fast)
+# Loading work.csi_rx_hdr_ecc(fast)
+# Loading work.csi_rx_10bit_unpack(fast)
+# Loading work.csi_rx_vid2stream(fast)
+# Loading work.image_correction(fast)
+# Loading work.ui_BLC(fast)
+# Loading work.ui_top_demosaic(fast)
+# Loading work.ui_data128_96(fast)
+# Loading work.ui_awb(fast)
+# Loading work.ui_image_cut(fast)
+# Loading work.ui_gamma(fast)
+# Loading work.ui_Contrast_adj(fast)
+# Loading work.ui_Brightness_adj(fast)
+# Loading work.ui_Saturation_adj(fast)
+# Loading work.ui_data96_128(fast)
+# Loading work.sync_fifo_130(fast)
+# Loading work.pack4_rgb24_to_128(fast)
+# run -all
+# PASS PHY_DIAG08_DIGITAL_CDC_AND_EVENTS checks=9 scoreboard_cycles=383 (PHY/ISP stubs; no analog timing proof)
+# ** Note: $finish    : E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv(142)
+#    Time: 4201704 ps  Iteration: 1  Instance: /tb_phy_diag08
+# Break in Module tb_phy_diag08 at E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv line 142
+# Stopped at E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/phy_diag08/tb_phy_diag08.sv line 142
+# if {[examine -radix binary /tb_phy_diag08/test_done] ne "1"} {error "Diagnostic selfcheck did not finish"}
+# puts "PASS PHY_DIAG08_STAGED_ONLY_NO_TD_OR_BOARD"
+# quit -code 0 -force
+# End time: 06:02:03 on Oct 05,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 19

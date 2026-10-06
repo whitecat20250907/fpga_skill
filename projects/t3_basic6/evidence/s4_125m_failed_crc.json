@@ -1,0 +1,25 @@
+{
+  "origin": "real_fpga_to_rk_v4l2_capture",
+  "bit_project": "s4_f3_csi_container",
+  "tx_byte_clock_mhz": 125,
+  "capture_file_on_rk": "/home/linaro/t3_basic6/data/f3_live3.yuyv",
+  "captured_buffer_count": 3,
+  "frame_row_counts_by_fpga_id": {"1": 791, "2": 289, "3": 1080, "4": 1080},
+  "row_crc_pass_by_fpga_id": {"1": 521, "2": 278, "3": 1041, "4": 1048},
+  "first_failed_row": {"frame_id": 1, "row_id": 20},
+  "fpga_monitor_overlap_count_in_sampled_frame_starts": 0,
+  "fpga_monitor_error_flags_in_sampled_frame_starts": 0,
+  "rk_kernel_observation": "MIPI_CSI2 ERR1:0x1000000 (crc,vc: 0) repeatedly during this capture",
+  "full_frame_corruption_pattern": {
+    "rows_tested": 2160,
+    "row_crc_fail": 71,
+    "all_failed_rows_contained_non_quantized_literal": true,
+    "invalid_literal_count": 71,
+    "invalid_low_nibble": "0x2 in all 71 cases",
+    "affected_lanes": [1, 3],
+    "affected_literal_byte_positions": "odd offsets 1 through 19, near each packet's start",
+    "interpretation": "Consistent with CSI-2 physical data lane 3 bit 1 corruption near HS packet entry; not yet a proven root cause"
+  },
+  "status": "failed; this bitstream is not a valid compressed-link deliverable",
+  "note": "Initial V4L2 buffer crossed a frame boundary. Later complete frames still failed row CRC. The CSI-2 packet CRC errors point to the transmit link; causality remains under test."
+}

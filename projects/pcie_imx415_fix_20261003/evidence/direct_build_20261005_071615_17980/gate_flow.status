@@ -1,0 +1,23 @@
+Location         : E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\direct_build_20261005_071615_17980
+Running with     : Tang Dynasty Release_2026.1_SP2
+                   Copyright (c) 2012-2026 Anlogic Inc.
+Top Model        : imx415_pcie_top
+Device           : PH1A90SEG324
+Speed            : 2
+
+Timing Mode      : basic
+Setup            : WNS -1379ps  TNS  -126837ps  NUM_FEPS   100
+Hold             : WNS 2147483647ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+---------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+---------------------------------------------------------------------------------------------------
+  optimize_gate  |    1     |  4m28s(59%)  |   261(59%)    |       3108        |       3108        
+  optimize_rtl   |    1     |  2m51s(38%)  |   167(38%)    |       2656        |       2716        
+  import_device  |    1     |    9s(2%)    |     8(1%)     |       1287        |       1321        
+    read_adc     |    2     |    0s(0%)    |     0(0%)     |       1851        |       2067        
+    read_sdc     |    2     |    0s(0%)    |     0(0%)     |       1851        |       2067        
+---------------------------------------------------------------------------------------------------
+      total      |    7     |    7m28s     |      436      |       3108        |       3108        
+---------------------------------------------------------------------------------------------------

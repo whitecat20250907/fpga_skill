@@ -1,0 +1,9 @@
+{"test":"c2h_double_open","pass":true,"errno":16,"expected_errno":16,"stage":"second_open"}
+{"test":"h2c_double_open","pass":true,"errno":16,"expected_errno":16,"stage":"second_open"}
+{"test":"raw_c2h_blocks_streamon","pass":true,"errno":16,"expected_errno":16,"stage":"streamon"}
+{"test":"allocated_buffers_block_s_fmt","pass":true,"errno":16,"expected_errno":16,"stage":"s_fmt_1080"}
+{"test":"bar_mode_mismatch_blocks_streamon","pass":true,"errno":22,"expected_errno":22,"stage":"streamon_after_bar_mode0"}
+{"test":"s_fmt_resynchronizes_hardware","pass":true,"errno":0,"expected_errno":0,"stage":"s_fmt_720_restores_bar"}
+{"test":"streamon_blocks_raw_c2h_open","pass":true,"errno":16,"expected_errno":16,"stage":"raw_open_during_streamon"}
+{"test":"streamoff_releases_raw_c2h","pass":true,"errno":0,"expected_errno":0,"stage":"raw_open_after_streamoff"}
+{"summary":"driver_negative_tests","passed":8,"failed":0,"total":8,"cleanup_errno":0,"final_mode":0,"final_ctrl":0,"interrupted":false,"all_passed":true}

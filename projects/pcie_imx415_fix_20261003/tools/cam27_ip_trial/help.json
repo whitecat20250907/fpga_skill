@@ -1,0 +1,11 @@
+{
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\IpTool.exe",
+    "E:/qianrufpga/TD",
+    "-help"
+  ],
+  "pid": 10692,
+  "returncode": 1,
+  "timed_out": false,
+  "elapsed_seconds": 2.517
+}

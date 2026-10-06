@@ -1,0 +1,77 @@
+# puts "SAMPLER6_OUTPUT=$test_out"
+# vmap -c
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c 
+# Copying D:/Modelsim/soft/win64/../modelsim.ini to modelsim.ini
+# vlib work
+# vlog -sv E:/qianrufpga/TD/sim_release/ph1/ph1_logic_io.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_dynamic_idelay.v E:/qianrufpga/TD/sim_release/ph1/ph1_phy_gsr.v [file join $test_root csi_rx_hs_data_phy.v] [file join $test_root csi_rx_hs_data_phy_reference.v] [file join $task_root fpga uisrc 03_ip mipi_csi_2 csi_rx_byte_align.v] [file join $test_root tb_sampler_reset.sv]
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 04:42:46 on Oct 05,2026
+# vlog -sv E:/qianrufpga/TD/sim_release/ph1/ph1_logic_io.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_dynamic_idelay.v E:/qianrufpga/TD/sim_release/ph1/ph1_phy_gsr.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/csi_rx_hs_data_phy.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/csi_rx_hs_data_phy_reference.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/tb_sampler_reset.sv 
+# -- Compiling module PH1_LOGIC_IDDR
+# -- Compiling module PH1_LOGIC_ODDR
+# -- Compiling module PH1_LOGIC_IDDRx2
+# -- Compiling module PH1_LOGIC_IDDRx2l
+# -- Compiling module PH1_LOGIC_ODDRx2
+# -- Compiling module PH1_LOGIC_ODDRx2l
+# -- Compiling module PH1_LOGIC_HP_ISERDES
+# -- Compiling module PH1_LOGIC_HP_OSERDES
+# -- Compiling module PH1_LOGIC_DYNAMIC_IDELAY
+# -- Compiling module PH1_LOGIC_DYNAMIC_HP_IDELAY
+# -- Compiling module PH1_LOGIC_DYNAMIC_HP_ODELAY
+# -- Compiling module PH1_PHY_GSR
+# -- Compiling module csi_rx_hs_data_phy
+# -- Compiling module csi_rx_hs_data_phy_reference
+# -- Compiling module csi_rx_byte_align
+# -- Compiling module tb_sampler_reset
+# 
+# Top level modules:
+# 	PH1_LOGIC_IDDR
+# 	PH1_LOGIC_IDDRx2l
+# 	PH1_LOGIC_ODDRx2
+# 	PH1_LOGIC_ODDRx2l
+# 	PH1_LOGIC_HP_ISERDES
+# 	PH1_LOGIC_HP_OSERDES
+# 	PH1_LOGIC_DYNAMIC_HP_IDELAY
+# 	PH1_LOGIC_DYNAMIC_HP_ODELAY
+# 	PH1_PHY_GSR
+# 	tb_sampler_reset
+# End time: 04:42:49 on Oct 05,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=+acc -onfinish stop work.tb_sampler_reset work.PH1_PHY_GSR
+# vsim -c -voptargs="+acc" -onfinish stop work.tb_sampler_reset work.PH1_PHY_GSR 
+# Start time: 04:42:49 on Oct 05,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sampler_reset(fast)
+# Loading work.csi_rx_hs_data_phy(fast)
+# Loading work.PH1_LOGIC_DYNAMIC_IDELAY(fast)
+# Loading work.PH1_LOGIC_IDDRx2(fast)
+# Loading work.csi_rx_hs_data_phy_reference(fast)
+# Loading work.PH1_LOGIC_IDDRx2(fast__1)
+# Loading work.csi_rx_byte_align(fast)
+# Loading work.PH1_PHY_GSR(fast)
+# run -all
+# PASS actual PH1 IDDRx2 reset-free/reference byte equality 4lanes compared=3828 nonzero=2964 resets=12 stops=5; byte-align reset/zero-flush
+# ** Note: $finish    : E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/tb_sampler_reset.sv(109)
+#    Time: 35349832 ps  Iteration: 0  Instance: /tb_sampler_reset
+# Break in Module tb_sampler_reset at E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/tb_sampler_reset.sv line 109
+# Stopped at E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_fast6/tb_sampler_reset.sv line 109
+# if {[examine -radix binary /tb_sampler_reset/test_done] ne "1"} {error "Sampler reset selfcheck did not complete"}
+# puts "PASS CSI_FAST6_SAMPLER_ALL_DIGITAL_CHECKS"
+# quit -code 0 -force
+# End time: 04:42:54 on Oct 05,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

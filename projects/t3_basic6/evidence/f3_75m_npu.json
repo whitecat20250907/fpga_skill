@@ -1,0 +1,35 @@
+{
+  "source": "data/f3_75m_last.gray",
+  "model": "models/yolov5s_relu.rknn",
+  "model_sha256": "418ccc10ddd9aea78658fb477a09b12d613e3e359eb5c829b4ddd00b3ef8cfe7",
+  "width": 1920,
+  "height": 1080,
+  "runs": 20,
+  "input_format": "GRAY8",
+  "preprocess_ms": 12.212,
+  "first_inference_ms": 45.263,
+  "npu_ms_median": 32.082,
+  "npu_ms_p95": 35.923,
+  "postprocess_ms": 24.534,
+  "output_shapes": [
+    [
+      1,
+      255,
+      80,
+      80
+    ],
+    [
+      1,
+      255,
+      40,
+      40
+    ],
+    [
+      1,
+      255,
+      20,
+      20
+    ]
+  ],
+  "detections": []
+}

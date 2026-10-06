@@ -1,0 +1,65 @@
+{
+  "source_sha256": "faebf16428deb61867f57f17f79b7d27ba0faf9503853284a697aa83e882abec",
+  "fixed_sha256": "5e295ee97a4902b5859ca6e33a01a1635a946aa9b3ea661b925b021ef56544fe",
+  "dtb_offsets": [
+    2048,
+    40073728
+  ],
+  "changes": [
+    {
+      "node": "/pcie@2a210000",
+      "property": "reset-gpios",
+      "before": "",
+      "after": "000001700000001000000000"
+    },
+    {
+      "node": "/pcie@2a210000",
+      "property": "status",
+      "before": "64697361626c656400",
+      "after": "6f6b617900"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u1-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u2-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,parkmode-disable-ss-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "status",
+      "before": "6f6b617900",
+      "after": "64697361626c656400"
+    }
+  ],
+  "resource_hashes": [
+    {
+      "path": "rk-kernel.dtb",
+      "verified": true,
+      "updated": true
+    },
+    {
+      "path": "logo.bmp",
+      "verified": true,
+      "updated": false
+    },
+    {
+      "path": "logo_kernel.bmp",
+      "verified": true,
+      "updated": false
+    }
+  ],
+  "fit_hashes_verified": true,
+  "kernel_unchanged": true
+}

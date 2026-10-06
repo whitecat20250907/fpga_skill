@@ -1,0 +1,66 @@
+standard
+***Report Model: td_local09_top Device: PH1A90SEG324***
+
+Design Statistics
+#IO                         7   out of    148    4.73%
+  #input                    6
+  #output                   1
+  #inout                    0
+#lut                      550
+  #lut1                     9
+  #lut2                   152
+  #lut3                    85
+  #lut4                    54
+  #lut5                    51
+  #lut6                   199
+#reg                      463
+  #slice reg              463   out of 128640    0.36%
+  #pad reg                  0
+
+Utilization Statistics
+#slice*                   458   out of  64320    0.71%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic             458
+    #with luts*           314
+    #with adder           112
+    #reg only*             32
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       0   out of    272    0.00%
+  #eram20k                  0
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                       12   out of    148    8.11%
+#pll                        0   out of     12    0.00%
+#gclk                       0   out of     32    0.00%
+#lclk                       2   out of     36    5.56%
+#sclk                       0   out of     96    0.00%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+* Note! The LUT and Slice count after Optimize-Gate is not the final value, Run Optimize-place for a more realistic count.
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance                                        |Module             |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                                             |td_local09_top     |314       |112     |463     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  phy                                           |csi_rx_phy         |232       |96      |377     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[0]$u_csi_rx_byte_align  |csi_rx_byte_align  |30        |0       |41      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[0]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |2         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[1]$u_csi_rx_byte_align  |csi_rx_byte_align  |34        |0       |41      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[1]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |1         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[2]$u_csi_rx_byte_align  |csi_rx_byte_align  |33        |0       |41      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[2]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |1         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[3]$u_csi_rx_byte_align  |csi_rx_byte_align  |30        |0       |41      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[3]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |1         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_auto_delay_ctl                            |auto_delay_ctl     |68        |72      |85      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_csi_rx_clock_det                          |csi_rx_clock_det   |31        |24      |58      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_rx_clk_gen                                |rx_clk_gen         |0         |0       |0       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

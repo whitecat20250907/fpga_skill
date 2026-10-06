@@ -1,0 +1,15 @@
+{
+  "source_hashes": {
+    "fpga\\deploy\\sgdma_drv\\anlogic_pci_lib.c": "a0d8bd64fe815bfd86881f145f21b20b5980fffc8149e6fed5f4bdbebdcd142f",
+    "fpga\\deploy\\v4l2_drv\\milianke_v4l2_zerocopy.c": "dce3bf1460f8fc608c74cd275746e3849be7e97b7d24c4ef9ec8066eddc2fe19"
+  },
+  "checks": {
+    "sgdma_xfer_aperture": "saved native wait return; completed/failed switch, existing lock and cleanup structure retained",
+    "sgdma_xfer_submit": "saved native wait return; completed/failed switch, existing lock and cleanup structure retained",
+    "v4l2_startup": "1000ms until exact full frame increments delivered_frames; 100ms afterwards",
+    "async_scope": "async no-wait default branch still unmodified; common macro header unmodified"
+  },
+  "compile": "not_run_by_subagent",
+  "hardware_test": "not_run_by_subagent",
+  "reference": "https://docs.kernel.org/driver-api/basics.html#c.wait_event_interruptible_timeout"
+}

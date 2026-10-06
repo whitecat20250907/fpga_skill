@@ -1,0 +1,25 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Mon Oct  5 00:49:57 2026
+
+   Run on =     ’‘º“∫¿D’¸æ»’ﬂ
+============================================================
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  9.753569s wall, 8.640625s user + 0.859375s system = 9.500000s CPU (97.4%)
+
+RUN-1004 : used memory is 978 MB, reserved memory is 1317 MB, peak memory is 1011 MB
+RUN-1002 : start command "set_param rtl directive:async_reg on"
+RUN-1002 : start command "read_verilog -file "
+HDL-5007 WARNING: could not find top-level module/unit; aborting hierarchy tree creation

@@ -1,0 +1,85 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Sun Oct  4 23:15:10 2026
+
+   Run on =     ’‘º“∫¿D’¸æ»’ﬂ
+============================================================
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  10.069689s wall, 8.375000s user + 0.750000s system = 9.125000s CPU (90.6%)
+
+RUN-1004 : used memory is 1285 MB, reserved memory is 1315 MB, peak memory is 1319 MB
+HELP_UPDATE_PLL_PARAM
+HELP_WRITE_VERILOG
+RUN-1002 : start command "analyze -file "
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file .\cam27_trial_seed.v
+HDL-1007 : undeclared symbol 'ui_pll_open0', assumed default net type 'wire' in .\cam27_trial_seed.v(106)
+HDL-1007 : undeclared symbol 'ui_pll_open1', assumed default net type 'wire' in .\cam27_trial_seed.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open2', assumed default net type 'wire' in .\cam27_trial_seed.v(116)
+HDL-1007 : undeclared symbol 'ui_pll_open10', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open9', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open8', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open7', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open6', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open5', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open4', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open3', assumed default net type 'wire' in .\cam27_trial_seed.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open22', assumed default net type 'wire' in .\cam27_trial_seed.v(119)
+HDL-1007 : undeclared symbol 'ui_pll_open20', assumed default net type 'wire' in .\cam27_trial_seed.v(119)
+HDL-1007 : undeclared symbol 'ui_pll_open18', assumed default net type 'wire' in .\cam27_trial_seed.v(119)
+HDL-1007 : undeclared symbol 'ui_pll_open16', assumed default net type 'wire' in .\cam27_trial_seed.v(119)
+HDL-1007 : undeclared symbol 'ui_pll_open14', assumed default net type 'wire' in .\cam27_trial_seed.v(119)
+HDL-1007 : undeclared symbol 'ui_pll_open23', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open21', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open19', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open17', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open15', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open13', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open12', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+HDL-1007 : undeclared symbol 'ui_pll_open11', assumed default net type 'wire' in .\cam27_trial_seed.v(120)
+RUN-1002 : start command "elaborate -top cam27_trial"
+HDL-1007 : elaborate module cam27_trial in .\cam27_trial_seed.v(26)
+HDL-1007 : elaborate module PH1_LOGIC_BUFG in E:\qianrufpga\TD\arch/ph1_macro.v(11589)
+HDL-1007 : elaborate module PH1_PHY_PLL(REFCLK_DIV=10,FBCLK_DIV=27,CLKC0_CPHASE=3,CLKC1_CPHASE=39,CLKC2_CPHASE=49,CLKC0_DIV=4,CLKC1_DIV=40,CLKC2_DIV=50,CLKC0_DUTY_INT=2,CLKC1_DUTY_INT=20,CLKC2_DUTY_INT=25,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",FIN="100.000000",PLL_USR_RST="ENABLE",PLL_FEED_TYPE="EXTERNAL",LPF_RES=0,LPF_CAP=0,ICP_CUR=0,GMC_GAIN=0,SSC_RNGE=0) in E:\qianrufpga\TD\arch/ph1_macro.v(856)
+HDL-1200 : Current top model is cam27_trial
+HDL-1100 : Inferred 0 RAMs.
+ELABORATE_DONE
+RUN-1002 : start command "write_verilog "
+HDL-1201 : write out verilog file cam27_trial_out.v
+RUN-1002 : start command "export_db "
+USR-8003 ERROR: Cannot write file null.
+TRIAL_ERROR=
+
+    while executing
+"export_db [file join $task_dir cam27_before_update.db]"

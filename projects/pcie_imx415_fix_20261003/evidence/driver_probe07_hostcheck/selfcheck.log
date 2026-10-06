@@ -1,0 +1,1 @@
+PASS PROBE_ROLLBACK_C cases=416 injected_failures=384

@@ -1,0 +1,64 @@
+{
+  "scope": "read_only_export_static_match_not_sdf_simulation",
+  "directory": "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/td_route_20261005_071009_40084",
+  "sdf_cell_types": {
+    "td_local09_top": 1,
+    "PH1_PHY_LSLICE": 490,
+    "PH1_PHY_PAD": 7,
+    "PH1_PHY_LCLK_V2": 2,
+    "PH1_PHY_CONFIG_V2": 1,
+    "PH1_PHY_GCLK_V2": 3,
+    "PH1_PHY_SCLK_V2": 3
+  },
+  "netlist_cell_types": {
+    "PH1_PHY_LSLICE": 490,
+    "PH1_PHY_CONFIG_V2": 1,
+    "PH1_PHY_PAD": 12,
+    "PH1_PHY_GCLK_V2": 3,
+    "PH1_PHY_SCLK_V2": 3,
+    "PH1_PHY_LCLK_V2": 2,
+    "PH1_PHY_HR_BANKREF": 2
+  },
+  "sdf_non_top_cells": 506,
+  "all_sdf_instance_celltypes_match": true,
+  "mismatches": [],
+  "netlist_without_sdf_cell": [
+    {
+      "instance": "mipi_clk_hs_rx_p_syn_3",
+      "type": "PH1_PHY_PAD"
+    },
+    {
+      "instance": "mipi_data_hs_p[0]_syn_3",
+      "type": "PH1_PHY_PAD"
+    },
+    {
+      "instance": "mipi_data_hs_p[1]_syn_3",
+      "type": "PH1_PHY_PAD"
+    },
+    {
+      "instance": "mipi_data_hs_p[2]_syn_3",
+      "type": "PH1_PHY_PAD"
+    },
+    {
+      "instance": "mipi_data_hs_p[3]_syn_3",
+      "type": "PH1_PHY_PAD"
+    },
+    {
+      "instance": "place_created_hr_bankref_bank12",
+      "type": "PH1_PHY_HR_BANKREF"
+    },
+    {
+      "instance": "place_created_hr_bankref_bank13",
+      "type": "PH1_PHY_HR_BANKREF"
+    }
+  ],
+  "hashes": {
+    "csi09_route.db": "9e16ac093629873f7c8872fcb918c02996f1b729659f3d4e677593c738088684",
+    "csi09_phy_sim.sdf": "cafdf6ddee0741dedaef089c613d3c2f02fe3bf8d7bc383b9443bf17e6a11168",
+    "csi09_phy_sim.v": "ed6e8e4711312479201f8ac7f5309b65a37d5b03be692614b83bbc37ea782ffe",
+    "csi09_final.ts": "e5900966d10af15e7857dd87de62d4bc45b386f42d979c6aff35e843869962e5"
+  },
+  "interconnects": 2573,
+  "interconnect_undeclared_endpoints": [],
+  "all_interconnect_declared_endpoint_names_and_ports_match": true
+}

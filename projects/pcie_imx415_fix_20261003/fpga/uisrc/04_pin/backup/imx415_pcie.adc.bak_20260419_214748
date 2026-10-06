@@ -1,0 +1,44 @@
+##============================================================
+## Pin assignments for Phase 9: IMX415 Camera + TPG via PCIe
+## PH2A106FLG676-2, CU06 board (same as Phase 8 + camera I/O)
+## PCIe: BANK84 (LVCMOS12), x4 Gen3
+## Camera: BANK85 (LVCMOS18/LVDS18)
+##============================================================
+
+# ===== PLL Placement Constraint =====
+set_inst_assignment {u_sgdma_pll/pll_inst} {LOCATION = X0Y180Z0}
+
+# ===== System Clock 100MHz (BANK84, LVCMOS12) =====
+set_pin_assignment	{ sys_clk }				{ LOCATION = J23; IOSTANDARD = LVCMOS12; }
+
+# ===== PCIe PERST# from RC connector =====
+set_pin_assignment	{ pcie_mperst }			{ LOCATION = T19; IOSTANDARD = LVCMOS12; }
+
+# ===== Status LEDs (BANK88, LVCMOS33) =====
+set_pin_assignment	{ debug_led[0] }		{ LOCATION = G10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ debug_led[1] }		{ LOCATION = H9;  IOSTANDARD = LVCMOS33; }
+
+# ===== IMX415 I2C (BANK13, LVCMOS18) =====
+set_pin_assignment	{ cam_scl }				{ LOCATION = B14; IOSTANDARD = LVCMOS18; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ cam_sda }				{ LOCATION = A14; IOSTANDARD = LVCMOS18; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# ===== IMX415 MCLK output (25MHz, BANK13, LVCMOS18) =====
+set_pin_assignment	{ cam_mclk }			{ LOCATION = A18; IOSTANDARD = LVCMOS18; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# ===== IMX415 XCLR hardware reset (active-low on sensor, FPGA drives high) =====
+set_pin_assignment	{ cam_xclr }			{ LOCATION = B18; IOSTANDARD = LVCMOS18; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# ===== Debug Button (BANK84, LVCMOS33) =====
+set_pin_assignment	{ debug_button }		{ LOCATION = C9;   IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+# ===== MIPI Reference Clock 100MHz (LVDS18, K22/K23 differential pair) =====
+set_pin_assignment	{ mipi_ref_clk_p }		{ LOCATION = K22;  IOSTANDARD = LVDS18; PULLTYPE = NONE; }
+
+# ===== MIPI CSI-2 Clock Lane (BANK13, LVDS18) =====
+set_pin_assignment	{ mipi_clk_hs_rx_p }	{ LOCATION = E13; IOSTANDARD = LVDS18; PULLTYPE = NONE; }
+
+# ===== MIPI CSI-2 Data Lanes (BANK13, LVDS18, INDEL=20) =====
+set_pin_assignment	{ mipi_data_hs_p[0] }	{ LOCATION = C14; IOSTANDARD = LVDS18; PULLTYPE = NONE; INDEL = 20; }
+set_pin_assignment	{ mipi_data_hs_p[1] }	{ LOCATION = D14;  IOSTANDARD = LVDS18; PULLTYPE = NONE; INDEL = 20; }
+set_pin_assignment	{ mipi_data_hs_p[2] }	{ LOCATION = A15; IOSTANDARD = LVDS18; PULLTYPE = NONE; INDEL = 20; }
+set_pin_assignment	{ mipi_data_hs_p[3] }	{ LOCATION = G17;  IOSTANDARD = LVDS18; PULLTYPE = NONE; INDEL = 20; }

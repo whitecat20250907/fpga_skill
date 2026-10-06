@@ -1,0 +1,5 @@
+phase=restored
+async_reg_count=3
+cell=async_sync_reg[0] async_reg=1
+cell=async_sync_reg[1] async_reg=1
+cell=async_sync_reg[2] async_reg=1

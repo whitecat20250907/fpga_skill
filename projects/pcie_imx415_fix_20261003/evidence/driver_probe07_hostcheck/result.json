@@ -1,0 +1,16 @@
+{
+  "status": "PASS_HOST_C_MOCKS",
+  "source_sha256": "38eb739398f7645641f6604f0210b170637b5275c1f4e7a5b5903594e5ea8029",
+  "actual_functions_compiled": [
+    "engine_init_rollback",
+    "engine_init",
+    "probe_for_engine",
+    "engine_destroy",
+    "probe_engines"
+  ],
+  "compiler": "C:/MinGW/bin/gcc.exe",
+  "compile_returncode": 0,
+  "run_returncode": 0,
+  "result": "PASS PROBE_ROLLBACK_C cases=416 injected_failures=384",
+  "limitations": "Mock MMIO/allocations/locks/thread drain; not kernel build, concurrency or PCIe quiescence proof."
+}

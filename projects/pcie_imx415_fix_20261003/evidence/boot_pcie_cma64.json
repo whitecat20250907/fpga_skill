@@ -1,0 +1,71 @@
+{
+  "source_sha256": "faebf16428deb61867f57f17f79b7d27ba0faf9503853284a697aa83e882abec",
+  "fixed_sha256": "acd036d8de113cfd4166a5e34a71e7222429297dc1ed13de7db51828b35cd247",
+  "dtb_offsets": [
+    2048,
+    40073728
+  ],
+  "changes": [
+    {
+      "node": "/chosen",
+      "property": "bootargs",
+      "before": "6561726c79636f6e3d75617274383235302c6d6d696f33322c3078326164343030303020636f6e736f6c653d7474794649513020726f6f743d50415254555549443d36313465303030302d3030303020727720726f6f74776169742072637570646174652e7263755f6578706564697465643d31207263755f6e6f6362733d616c6c00",
+      "after": "6561726c79636f6e3d75617274383235302c6d6d696f33322c3078326164343030303020636f6e736f6c653d7474794649513020726f6f743d50415254555549443d36313465303030302d3030303020727720726f6f74776169742072637570646174652e7263755f6578706564697465643d31207263755f6e6f6362733d616c6c20636d613d36344d00"
+    },
+    {
+      "node": "/pcie@2a210000",
+      "property": "reset-gpios",
+      "before": "",
+      "after": "000001700000001000000000"
+    },
+    {
+      "node": "/pcie@2a210000",
+      "property": "status",
+      "before": "64697361626c656400",
+      "after": "6f6b617900"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u1-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u2-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,parkmode-disable-ss-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "status",
+      "before": "6f6b617900",
+      "after": "64697361626c656400"
+    }
+  ],
+  "resource_hashes": [
+    {
+      "path": "rk-kernel.dtb",
+      "verified": true,
+      "updated": true
+    },
+    {
+      "path": "logo.bmp",
+      "verified": true,
+      "updated": false
+    },
+    {
+      "path": "logo_kernel.bmp",
+      "verified": true,
+      "updated": false
+    }
+  ],
+  "fit_hashes_verified": true,
+  "kernel_unchanged": true
+}

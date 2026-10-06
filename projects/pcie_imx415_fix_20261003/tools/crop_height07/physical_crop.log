@@ -1,0 +1,90 @@
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 05:15:27 on Oct 05,2026
+# vlog -work work_crop -sv src/csi_rx_hdr_ecc.v src/csi_rx_packet_handler.v src/csi_rx_10bit_unpack.v src/image_correction.v src/ui_BLC.v src/ui_ram_demosaic.v src/ui_raw_matrix_3x3_buffer.v src/ui_top_demosaic.v src/ui_bilinear_interpolation.v src/pack4_rgb24_to_128.v tb_physical_crop.sv 
+# -- Compiling module csi_rx_hdr_ecc
+# -- Compiling module csi_rx_packet_handler
+# -- Compiling module csi_rx_10bit_unpack
+# -- Compiling module image_correction
+# -- Compiling module ui_BLC
+# -- Compiling module ui_ram_demosaic
+# -- Compiling module ui_ram_demosaic_eram_infer
+# -- Compiling module ui_raw_matrix_3x3_buffer
+# -- Compiling module ui_top_demosaic
+# -- Compiling module ui_bilinear_interpolation
+# -- Compiling module pack4_rgb24_to_128
+# -- Compiling module tb_physical_crop
+# 
+# Top level modules:
+# 	ui_ram_demosaic
+# 	tb_physical_crop
+# End time: 05:15:27 on Oct 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs="+acc" -onfinish stop work_crop.tb_physical_crop 
+# Start time: 05:15:28 on Oct 05,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "ui_raw_matrix_3x3_buffer(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "csi_rx_packet_handler(fast)".
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_physical_crop(fast)
+# Loading work.csi_rx_packet_handler(fast)
+# Loading work.csi_rx_hdr_ecc(fast)
+# Loading work.csi_rx_10bit_unpack(fast)
+# Loading work.image_correction(fast)
+# Loading work.ui_BLC(fast)
+# Loading work.ui_top_demosaic(fast)
+# Loading work.ui_raw_matrix_3x3_buffer(fast)
+# Loading work.ui_ram_demosaic_eram_infer(fast)
+# Loading work.ui_bilinear_interpolation(fast)
+# Loading work.pack4_rgb24_to_128(fast)
+# START case0 physical=1944x1097 crop=1280x720 rows36..755
+# PROGRESS case0 physical_row0
+# PROGRESS case0 physical_row256
+# PROGRESS case0 physical_row512
+# PROGRESS case0 physical_row768
+# PROGRESS case0 physical_row1024
+# PASS case0 physical1944x1097 crop_input_rows720 RGB_rows720 bytes2764800 EOF1 all_pixels/golden/GBRG/lowbits/packedbytes
+# START case1 physical=1944x1097 crop=1920x1080 rows16..1095
+# PROGRESS case1 physical_row0
+# PROGRESS case1 physical_row256
+# PROGRESS case1 physical_row512
+# PROGRESS case1 physical_row768
+# PROGRESS case1 physical_row1024
+# PASS case1 physical1944x1097 crop_input_rows1080 RGB_rows1080 bytes6220800 EOF1 all_pixels/golden/GBRG/lowbits/packedbytes
+# START case2 physical=3888x2192 crop=3840x2160 rows16..2175
+# PROGRESS case2 physical_row0
+# PROGRESS case2 physical_row256
+# PROGRESS case2 physical_row512
+# PROGRESS case2 physical_row768
+# PROGRESS case2 physical_row1024
+# PROGRESS case2 physical_row1280
+# PROGRESS case2 physical_row1536
+# PROGRESS case2 physical_row1792
+# PROGRESS case2 physical_row2048
+# PASS case2 physical3888x2192 crop_input_rows2160 RGB_rows2160 bytes24883200 EOF1 all_pixels/golden/GBRG/lowbits/packedbytes
+# START case3 physical=1944x1097 crop=1920x1080 rows20..1099
+# PROGRESS case3 physical_row0
+# PROGRESS case3 physical_row256
+# PROGRESS case3 physical_row512
+# PROGRESS case3 physical_row768
+# PROGRESS case3 physical_row1024
+# PASS case3 physical1944x1097 crop_input_rows1077 RGB_rows1076 bytes6197760 EOF0 all_pixels/golden/GBRG/lowbits/packedbytes
+# PHYSICAL CROP HEIGHT PASS: full CSI packets; old1076/noEOF reproduced; new1080/4K exact;720->1080 without reset
+# ** Note: $finish    : tb_physical_crop.sv(181)
+#    Time: 75121464 ns  Iteration: 1  Instance: /tb_physical_crop
+# Break in Module tb_physical_crop at tb_physical_crop.sv line 181
+# Stopped at tb_physical_crop.sv line 181
+# End time: 05:18:23 on Oct 05,2026, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 0

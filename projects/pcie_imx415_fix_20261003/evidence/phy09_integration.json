@@ -1,0 +1,38 @@
+{
+  "issue": 1,
+  "version": "0x56440901",
+  "source_count": 290,
+  "manifest_sha256": "0984970bb9f626f7c572aa8a82cb82a12b998c4a1117a54a9a599fa2f16158cb",
+  "archive_sha256": "ff0e853acdbd0748270b49c885c20ced646e20fe40e0318e6aacdfce55d6b5f0",
+  "changes": [
+    {
+      "path": "uisrc/01_rtl/param_imx415.v",
+      "old_sha256": "0dc4642ce156c2518040b3cbe920ffc26745510559102fcdbf9952cee5ff8fa4",
+      "new_sha256": "59f91b28b4330fbe0b694155d13823d5ae5ded3dc0e0e64bd5e72209e0ee01bb"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/csi_rx_hs_data_phy.v",
+      "old_sha256": "0beb88845db54662febcc93ed60e02553c51da7bd5b7365727616c99476f8d13",
+      "new_sha256": "a8161b7d0eae646302e8e4265c90ee63ee8e5ee0b2a96f9ed1f1f1517d25a4d9"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/csi_rx_phy.v",
+      "old_sha256": "906359628b61393e66a2c8df272acda11619287a1a1bdef3086465c120cfb05a",
+      "new_sha256": "df203275a110d9889fc027a2a261315f77284f22899ac38e2cd090a56fef3905"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/rx_clk_gen.v",
+      "old_sha256": "86de5ed01d390c84839699519c652326d013ed041137889cf01518ff5a3fab28",
+      "new_sha256": "3c568be86e4bed43ebab2e5318aced934993ee043b0c7b2137c4c3116034ef13"
+    },
+    {
+      "path": "uisrc/04_pin/imx415_pcie.sdc",
+      "old_sha256": "d94950a442a7da621015ea52ab94bbae65c12dcd7e34b6966c945b2248646147",
+      "new_sha256": "d788321f228e648f4ac629602d7d77d8fd6c8e8e4dcf14eede50341c2db1dc22"
+    }
+  ],
+  "status": "Integrated; full TD, SDF injection and actual board acceptance pending",
+  "candidate_manifest_sha256": "be7e6ef295ab8b9b8e9229b14c63b50b4d04a80b54f446a08114aaba85fd04f9",
+  "unchanged": "Drivers, boot, Bayer/ISP behavior, crop, diagnostics08 and other demos unchanged",
+  "acceptance": "Native digital golden and tiny routed STA are separate from full project and board"
+}

@@ -1,0 +1,22 @@
+{
+  "issue": 1,
+  "version": "0x56440801",
+  "td_output": "evidence/direct_build_20261005_061224_37468",
+  "result": "FAIL_ROUTED_TIMING_NOT_DOWNLOADED",
+  "setup_wns_ns": -0.082,
+  "setup_tns_ns": -0.082,
+  "hold_wns_ns": -0.362,
+  "hold_tns_ns": -1.260,
+  "negative_path_counts": {"recovery": 1, "removal": 4},
+  "negative_path_scope": "shared sampler reset to four CSI PAD.rst endpoints only",
+  "syn_6024_count": 0,
+  "unassigned_csi_pins": 0,
+  "sta_coverage_percent": 99.96,
+  "pr_db_sha256": "decc464c7a89f65fa9aabea7a780b7a3feada979e925b9550d9a0cc3c4b72720",
+  "diagnostic_compress_bit_sha256": "f5971f28d71383d6d7f4ef3e9a8d39aecad9d20088692e0c036ff0a8a2c88e1d",
+  "bit_existence_is_acceptance": false,
+  "downloaded": false,
+  "board_current_version": "0x56440701",
+  "camera_colour_acceptance": "not executed with08",
+  "scope": "Only issue1 receive PHY/reset/diagnostics changed; other queued issues not modified"
+}

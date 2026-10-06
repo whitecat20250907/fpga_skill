@@ -1,0 +1,39 @@
+{
+  "path": "evidence/check07_nosave_720.jsonl",
+  "frames": 500,
+  "length_or_flag_errors": 0,
+  "sequence_gaps": 0,
+  "fps": 26.66906385386251,
+  "worst_purple": {
+    "frame": 368,
+    "sequence": 368,
+    "bytesused": 2764800,
+    "expected": 2764800,
+    "error": false,
+    "seconds": 14.005367,
+    "rgb_mean": [
+      125.307,
+      51.652,
+      123.084
+    ],
+    "green_fraction": 0.0,
+    "purple_fraction": 0.667083
+  },
+  "worst_green": {
+    "frame": 1,
+    "sequence": 1,
+    "bytesused": 2764800,
+    "expected": 2764800,
+    "error": false,
+    "seconds": 0.244031,
+    "rgb_mean": [
+      25.166,
+      95.872,
+      18.937
+    ],
+    "green_fraction": 0.706458,
+    "purple_fraction": 0.0
+  },
+  "purple_over_5pct": 3,
+  "green_over_5pct": 2
+}

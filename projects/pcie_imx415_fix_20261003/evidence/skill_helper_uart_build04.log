@@ -1,0 +1,93 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Sun Oct  4 22:25:42 2026
+
+   Run on =     �ԼҺ�D������
+============================================================
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  9.802011s wall, 8.531250s user + 0.703125s system = 9.234375s CPU (94.2%)
+
+RUN-1004 : used memory is 1285 MB, reserved memory is 1315 MB, peak memory is 1319 MB
+RUN-1002 : start command "open_project E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004/fpga_prj.al"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file uisrc/01_rtl/uart_top.v
+HDL-1007 : analyze verilog file uisrc/03_ip/uiuart_rx.v
+HDL-1007 : analyze verilog file uisrc/03_ip/uiuart_tx.v
+PRJ-1401 : Successfully analyzed 3 source files.
+RUN-1002 : start command "reset_runs syn_1"
+PRJ-1412 : reset_run syn_1.
+RUN-1002 : start command "launch_runs syn_1"
+PRJ-1403 : syn_1 is launched.
+PRJ-1404 : Run log file is E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004/fpga_prj_Runs/syn_1/run.log.
+RUN-1002 : start command "wait_run syn_1 -quiet"
+PRJ-1405 : Waiting for run syn_1 to finish.
+PRJ-1409 : launch_runs syn_1  -jobs 1.
+PRJ-1009 : If you need the best result of runs copied into "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004/fpga_prj_Runs/best_result" , please execute "save_best_bits" in the Tcl console after all runs complete, or add "save_best_bits" in tcl script after "wait_run" command.
+
+PRJ-1406 : Run syn_1 finished.
+RUN-1003 : finish command "wait_run syn_1 -quiet" in  11.083452s wall, 0.015625s user + 0.109375s system = 0.125000s CPU (1.1%)
+
+RUN-1004 : used memory is 1292 MB, reserved memory is 1319 MB, peak memory is 1319 MB
+RUN-1002 : start command "launch_runs phy_1"
+PRJ-1403 : phy_1 is launched.
+PRJ-1404 : Run log file is E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004/fpga_prj_Runs/phy_1/run.log.
+RUN-1002 : start command "wait_run phy_1 -quiet"
+PRJ-1405 : Waiting for run phy_1 to finish.
+PRJ-1409 : launch_runs phy_1  -jobs 1.
+
+PRJ-8806 ERROR: Run phy_1 has exited unexpectedly.
+RUN-1003 : finish command "wait_run phy_1 -quiet" in  40.426519s wall, 0.062500s user + 0.578125s system = 0.640625s CPU (1.6%)
+
+RUN-1004 : used memory is 1292 MB, reserved memory is 1319 MB, peak memory is 1319 MB
+

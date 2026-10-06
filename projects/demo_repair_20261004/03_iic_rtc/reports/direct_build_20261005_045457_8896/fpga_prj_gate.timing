@@ -1,0 +1,2351 @@
+Created by          : Tang Dynasty Release_2026.1_SP2
+                    : Copyright (c) 2012-2026 Anlogic Inc.
+Generated           : Mon Oct  5 04:55:15 2026
+
+Top Model           : rtc_clock_ds1337
+Device              : PH1A90SEG324
+Speed               : 2
+STA coverage        : 99.82%
+Constraint File     : E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/reports/direct_build_20261005_045457_8896/uisrc/04_pin/timing.sdc;
+Confidence          : Synthesized
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 34.798ns, STNS: 0.000ns
+	HWNS: 0.000ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       25.000          160   sysclk
+           clk1:        0.099           59   rtc_i2c_scl
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     20.000                40.000          25.000                 5.202         192.234           34.798      0.000            0.000      0.000            0.000              160                6             no       no
+       clk1           local            0.000   5040.000             10080.000           0.099               978.768           1.022           36.116      0.000            0.000      0.000            0.000               59                5             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     sysclk -> sysclk
+Type           :     Self
+From Clock     :     sysclk
+To Clock       :     sysclk
+Min Period     :     5.202ns
+Fmax           :     192.234MHz
+
+Statistics:
+Max            : SWNS     34.798ns, STNS      0.000ns,         0 Viol Endpoints,       358 Total Endpoints,      2878 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 34.798ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 5.132ns (cell 1.667ns (32%), net 3.465ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 6 ( LUT4=2  LUT2=2  LUT5=1  LUT3=1 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].q
+net (fo=6)                              0.615          0.766          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.a
+LUT4                                    0.240    r     1.006       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.o
+net (fo=2)                              0.478          1.484          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.a
+LUT5                                    0.240    r     1.724       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.o
+net (fo=1)                              0.448          2.172          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.a
+LUT4                                    0.240    r     2.412       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.o
+net (fo=3)                              0.520          2.932          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.a
+LUT2                                    0.240    r     3.172       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.o
+net (fo=2)                              0.478          3.650          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_8,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_5.a
+LUT2                                    0.240    r     3.890       5  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_5.o
+net (fo=2)                              0.478          4.368          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_6,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_5.a
+LUT3                                    0.240    r     4.608       6  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_5.o
+net (fo=1)                              0.448          5.056          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2]_syn_4,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2].d
+SEQ (reg)                               0.076    f     5.132               
+--------------------------------------------------------------------  ---------------
+Arrival                                                5.132               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[2].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 34.798               
+
+Slack               : 34.798ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 5.132ns (cell 1.667ns (32%), net 3.465ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 6 ( LUT4=3  LUT2=2  LUT5=1 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].q
+net (fo=6)                              0.615          0.766          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.a
+LUT4                                    0.240    r     1.006       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.o
+net (fo=2)                              0.478          1.484          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.a
+LUT5                                    0.240    r     1.724       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.o
+net (fo=1)                              0.448          2.172          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.a
+LUT4                                    0.240    r     2.412       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.o
+net (fo=3)                              0.520          2.932          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.a
+LUT2                                    0.240    r     3.172       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.o
+net (fo=2)                              0.478          3.650          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_8,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_5.a
+LUT2                                    0.240    r     3.890       5  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_5.o
+net (fo=2)                              0.478          4.368          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_6,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_7.a
+LUT4                                    0.240    r     4.608       6  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_7.o
+net (fo=1)                              0.448          5.056          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3]_syn_4,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3].d
+SEQ (reg)                               0.076    f     5.132               
+--------------------------------------------------------------------  ---------------
+Arrival                                                5.132               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[3].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 34.798               
+
+Slack               : 35.364ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : TS_S_reg[0].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 4.566ns (cell 1.425ns (31%), net 3.141ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 5 ( LUT4=2  LUT6=1  LUT5=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: mux20_syn_156.a
+LUT4                                    0.240    r     4.042       5  pin: mux20_syn_156.o
+net (fo=1)                              0.448          4.490          net: mux20_syn_33,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: TS_S_reg[0].d
+SEQ (reg)                               0.076    f     4.566               
+--------------------------------------------------------------------  ---------------
+Arrival                                                4.566               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: TS_S_reg[0].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.364               
+
+Slack               : 35.366ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : TS_S_reg[1].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 4.564ns (cell 1.423ns (31%), net 3.141ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 5 ( LUT6=2  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: mux20_syn_157.a
+LUT6                                    0.238    r     4.040       5  pin: mux20_syn_157.o
+net (fo=1)                              0.448          4.488          net: mux20_syn_59,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: TS_S_reg[1].d
+SEQ (reg)                               0.076    f     4.564               
+--------------------------------------------------------------------  ---------------
+Arrival                                                4.564               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: TS_S_reg[1].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.366               
+
+Slack               : 35.516ns
+Begin Point         : X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 4.414ns (cell 1.427ns (32%), net 2.987ns (68%))
+Clock Skew          : 0.000ns
+Logic Level         : 5 ( LUT4=2  LUT5=1  LUT3=1  LUT2=1 )
+Max Fanout          : 6
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_uart_tx_block/X_ui_uart_tx/baud_div_reg[3].q
+net (fo=6)                              0.615          0.766          net: X_ui_uart_tx_block/X_ui_uart_tx/baud_div[3],  uisrc/03_ip/uiuart_tx.v(58)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.a
+LUT4                                    0.240    r     1.006       1  pin: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_35.o
+net (fo=2)                              0.478          1.484          net: X_ui_uart_tx_block/X_ui_uart_tx/mux1_syn_36,  uisrc/03_ip/uiuart_tx.v(71)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.a
+LUT5                                    0.240    r     1.724       2  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_5.o
+net (fo=1)                              0.448          2.172          net: X_ui_uart_tx_block/X_ui_uart_tx/bps_en,  uisrc/03_ip/uiuart_tx.v(55)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.a
+LUT4                                    0.240    r     2.412       3  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_6.o
+net (fo=3)                              0.520          2.932          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_b1_n,  NOFILE(0)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.a
+LUT2                                    0.240    r     3.172       4  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_7.o
+net (fo=2)                              0.478          3.650          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_8,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_11.a
+LUT3                                    0.240    r     3.890       5  pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_11.o
+net (fo=1)                              0.448          4.338          net: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1]_syn_4,  uisrc/03_ip/uiuart_tx.v(99)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1].d
+SEQ (reg)                               0.076    f     4.414               
+--------------------------------------------------------------------  ---------------
+Arrival                                                4.414               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_uart_tx_block/X_ui_uart_tx/tx_cnt_reg[1].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.516               
+
+Slack               : 35.862ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : t_cnt_reg[0].sr (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.901ns (cell 1.208ns (30%), net 2.693ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=1  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: t_cnt_reg[0].sr
+SEQ (reg)                               0.099    r     3.901               
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.901               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[0].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.237         39.763               
+clock uncertainty                       0.000         39.763               
+clock pessimism                         0.000         39.763               
+--------------------------------------------------------------------  ---------------
+Required                                              39.763               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.862               
+
+Slack               : 35.862ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : t_cnt_reg[1].sr (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.901ns (cell 1.208ns (30%), net 2.693ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=1  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: t_cnt_reg[1].sr
+SEQ (reg)                               0.099    r     3.901               
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.901               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[1].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.237         39.763               
+clock uncertainty                       0.000         39.763               
+clock pessimism                         0.000         39.763               
+--------------------------------------------------------------------  ---------------
+Required                                              39.763               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.862               
+
+Slack               : 35.862ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : t_cnt_reg[2].sr (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.901ns (cell 1.208ns (30%), net 2.693ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=1  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: t_cnt_reg[2].sr
+SEQ (reg)                               0.099    r     3.901               
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.901               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[2].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.237         39.763               
+clock uncertainty                       0.000         39.763               
+clock pessimism                         0.000         39.763               
+--------------------------------------------------------------------  ---------------
+Required                                              39.763               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.862               
+
+Slack               : 35.862ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : t_cnt_reg[3].sr (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.901ns (cell 1.208ns (30%), net 2.693ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=1  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: t_cnt_reg[3].sr
+SEQ (reg)                               0.099    r     3.901               
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.901               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[3].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.237         39.763               
+clock uncertainty                       0.000         39.763               
+clock pessimism                         0.000         39.763               
+--------------------------------------------------------------------  ---------------
+Required                                              39.763               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.862               
+
+Slack               : 35.862ns
+Begin Point         : t_cnt_reg[21].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : t_cnt_reg[4].sr (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - sysclk rising@0.000ns }
+Data Path Delay     : 3.901ns (cell 1.208ns (30%), net 2.693ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=1  LUT5=1  LUT4=1  LUT2=1 )
+Max Fanout          : 32
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[21].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: t_cnt_reg[21].q
+net (fo=2)                              0.478          0.629          net: t_cnt[21],  uisrc/01_rtl/rtc_clock_ds1337.v(53)
+                                                                      pin: mux20_syn_141.d
+LUT4                                    0.240    r     0.869       1  pin: mux20_syn_141.o
+net (fo=1)                              0.448          1.317          net: mux20_syn_142,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_143.a
+LUT5                                    0.240    r     1.557       2  pin: mux20_syn_143.o
+net (fo=1)                              0.448          2.005          net: mux20_syn_144,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_147.a
+LUT6                                    0.238    r     2.243       3  pin: mux20_syn_147.o
+net (fo=1)                              0.448          2.691          net: mux20_syn_148,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_155.a
+LUT2                                    0.240    r     2.931       4  pin: mux20_syn_155.o
+net (fo=32)                             0.871          3.802          net: t_en,  uisrc/01_rtl/rtc_clock_ds1337.v(54)
+                                                                      pin: t_cnt_reg[4].sr
+SEQ (reg)                               0.099    r     3.901               
+--------------------------------------------------------------------  ---------------
+Arrival                                                3.901               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: t_cnt_reg[4].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.237         39.763               
+clock uncertainty                       0.000         39.763               
+clock pessimism                         0.000         39.763               
+--------------------------------------------------------------------  ---------------
+Required                                              39.763               
+--------------------------------------------------------------------  ---------------
+Slack                                                 35.862               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     rtc_i2c_scl -> rtc_i2c_scl
+Type           :     Self
+From Clock     :     rtc_i2c_scl
+To Clock       :     rtc_i2c_scl
+Min Period     :     3.972ns
+Fmax           :     251.762MHz
+
+Statistics:
+Max            : SWNS   5038.014ns, STNS      0.000ns,         0 Viol Endpoints,       115 Total Endpoints,       550 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[0].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[0].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[0].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[1].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[1].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[1].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[2].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[2].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[2].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[3].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[3].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[3].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[4].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[4].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[4].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[5].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[5].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[5].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[6].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[6].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[6].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.014ns
+Begin Point         : X_ui_i2c/IIC_S_reg[0].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/sda_i_r_reg[7].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.927ns (cell 0.391ns (20%), net 1.536ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 24
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[0].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[0].q
+net (fo=24)                             0.828          0.979          net: X_ui_i2c/IIC_S[0],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_3.a
+LUT2                                    0.240    r     1.219       1  pin: X_ui_i2c/rcnt_reg[0]_syn_3.o
+net (fo=11)                             0.708          1.927          net: X_ui_i2c/mux4_syn_77,  uisrc/03_ip/uii2c.v(140)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[7].ce
+SEQ (reg)                               0.000    f     1.927               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.927               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/sda_i_r_reg[7].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.014               
+
+Slack               : 5038.015ns
+Begin Point         : X_ui_i2c/IIC_S_reg[2].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/O_rd_data_reg[0].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.926ns (cell 0.391ns (20%), net 1.535ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT5=1 )
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[2].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[2].q
+net (fo=33)                             0.876          1.027          net: X_ui_i2c/IIC_S[2],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/mux2_syn_66.c
+LUT5                                    0.240    r     1.267       1  pin: X_ui_i2c/mux2_syn_66.o
+net (fo=8)                              0.659          1.926          net: X_ui_i2c/mux2_syn_2[7],  uisrc/03_ip/uii2c.v(142)
+                                                                      pin: X_ui_i2c/O_rd_data_reg[0].ce
+SEQ (reg)                               0.000    f     1.926               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.926               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_rd_data_reg[0].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.015               
+
+Slack               : 5038.015ns
+Begin Point         : X_ui_i2c/IIC_S_reg[2].clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : X_ui_i2c/O_rd_data_reg[1].ce (falling edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 5040.000ns { rtc_i2c_scl falling@5040.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.926ns (cell 0.391ns (20%), net 1.535ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT5=1 )
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[2].clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/IIC_S_reg[2].q
+net (fo=33)                             0.876          1.027          net: X_ui_i2c/IIC_S[2],  uisrc/03_ip/uii2c.v(76)
+                                                                      pin: X_ui_i2c/mux2_syn_66.c
+LUT5                                    0.240    r     1.267       1  pin: X_ui_i2c/mux2_syn_66.o
+net (fo=8)                              0.659          1.926          net: X_ui_i2c/mux2_syn_2[7],  uisrc/03_ip/uii2c.v(142)
+                                                                      pin: X_ui_i2c/O_rd_data_reg[1].ce
+SEQ (reg)                               0.000    f     1.926               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.926               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_rd_data_reg[1].clk
+capture edge                         5040.000    f  5040.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059       5039.941               
+clock uncertainty                       0.000       5039.941               
+clock pessimism                         0.000       5039.941               
+--------------------------------------------------------------------  ---------------
+Required                                            5039.941               
+--------------------------------------------------------------------  ---------------
+Slack                                               5038.015               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     rtc_i2c_scl -> sysclk
+Type           :     Same Domain
+From Clock     :     rtc_i2c_scl
+To Clock       :     sysclk
+Min Period     :     2.758ns
+Fmax           :     362.582MHz
+
+Statistics:
+Max            : SWNS     37.242ns, STNS      0.000ns,         0 Viol Endpoints,        59 Total Endpoints,        61 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 37.242ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : TS_S_reg[0].d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 2.688ns (cell 0.707ns (26%), net 1.981ns (74%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( LUT4=1  LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: mux20_syn_156.b
+LUT4                                    0.240    r     2.164       2  pin: mux20_syn_156.o
+net (fo=1)                              0.448          2.612          net: mux20_syn_33,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: TS_S_reg[0].d
+SEQ (reg)                               0.076    f     2.688               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.688               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: TS_S_reg[0].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.242               
+
+Slack               : 37.636ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : iic_req_reg.d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 2.294ns (cell 0.705ns (30%), net 1.589ns (70%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( LUT6=1  LUT5=1 )
+Max Fanout          : 10
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: iic_req_reg_syn_4.a
+LUT5                                    0.240    r     1.084       1  pin: iic_req_reg_syn_4.o
+net (fo=1)                              0.448          1.532          net: iic_req_reg_syn_5,  uisrc/01_rtl/rtc_clock_ds1337.v(91)
+                                                                      pin: iic_req_reg_syn_6.a
+LUT6                                    0.238    r     1.770       2  pin: iic_req_reg_syn_6.o
+net (fo=1)                              0.448          2.218          net: iic_req_reg_syn_3,  uisrc/01_rtl/rtc_clock_ds1337.v(91)
+                                                                      pin: iic_req_reg.d
+SEQ (reg)                               0.076    f     2.294               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.294               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: iic_req_reg.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.636               
+
+Slack               : 37.930ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : uart_report_en_reg.d (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 2.000ns (cell 0.467ns (23%), net 1.533ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: uart_report_en_reg.d
+SEQ (reg)                               0.076    f     2.000               
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.000               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: uart_report_en_reg.clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070         39.930               
+clock uncertainty                       0.000         39.930               
+clock pessimism                         0.000         39.930               
+--------------------------------------------------------------------  ---------------
+Required                                              39.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.930               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[0].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[0].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[0].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[1].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[1].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[1].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[2].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[2].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[2].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[3].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[3].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[3].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[4].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[4].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[4].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[5].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[5].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[5].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+Slack               : 38.017ns
+Begin Point         : X_ui_i2c/O_iic_busy_reg.clk (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+End Point           : rtime_reg[6].ce (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { sysclk rising@40.000ns - rtc_i2c_scl rising@0.000ns }
+Data Path Delay     : 1.924ns (cell 0.391ns (20%), net 1.533ns (80%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT2=1 )
+Max Fanout          : 26
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/O_iic_busy_reg.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f     0.151          pin: X_ui_i2c/O_iic_busy_reg.q
+net (fo=10)                             0.693          0.844          net: iic_busy,  uisrc/01_rtl/rtc_clock_ds1337.v(58)
+                                                                      pin: mux20_syn_136.a
+LUT2                                    0.240    r     1.084       1  pin: mux20_syn_136.o
+net (fo=26)                             0.840          1.924          net: mux0_syn_16,  uisrc/01_rtl/rtc_clock_ds1337.v(104)
+                                                                      pin: rtime_reg[6].ce
+SEQ (reg)                               0.000    f     1.924               
+--------------------------------------------------------------------  ---------------
+Arrival                                                1.924               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rtime_reg[6].clk
+capture edge                           40.000    r    40.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059         39.941               
+clock uncertainty                       0.000         39.941               
+clock pessimism                         0.000         39.941               
+--------------------------------------------------------------------  ---------------
+Required                                              39.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.017               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     sysclk -> rtc_i2c_scl
+Type           :     Same Domain
+From Clock     :     sysclk
+To Clock       :     rtc_i2c_scl
+Min Period     :     978.768ns
+Fmax           :     1.022MHz
+
+Statistics:
+Max            : SWNS     36.116ns, STNS      0.000ns,         0 Viol Endpoints,        35 Total Endpoints,        52 Paths Analyzed
+Min            : HWNS      0.000ns, HTNS      0.000ns,         0 Viol Endpoints,         0 Total Endpoints,         0 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 36.114ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/bcnt_reg[0].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 3.814ns (cell 1.183ns (31%), net 2.631ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=2  LUT3=1  LUT2=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_9.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/bcnt_reg[2]_syn_9.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/bcnt_reg[2]_syn_10,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_11.a
+LUT2                                    0.240    r 10042.531       3  pin: X_ui_i2c/bcnt_reg[2]_syn_11.o
+net (fo=3)                              0.520      10043.051          net: X_ui_i2c/mux25_syn_11,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[0]_syn_3.a
+LUT3                                    0.240    r 10043.291       4  pin: X_ui_i2c/bcnt_reg[0]_syn_3.o
+net (fo=1)                              0.448      10043.739          net: X_ui_i2c/bcnt_reg[0]_syn_2,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[0].d
+SEQ (reg)                               0.076    f 10043.815               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10043.815               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/bcnt_reg[0].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 36.114               
+
+Slack               : 36.114ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/bcnt_reg[1].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 3.814ns (cell 1.183ns (31%), net 2.631ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=2  LUT4=1  LUT2=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_9.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/bcnt_reg[2]_syn_9.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/bcnt_reg[2]_syn_10,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_11.a
+LUT2                                    0.240    r 10042.531       3  pin: X_ui_i2c/bcnt_reg[2]_syn_11.o
+net (fo=3)                              0.520      10043.051          net: X_ui_i2c/mux25_syn_11,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[1]_syn_3.a
+LUT4                                    0.240    r 10043.291       4  pin: X_ui_i2c/bcnt_reg[1]_syn_3.o
+net (fo=1)                              0.448      10043.739          net: X_ui_i2c/bcnt_reg[1]_syn_2,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[1].d
+SEQ (reg)                               0.076    f 10043.815               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10043.815               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/bcnt_reg[1].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 36.114               
+
+Slack               : 36.114ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/bcnt_reg[2].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 3.814ns (cell 1.183ns (31%), net 2.631ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT6=2  LUT5=1  LUT2=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_9.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/bcnt_reg[2]_syn_9.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/bcnt_reg[2]_syn_10,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_11.a
+LUT2                                    0.240    r 10042.531       3  pin: X_ui_i2c/bcnt_reg[2]_syn_11.o
+net (fo=3)                              0.520      10043.051          net: X_ui_i2c/mux25_syn_11,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_12.a
+LUT5                                    0.240    r 10043.291       4  pin: X_ui_i2c/bcnt_reg[2]_syn_12.o
+net (fo=1)                              0.448      10043.739          net: X_ui_i2c/bcnt_reg[2]_syn_2,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/bcnt_reg[2].d
+SEQ (reg)                               0.076    f 10043.815               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10043.815               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/bcnt_reg[2].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 36.114               
+
+Slack               : 36.948ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/rcnt_reg[0].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 2.980ns (cell 0.947ns (31%), net 2.033ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( LUT3=2  LUT5=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_4.c
+LUT3                                    0.240    r 10041.051       1  pin: X_ui_i2c/rcnt_reg[0]_syn_4.o
+net (fo=1)                              0.448      10041.499          net: X_ui_i2c/rcnt_reg[0]_syn_5,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_6.a
+LUT5                                    0.240    r 10041.739       2  pin: X_ui_i2c/rcnt_reg[0]_syn_6.o
+net (fo=2)                              0.478      10042.217          net: X_ui_i2c/mux23_syn_143,  uisrc/03_ip/uii2c.v(181)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_7.a
+LUT3                                    0.240    r 10042.457       3  pin: X_ui_i2c/rcnt_reg[0]_syn_7.o
+net (fo=1)                              0.448      10042.905          net: X_ui_i2c/rcnt_reg[0]_syn_2,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rcnt_reg[0].d
+SEQ (reg)                               0.076    f 10042.981               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10042.981               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/rcnt_reg[0].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 36.948               
+
+Slack               : 36.948ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/rcnt_reg[1].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 2.980ns (cell 0.947ns (31%), net 2.033ns (69%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( LUT5=1  LUT4=1  LUT3=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_4.c
+LUT3                                    0.240    r 10041.051       1  pin: X_ui_i2c/rcnt_reg[0]_syn_4.o
+net (fo=1)                              0.448      10041.499          net: X_ui_i2c/rcnt_reg[0]_syn_5,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rcnt_reg[0]_syn_6.a
+LUT5                                    0.240    r 10041.739       2  pin: X_ui_i2c/rcnt_reg[0]_syn_6.o
+net (fo=2)                              0.478      10042.217          net: X_ui_i2c/mux23_syn_143,  uisrc/03_ip/uii2c.v(181)
+                                                                      pin: X_ui_i2c/rcnt_reg[1]_syn_3.a
+LUT4                                    0.240    r 10042.457       3  pin: X_ui_i2c/rcnt_reg[1]_syn_3.o
+net (fo=1)                              0.448      10042.905          net: X_ui_i2c/rcnt_reg[1]_syn_2,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rcnt_reg[1].d
+SEQ (reg)                               0.076    f 10042.981               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10042.981               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/rcnt_reg[1].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 36.948               
+
+Slack               : 37.562ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/rd_req_reg.d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 2.366ns (cell 0.703ns (29%), net 1.663ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( LUT6=2 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rd_req_reg_syn_4.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/rd_req_reg_syn_4.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/rd_req_reg_syn_3,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/rd_req_reg.d
+SEQ (reg)                               0.076    f 10042.367               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10042.367               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/rd_req_reg.clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.562               
+
+Slack               : 37.562ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/IIC_S_reg[1].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 2.366ns (cell 0.703ns (29%), net 1.663ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( LUT6=2 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/IIC_S_b[1]_syn_2.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/IIC_S_b[1]_syn_2.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/IIC_S_b[1],  NOFILE(0)
+                                                                      pin: X_ui_i2c/IIC_S_reg[1].d
+SEQ (reg)                               0.076    f 10042.367               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10042.367               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[1].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.562               
+
+Slack               : 37.562ns
+Begin Point         : rd_cnt_reg[0].clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/IIC_S_reg[2].d (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 2.366ns (cell 0.703ns (29%), net 1.663ns (71%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( LUT6=2 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: rd_cnt_reg[0].clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: rd_cnt_reg[0].q
+net (fo=8)                              0.659      10040.811          net: rd_cnt[0],  uisrc/01_rtl/rtc_clock_ds1337.v(60)
+                                                                      pin: X_ui_i2c/bcnt_reg[2]_syn_7.b
+LUT6                                    0.238    r 10041.049       1  pin: X_ui_i2c/bcnt_reg[2]_syn_7.o
+net (fo=4)                              0.556      10041.604          net: X_ui_i2c/bcnt_reg[2]_syn_8,  uisrc/03_ip/uii2c.v(174)
+                                                                      pin: X_ui_i2c/IIC_S_b[2]_syn_1.a
+LUT6                                    0.238    r 10041.843       2  pin: X_ui_i2c/IIC_S_b[2]_syn_1.o
+net (fo=1)                              0.448      10042.291          net: X_ui_i2c/IIC_S_b[2],  NOFILE(0)
+                                                                      pin: X_ui_i2c/IIC_S_reg[2].d
+SEQ (reg)                               0.076    f 10042.367               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10042.367               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/IIC_S_reg[2].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.070      10079.930               
+clock uncertainty                       0.000      10079.930               
+clock pessimism                         0.000      10079.930               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.930               
+--------------------------------------------------------------------  ---------------
+Slack                                                 37.562               
+
+Slack               : 38.277ns
+Begin Point         : iic_req_reg.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/wcnt_reg[0].ce (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 1.663ns (cell 0.389ns (23%), net 1.274ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT6=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: iic_req_reg.clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: iic_req_reg.q
+net (fo=6)                              0.615      10040.767          net: iic_req,  uisrc/01_rtl/rtc_clock_ds1337.v(61)
+                                                                      pin: X_ui_i2c/mux24_syn_132.b
+LUT6                                    0.238    r 10041.005       1  pin: X_ui_i2c/mux24_syn_132.o
+net (fo=8)                              0.659      10041.664          net: X_ui_i2c/mux24_syn_127,  uisrc/03_ip/uii2c.v(181)
+                                                                      pin: X_ui_i2c/wcnt_reg[0].ce
+SEQ (reg)                               0.000    f 10041.664               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10041.664               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/wcnt_reg[0].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059      10079.941               
+clock uncertainty                       0.000      10079.941               
+clock pessimism                         0.000      10079.941               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.277               
+
+Slack               : 38.277ns
+Begin Point         : iic_req_reg.clk (rising edge triggered by clock sysclk  { rise@0.000000ns  fall@20.000000ns  period=40.000000 })
+End Point           : X_ui_i2c/wcnt_reg[1].ce (rising edge triggered by clock rtc_i2c_scl  { rise@0.000000ns  fall@5040.000000ns  period=10080.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 40.000ns { rtc_i2c_scl rising@10080.000ns - sysclk rising@10040.000ns }
+Data Path Delay     : 1.663ns (cell 0.389ns (23%), net 1.274ns (77%))
+Clock Skew          : 0.000ns
+Logic Level         : 1 ( LUT6=1 )
+Max Fanout          : 8
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: iic_req_reg.clk
+launch edge                         10040.000    r 10040.000               
+--------------------------------------------------------------------  ---------------
+SEQ (clk2q)                             0.151    f 10040.151          pin: iic_req_reg.q
+net (fo=6)                              0.615      10040.767          net: iic_req,  uisrc/01_rtl/rtc_clock_ds1337.v(61)
+                                                                      pin: X_ui_i2c/mux24_syn_132.b
+LUT6                                    0.238    r 10041.005       1  pin: X_ui_i2c/mux24_syn_132.o
+net (fo=8)                              0.659      10041.664          net: X_ui_i2c/mux24_syn_127,  uisrc/03_ip/uii2c.v(181)
+                                                                      pin: X_ui_i2c/wcnt_reg[1].ce
+SEQ (reg)                               0.000    f 10041.664               
+--------------------------------------------------------------------  ---------------
+Arrival                                            10041.664               
+
+source latency                          0.000          0.000               
+port                T16                 0.000          0.000          pin: I_sysclk
+hierarchy                               0.000          0.000          pin: I_sysclk_syn_2.ipad
+PAD                                     0.000          0.000          pin: I_sysclk_syn_2.di
+net (fo=160)                            0.000          0.000          net: I_sysclk_dup_1,  uisrc/01_rtl/rtc_clock_ds1337.v(43)
+                                                                      pin: X_ui_i2c/scl_clk_reg.clk
+SEQ (clk2q)                             0.000          0.000          pin: X_ui_i2c/scl_clk_reg.q
+net (fo=61)                             0.000          0.000          net: X_ui_i2c/scl_clk,  uisrc/03_ip/uii2c.v(81)
+                                                                      pin: X_ui_i2c/wcnt_reg[1].clk
+capture edge                        10080.000    r 10080.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.059      10079.941               
+clock uncertainty                       0.000      10079.941               
+clock pessimism                         0.000      10079.941               
+--------------------------------------------------------------------  ---------------
+Required                                           10079.941               
+--------------------------------------------------------------------  ---------------
+Slack                                                 38.277               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

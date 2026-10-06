@@ -1,0 +1,32 @@
+{
+  "scope": "Candidates only; frozen FPGA sources are not changed.",
+  "files": {
+    "cam_video_source.v": {
+      "source": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\fpga\\uisrc\\03_ip\\vid_pipeline\\cam_video_source.v",
+      "source_sha256": "ba27a454bc0d9dc6670d02868b0b3eaa61f96ad9ee769e4e420997d779afbe72",
+      "candidate_sha256": "47355443fcb9ad9b0f22192ccea6eee174b520927c919c2a0fa5eac1c413fa6a"
+    },
+    "mipi_csi_rx.v": {
+      "source": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\fpga\\uisrc\\03_ip\\mipi_csi_2\\mipi_csi_rx.v",
+      "source_sha256": "5184788a3636934d5739a3a674a2d63f95064c74c980ca153ac35b1adf74d23d",
+      "candidate_sha256": "afca69f2ceea234ee4737aa70e3252faa5c59027b7533e4dd6519878340e402a"
+    }
+  },
+  "frozen_sources_unchanged": true,
+  "simulation": {
+    "directory": "evidence/phy_diag08_20261005_060412_8864",
+    "status": "PASS_DIGITAL_ONLY",
+    "explicit_checks": 10,
+    "scoreboard_cycles": 383,
+    "errors": 0,
+    "warnings": 0,
+    "limits": "D-PHY/ISP stubs; actual unchanged snapshot and packet/ECC logic. No TD/board/analog proof."
+  },
+  "test_hashes": {
+    "isp_header_stubs.v": "ac4a0f3c66ded5f243e6ae970e088d3ed938d170a62826c9c473d1cc9bfda473",
+    "prepare_sim_stubs.py": "145f98b8cad7ded96d3240f769591a1f7c7dfb1c0fd55ef9810e8be74dc0a8a4",
+    "rx_digital_stubs.v": "6f667dfe9d8ad9102e8a9f5c5084781461d0cf3c452c80099f188f2ef46f3aa9",
+    "selfcheck.do": "418ebc862c15ec202865e945a1ac12ceb1e1c59d868f059197ddf67103be6d53",
+    "tb_phy_diag08.sv": "7e95a5ccd195edf73f249a1845e243c10c9ef8b57173f9745c004083d6f43970"
+  }
+}

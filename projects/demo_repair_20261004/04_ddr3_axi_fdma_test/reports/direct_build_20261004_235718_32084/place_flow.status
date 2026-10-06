@@ -1,0 +1,26 @@
+Location         : E:\qianrufpga\fpga-lab\projects\demo_repair_20261004\04_ddr3_axi_fdma_test\reports\direct_build_20261004_235718_32084
+Running with     : Tang Dynasty Release_2026.1_SP2
+                   Copyright (c) 2012-2026 Anlogic Inc.
+Top Model        : example_top
+Device           : PH1A90SEG324
+Speed            : 2
+
+Timing Mode      : manhattan
+Setup            : WNS  1404ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS 2147483647ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+---------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+---------------------------------------------------------------------------------------------------
+      place      |    1     |  5m56s(45%)  |   666(61%)    |       3095        |       3140        
+  optimize_gate  |    1     |  4m30s(34%)  |   263(24%)    |       2645        |       2748        
+  optimize_rtl   |    1     |  2m34s(19%)  |   150(13%)    |       1854        |       2702        
+  import_device  |    1     |    9s(1%)    |     9(0%)     |       1287        |       1320        
+    import_db    |    2     |    0s(0%)    |     0(0%)     |       2654        |       2757        
+      pack       |    1     |    0s(0%)    |     0(0%)     |       2084        |       2775        
+    read_adc     |    2     |    0s(0%)    |     0(0%)     |       1552        |       1571        
+    read_sdc     |    2     |    0s(0%)    |     0(0%)     |       1552        |       1571        
+---------------------------------------------------------------------------------------------------
+      total      |    11    |    13m9s     |     1088      |       3095        |       3140        
+---------------------------------------------------------------------------------------------------

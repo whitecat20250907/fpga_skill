@@ -1,0 +1,26 @@
+Location         : E:\qianrufpga\fpga-lab\projects\demo_repair_20261004\03_iic_rtc\reports\direct_build_20261005_045937_38024
+Running with     : Tang Dynasty Release_2026.1_SP2
+                   Copyright (c) 2012-2026 Anlogic Inc.
+Top Model        : rtc_clock_ds1337
+Device           : PH1A90SEG324
+Speed            : 2
+
+Timing Mode      : final
+Setup            : WNS 32845ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS    36ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+--------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+--------------------------------------------------------------------------------------------------
+      place      |    1     |  26s(40%)   |   142(55%)    |       1601        |       1602        
+      route      |    1     |  23s(35%)   |   101(39%)    |       2201        |       2451        
+  import_device  |    1     |   9s(13%)   |     8(3%)     |       1287        |       1321        
+  optimize_rtl   |    1     |   3s(4%)    |     2(0%)     |       1354        |       1363        
+    fix_hold     |    2     |   2s(3%)    |     2(0%)     |       2328        |       2451        
+  optimize_gate  |    1     |   2s(3%)    |     2(0%)     |       1358        |       1367        
+    read_adc     |    1     |   0s(0%)    |     0(0%)     |       1307        |       1321        
+    read_sdc     |    1     |   0s(0%)    |     0(0%)     |       1308        |       1321        
+--------------------------------------------------------------------------------------------------
+      total      |    9     |    1m5s     |      257      |       2328        |       2451        
+--------------------------------------------------------------------------------------------------

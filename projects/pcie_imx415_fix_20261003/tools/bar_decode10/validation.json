@@ -1,0 +1,40 @@
+{
+  "simulator": "Actual ModelSim SE-64 10.5",
+  "new": {
+    "host_exit_code": 0,
+    "checks": 268,
+    "errors": 0,
+    "warnings": 0,
+    "log": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\tools\\bar_decode10\\evidence\\new_pass_20261005_080716_37548\\simulation.log",
+    "sha256": "162c610281916e00b7967e9acd32881f675283cef016dea751b8791e64746619"
+  },
+  "old_negative": {
+    "host_exit_code": 1,
+    "tcl_requested_exit_code": 3,
+    "mismatches": 168,
+    "base0_errors": 0,
+    "version_witnesses": 3,
+    "expected_fatal": "EXPECTED_OLD_UPPER16_ZERO_REGRESSION_DETECTED",
+    "log": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\tools\\bar_decode10\\evidence\\old_fail_20261005_080734_7688\\simulation.log",
+    "sha256": "ad977d7fced4291a095452b67732440835c6a0ee039c562e30c57f3783296499"
+  },
+  "files": {
+    "imx415_pcie_top.v": "ec02b945fbaec411959ae7bc4f33f61a155a7e4e8f04cbd99db23fb5676d321b",
+    "manifest.json": "da9ab1ee9adfb0f069ed21b7d976e8432017b2062f177d712802ab43d6ad53cb",
+    "old_negative.do": "2377ceb43e88e13293ad134fa49391094c09ded24d8d3731c61161c3cdda970f",
+    "param_imx415.vh": "59f91b28b4330fbe0b694155d13823d5ae5ded3dc0e0e64bd5e72209e0ee01bb",
+    "param_tpg.vh": "b809b162a5b3c2c409e8d2dd4699524be23be94bf10740a7b405b30d2b1984ac",
+    "prepare_candidate.py": "0b914f81ead908d96ee1d5be2265bcede6418547fcd976e88c1e464f05bfb5ef",
+    "production_read_new.vh": "411426569605ece672cb9d986cda154731c0d3e34211264827d1521c36382b2f",
+    "production_read_old.vh": "4086208771fd04bbead5ad8f2d6b610e1f0e1224d150cd4846c68de2b5bd88a1",
+    "read_probe.sv": "4eda760f4ef97c0c67da6a974fdaccb4f85639a9efefed72166a7c9b53f1a752",
+    "README.md": "9a98a0225eac82f06f08b35da961f4dd068187452ce05a325c2f8cc5089d5fdd",
+    "selfcheck.do": "949258e3c7c023a21cb1a1059d769ca975883ea7fa2d124c857c1693a9f03e57",
+    "tb_bar_decode10.sv": "ee074650561004b7bcaa1a8d0cf91355c2f511bd0e2737eca2878fc35f80f0fb"
+  },
+  "frozen_source_sha256": "fe69b14bcfd4aadd6b4debfa1d5e6d9cb6978ceb9278bc2c4142a66550339df7",
+  "source_integrity_note": "prepare_candidate verified main unchanged immediately after generation. Root subsequently authorized and integrated candidate + version10 in main; this child never changed main.",
+  "physical_validation": false,
+  "td_compilation": false,
+  "scope": "Exact production read fragment with deterministic source fixtures; normal immediate read only. No full AXI backpressure, PCIe engine, PHY or board acceptance."
+}

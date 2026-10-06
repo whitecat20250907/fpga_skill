@@ -1,0 +1,46 @@
+{
+  "archive": "E:\\qianrufpga\\03_MLK_AFH03_AFC03\\01_start\\00_start_fpga\\02_peripheral_demo\\02_peripheral_demo.zip",
+  "files": [
+    {
+      "file": "examples/01_uart_loop/fpga_prj.al",
+      "original_sha256": "4c51638759c48a50351d7ca2244e7e9d0b90343ee7113c050692a41a513845d9"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/01_rtl/uart_top.v",
+      "original_sha256": "20523cb2d23d50f0267b2ddc3a5f4e50a893801276ec68430233a9c3a11007b6"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/02_sim/cmd.do",
+      "original_sha256": "d91ff88563facf8bc9ec70c153661b40f8d2a793c328ec002d0f50dec9966c0f"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/02_sim/compile.f",
+      "original_sha256": "76ac0d859b8a91d69677ee8376d55a752cd7d415ce2f61c71d03eca8efa0173f"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/02_sim/modelsim.ini",
+      "original_sha256": "d2b764818e96310e6dad8b3cdd47b767ae2969db121060015b9130d4a72725c2"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/02_sim/sim_top_tb.v",
+      "original_sha256": "aab54d0ae6aadeb07e92b6b665e55f11c250a5bd03b16d65fd867090a293421e"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/03_ip/uiuart_rx.v",
+      "original_sha256": "76f1c4a71dd464e978a8fb3d85e8cd76039df1552af4ccc6fb51a01055970993"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/03_ip/uiuart_tx.v",
+      "original_sha256": "b853da18dbd4a7b862a6a46a839d8f8de858a1635a29160e3104c6bd74b7d0f5"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/04_pin/fpga_pin.adc",
+      "original_sha256": "6a08d46050d688d1a71f0b2b8f97e472bb03e5030939c2c1c66a7f5b7f903681"
+    },
+    {
+      "file": "examples/01_uart_loop/uisrc/04_pin/timing.sdc",
+      "original_sha256": "ec7cfdcd046ddfb039ec1c8e1446dc527174c9ea9148bdc921f75dde6371381d"
+    }
+  ],
+  "modification": "Only .al Project Path relocated. HDL and constraints unchanged."
+}

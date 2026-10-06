@@ -1,0 +1,113 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Sun Oct  4 23:53:10 2026
+
+   Run on =     �ԼҺ�D������
+============================================================
+DIRECT_BUILD_OUTPUT=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/04_ddr3_axi_fdma_test/reports/direct_build_20261004_235310_20348
+DIRECT_BUILD_PROJECT=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/04_ddr3_axi_fdma_test/fpga_prj.al
+DIRECT_BUILD_SOURCE_SHA256=0619b25fa0391e9f1608b681ea3ce573b8a971cc93e41d0bd1835500b7be976e
+DIRECT_BUILD_STAGE=analyze
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  9.427642s wall, 7.781250s user + 0.921875s system = 8.703125s CPU (92.3%)
+
+RUN-1004 : used memory is 1287 MB, reserved memory is 1317 MB, peak memory is 1321 MB
+RUN-1002 : start command "open_project E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/04_ddr3_axi_fdma_test/fpga_prj.al -single_run"
+PRJ-9210 ERROR: The XML file al_ip/cwc/cwc.xml does not exist.
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ..\../uisrc/01_rtl/system_top.v
+HDL-1007 : undeclared symbol 'I_uart_rxd', assumed default net type 'wire' in ..\../uisrc/01_rtl/system_top.v(385)
+HDL-1007 : undeclared symbol 'O_uart_txd', assumed default net type 'wire' in ..\../uisrc/01_rtl/system_top.v(386)
+HDL-1007 : analyze verilog file ..\../uisrc/01_rtl/fdma_test.v
+HDL-1007 : analyze verilog file ..\../uisrc/03_ip/uifdma/uiFDMA.v
+PRJ-1401 : Successfully analyzed 4 source files.
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "set_param rtl directive:async_reg on"
+RUN-1002 : start command "report_param"
+RUN-1001 : Flow stage "flow" with all default parameters.
+RUN-1001 : Flow stage "design" with all default parameters.
+RUN-1001 : Flow stage "rtl" with all default parameters.
+RUN-1001 : Flow stage "gate" with all default parameters.
+RUN-1001 : Flow stage "place" with all default parameters.
+RUN-1001 : Flow stage "route" with all default parameters.
+RUN-1001 : Flow stage "timing" with all default parameters.
+RUN-1001 : Flow stage "sim" with all default parameters.
+RUN-1001 : Flow stage "bitgen" with all default parameters.
+DIRECT_BUILD_STAGE=elaborate
+RUN-1002 : start command "elaborate -top example_top"
+HDL-1007 : port 'M_AXI_WID' remains unconnected for this instance in ..\../uisrc/01_rtl/system_top.v(208)
+HDL-1007 : elaborate module example_top in ..\../uisrc/01_rtl/system_top.v(42)
+HDL-1007 : elaborate module ui_fdma_test(AXI_ADDR_WIDTH=28,AXI_DATA_WIDTH=128,TEST_MEM_SIZE=32'b010000000000000000000000000000,ADDR_MEM_OFFSET=0) in ..\../uisrc/01_rtl/fdma_test.v(31)
+HDL-7144 CRITICAL-WARNING: instantiate unknown module cwc in ..\../uisrc/01_rtl/fdma_test.v(209)
+HDL-1007 : elaborate module ui_FDMA(M_AXI_B2B_SET=1,M_AXI_ID_WIDTH=4,M_AXI_ADDR_WIDTH=28,M_AXI_DATA_WIDTH=128) in ..\../uisrc/03_ip/uifdma/uiFDMA.v(47)
+HDL-7144 CRITICAL-WARNING: instantiate unknown module ui_ddr in ..\../uisrc/01_rtl/system_top.v(286)
+HDL-5314 WARNING: net 'S_axi_awready' does not have a driver in ..\../uisrc/01_rtl/system_top.v(98)
+HDL-5314 WARNING: net 'S_axi_wready' does not have a driver in ..\../uisrc/01_rtl/system_top.v(112)
+HDL-5314 WARNING: net 'S_axi_bid[3]' does not have a driver in ..\../uisrc/01_rtl/system_top.v(114)
+HDL-5314 WARNING: net 'S_axi_bresp[1]' does not have a driver in ..\../uisrc/01_rtl/system_top.v(115)
+HDL-5314 WARNING: net 'S_axi_bvalid' does not have a driver in ..\../uisrc/01_rtl/system_top.v(116)
+HDL-5314 WARNING: net 'S_axi_arready' does not have a driver in ..\../uisrc/01_rtl/system_top.v(122)
+HDL-5314 WARNING: net 'S_axi_rdata[127]' does not have a driver in ..\../uisrc/01_rtl/system_top.v(132)
+HDL-5314 WARNING: net 'S_axi_rlast' does not have a driver in ..\../uisrc/01_rtl/system_top.v(133)
+HDL-5314 WARNING: net 'S_axi_rvalid' does not have a driver in ..\../uisrc/01_rtl/system_top.v(134)
+HDL-5314 WARNING: net 'S_axi_rid[3]' does not have a driver in ..\../uisrc/01_rtl/system_top.v(136)
+HDL-5314 Similar messages will be suppressed.
+HDL-8007 ERROR: cwc is a black box in ..\../uisrc/01_rtl/fdma_test.v(209)
+HDL-8007 ERROR: ui_ddr is a black box in ..\../uisrc/01_rtl/system_top.v(286)
+DIRECT_BUILD_FAILED_STAGE=elaborate
+DIRECT_BUILD_OUTPUT=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/04_ddr3_axi_fdma_test/reports/direct_build_20261004_235310_20348
+
+
+    while executing
+"elaborate -top $td_direct_top"

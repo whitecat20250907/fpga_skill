@@ -1,0 +1,8 @@
+{
+  "status": "staged only; not integrated",
+  "source08_sha256": "d94950a442a7da621015ea52ab94bbae65c12dcd7e34b6966c945b2248646147",
+  "candidate_sha256": "d788321f228e648f4ac629602d7d77d8fd6c8e8e4dcf14eede50341c2db1dc22",
+  "change": "Add DIV4.clkout HS445.5 to the same related MIPI group; DIV2.clkout now PAD222.75",
+  "clocks_uncut": "parent HS, PAD PCLK, fabric PCLK, HS sampler and byte remain related",
+  "frequency_constraints_changed": false
+}

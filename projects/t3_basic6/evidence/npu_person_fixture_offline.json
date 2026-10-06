@@ -1,0 +1,46 @@
+{
+  "source": "data/person_fixture.png",
+  "model": "models/yolov5s_relu.rknn",
+  "model_sha256": "418ccc10ddd9aea78658fb477a09b12d613e3e359eb5c829b4ddd00b3ef8cfe7",
+  "width": 1280,
+  "height": 1280,
+  "runs": 5,
+  "input_format": "RGB_IMAGE_OFFLINE",
+  "preprocess_ms": 2.977,
+  "first_inference_ms": 45.851,
+  "npu_ms_median": 35.14,
+  "npu_ms_p95": 39.779,
+  "postprocess_ms": 29.922,
+  "output_shapes": [
+    [
+      1,
+      255,
+      80,
+      80
+    ],
+    [
+      1,
+      255,
+      40,
+      40
+    ],
+    [
+      1,
+      255,
+      20,
+      20
+    ]
+  ],
+  "detections": [
+    {
+      "xyxy": [
+        46,
+        33,
+        933,
+        1280
+      ],
+      "score": 0.3551,
+      "class_id": 0
+    }
+  ]
+}

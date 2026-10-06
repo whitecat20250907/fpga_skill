@@ -1,0 +1,39 @@
+{
+  "path": "evidence/check06_720.jsonl",
+  "frames": 1500,
+  "length_or_flag_errors": 0,
+  "sequence_gaps": 0,
+  "fps": 26.65114606328614,
+  "worst_purple": {
+    "frame": 453,
+    "sequence": 453,
+    "bytesused": 2764800,
+    "expected": 2764800,
+    "error": false,
+    "seconds": 17.075236,
+    "rgb_mean": [
+      93.529,
+      27.33,
+      92.312
+    ],
+    "green_fraction": 0.0,
+    "purple_fraction": 0.675417
+  },
+  "worst_green": {
+    "frame": 282,
+    "sequence": 282,
+    "bytesused": 2764800,
+    "expected": 2764800,
+    "error": false,
+    "seconds": 10.663253,
+    "rgb_mean": [
+      15.512,
+      64.278,
+      13.26
+    ],
+    "green_fraction": 0.305833,
+    "purple_fraction": 0.0
+  },
+  "purple_over_5pct": 17,
+  "green_over_5pct": 3
+}

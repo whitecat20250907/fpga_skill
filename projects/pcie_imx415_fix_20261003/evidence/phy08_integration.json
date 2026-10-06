@@ -1,0 +1,41 @@
+{
+  "issue": 1,
+  "version": "0x56440801",
+  "status": "Integrated; TD and physical board acceptance pending",
+  "source_count": 290,
+  "manifest_sha256": "9a0275222b13f5b8ca6d96f4ccdd6d2ff50aa3ca51b1dda93532d7e4f5e9b14f",
+  "archive_sha256": "9bd3c1c05cae6c3f911ebdcc997183fa4781983ae8a059c70bf869224ce1fee1",
+  "changes": [
+    {
+      "path": "uisrc/01_rtl/imx415_pcie_top.v",
+      "old_sha256": "1dfe6e9303db139b23a297222d1158f206911d9da51703bb6fd673cd5e1edadf",
+      "new_sha256": "fe69b14bcfd4aadd6b4debfa1d5e6d9cb6978ceb9278bc2c4142a66550339df7"
+    },
+    {
+      "path": "uisrc/01_rtl/param_imx415.v",
+      "old_sha256": "0f10cb3adb2ff5b4dd7a4c579f35472cc17a05b38db2f3816235b05469257f7b",
+      "new_sha256": "0dc4642ce156c2518040b3cbe920ffc26745510559102fcdbf9952cee5ff8fa4"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/csi_rx_hs_data_phy.v",
+      "old_sha256": "9623dbb888879c26043bd8ea4bed8141e25293b661c96e4ee803076b1585b8b2",
+      "new_sha256": "0beb88845db54662febcc93ed60e02553c51da7bd5b7365727616c99476f8d13"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/csi_rx_phy.v",
+      "old_sha256": "d88194691532c451ccc8fb67bf581b8385e648a6cbed3de5171b61e94ba5fb5e",
+      "new_sha256": "906359628b61393e66a2c8df272acda11619287a1a1bdef3086465c120cfb05a"
+    },
+    {
+      "path": "uisrc/03_ip/mipi_csi_2/mipi_csi_rx.v",
+      "old_sha256": "5184788a3636934d5739a3a674a2d63f95064c74c980ca153ac35b1adf74d23d",
+      "new_sha256": "afca69f2ceea234ee4737aa70e3252faa5c59027b7533e4dd6519878340e402a"
+    },
+    {
+      "path": "uisrc/03_ip/vid_pipeline/cam_video_source.v",
+      "old_sha256": "ba27a454bc0d9dc6670d02868b0b3eaa61f96ad9ee769e4e420997d779afbe72",
+      "new_sha256": "47355443fcb9ad9b0f22192ccea6eee174b520927c919c2a0fa5eac1c413fa6a"
+    }
+  ],
+  "unchanged": "Drivers, boot, Bayer/ISP behavior, crop and other demos unchanged from07"
+}

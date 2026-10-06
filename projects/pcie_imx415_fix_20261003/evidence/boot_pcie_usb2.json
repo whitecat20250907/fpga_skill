@@ -1,0 +1,83 @@
+{
+  "source_sha256": "faebf16428deb61867f57f17f79b7d27ba0faf9503853284a697aa83e882abec",
+  "fixed_sha256": "22c4ef3465b0c5d649c20ef5264a56aeeee109c4cdf9e3e76ac706edf9a8a023",
+  "dtb_offsets": [
+    2048,
+    40073728
+  ],
+  "changes": [
+    {
+      "node": "/pcie@2a210000",
+      "property": "reset-gpios",
+      "before": "",
+      "after": "000001700000001000000000"
+    },
+    {
+      "node": "/pcie@2a210000",
+      "property": "status",
+      "before": "64697361626c656400",
+      "after": "6f6b617900"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "maximum-speed",
+      "before": "",
+      "after": "686967682d737065656400"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "phy-names",
+      "before": "757362322d70687900757362332d70687900",
+      "after": "757362322d70687900"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "phys",
+      "before": "000000710000007200000004",
+      "after": "00000071"
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u1-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis-u2-entry-quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,dis_rxdet_inp3_quirk",
+      "before": "",
+      "after": ""
+    },
+    {
+      "node": "/usb@23400000",
+      "property": "snps,parkmode-disable-ss-quirk",
+      "before": "",
+      "after": ""
+    }
+  ],
+  "resource_hashes": [
+    {
+      "path": "rk-kernel.dtb",
+      "verified": true,
+      "updated": true
+    },
+    {
+      "path": "logo.bmp",
+      "verified": true,
+      "updated": false
+    },
+    {
+      "path": "logo_kernel.bmp",
+      "verified": true,
+      "updated": false
+    }
+  ],
+  "fit_hashes_verified": true,
+  "kernel_unchanged": true
+}

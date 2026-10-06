@@ -1,0 +1,29 @@
+Location         : E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\direct_build_20261005_061224_37468
+Running with     : Tang Dynasty Release_2026.1_SP2
+                   Copyright (c) 2012-2026 Anlogic Inc.
+Top Model        : imx415_pcie_top
+Device           : PH1A90SEG324
+Speed            : 2
+
+Timing Mode      : final
+Setup            : WNS   -82ps  TNS      -82ps  NUM_FEPS     1
+Hold             : WNS  -362ps  TNS    -1260ps  NUM_FEPS     4
+
+Flow Statistics  :
+---------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+---------------------------------------------------------------------------------------------------
+      place      |    1     |  9m51s(39%)  |   1570(60%)   |       3783        |       3828        
+      route      |    1     |  5m4s(20%)   |   436(16%)    |       4763        |       5091        
+  optimize_gate  |    1     |  4m13s(16%)  |    246(9%)    |       3107        |       3107        
+  optimize_rtl   |    1     |  2m56s(11%)  |    171(6%)    |       2633        |       2712        
+    fix_hold     |    1     |  2m19s(9%)   |    138(5%)    |       4772        |       5091        
+    phys_opt     |    1     |   39s(2%)    |    41(1%)     |       5047        |       5091        
+  import_device  |    1     |    9s(0%)    |     8(0%)     |       1287        |       1320        
+    import_db    |    3     |    0s(0%)    |     0(0%)     |       3108        |       3135        
+      pack       |    1     |    0s(0%)    |     0(0%)     |       3111        |       3135        
+    read_adc     |    2     |    0s(0%)    |     0(0%)     |       1860        |       2068        
+    read_sdc     |    2     |    0s(0%)    |     0(0%)     |       1860        |       2068        
+---------------------------------------------------------------------------------------------------
+      total      |    15    |    25m11s    |     2610      |       5047        |       5091        
+---------------------------------------------------------------------------------------------------

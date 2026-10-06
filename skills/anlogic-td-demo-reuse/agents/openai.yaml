@@ -1,0 +1,4 @@
+interface:
+  display_name: "安路 TD 与 PCIe 图像复用"
+  short_description: "复用六例程与独立 PCIe 修复工程，核对引脚、IP、RGB、驱动和双向图像证据"
+  default_prompt: "使用 $anlogic-td-demo-reuse，读取当前基线和验证报告，生成完整 TD 工程、RTL、引脚时序、IP 依赖及构建仿真入口；涉及 RK3576 PCIe 时读取对应参考，实际验收双向图像和异常恢复，区分源码、编译与上板状态。"

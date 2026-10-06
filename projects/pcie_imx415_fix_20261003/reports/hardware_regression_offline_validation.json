@@ -1,0 +1,78 @@
+{
+  "script_sha256": "c389fa8fabdb9f9e629ccfeec0ac30129c02e42150f7f68cdc85bac05980c428",
+  "python_heredoc_ast": "pass",
+  "lf_only": true,
+  "isolated_validator_tests": [
+    {
+      "case": "valid_capture",
+      "result": "pass"
+    },
+    {
+      "case": "zero_capture_rows_rejected",
+      "result": "pass",
+      "rejection": "capture rows=0, expected=32"
+    },
+    {
+      "case": "sequence_gap_rejected",
+      "result": "pass",
+      "rejection": "V4L2 sequence gap"
+    },
+    {
+      "case": "valid_active_csi",
+      "result": "pass"
+    },
+    {
+      "case": "zero_raw_csi_rejected",
+      "result": "pass",
+      "rejection": "CSI raw-good packet count stayed zero despite V4L2 output"
+    },
+    {
+      "case": "nonzero_but_stale_raw_csi_rejected",
+      "result": "pass",
+      "rejection": "CSI RAW counter did not increase during delivered capture frames"
+    },
+    {
+      "case": "crc_error_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in capture epoch: {'crc_errors': 1, 'ecc_errors': 0, 'wc_errors': 0, 'timeout_errors': 0, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "mid_capture_snapshot_reset_rejected",
+      "result": "pass",
+      "rejection": "unexpected CSI snapshot reset after captured data: {'index': 8, 'seconds': 0.8}"
+    },
+    {
+      "case": "initial_streamon_reset_allowed_old_errors_discarded",
+      "result": "pass"
+    },
+    {
+      "case": "missing_driver_record_rejected",
+      "result": "pass",
+      "rejection": "no fresh driver delivered/rejected/dma_errors stop record"
+    },
+    {
+      "case": "driver_complete_record",
+      "result": "pass"
+    },
+    {
+      "case": "driver_dma_error_rejected",
+      "result": "pass",
+      "rejection": "driver delivered=33 rejected=0 dma_errors=1"
+    },
+    {
+      "case": "kernel_warning_rejected",
+      "result": "pass",
+      "rejection": "new kernel warning/fault during capture: [10] WARNING: test"
+    },
+    {
+      "case": "cumulative_cma_loss_rejected",
+      "result": "pass"
+    },
+    {
+      "case": "new_aer_error_rejected",
+      "result": "pass"
+    }
+  ],
+  "hardware_run": "not_run",
+  "bash_syntax": "requires_bash_n_on_RK"
+}

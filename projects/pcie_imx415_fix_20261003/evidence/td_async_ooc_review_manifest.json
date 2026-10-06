@@ -1,0 +1,27 @@
+{
+  "status": "PASS_TD_TINY_ATTRIBUTE_API_ONLY",
+  "td_exit_code": 0,
+  "stage_counts": {
+    "rtl": 3,
+    "gate": 3,
+    "debugger": 0,
+    "place_parameter_only": 0,
+    "rtl_parameter_reenabled": 3,
+    "exact_setter_free_verified": 3
+  },
+  "main_build_before_debug_count": 196,
+  "main_post_place_physical_slice_count": 83,
+  "main_mtbf_status": "NATIVE_TOOL_CRASH_UNRESOLVED",
+  "sha256": {
+    "tools/cdc_attribute_restore_exact.tcl": "9e631c31e94849669d7870ba40a7e21fa49c62fc039df5f6079df1d8b2c5f72e",
+    "tools/td_async_ooc_trial.tcl": "042e8b1138174438eae3bda4486152c84baeb057064bd874c201ad326b2d9194",
+    "tools/td_async_ooc_trial.v": "ad3ad620cef9c19d5301c49217eee82c18e4819e388001244cb8e8171fc39a66",
+    "evidence/td_async_ooc_trial_sixth.log": "32e8ed13781b41e18be16f9e78622bd329ea4eb94b2b7a0fc77adaba9f0489e3"
+  },
+  "limitations": [
+    "No main flow modification",
+    "No physical test performed by this trial",
+    "No CDC/MTBF PASS",
+    "No board operation"
+  ]
+}

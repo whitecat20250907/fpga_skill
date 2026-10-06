@@ -1,0 +1,15 @@
+{
+  "measurement_context": "offline_surrogate_not_fpga",
+  "source": "log\\camera1.yuyv",
+  "height": 1080,
+  "quant_bits": 4,
+  "max_quant_error": 15,
+  "mse_vs_hist_eq": 80.1785,
+  "psnr_vs_hist_eq_db": 29.09,
+  "raw_gray_bytes": 2073600,
+  "packed_bytes": 1404533,
+  "compression_ratio_vs_gray": 1.4764,
+  "wire_bytes": 2764800,
+  "wire_savings_vs_original_yuyv": 0.3333,
+  "rows_with_at_least_one_lz_lane": 1080
+}

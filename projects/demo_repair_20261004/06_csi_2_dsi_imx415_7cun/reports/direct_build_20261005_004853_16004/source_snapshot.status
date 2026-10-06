@@ -1,0 +1,4 @@
+input_source=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/06_csi_2_dsi_imx415_7cun/fpga_prj.al
+staged_project=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/06_csi_2_dsi_imx415_7cun/reports/direct_build_20261005_004853_16004/fpga_prj.al
+input_al_sha256=bc6230e8fa1ff17cd901dbd63d9b6b255d4c456c4817de609c590c99f95713a4
+All listed source copies were checked byte-for-byte; hashes are configuration-time provenance.

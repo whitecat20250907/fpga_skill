@@ -1,0 +1,5 @@
+set_pin_assignment	{ I_sysclk        }	{ LOCATION = T16; IOSTANDARD = LVCMOS18;}
+																			 
+set_pin_assignment	{ O_iic_scl       }	{ LOCATION = N14; IOSTANDARD = LVCMOS18; }
+set_pin_assignment	{ IO_iic_sda      }	{ LOCATION = U16; IOSTANDARD = LVCMOS18; }
+																			 

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\td.exe",
+    "-ip",
+    "-open",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/cam27_trial.ipc",
+    "-export_to",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/generated",
+    "-comp",
+    "cam27_generated",
+    "-device",
+    "PH1A90SEG324",
+    "-use_value",
+    "copy",
+    "-nolog"
+  ],
+  "pid": 37216,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_seconds": 12.684
+}

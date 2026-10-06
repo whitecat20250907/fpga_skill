@@ -1,0 +1,48 @@
+{
+  "name": "fpga_prj",
+  "device": "PH1A90SEG324",
+  "speed": "-2",
+  "top": "uart_top",
+  "td_version": "6.2.200067",
+  "project_root": "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004",
+  "source_files": [
+    "uisrc/01_rtl/uart_top.v",
+    "uisrc/03_ip/uiuart_rx.v",
+    "uisrc/03_ip/uiuart_tx.v",
+    "uisrc/04_pin/fpga_pin.adc",
+    "uisrc/04_pin/timing.sdc"
+  ],
+  "project": "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/skill_helper_uart_clone_20261004/fpga_prj.al",
+  "errors": [],
+  "warnings": [
+    "Check simulator/author machine paths before running: uisrc/02_sim/cmd.do",
+    "Check simulator/author machine paths before running: uisrc/02_sim/modelsim.ini",
+    "Check simulator/author machine paths before running: uisrc/02_sim/verified/modelsim.ini",
+    "Check simulator/author machine paths before running: uisrc/02_sim/verified/run.do"
+  ],
+  "ip_files": [],
+  "pin_inventory": [
+    {
+      "signal": "I_sysclk",
+      "location": "T16",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    },
+    {
+      "signal": "O_uart_tx",
+      "location": "U11",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    },
+    {
+      "signal": "I_uart_rx",
+      "location": "V11",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    }
+  ],
+  "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+}

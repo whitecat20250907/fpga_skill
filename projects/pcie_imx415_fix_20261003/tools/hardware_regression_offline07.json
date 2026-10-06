@@ -1,0 +1,356 @@
+{
+  "script_sha256": "dae536fc0cc511cb3fd55c8da7be2f59d3b36e28b64e01c16827ce7890c728a3",
+  "python_heredoc_ast": "pass",
+  "lf_only": true,
+  "old_15_cases_reproduced": true,
+  "isolated_validator_tests": [
+    {
+      "case": "valid_capture",
+      "result": "pass"
+    },
+    {
+      "case": "zero_capture_rows_rejected",
+      "result": "pass",
+      "rejection": "capture rows=0, expected=32"
+    },
+    {
+      "case": "sequence_gap_rejected",
+      "result": "pass",
+      "rejection": "V4L2 sequence gap"
+    },
+    {
+      "case": "valid_active_csi",
+      "result": "pass"
+    },
+    {
+      "case": "zero_raw_csi_rejected",
+      "result": "pass",
+      "rejection": "CSI raw-good packet count stayed zero despite V4L2 output"
+    },
+    {
+      "case": "nonzero_but_stale_raw_csi_rejected",
+      "result": "pass",
+      "rejection": "CSI RAW counter did not increase during delivered capture frames"
+    },
+    {
+      "case": "crc_error_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 1, 'ecc_errors': 0, 'wc_errors': 0, 'timeout_errors': 0, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "mid_capture_snapshot_reset_rejected",
+      "result": "pass",
+      "rejection": "unexpected CSI snapshot reset after captured data: {'index': 8, 'seconds': 0.8}"
+    },
+    {
+      "case": "initial_streamon_reset_allowed_old_errors_discarded",
+      "result": "pass"
+    },
+    {
+      "case": "missing_driver_record_rejected",
+      "result": "pass",
+      "rejection": "no fresh driver delivered/rejected/dma_errors stop record"
+    },
+    {
+      "case": "driver_complete_record",
+      "result": "pass"
+    },
+    {
+      "case": "driver_dma_error_rejected",
+      "result": "pass",
+      "rejection": "driver delivered=33 rejected=0 dma_errors=1"
+    },
+    {
+      "case": "kernel_warning_rejected",
+      "result": "pass",
+      "rejection": "new kernel warning/fault during capture: [10] WARNING: test"
+    },
+    {
+      "case": "cumulative_cma_loss_rejected",
+      "result": "pass"
+    },
+    {
+      "case": "new_aer_error_rejected",
+      "result": "pass"
+    },
+    {
+      "case": "build04_12MHz_history_needs_no_27MHz_fields",
+      "result": "pass"
+    },
+    {
+      "case": "build07_valid_clock_and_fresh_snapshots",
+      "result": "pass"
+    },
+    {
+      "case": "build05_clock_guard",
+      "result": "pass"
+    },
+    {
+      "case": "build06_clock_guard",
+      "result": "pass"
+    },
+    {
+      "case": "unsupported_version_rejected",
+      "result": "pass",
+      "rejection": "unsupported CSI validation version 00000000"
+    },
+    {
+      "case": "collector_version_mismatch_rejected",
+      "result": "pass",
+      "rejection": "CSI collector bit version differs from suite manifest"
+    },
+    {
+      "case": "collector_version_missing_rejected",
+      "result": "pass",
+      "rejection": "CSI sample lacks a valid bit_version"
+    },
+    {
+      "case": "legacy_zero_hs_sample_rejected",
+      "result": "pass",
+      "rejection": "HS byte clock sampling stayed zero in an active snapshot"
+    },
+    {
+      "case": "stale_snapshot_despite_later_progress_rejected",
+      "result": "pass",
+      "rejection": "CSI coherent snapshot became stale during active capture"
+    },
+    {
+      "case": "snapshot_age_at_limit_accepted",
+      "result": "pass"
+    },
+    {
+      "case": "negative_snapshot_age_rejected",
+      "result": "pass",
+      "rejection": "CSI coherent snapshot became stale during active capture"
+    },
+    {
+      "case": "nonfinite_snapshot_age_rejected",
+      "result": "pass",
+      "rejection": "CSI coherent snapshot became stale during active capture"
+    },
+    {
+      "case": "nonfinite_timestamp_rejected",
+      "result": "pass",
+      "rejection": "CSI collector timestamp is not finite"
+    },
+    {
+      "case": "duplicate_timestamp_rejected",
+      "result": "pass",
+      "rejection": "CSI collector timestamps did not strictly advance"
+    },
+    {
+      "case": "stale_sequence_rejected",
+      "result": "pass",
+      "rejection": "CSI snapshot never progressed during capture"
+    },
+    {
+      "case": "collector_coverage_gap_rejected",
+      "result": "pass",
+      "rejection": "CSI collector has a coverage gap during active capture"
+    },
+    {
+      "case": "crc_errors_during_capture_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 1, 'ecc_errors': 0, 'wc_errors': 0, 'timeout_errors': 0, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "ecc_errors_during_capture_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 0, 'ecc_errors': 1, 'wc_errors': 0, 'timeout_errors': 0, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "wc_errors_during_capture_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 0, 'ecc_errors': 0, 'wc_errors': 1, 'timeout_errors': 0, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "timeout_errors_during_capture_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 0, 'ecc_errors': 0, 'wc_errors': 0, 'timeout_errors': 1, 'fifo_overflows': 0}"
+    },
+    {
+      "case": "fifo_overflows_during_capture_rejected",
+      "result": "pass",
+      "rejection": "CSI errors in active capture window: {'crc_errors': 0, 'ecc_errors': 0, 'wc_errors': 0, 'timeout_errors': 0, 'fifo_overflows': 1}"
+    },
+    {
+      "case": "hs_inclusive_edge_11115225",
+      "result": "pass"
+    },
+    {
+      "case": "hs_inclusive_edge_11159775",
+      "result": "pass"
+    },
+    {
+      "case": "hs_invalid_edge_0_rejected",
+      "result": "pass",
+      "rejection": "HS byte clock sampling stayed zero in an active snapshot"
+    },
+    {
+      "case": "hs_invalid_edge_4950010_rejected",
+      "result": "pass",
+      "rejection": "HS byte clock is outside 111.375MHz +/-0.2%: 4950010..4950010 edges/100ms"
+    },
+    {
+      "case": "hs_invalid_edge_11115224_rejected",
+      "result": "pass",
+      "rejection": "HS byte clock is outside 111.375MHz +/-0.2%: 11115224..11115224 edges/100ms"
+    },
+    {
+      "case": "hs_invalid_edge_11159776_rejected",
+      "result": "pass",
+      "rejection": "HS byte clock is outside 111.375MHz +/-0.2%: 11159776..11159776 edges/100ms"
+    },
+    {
+      "case": "cam27_inclusive_edge_269456",
+      "result": "pass"
+    },
+    {
+      "case": "cam27_inclusive_edge_270544",
+      "result": "pass"
+    },
+    {
+      "case": "cam27_invalid_edge_0_rejected",
+      "result": "pass",
+      "rejection": "27MHz edges outside 270000 +/-544: 0"
+    },
+    {
+      "case": "cam27_invalid_edge_120000_rejected",
+      "result": "pass",
+      "rejection": "27MHz edges outside 270000 +/-544: 120000"
+    },
+    {
+      "case": "cam27_invalid_edge_269455_rejected",
+      "result": "pass",
+      "rejection": "27MHz edges outside 270000 +/-544: 269455"
+    },
+    {
+      "case": "cam27_invalid_edge_270545_rejected",
+      "result": "pass",
+      "rejection": "27MHz edges outside 270000 +/-544: 270545"
+    },
+    {
+      "case": "cam27_locked_false_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_frequency_ok_false_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam_xclr_false_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam_config_ready_false_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_status_bit0_missing_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_status_bit1_missing_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_status_bit2_missing_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_status_bit3_missing_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_status_bit4_missing_rejected",
+      "result": "pass",
+      "rejection": "active camera 27MHz lock/frequency/window/XCLR/config-ready is not qualified"
+    },
+    {
+      "case": "cam27_field_missing_rejected",
+      "result": "pass",
+      "rejection": "27MHz diagnostic fields missing from active CSI sample"
+    },
+    {
+      "case": "cam27_window_zero_rejected",
+      "result": "pass",
+      "rejection": "27MHz measurement window is not valid"
+    },
+    {
+      "case": "cam27_cached_good_but_frozen_window_rejected",
+      "result": "pass",
+      "rejection": "27MHz window did not progress at 10ms rate: delta=0, elapsed=0.100000s"
+    },
+    {
+      "case": "cam27_slow_100ms_window_rejected",
+      "result": "pass",
+      "rejection": "27MHz window did not progress at 10ms rate: delta=1, elapsed=0.100000s"
+    },
+    {
+      "case": "cam27_fast_wrong_window_rejected",
+      "result": "pass",
+      "rejection": "27MHz window did not progress at 10ms rate: delta=100, elapsed=0.100000s"
+    },
+    {
+      "case": "cam27_window_wrap_valid",
+      "result": "pass"
+    },
+    {
+      "case": "stopped_tail_reset_clock_and_counters_not_required",
+      "result": "pass"
+    },
+    {
+      "case": "active_calibration_valid_eye",
+      "result": "pass"
+    },
+    {
+      "case": "cal_done_with_zero_eye_rejected",
+      "result": "pass",
+      "rejection": "active camera calibration has no passing eye window (best_len=0)"
+    },
+    {
+      "case": "eye_without_cal_done_rejected",
+      "result": "pass",
+      "rejection": "active camera calibration is not done"
+    },
+    {
+      "case": "active_i2c_not_done_rejected",
+      "result": "pass",
+      "rejection": "active camera I2C configuration is not done"
+    },
+    {
+      "case": "active_clock_not_qualified_rejected",
+      "result": "pass",
+      "rejection": "active camera HS byte clock presence is not qualified"
+    },
+    {
+      "case": "active_i2c_bus_error_rejected",
+      "result": "pass",
+      "rejection": "active camera I2C bus error is asserted"
+    },
+    {
+      "case": "bookended_active_calibration",
+      "result": "pass"
+    },
+    {
+      "case": "stopped_camera_no_calibration_requirement",
+      "result": "pass"
+    },
+    {
+      "case": "streamoff_during_read_no_calibration_requirement",
+      "result": "pass"
+    }
+  ],
+  "total": 73,
+  "hardware_run": "not_run",
+  "bash_syntax": "requires_bash_n_on_RK",
+  "scope": "actual extracted predicates and bookended MMIO mocks; no board/driver/kernel/clock acceptance"
+}

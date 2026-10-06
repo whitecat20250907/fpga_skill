@@ -1,0 +1,57 @@
+standard
+***Report Model: rtc_clock_ds1337 Device: PH1A90SEG324***
+
+Design Statistics
+#IO                         4   out of    148    2.70%
+  #input                    1
+  #output                   2
+  #inout                    1
+#lut                      260
+  #lut1                     4
+  #lut2                    56
+  #lut3                    50
+  #lut4                    34
+  #lut5                    30
+  #lut6                    86
+#reg                      219
+  #slice reg              219   out of 128640    0.17%
+  #pad reg                  0
+
+Utilization Statistics
+#slice*                   200   out of  64320    0.31%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic             200
+    #with luts*           140
+    #with adder            46
+    #reg only*             14
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       0   out of    272    0.00%
+  #eram20k                  0
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                        4   out of    148    2.70%
+#pll                        0   out of     12    0.00%
+#gclk                       0   out of     32    0.00%
+#lclk                       0   out of     36    0.00%
+#sclk                       0   out of     96    0.00%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+* Note! The LUT and Slice count after Optimize-Gate is not the final value, Run Optimize-place for a more realistic count.
+
+Report Hierarchy Area:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance             |Module           |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                  |rtc_clock_ds1337 |140       |46      |219     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  X_ui_i2c           |ui_i2c           |44        |0       |68      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  X_ui_uart_tx_block |ui_uart_tx_block |65        |16      |86      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    X_ui_uart_tx     |ui_uart_tx       |20        |0       |24      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+

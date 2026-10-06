@@ -1,0 +1,17 @@
+{
+  "cam_video_source.v": {
+    "input": "fpga/uisrc/03_ip/vid_pipeline/cam_video_source.v",
+    "input_sha256": "12d8583b9118747ef3fde0078722c3b50e08653621a377cf78b9c15ac4169380",
+    "candidate_sha256": "b1e2a6c265e54b0feb515654cd3779c6de62312c5672591dbd306f20743e2192"
+  },
+  "ui_top_demosaic.v": {
+    "input": "fpga/uisrc/03_ip/ui_isp/ui_top_demosaic.v",
+    "input_sha256": "7882f4dd98840779df6b37e6af70e413d3ce02f717e203ef0536fa7bc22d93fc",
+    "candidate_sha256": "9cd6b66cf894553440e17c3235fb107a8d5562f18b0bde29267520f2f1a7a053"
+  },
+  "ui_bilinear_interpolation.v": {
+    "input": "fpga/uisrc/03_ip/ui_isp/ui_bilinear_interpolation.v",
+    "input_sha256": "e86789c671504a7504871d14ecc51bbdc73040f1af732d8fe8ccce6cd4474a5e",
+    "candidate_sha256": "2cf8f8ebe514478a8f6668ed5efe970a4fac8122f1ba99e5a44eed4e78b0c780"
+  }
+}

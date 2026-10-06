@@ -1,0 +1,86 @@
+{
+  "created_utc": "2026-10-05T14:38:10.236187+00:00",
+  "result": "SDF_TOOL_BLOCKED_NO_DATA",
+  "frozen_manifest_sha256": "be7e6ef295ab8b9b8e9229b14c63b50b4d04a80b54f446a08114aaba85fd04f9",
+  "production_sources_unchanged": {
+    "rx_clk_gen.v": "3c568be86e4bed43ebab2e5318aced934993ee043b0c7b2137c4c3116034ef13",
+    "csi_rx_phy.v": "df203275a110d9889fc027a2a261315f77284f22899ac38e2cd090a56fef3905",
+    "csi_rx_hs_data_phy.v": "a8161b7d0eae646302e8e4265c90ee63ee8e5ee0b2a96f9ed1f1f1517d25a4d9"
+  },
+  "matched_netlist_sha256": "ed6e8e4711312479201f8ac7f5309b65a37d5b03be692614b83bbc37ea782ffe",
+  "matched_sdf_sha256": "cafdf6ddee0741dedaef089c613d3c2f02fe3bf8d7bc383b9443bf17e6a11168",
+  "tests_reproducer": {
+    "local_clock09_sdf.do": "da6607f282d6f45bc387abbae68daacf348be212617643a6861e4edf7bf31a15",
+    "tb_csi_local_clock09_sdf.sv": "ed84c3ed3289d6abbe3ac596206d1de267cdbfa8cc7de0981cf512c17ec66da8"
+  },
+  "trials": [
+    {
+      "mode": "explicit_delayed_timing_checks",
+      "log": "evidence/sdf_20261005_072835_14388/simulation.log",
+      "log_sha256": "25dea92d689cc430c937165dee5c03d0bbbe99f3d79d7bc23df1ae87c03bada6",
+      "native_exit_code": 211,
+      "simulation_time_ps": 0,
+      "run_all_reached": false,
+      "golden_bytes_executed": 0,
+      "phases_completed": 0,
+      "warning_id_counts": {
+        "vsim-8891": 1,
+        "vsim-3017": 509,
+        "vsim-3722": 15266,
+        "vsim-12070": 2,
+        "vsim-3016": 25,
+        "vsim-8756": 1,
+        "vsim-3448": 248,
+        "vsim-3004": 1696
+      },
+      "io_path_annotation": 1877,
+      "scalar_mipd_annotation": 2572,
+      "interconnect_constructs_read": 2573,
+      "timing_checks_annotated": 2720,
+      "unannotated_report_sha256": "dc9f1f56c4c294fd6919acc5f8dbea6a5c3509a4efe061ba22e8bf7becd9d013",
+      "stacktrace_files": {
+        "vsim_stacktrace.vstf": "2c661d6f8b9c0bd4c18eb45e08ae0b718d8daac6e97521c5e4dd4f70e2d44b69"
+      }
+    },
+    {
+      "mode": "default_timing_checks",
+      "log": "evidence/sdf_20261005_073212_15080/simulation.log",
+      "log_sha256": "a90fd4dcf7b412c9afaaa58a28d3e5e7d907d0dacdbb1234db54b245b7a64cd2",
+      "native_exit_code": 211,
+      "simulation_time_ps": 0,
+      "run_all_reached": false,
+      "golden_bytes_executed": 0,
+      "phases_completed": 0,
+      "warning_id_counts": {
+        "vsim-8891": 1,
+        "vsim-3017": 509,
+        "vsim-3722": 15266,
+        "vsim-12070": 2,
+        "vsim-3016": 25,
+        "vsim-8756": 1,
+        "vsim-3448": 248,
+        "vsim-3004": 1696
+      },
+      "io_path_annotation": 1877,
+      "scalar_mipd_annotation": 2572,
+      "interconnect_constructs_read": 2573,
+      "timing_checks_annotated": 2720,
+      "unannotated_report_sha256": "dc9f1f56c4c294fd6919acc5f8dbea6a5c3509a4efe061ba22e8bf7becd9d013",
+      "stacktrace_files": {
+        "vsim_stacktrace.vstf": "a8b0ad58bb467f8bb4ba0ddf29c25e35e030570d9e238712db56b05d25f33b98"
+      }
+    }
+  ],
+  "no_manual_negative_clamp_or_disable_checks": true,
+  "no_model_or_netlist_modified": true,
+  "dynamic_nonzero_delay_effect_not_observed": true,
+  "negative_checks_model_compatibility_unresolved": true,
+  "tools_probe_stopped": true,
+  "native_functional_golden": "PASS_SEPARATE_83_PACKETS_8320_LANE_BYTES",
+  "tiny_internal_sta_ns": {
+    "setup": 0.174,
+    "hold": 0.022
+  },
+  "full_project_and_board_acceptance": "INDEPENDENT_PARENT_GATES_NOT_CERTIFIED_HERE",
+  "report_sha256": "5228d9d16168476cf081cbef31d0846cec8f29bc221fcaaa8c508afbfc5c4fa6"
+}

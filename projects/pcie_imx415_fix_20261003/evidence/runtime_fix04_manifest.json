@@ -1,0 +1,12 @@
+{
+  "deploy/sgdma_drv/anlogic_pci_lib.c": "5b2e7bd47141315e7c5c4701d4a08ed9709994c82b140b04906045bfc76663ed",
+  "deploy/sgdma_drv/anlogic_pci_lib.h": "b4b8baa97de802d9dea944e25f25712b64f7c0b36dcc6d21ebaff13aa4758dbc",
+  "deploy/sgdma_drv/cdev_sgdma.c": "ee2c33618af7241713c14fb4e35c3a2f4c4728dae430d78c8465a86d47014007",
+  "deploy/sgdma_drv/Makefile": "149d96cb47d36a4e916f06efd7ead3b4678f019bbcffc9805b6c706cfe2f6b38",
+  "deploy/v4l2_drv/milianke_v4l2_zerocopy.c": "ff9f740a99aa9eb8fe30b022ec1a5120a7caa4649b6b1ddca35c182605ccea93",
+  "deploy/v4l2_drv/Makefile": "9fd6b59ad71a2f54b3d608f59425e0e89bf13c370a25c2e92d0e85b044a6ea8f",
+  "deploy/pcie_setup.sh": "989379d9429db064304b3b35ba1fd15dc3728449ae2f039d9fa239d8742b46ca",
+  "tools/image_roundtrip.c": "bfd252923c286e2364056581d8be1b207d3c18216f2559389373feb3a82b6df9",
+  "tools/read_csi_stats.py": "f48f5a481aca506320f525de06788d48656071458958df734a269a7940f81e3d",
+  "tools/capture_verify.c": "d76b4a9a9c9a379e0a9ff24a693cab2461f565bae8879cc898f5ddd43fa0a6a3"
+}

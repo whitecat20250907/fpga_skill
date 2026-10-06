@@ -1,0 +1,5 @@
+status=CDC_NOT_REPORTED
+mandatory=0
+command_return=0
+message=
+A produced report is not CDC sign-off; review UNDEFINED paths and coverage.

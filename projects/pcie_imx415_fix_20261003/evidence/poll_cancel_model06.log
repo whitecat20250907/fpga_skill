@@ -1,0 +1,3 @@
+PASS: 20 poll interleavings; 10 lifetime interleavings; 66 stop states; 24 source guards
+Negative controls detected stale service and cancelled timeout.
+Boundary: no kernel compile/board test; BUSY0 semantics for final posted WB need vendor confirmation.

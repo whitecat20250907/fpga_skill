@@ -1,0 +1,238 @@
+Table of Contents
+-----------------
+1. checking no clock(0) (HIGH)
+2. checking clock definition(0) (HIGH)
+3. checking dummy node(3) (HIGH)
+4. checking invalid constraint(0) (HIGH)
+5. checking pll/clock buffer clock constraints(0) (HIGH)
+6. checking combinational loops(0) (HIGH)
+7. checking soft fifo timing exception constraints(0) (HIGH)
+8. checking no path constraints(0) (MEDIUM)
+9. checking shadowed/ignored timing exception constraints(0) (MEDIUM)
+10. checking no input delay(22) (MEDIUM)
+11. checking no output delay(48) (MEDIUM)
+12. checking partial input delay(0) (MEDIUM)
+13. checking partial output delay(0) (MEDIUM)
+14. checking abnormal input delay(0) (MEDIUM)
+
+
+1. checking nets with no clock driven. (HIGH)
+---------------------------------------------
+2. checking clock definition problems. (HIGH)
+---------------------------------------------
+2.1 There are 0 leaf clock pins driven by multiple clocks. (HIGH)
+
+
+2.2 There are 0 clocks created on internal clock network. (HIGH)
+
+
+2.3 There are 0 unexpandable clock sets. (HIGH)
+
+
+2.4 There are 0 local clocks. (HIGH)
+
+
+2.5 There are 0 generated clocks that are not connected to their master clocks. (HIGH)
+
+
+3. checking dummy nodes. (HIGH)
+---------------------------------------------
+There are 3 nodes are dangling. (HIGH)
+
+DummyNode in Model: PH1_PHY_DDR_PAD
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[13]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[12]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[11]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[10]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[9]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[8]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[7]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[6]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[5]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[4]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[3]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[2]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[1]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_addr[0]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ba[2]$u_ddriob_ba/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ba[1]$u_ddriob_ba/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ba[0]$u_ddriob_ba/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_cas$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ck[1]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ck[0]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_cke[0]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_cs[0]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_odt[0]$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_ras$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_rst$u_ddrio/u_ddrphy_pad.pad
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/u_ddrphy_pad_wraper/ddrio_we$u_ddrio/u_ddrphy_pad.pad
+
+DummyNode in Model: PH1_PHY_ERAM
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_118.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_88.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_94.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_98.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_108.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_104.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_124.orstb
+	X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/u_mcu_core/u_mcu_core_tcm/ramread0_syn_114.orstb
+
+DummyNode in Model: PH1_PHY_LSLICE
+	X_ui_fdma_test/X_cwc/ChipWatcher_Inst/wrapper_cwc_top/U_cwc/TRIG_ONLY_MODE$U_emb_ctrl/stop_count_reg[5]_syn_2.ofa
+
+4. checking invalid constraints. (HIGH)
+---------------------------------------------
+There are 0 invalid constraints. (HIGH)
+
+
+5. checking PLL/buffer clocks. (HIGH)
+---------------------------------------------
+PLL/buffer inst: X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll0/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+PLL/buffer inst: X_ui_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/pll_inst
+{
+	There are 0 clock pins that have no clock constraints. (HIGH)
+
+
+	There are 0 clocks whose clock frequency do not match the PLL setting. (HIGH)
+
+
+}
+
+6. checking combinational loops. (HIGH)
+---------------------------------------------
+There are 0 combinational loops. (HIGH)
+
+
+7. checking soft fifo set_max_delay constraints. (HIGH)
+---------------------------------------------
+There are 0 max-delay datapath-only paths that are part of the provided async clock paths, whereas the timing between other registers is not relaxed or ignored. (HIGH)
+
+
+8. checking no path constraints. (MEDIUM)
+---------------------------------------------
+There are 0 constraints that have no timing paths. (MEDIUM)
+
+
+9. checking path exception constraints shadowed/ignored by other constraints. (MEDIUM)
+---------------------------------------------
+
+MCP/SMD Summary
+--------------------
+
+		Max Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+		       220          220            0            0   set_max_delay -nowarn -from [get_regs {debug_hub_top/U_*_handshake_sync_ctrl/bus_data_r_aclk[*]}] -to [get_regs {debug_hub_top/U_*_handshake_sync_ctrl/bus_data_r_bclk[*]}] -datapath_only 2
+		        24           24            0            0   set_max_delay -nowarn -from [get_regs {debug_hub_top/U_*_handshake_sync_stat/bus_data_r_bclk[*]}] -to [get_regs {debug_hub_top/U_*_handshake_sync_stat/bus_data_r_aclk[*]}] -datapath_only 2
+		         2            2            0            0   set_max_delay -nowarn -from [get_regs {debug_hub_top/U_*_handshake_sync_*/U_handshake_sync/req_aclk*}] -to [get_regs {debug_hub_top/U_*_handshake_sync_*/U_handshake_sync/req_sync1_bclk*}] -datapath_only 2
+		         2            2            0            0   set_max_delay -nowarn -from [get_regs {debug_hub_top/U_*_handshake_sync_*/U_handshake_sync/ack_bclk*}] -to [get_regs {debug_hub_top/U_*_handshake_sync_*/U_handshake_sync/ack_sync1_aclk*}] -datapath_only 2
+		         6            6            0            0   set_max_delay -nowarn -from [get_regs {debug_hub_top/U_tap/rst*}] -to [get_regs {debug_hub_top/slave_*_rst_sync*}] -datapath_only 2
+
+		Min Check
+		--------------------
+		     Total    Dominated     Shadowed      Ignored   Constraint
+
+10. checking no input delay (MEDIUM)
+--------------------------
+There are 22 input ports that with no input delay specified. (MEDIUM)
+
+	ddr_dm[1]
+	ddr_dm[0]
+	ddr_dq[15]
+	ddr_dq[14]
+	ddr_dq[13]
+	ddr_dq[12]
+	ddr_dq[11]
+	ddr_dq[10]
+	ddr_dq[9]
+	ddr_dq[8]
+	ddr_dq[7]
+	ddr_dq[6]
+	ddr_dq[5]
+	ddr_dq[4]
+	ddr_dq[3]
+	ddr_dq[2]
+	ddr_dq[1]
+	ddr_dq[0]
+	ddr_dqs_n[1]
+	ddr_dqs_n[0]
+	ddr_dqs_p[1]
+	ddr_dqs_p[0]
+
+11. checking no output delay (MEDIUM)
+--------------------------
+There are 48 output ports that with no output delay specified. (MEDIUM)
+
+	ddr_addr[13]
+	ddr_addr[12]
+	ddr_addr[11]
+	ddr_addr[10]
+	ddr_addr[9]
+	ddr_addr[8]
+	ddr_addr[7]
+	ddr_addr[6]
+	ddr_addr[5]
+	ddr_addr[4]
+	ddr_addr[3]
+	ddr_addr[2]
+	ddr_addr[1]
+	ddr_addr[0]
+	ddr_ba[2]
+	ddr_ba[1]
+	ddr_ba[0]
+	ddr_cas_n
+	ddr_ck_n
+	ddr_ck_p
+	ddr_cke[0]
+	ddr_cs_n[0]
+	ddr_dm[1]
+	ddr_dm[0]
+	ddr_dq[15]
+	ddr_dq[14]
+	ddr_dq[13]
+	ddr_dq[12]
+	ddr_dq[11]
+	ddr_dq[10]
+	ddr_dq[9]
+	ddr_dq[8]
+	ddr_dq[7]
+	ddr_dq[6]
+	ddr_dq[5]
+	ddr_dq[4]
+	ddr_dq[3]
+	ddr_dq[2]
+	ddr_dq[1]
+	ddr_dq[0]
+	ddr_dqs_n[1]
+	ddr_dqs_n[0]
+	ddr_dqs_p[1]
+	ddr_dqs_p[0]
+	ddr_odt[0]
+	ddr_ras_n
+	ddr_reset_n
+	ddr_we_n
+
+12. checking partial input delay (MEDIUM)
+--------------------------
+There are 0 input ports with partial input delay specified. (MEDIUM)
+
+
+13. checking partial output delay (MEDIUM)
+--------------------------
+There are 0 output ports with partial output delay specified. (MEDIUM)
+
+
+14. checking abnormal set_input_delay constraints. (MEDIUM)
+---------------------------------------------
+There are 0 abnormal set_input_delay constraints. (MEDIUM)
+
+

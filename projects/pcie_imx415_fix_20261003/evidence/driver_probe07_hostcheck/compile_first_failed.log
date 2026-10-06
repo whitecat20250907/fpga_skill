@@ -1,0 +1,9 @@
+E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\driver_probe07_hostcheck\probe_rollback_hostcheck.c: In function 'probe_for_engine':
+E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\driver_probe07_hostcheck\probe_rollback_hostcheck.c:230:55: error: comparison between signed and unsigned integer expressions [-Werror=sign-compare]
+  if ((engine_id != engine_id_expected) || (channel_id != channel)) {
+                                                       ^~
+E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\driver_probe07_hostcheck\probe_rollback_hostcheck.c: In function 'engine_destroy':
+E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\evidence\driver_probe07_hostcheck\probe_rollback_hostcheck.c:259:3: error: implicit declaration of function 'pr_err' [-Werror=implicit-function-declaration]
+   pr_err("Invalid sgdev\n");
+   ^~~~~~
+cc1.exe: all warnings being treated as errors

@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-05T14:07:56.566561+00:00",
+  "source_sha256": {
+    "rx_clk_gen.v": "3c568be86e4bed43ebab2e5318aced934993ee043b0c7b2137c4c3116034ef13",
+    "csi_rx_phy.v": "e8be1508d593673991ceb1e36d21029e460c82b20862a999d2b64b6035047b7c",
+    "csi_rx_hs_data_phy.v": "a8161b7d0eae646302e8e4265c90ee63ee8e5ee0b2a96f9ed1f1f1517d25a4d9",
+    "local_clock09.do": "0707c027fd85b6f772f73bcb51b43d7f8057f88dc7da132f436bd0aa820fa967",
+    "tb_csi_local_clock09.sv": "fc5e5301d7a15c99c9ae482a1d1f89ff1e9c803467e599587ceba5fb6d9c8423",
+    "td_local09_top.v": "133431281133f4799858cef2f2acb379906994d2361779a9083b8f62479a8a5c",
+    "td_local09.adc": "e6a5be02c0547c04b31a82e004aad2a6f1e1b3b2c33c416589ee3b0efb9b450a",
+    "td_local09.sdc": "071f84d23abef7e59aea1fd6ee6cd81e39016dd8d445f7207233450f3347f119",
+    "td_local09.tcl": "5740b3eaa729008e77cdd3c49539919b2f59ce5f69a3214e2653b8069c72b8ad",
+    "README.md": "53a253de5b48103601a2819125c5b75ef83138cb04dbb682eb6682c5f2590b56"
+  },
+  "result": "FUNCTIONAL_PASS_ROUTED_SETUP_FAIL_NOT_HARDWARE_PASS",
+  "native_model": "E:/qianrufpga/TD/sim_release/ph1/ph1_phy_lclk_v2.v",
+  "native_model_sha256": "1cdc6f4e9a88ac4272694a0d29fa48a14a1b7809847b2ab447a0618d9a73c918",
+  "functional": {
+    "log": "tools/csi_local_clock09/evidence/modelsim_20261005_065614_2640/simulation.log",
+    "complete_packets": 83,
+    "golden_lane_bytes": 8320,
+    "local_global_native_phase_checks": 58229,
+    "common_reset_checks": 58372,
+    "errors": 0,
+    "warnings": 1,
+    "warning": "8891 -novopt"
+  },
+  "route": {
+    "output": "tools/csi_local_clock09/evidence/td_route_20261005_070137_41408",
+    "all_real_IO_count": 7,
+    "SYN_6021": 0,
+    "SYN_6024": 0,
+    "setup_ns": -0.091,
+    "hold_ns": 0.028,
+    "PAD_PCLK_removal_min_ns": 0.565,
+    "PAD_SCLK_removal_min_ns": 0.739,
+    "negative_paths": 1,
+    "remaining_negative": "sampler[2] to PAD3.rst recovery",
+    "PAD_PCLK_has_GCLK": false,
+    "fabric_PCLK_has_GCLK": true
+  },
+  "SDF": "PENDING",
+  "board": "NOT_TESTED",
+  "main_and_08_modified": false
+}

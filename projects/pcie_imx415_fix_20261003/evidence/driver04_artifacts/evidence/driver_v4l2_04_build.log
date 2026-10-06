@@ -1,0 +1,23 @@
+make: 进入目录“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv”
+make: 警告：文件“Makefile”的修改时间在未来 11287885 秒后
+make -C /usr/src/linux-headers-6.1-rockchip M=/home/linaro/pcie_fix_20261003/deploy/v4l2_drv KBUILD_EXTRA_SYMBOLS=/home/linaro/pcie_fix_20261003/deploy/sgdma_drv/Module.symvers modules
+make[1]: 进入目录“/usr/src/linux-headers-6.1-rockchip”
+make[1]: 警告：文件“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv/modules.order”的修改时间在未来 1527 秒后
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621
+  You are using:           gcc (Debian 12.2.0-14+deb12u1) 12.2.0
+make[2]: 警告：文件“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv/.modules.order.cmd”的修改时间在未来 1527 秒后
+  CC [M]  /home/linaro/pcie_fix_20261003/deploy/v4l2_drv/milianke_v4l2_zerocopy.o
+  LD [M]  /home/linaro/pcie_fix_20261003/deploy/v4l2_drv/milianke_v4l2.o
+make[2]: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make[2]: 警告：文件“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv/.Module.symvers.cmd”的修改时间在未来 1525 秒后
+  MODPOST /home/linaro/pcie_fix_20261003/deploy/v4l2_drv/Module.symvers
+make[2]: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make[2]: 警告：文件“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv/.milianke_v4l2.mod.o.cmd”的修改时间在未来 1525 秒后
+  CC [M]  /home/linaro/pcie_fix_20261003/deploy/v4l2_drv/milianke_v4l2.mod.o
+  LD [M]  /home/linaro/pcie_fix_20261003/deploy/v4l2_drv/milianke_v4l2.ko
+make[2]: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make[1]: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make[1]: 离开目录“/usr/src/linux-headers-6.1-rockchip”
+make: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make: 离开目录“/home/linaro/pcie_fix_20261003/deploy/v4l2_drv”

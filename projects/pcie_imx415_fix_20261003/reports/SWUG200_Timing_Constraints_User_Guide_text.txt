@@ -1,0 +1,3929 @@
+PAGE 1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TangDynasty®时序约束用户手册 
+ 
+ 
+上海安路信息科技股份有限公司 
+ 
+SWUG_200（TD6.2.2）2026 年01 月 
+ 
+ 
+ 
+ 
+ 
+ 
+
+PAGE 2
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+I 
+2026.01 
+ 
+ 
+ 
+目 录 
+目 录 ....................................................... I 
+1 概述 ...................................................... 1 
+2 时序约束基本概念 .......................................... 2 
+2.1 主时钟(Primary Clock) ..................................................... 2 
+2.2 虚拟时钟(Virtual Clock) ................................................... 2 
+2.3 生成时钟(Generate Clock) .................................................. 2 
+2.4 时钟组(Clock Groups) ...................................................... 3 
+2.5 时钟延迟(Clock Latency) ................................................... 3 
+2.6 时钟不确定性(Clock Uncertainty) ........................................... 3 
+2.7 输入延迟(Input Delay) ..................................................... 3 
+2.8 输出延迟(Output Delay) .................................................... 4 
+2.9 多周期路径(Multicycle Paths) .............................................. 4 
+2.10 无效路径(False Paths) .................................................... 4 
+2.11 最小最大延迟(Min/Max Delays) ............................................. 5 
+3 静态时序分析原理 .......................................... 6 
+3.1 基本时序概念 .............................................................. 6 
+3.1.1 建立时间(Setup time) ................................................ 6 
+3.1.2 保持时间(Hold time) ................................................. 6 
+3.1.3 恢复时间(Recovery time) ............................................. 6 
+3.1.4 移除时间(Removal time) .............................................. 6 
+3.1.5 源时钟(Source clock)/发送时钟(Launch clock) ......................... 6 
+3.1.6 目的时钟(Destination clock)/捕获时钟(Capture clock) ................. 6 
+3.1.7 发送沿(Launch edge) ................................................. 6 
+
+PAGE 3
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+II 
+2026.01 
+ 
+ 
+ 
+3.1.8 捕获沿(Capture edge) ................................................ 6 
+3.1.9 到达时间(Arrival time) .............................................. 7 
+3.1.10 要求时间(Required time) ............................................ 7 
+3.1.11 建立检查(Setup check) .............................................. 7 
+3.1.12 保持检查(Hold check) ............................................... 7 
+3.1.13 恢复检查(Recovery check) ........................................... 7 
+3.1.14 移除检查(Removal check) ............................................ 7 
+3.1.15 时序裕量(Timing Slack) ............................................. 7 
+3.2 时序路径分类 .............................................................. 8 
+3.2.1 从输入端口到内部寄存器的路径 ........................................ 8 
+3.2.2 从寄存器到寄存器的内部路径 .......................................... 8 
+3.2.3 从内部寄存器到输出端口的路径 ........................................ 8 
+3.2.4 从输入端口到输出端口的路径 .......................................... 8 
+3.2.5 时序路径组成 ........................................................ 9 
+3.2.6 发送沿和捕获沿 ...................................................... 9 
+3.3 时序路径分析与计算 ....................................................... 10 
+3.3.1 概述 ............................................................... 10 
+3.3.2 建立检查路径时间分析 ............................................... 10 
+3.3.3 保持检查路径时间分析 ............................................... 12 
+3.3.4 恢复检查与移除检查分析 ............................................. 13 
+3.3.5 时钟不确定性（Timing Uncertainty）分析 ............................. 13 
+3.3.6 时序悲观（Timing Pessimism）分析 ................................... 14 
+4 时序约束典型场景分析 ..................................... 16 
+4.1 时钟约束 ................................................................. 16 
+4.1.1 I/O 管脚时钟约束 .................................................... 16 
+4.1.2 高速串行收发器单元时钟约束 ......................................... 16 
+
+PAGE 4
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+III 
+2026.01 
+ 
+ 
+ 
+4.1.3 PCIE 单元时钟约束 ................................................... 17 
+4.1.4 锁相环PLL 单元时钟约束 ............................................. 17 
+4.1.5 时钟组约束 ......................................................... 18 
+4.1.6 时钟选择单元约束 ................................................... 20 
+4.2 I/O 延迟约束 .............................................................. 20 
+4.2.1 系统同步与源同步概述 ............................................... 20 
+4.2.2 输入延迟约束-系统同步-上升沿采样 ................................... 22 
+4.2.3 输入延迟约束-系统同步-下降沿采样 ................................... 23 
+4.2.4 输入延迟约束-系统同步-双沿采样 ..................................... 24 
+4.2.5 输入延迟约束-源同步-边沿对齐-上升沿采样 ............................ 26 
+4.2.6 输入延迟约束-源同步-边沿对齐-下降沿采样 ............................ 28 
+4.2.7 输入延迟约束-源同步-边沿对齐-双沿采样 .............................. 30 
+4.2.8 输入延迟约束-源同步-中心对齐-上升沿采样 ............................ 33 
+4.2.9 输入延迟约束-源同步-中心对齐-下降沿采样 ............................ 35 
+4.2.10 输入延迟约束-源同步-中心对齐-双沿采样 ............................. 36 
+4.2.11 输出延迟约束-系统同步-上升沿采样 .................................. 38 
+4.2.12 输出延迟约束-系统同步-下降沿采样 .................................. 39 
+4.2.13 输出延迟约束-系统同步-双沿采样 .................................... 40 
+4.2.14 输出延迟约束-源同步-上升沿采样 .................................... 42 
+4.2.15 输出延迟约束-源同步-下降沿采样 .................................... 45 
+4.2.16 输出延迟约束-源同步-双沿采样 ...................................... 47 
+4.3 时序例外约束 ............................................................. 50 
+4.3.1 伪路径（false path）约束 ........................................... 50 
+4.3.2 异步fifo 约束 ...................................................... 51 
+4.3.3 最大/最小延迟（Max/Min delay）约束 ................................. 52 
+4.3.4 多周期路径（multicycle_path）约束 .................................. 52 
+
+PAGE 5
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+IV 
+2026.01 
+ 
+ 
+ 
+版本信息 ................................................... 62 
+免责声明 ................................................... 63 
+ 
+ 
+
+PAGE 6
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+1 
+2026.01 
+ 
+ 
+ 
+1 概述 
+本文描述了静态时序分析(Static Timing Analysis)涉及的基本概念、命令及原理，介绍了
+TangDynasty®（以下简称TD 软件）软件时序工具支持的时序约束命令，详细阐述了命令的参数、使用
+和示例。另外针对典型的场景进行了时序约束的分析与示例。 
+
+PAGE 7
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+2 
+2026.01 
+ 
+ 
+ 
+2 时序约束基本概念 
+本章介绍静态时序分析(Static Timing Analysis)涉及的基本概念。 
+2.1 主时钟(Primary Clock) 
+主时钟是指通过外部输入引脚进入FPGA 内部的时钟。 
+该时钟进入到FPGA 内部后，TD 综合时会产生相对应的网表名字，该网表名字表示设计中的所有该
+时钟的扇出对象都从该点开始时序分析。这个点是主时钟的源点，它定义了TD 时序分析工具中的时钟
+延迟和不确定性时使用的时间零点位置。 
+主时钟的对象是外部输入管脚，其中包含FPGA 内部的硬核单元输出管脚，比如serdes 的恢复时
+钟、内部振荡器时钟等。 
+2.2 虚拟时钟(Virtual Clock) 
+虚拟时钟是指在物理上未连接到FPGA 任何网表对象的时钟。 
+一般情况下虚拟时钟用于指定输入和输出I/O 延迟的约束。比如，输入FPGA 的I/O 的时钟没有实
+际存在于FPGA 中；不修改内部时钟特性，只改变I/O 的延迟，限制相关的I/O 指定不同的延迟。 
+2.3 生成时钟(Generate Clock) 
+生成时钟在FPGA 内部通常由PLL、某些用户逻辑或硬核时钟单元电路产生的。 
+生成时钟是由主时钟派生的。使用create_generation_clock 命令进行生成时钟的约束，描述生成
+时钟如何转换的主时钟，不仅仅是描述其周期或者波形。 
+主时钟与生成时钟之间的关系如下： 
+ 
+整数分频 
+ 
+整数倍频 
+ 
+小数倍频，一般由PLL 完成 
+ 
+移相 
+ 
+波形反转 
+ 
+占空比调整 
+ 
+
+PAGE 8
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+3 
+2026.01 
+ 
+ 
+ 
+2.4 时钟组(Clock Groups) 
+时钟组是将用户指定的时钟按照时钟域划分为不同的小组，分好时钟组后时序工具将不分析时钟
+组与组之间的时序路径。 
+TD 时序分析工具默认情况下会对设计中所有时钟之间的路径进行时序分析，如果使用了时钟组或
+无效路径进行了约束，将不分析时钟组间和无效路径的相关路径。 
+2.5 时钟延迟(Clock Latency) 
+板上时钟源经过PCB板子和FPGA器件内部的走线传输，时钟到达目的单元后会有一个确定的延迟，
+这个延迟称为时钟延时。该延迟可以分为两个部分，一个是源端延迟，另一个是网络延迟。 
+源端延迟指在FPGA 器件外，时钟源进入到FPGA 源点前的传输延迟，这部分延迟与PCB 设计相关，
+需要用set_clock_latency 命令进行约束。 
+网络延迟指时钟在FPGA 内部走线带来的延迟。TD 时序分析工具会自动分析计算该延迟，布线后可
+以得到一个精确的值。对于生成时钟，包含其本身的网络延迟和上级时钟的网络延迟两部分。 
+2.6 时钟不确定性(Clock Uncertainty) 
+使用set_clock_uncertainty 命令可以根据需要为不同的PVT 的芯片定义时钟的不确定性。从时
+序的角度来看，这是一种为设计的时序增加额外裕量的方法。主时钟的不确定性不会传播到下游生成的
+时钟。 
+2.7 输入延迟(Input Delay) 
+set_input_delay 命令指定相对于设计上的时钟沿在输入端口上的输入路径延迟。输入延迟表示数
+据从外部芯片通过电路板传播到FPGA 的输入引脚和参考板时钟的相位差。输入延迟取决于发送时钟沿
+和数据的相对相位。 
+当数据从FPGA 的外部输入引脚送入FPGA 的内部寄存器时，时序分析有launch clock 以及capture 
+clock，前者负责将数据从外部寄存器中送出，后者要在setup 和hold 都满足的情况下将数据锁入FPGA
+的内部寄存器。在这个过程中，如果launch clk 将数据送出到达FPGA 内部寄存器端口，路径的setup
+或hold check 没有满足，数据就不能被正确锁存，利用set_input_delay 命令设置正确的外部延时，
+就是用于捕获这样来自于外部的时序隐患，同时指导TD 时序分析工具在优化时尽量满足时序条件。 
+在设置约束的过程中，注意区分系统同步和源同步情况。在系统同步情况下，set_input_delay 时
+launch clk 应该为外部器件的数据发送时钟，如果没有，可以设置一个虚拟时钟，capture clk 应该为
+FPGA 内部采样时钟。如果外部输入信号的launch clock 也来自FPGA 芯片中，此时软件在时序分析时
+会自动考虑该时钟在FPGA 内部的延时。 
+
+PAGE 9
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+4 
+2026.01 
+ 
+ 
+ 
+2.8 输出延迟(Output Delay) 
+set_output_delay 命令指定相对于设计上的时钟沿在输出端口的输出路径延迟。此延迟表示数据
+从FPGA 的输出引脚通过板子传播到另一个设备和参考板时钟的相位差。 
+输出延迟值可以为正或为负，正负只表示相对时钟沿的位移方向，具体取决于FPGA 外部的时钟和
+数据相对相位。 
+2.9 多周期路径(Multicycle Paths) 
+通常情况下，两个同步的寄存器进行Timing Check 时，组合逻辑的延迟必须在一个时钟周期内到
+达，才能满足setup 的时序要求。在某些情况下，从一个寄存器输出到另外一个寄存器的数据端可以允
+许不止一个周期的时间，而且又不影响逻辑的功能。此时，我们可以将这样的路径约束为Multicycle 
+Path。 
+多周期路径的约束允许用户根据设计时钟波形来修改原来确定的建立和保持关系。默认情况下，TD
+时序分析工具执行单周期分析。这种分析可能过于严格，不适用于某些逻辑路径。典型的例子是组合逻
+辑路径，需要多个时钟周期才能使数据稳定在端点上。 
+2.10 无效路径(False Paths) 
+False Path 是在进行综合分析时，不希望综合工具进行分析的那些路径。可从下面两种角度进行
+分类： 
+ 
+从逻辑上考虑：与电路正常工作不相关的那些路径，比如测试逻辑，静态或准静态逻辑。 
+ 
+从时序上考虑：在综合时不需要分析的那些路径，比如并不存在真实逻辑关系的跨越异步时钟域
+的路径。 
+建立False Path 的方法有两种方式实现: 
+ 
+set_false_path 约束在涉及到特定节点时使用； 
+ 
+set_clock_groups 约束在涉及到时钟域时使用。 
+在具体实现过程中，系统将自动识别经过用户指定的这一段路径相关的所有完整路径，并在时序分
+析和优化时将其忽略。通过提前设定合理的False Path，可以指导软件将优化的主要目标放在真正关
+键的路径上。 
+无效路径的示例包括： 
+ 
+添加了双重同步器逻辑的时钟域交叉点 
+ 
+上电时可能一次写入的寄存器 
+
+PAGE 10
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+5 
+2026.01 
+ 
+ 
+ 
+ 
+复位或测试逻辑 
+ 
+忽略异步DRAM 的写时钟与读时钟之间的路径 
+2.11 最小最大延迟(Min/Max Delays) 
+使用该约束可以覆盖路径的最大延迟或最小延迟： 
+ 
+使用最大延迟约束覆盖路径的默认setup（recovery）值。 
+ 
+使用最小延迟约束来覆盖默认的hold（removal）值。 
+
+PAGE 11
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+6 
+2026.01 
+ 
+ 
+ 
+3 静态时序分析原理 
+本章介绍静态时序分析(Static Timing Analysis)涉及的基本原理。 
+3.1 基本时序概念 
+3.1.1 建立时间(Setup time) 
+数据信号必须在时钟沿之前稳定的最小时间称为建立时间(Setup time)，通常简写为Tsu。 
+3.1.2 保持时间(Hold time) 
+数据信号必须在时钟沿之后稳定的最小时间称为保持时间(Hold time)，通常简写为Th。 
+3.1.3 恢复时间(Recovery time) 
+异步信号变为非有效状态和下一个时钟沿之间存在的最短时间称为恢复时间(Recovery time)。 
+3.1.4 移除时间(Removal time) 
+在有效时钟边沿和异步信号释放之间的时间称为移除时间(Removal time)。 
+3.1.5 源时钟(Source clock)/发送时钟(Launch clock) 
+发起数据的时钟称为源时钟(Source clock)，也称为发送时钟(Launch clock)。 
+3.1.6 目的时钟(Destination clock)/捕获时钟(Capture clock) 
+捕获数据的时钟称为目的时钟(Destination clock)，也称为捕获时钟(Capture clock)。 
+3.1.7 发送沿(Launch edge) 
+源时钟发送数据的时钟沿称为发送沿(Launch edge)。 
+3.1.8 捕获沿(Capture edge) 
+目的时钟捕获数据的时钟沿称为捕获沿(Capture edge)。 
+ 
+ 
+
+PAGE 12
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+7 
+2026.01 
+ 
+ 
+ 
+3.1.9 到达时间(Arrival time) 
+数据从发送到捕获之前所经过的延时称为到达时间(Arrival time)。 
+3.1.10 要求时间(Required time) 
+数据发送后能被安全捕获的最差时间点称为要求时间(Required time)。 
+3.1.11 建立检查(Setup check) 
+经时序分析工具验证的建立时间检查称为建立检查(Setup check)。 
+3.1.12 保持检查(Hold check) 
+经时序分析工具验证的保持时间检查称为保持检查(Hold check)。 
+3.1.13 恢复检查(Recovery check) 
+异步复位信号经时序分析工具验证的建立时间检查称为恢复检查(Recovery check)。 
+3.1.14 移除检查(Removal check) 
+异步复位信号经时序分析工具验证的保持时间检查称为移除检查(Removal check)。 
+3.1.15 时序裕量(Timing Slack) 
+在进行建立检查/恢复检查和保持检查/移除检查后，得到的数字称为时序裕量(Timing Slack)。当
+时序裕量大于等于零时，时序才满足要求。 
+ 
+
+PAGE 13
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+8 
+2026.01 
+ 
+ 
+ 
+3.2 时序路径分类 
+如下图所示，常见的时序路径有四种，分别使用不同的颜色进行了标记。 
+D
+Q
+Tsu
+Th
+Tclk-Q
+D
+Q
+Tsu
+Th
+Tclk-Q
+D
+Q
+Tsu
+Th
+Tclk-Q
+DELAY
+DELAY
+DELAY
+DELAY
+D
+Q
+Tsu
+Th
+Tclk-Q
+Board Clock
+CLK
+Board Clock
+Input 
+delay
+Output 
+delay
+BUFG
+Reg A
+Reg B
+Reg C
+Reg D
+FPGA
+CK
+CK
+CK
+CK
+ 
+图 3-1 时序路径示意图 
+3.2.1 从输入端口到内部寄存器的路径 
+从输入端口到内部寄存器的路径，如 
+图 3-1 中蓝色线段部分示意，从FPGA 器件外部的开发板上的时钟作为源时钟发送数据，通过板上
+延迟（此延迟称为输入延迟，Input delay）后到达FPGA 器件输入端口,通过FPGA 器件内部延迟后到达
+由目的时钟CLK 进行驱动的寄存器B 单元捕获数据。 
+3.2.2 从寄存器到寄存器的内部路径 
+从寄存器到寄存器的内部路径，如 
+图 3-1 中紫色线段部分示意，源时钟CLK 通过端口进入FPGA 后，经过BUFG 从寄存器B 单元的CK
+发送数据，通过内部延迟后传递到目的时钟CLK 驱动的寄存器C 单元捕获数据。 
+3.2.3 从内部寄存器到输出端口的路径 
+从内部寄存器到输出端口的路径，如 
+图 3-1 中红色线段部分示意，源时钟CLK 通过端口进入FPGA 后，经过BUFG 从寄存器C 单元的CK
+发送数据，经过内部延迟后到达输出端口，经过外部延迟（此延迟称为输出延迟，Output delay）后，
+到达由FPGA 器件外部的开发板上的时钟作为目的时钟驱动的寄存器D 单元捕获数据。 
+3.2.4 从输入端口到输出端口的路径 
+从输入端口到输出端口的路径，如 
+图 3-1 中绿色线段部分示意，数据在FPGA 器件内部没有经过锁存直接进行了输出。此种路径的延
+迟参考时钟可能是虚拟时钟，也可能是FPGA 内部的时钟。 
+ 
+
+PAGE 14
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+9 
+2026.01 
+ 
+ 
+ 
+3.2.5 时序路径组成 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+CLK0
+CLK1
+Source Clock Path
+ Destination Clock Path
+ Data Path
+  
+Startpoint
+ Endpoint
+ 
+图 3-2 时序路径示意图 
+如上图所示，每条时序路径均由3 个部分组成： 
+ 
+源时钟路径：源时钟路径是源时钟从源点（通常为FPGA 输入端口）到发送数据寄存器的时钟管脚
+的路径。 
+ 
+数据路径：数据路径表示在其中传输数据的时序路径（介于路径起点与路径终点之间）。 
+ 
+目的时钟路径：目标时钟路径表示目标时钟从源点（通常为FPGA 输入端口）到捕获寄存器单元的
+时钟管脚的路径。 
+3.2.6 发送沿和捕获沿 
+数据在时序单元或端口之间进行传输时，数据从源时钟的一个时钟沿（称为发送沿）发送，由目的
+时钟的一个时钟沿（称为捕获沿）捕获。 
+如下图所示，在典型的时序路径中，数据在单一时钟周期内的2 个时序单元之间进行传输，发送沿
+发生于0ns；而捕获沿发生于1 个周期后。 
+Launch edge
+Capture edge
+Source clock
+Destination clock
+ 
+图 3-3 典型的时序图 
+
+PAGE 15
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+10 
+2026.01 
+ 
+ 
+ 
+3.3 时序路径分析与计算 
+3.3.1 概述 
+时序路径的计算是静态时序分析(Static Timing Analysis)的核心内容，静态时序分析的目的在
+于验证FPGA 加载位流后，其时序行为的可预测性。由于受到制造FPGA 器件的工艺材料和使用FPGA 的
+环境变化因素的影响，在静态时序分析时会对多种场景的延迟模型进行考量。一般情况下要考虑以下四
+种情况： 
+ 
+慢速角点(Slow Corner)中的最大延迟分析； 
+ 
+慢速角点(Slow Corner)中的最小延迟分析； 
+ 
+快速角点(Fast Corner)中的最大延迟分析； 
+ 
+快速角点(Fast Corner)中的最小延迟分析。 
+在执行建立检查和恢复检查时，参考角点的最大延迟进行分析，才能按照最恶劣的情况进行时序路
+径的分析。在慢速角点(Slow Corner)中，源时钟路径参考Slow max，数据路径参考Slow max，目的时
+钟路径参考Slow min。在快速角点(Fast Corner)中，源时钟路径参考Fast max，数据路径参考Fast 
+max，目的时钟路径参考Fast min。 
+在保持检查和移除检查时，参考角点的最小延迟进行分析，才能按照最恶劣的情况进行时序路径的
+分析。在慢速角点(Slow Corner)中，源时钟路径参考Slow min，数据路径参考Slow min，目的时钟路
+径参考Slow max。在快速角点(Fast Corner)中，源时钟路径参考Fast min，数据路径参考Fast min，
+目的时钟路径参考Fast max。 
+3.3.2 建立检查路径时间分析 
+建立检查路径时间分析示意图如下图所示： 
+
+PAGE 16
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+11 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+Combinational 
+logic
+CLK
+Tdp
+Launch edge
+Capture edge
+Launch clock
+Capture clock
+Data Valid
+Data Valid
+Data Valid
+Data Valid
+Tlaunch
+Tcapture
+Tlaunch
+Tcapture
+Tclk-Q
+Tdp
+Tcycle
+Tsu
+Setup Slack
+ 
+图 3-4 建立检查路径时间分析示意图 
+上图中蓝色的路径表示数据到达时间（Arrival time），它由发送时钟沿延迟时间（Launch clock 
+edge，简称Tlaunch）、Reg A 的Tclk-Q延时和数据路径延迟（Data Path Delay,简称Tdp）三部分延迟组成。
+使用以下公式描述它们之间的关系： 
+ 
+𝐴𝑟𝑟𝑖𝑣𝑎𝑙 𝑡𝑖𝑚𝑒= 𝑇𝑙𝑎𝑢𝑛𝑐ℎ+ 𝑇𝑐𝑙𝑘−𝑄+ 𝑇𝑑𝑝 
+公式 3-1 
+图 3-4 中绿色的路径表示要求时间（Required time），它由捕获时钟沿延迟时间（Capture clock 
+path，简称Tcapture）、Reg B 的Tsu和CLK 的周期（捕获时钟沿晚于发送时钟沿一个周期，简称Tcycle）三
+部分延迟组成。使用以下公式描述它们之间的关系： 
+ 
+𝑅𝑒𝑞𝑢𝑖𝑟𝑒𝑑 𝑡𝑖𝑚𝑒= 𝑇𝑐𝑎𝑝𝑡𝑢𝑟𝑒−𝑇𝑠𝑢+ 𝑇𝑐𝑦𝑐𝑙𝑒 
+公式 3-2 
+图 3-4 中红色色的线表示建立时序裕量（Setup Slack），那么建立检查的时序裕量是由上述的数
+据到达时间和要求时间共同决定的，数据到达时间不能大于要求时间。使用以下公式描述它们之间的关
+系： 
+ 
+𝑆𝑒𝑡𝑢𝑝 𝑆𝑙𝑎𝑐𝑘= 𝑅𝑒𝑞𝑢𝑖𝑟𝑒𝑑 𝑡𝑖𝑚𝑒−𝐴𝑟𝑟𝑖𝑣𝑎𝑙 𝑡𝑖𝑚𝑒 
+公式 3-3 
+
+PAGE 17
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+12 
+2026.01 
+ 
+ 
+ 
+3.3.3 保持检查路径时间分析 
+Next Launch edge
+Capture edge
+Launch clock
+Capture clock
+Data Valid
+Data Valid
+Data Valid
+Data Valid
+Tcapture
+Th
+Tlaunch
+Tclk-Q
+Tdp
+Hold Slack
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+Combinational 
+logic
+CLK
+Tdp
+Tlaunch
+Tcapture
+ 
+图 3-5 保持检查路径时间分析示意图 
+上图中蓝色的路径表示数据到达时间（Arrival time），它由发送时钟沿延迟时间（Launch clock 
+edge，简称Tlaunch）、Reg A 的Tclk-Q延时和数据路径延迟（Data Path Delay,简称Tdp）三部分延迟组成。
+使用以下公式描述它们之间的关系： 
+ 
+𝐴𝑟𝑟𝑖𝑣𝑎𝑙 𝑡𝑖𝑚𝑒= 𝑇𝑙𝑎𝑢𝑛𝑐ℎ+ 𝑇𝑐𝑙𝑘−𝑄+ 𝑇𝑑𝑝 
+公式 3-4 
+图 3-5 中绿色的路径表示要求时间（Required time），它由捕获时钟沿延迟时间（Capture clock 
+path，简称Tcapture）、Reg B 的Th两部分延迟组成。使用以下公式描述它们之间的关系： 
+ 
+𝑅𝑒𝑞𝑢𝑖𝑟𝑒𝑑 𝑡𝑖𝑚𝑒= 𝑇𝑐𝑎𝑝𝑡𝑢𝑟𝑒+ 𝑇ℎ 
+公式 3-5 
+图 3-5 中红色色的线表示保持时序裕量（Hold Slack），那么保持检查的时序裕量是由上述的数据
+到达时间和要求时间共同决定的，数据到达时间不能小于要求时间。使用以下公式描述它们之间的关系： 
+ 
+𝐻𝑜𝑙𝑑 𝑆𝑙𝑎𝑐𝑘= 𝐴𝑟𝑟𝑖𝑣𝑎𝑙 𝑡𝑖𝑚𝑒−𝑅𝑒𝑞𝑢𝑖𝑟𝑒𝑑 𝑡𝑖𝑚𝑒 
+公式 3-6 
+ 
+
+PAGE 18
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+13 
+2026.01 
+ 
+ 
+ 
+3.3.4 恢复检查与移除检查分析 
+恢复时间（Recovery time）如下图所示： 
+Recovery 
+time
+rst_n
+clk
+ 
+图 3-6 恢复时间分析示意图 
+移除时间（Removal time）如下图所示： 
+Removal 
+time
+rst_n
+clk
+ 
+图 3-7 恢复时间分析示意图 
+恢复时间检查的时间分析类似建立检查路径的时间分析，移除时间检查的时间分析类似保持检查
+路径的时间分析。异步复位信号经过上述分析后，才能保证异步复位信号的时序，从而保证寄存器的复
+位和复位释放的功能正常，防止产生复位亚稳态。 
+一般的，时序分析工具执行恢复检查与移除检查时，发生在异步复位信号被同步到当前时钟域下之
+后。异步复位信号被同步后，此时异步复位信号和时钟之间存在相位关系，进行恢复检查与移除检查的
+目的是让异步复位信号满足建立和保持时间要求，防止出现时序违规。 
+3.3.5 时钟不确定性（Timing Uncertainty）分析 
+设置时钟不确定性是在设计中加入误差裕量的一种方式，主要考虑芯片中时钟传播时间的可能变
+化。如下图所示，说明了时钟不确定性的概念。 
+
+PAGE 19
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+14 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+Combinational 
+logic
+CLK
+Tdp
+Launch clock
+Capture clock
+Tlaunch
+Tcapture
+CLK
+Difference in delay
+ 
+图 3-8 时钟不稳定性分析示意图 
+增加设计中时钟的不确定性，并不会覆盖默认抖动计算。也可称之为“用户设置时钟不确定性”。
+set_clock_uncertainty 命令提供了一种方便的方法，可以在不更改时钟定义和关系的情况下过度约束
+设计中的某些时钟。该命令可以使用-setup 和-hold 选项分别约束建立和保持路径。 
+在执行建立或保持检查时，TD 时序分析工具会根据时钟边沿时间的最差情况调整时序检查。例如，
+对于建立检查，它从所需的数据时间中减去不确定性值，从而要求数据提前到达，以考虑到延迟启动和
+具有最差时钟偏移的过早捕获。对于保持检查，它从要求时间中加上不确定性值，从而要求数据延后撤
+离，以考虑到最差时钟偏移的过晚捕获。 
+3.3.6 时序悲观（Timing Pessimism）分析 
+典型时序路径报告可显示源时钟路径和目标时钟路径从时钟根到时序单元时钟管脚的延迟详情。
+如下图所示，源时钟和目标时钟采用不同延迟来进行分析，即使在其公共电路上也是如此。 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+Combinational 
+logic
+CLK
+Tdp
+Common clock path
+Maximum delay
+Minimum delay
+ 
+图 3-9 时序悲观分析示意图  
+
+PAGE 20
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+15 
+2026.01 
+ 
+ 
+ 
+源时钟和目标时钟采用不同延迟来进行分析，对于公共的路径不可能在单个门或导线中同时存在
+两个不同的延迟，因此在时序计算过程中将引入Clock Reconvergence Pessimism Removal(CRPR)来消
+除延迟差异引起的偏差。 
+ 
+𝐶𝑅𝑃𝑅= 𝑐𝑜𝑚𝑚𝑜𝑛 𝑐𝑙𝑜𝑐𝑘 𝑝𝑎𝑡ℎ(𝑚𝑎𝑥 𝑑𝑒𝑙𝑎𝑦−𝑚𝑖𝑛 𝑑𝑒𝑙𝑎𝑦) 
+公式 3-7 
+在进行建立或者恢复检查时，目标路径延迟将加上CRPR，在进行保持或者移除检查时，目标路径
+将减去CRPR。 
+
+PAGE 21
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+16 
+2026.01 
+ 
+ 
+ 
+4 时序约束典型场景分析 
+本章介绍典型场景的时序约束分析。 
+4.1 时钟约束 
+进行FPGA 的RTL 设计时，时钟方案的设计将贯穿整个设计过程。制定整体设计方案后，将确定时
+钟输入与输出所需的引脚，以及需要使用的时钟单元或硬核单元。在进行时钟约束的阶段，需要充分考
+虑如何对设计中的这些时钟进行约束。下面分为五类进行详细介绍时钟约束方法。 
+4.1.1 I/O 管脚时钟约束 
+时钟通过外部管脚进入到FPGA 内部的示意图如下图所示： 
+clk_a
+clk_b
+FPGA
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+125 MHz
+50 MHz
+ 
+图 4-1 时钟通过外部管脚进入FPGA 内部示意图 
+时序约束如下： 
+create_clock -name clk_a -period 8.000 -waveform {0.000 4.000} [get_ports {clk_a}] 
+create_clock -name clk_b -period 20.000 -waveform {0.000 10.000} [get_ports {clk_b}] 
+4.1.2 高速串行收发器单元时钟约束 
+在某些高速应用场景下，常常需要用到FPGA 内部高速串行收发器单元，该单元的时钟管脚示意图
+如下图所示： 
+FPGA
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+125 MHz
+250 MHz
+serdes_phy0
+serdes_phy1
+tx_outclk
+tx_outclk
+ 
+图 4-2 高速串行收发器单元的时钟管脚示意图 
+
+PAGE 22
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+17 
+2026.01 
+ 
+ 
+ 
+时序约束如下： 
+create_clock -name serdes_phy0_clk -period 8.000 -waveform {0.000 4.000} \ 
+[get_pins {serdes_phy0.tx_outclk}] 
+create_clock -name serdes_phy1_clk -period 4.000 -waveform {0.000 2.000} \ 
+[get_pins {serdes_phy1.tx_outclk}] 
+4.1.3 PCIE 单元时钟约束 
+在某些高速应用场景下，常常需要用到FPGA 内部PCIE 单元，该单元的时钟管脚示意图如下图所
+示： 
+FPGA
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+125 MHz
+250 MHz
+pcie_phy0
+pcie_phy1
+core_clk
+core_clk
+ 
+图 4-3 PCIE 单元的时钟管脚示意图 
+时序约束如下： 
+create_clock -name pcie_phy0_clk -period 8.000 -waveform {0.000 4.000} \ 
+[get_pins {pcie_phy0.core_clk}] 
+create_clock -name pcie_phy1_clk -period 4.000 -waveform {0.000 2.000} \ 
+[get_pins {pcie_phy1.core_clk}] 
+4.1.4 锁相环PLL 单元时钟约束 
+锁相环PLL 单元几乎在所有的RTL 设计中都会使用到，对其准确约束尤其重要，锁相环PLL 单元在
+FPGA 中的典型应用如下图所示： 
+
+PAGE 23
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+18 
+2026.01 
+ 
+ 
+ 
+clk_in
+fpga
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+25 MHz
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+125 MHz phase 45 deg
+100 MHz phase 90 deg
+50 MHz phase 0 deg
+u_pll
+clkout_0
+clkout_1
+clkout_2
+ref_clk
+ 
+图 4-4 锁相环PLL 单元在FPGA 中的典型应用示意图 
+时序约束如下： 
+先进行PLL 的参考时钟约束，如图是端口进来的使用使用create_clock 进行约束如下： 
+create_clock -name clk_in -period 10.000 -waveform {0.000 20.000} [get_ports {clk_in}] 
+然后对PLL 的输出时钟进行约束，使用create_generated_clock 进行约束如下： 
+create_generated_clock -name {clkout0} -source [get_ports {clk_in}] \ 
+-master_clock {clk_in} -multiply_by 5.000 -phase 45 [get_pins {u_pll.clkout[0]}] -add 
+create_generated_clock -name {clkout1} -source [get_ports {clk_in}] \ 
+-master_clock {clk_in} -multiply_by 4.000 -phase 90 [get_pins {u_pll.clkout[0]}] -add 
+create_generated_clock -name {clkout2} -source [get_ports {clk_in}] \ 
+-master_clock {clk_in} -multiply_by 2.000 -phase 0  [get_pins {u_pll.clkout[0]}] -add 
+这里可以使用derive_clocks 命令为所有pll 时钟输出自动生成时钟约束。 
+约束如下：derive_ clocks 
+4.1.5 时钟组约束  
+set_clock_groups 命令禁用时钟组之间的时序分析，同一组内的时钟之间进行时序分析。
+set_clock_groups 几种约束的时序分析如下。 
+假设有四个时钟，分别是clk_1、clk_2、clk_3 和clk_4。 
+场景一： 
+set_clock_groups -group [get_clocks {clk_1}] 
+ 
+ 
+
+PAGE 24
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+19 
+2026.01 
+ 
+ 
+ 
+表 4-1 时钟组约束场景一 
+ 
+clk_1 
+clk_2 
+clk_3 
+clk_4 
+clk_1 
+分析 
+不分析 
+不分析 
+不分析 
+clk_2 
+不分析 
+分析 
+分析 
+分析 
+clk_3 
+不分析 
+分析 
+分析 
+分析 
+clk_4 
+不分析 
+分析 
+分析 
+分析 
+场景二： 
+set_clock_groups -group [get_clocks {clk_1}] -group [get_clocks {clk_2}] 
+表 4-2 时钟组约束场景二 
+ 
+clk_1 
+clk_2 
+clk_3 
+clk_4 
+clk_1 
+分析 
+不分析 
+分析 
+分析 
+clk_2 
+不分析 
+分析 
+分析 
+分析 
+clk_3 
+分析 
+分析 
+分析 
+分析 
+clk_4 
+分析 
+分析 
+分析 
+分析 
+场景三： 
+set_clock_groups -group [get_clocks {clk_1 clk_2}] 
+表 4-3 时钟组约束场景三 
+ 
+clk_1 
+clk_2 
+clk_3 
+clk_4 
+clk_1 
+分析 
+分析 
+不分析 
+不分析 
+clk_2 
+分析 
+分析 
+不分析 
+不分析 
+clk_3 
+不分析 
+不分析 
+分析 
+分析 
+clk_4 
+不分析 
+不分析 
+分析 
+分析 
+场景四： 
+set_clock_groups -group [get_clocks {clk_1 clk_2 clk_3}] 
+表 4-4 时钟组约束场景四 
+ 
+clk_1 
+clk_2 
+clk_3 
+clk_4 
+clk_1 
+分析 
+分析 
+分析 
+不分析 
+clk_2 
+分析 
+分析 
+分析 
+不分析 
+clk_3 
+分析 
+分析 
+分析 
+不分析 
+clk_4 
+不分析 
+不分析 
+不分析 
+分析 
+场景五： 
+set_clock_groups -group [get_clocks {clk_1 clk_3}] -group [get_clocks {clk_2 clk_4}] 
+
+PAGE 25
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+20 
+2026.01 
+ 
+ 
+ 
+表 4-5 时钟组约束场景五 
+ 
+clk_1 
+clk_2 
+clk_3 
+clk_4 
+clk_1 
+分析 
+不分析 
+分析 
+不分析 
+clk_2 
+不分析 
+分析 
+不分析 
+分析 
+clk_3 
+分析 
+不分析 
+分析 
+不分析 
+clk_4 
+不分析 
+分析 
+不分析 
+分析 
+4.1.6 时钟选择单元约束 
+在某些应用场景下，同一RTL 设计需要动态运行多个时钟频率，此时常常需要用到FPGA 内部时钟
+选择单元，示意图如下图所示： 
+mux_out
+clk_b
+FPGA
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+125 MHz
+50 MHz
+MUX
+clk_mux
+clk_a
+ 
+图 4-5 FPGA 内部时钟选择单元 
+时序约束如下： 
+create_clock -name clk_a -period 8.000 -waveform {0.000 4.000} [get_ports {clk_a}] 
+create_clock -name clk_b -period 20.000 -waveform {0.000 10.000} [get_ports {clk_b}] 
+create_generated_clock -name clk_a_mux -source [get_ports clk_a] -master_clock {clk_a} 
+[get_pins {clk_mux.mux_out}] –divide_by 1 -add 
+create_generated_clock -name clk_b_mux -source [get_ports clk_b] -master_clock {clk_b} 
+[get_pins {clk_mux.mux_out}] –divide_by 1 -add 
+set_clock_groups -exclusive -group [get_clocks {clk_a_mux}] -group \ 
+[get_clocks {clk_b_mux}] 
+4.2 I/O 延迟约束 
+4.2.1 系统同步与源同步概述 
+不同器件之间进行数据传递的方式有两种：系统同步与源同步，系统同步示意图如下图所示， 
+
+PAGE 26
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+21 
+2026.01 
+ 
+ 
+ 
+25 MHz
+source device
+destination 
+device
+D
+Q
+Tsu
+Th
+Tclk-Q
+reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+reg B
+CK
+System synchronous
+ 
+图 4-6 系统同步示意图 
+系统同步是两个器件共用一路板载时钟，同时用于数据的发送和接收。源同步是在两个器件传送数
+据的同时，发送一路时钟信号到接收器件，如下图所示。 
+25 MHz
+source device
+destination 
+device
+D
+Q
+Tsu
+Th
+Tclk-Q
+reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+reg B
+CK
+Source synchronous
+ 
+图 4-7 源同步示意图 
+
+PAGE 27
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+22 
+2026.01 
+ 
+ 
+ 
+4.2.2 输入延迟约束-系统同步-上升沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+input clock
+clock to out delay
+input data
+ 
+图 4-8 系统同步-上升沿采样的数据传输示意图 
+系统同步输入接口是外部上游器件和FPGA 使用相同时钟的接口，上升沿采样发生在启动后一个时
+钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+clock_to_out_delay_min + board_trace_delay_min
+clock_to_out_delay_max + board_trace_delay_max
+ 
+图 4-9 系统同步-上升沿采样时输入时钟和数据相对关系示意图 
+数据相对于系统时钟的延迟主要由两部分组成：一是上游器件寄存器的Tclk-Q，二是板上的走线
+延迟。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+输入管脚：input_data 
+
+PAGE 28
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+23 
+2026.01 
+ 
+ 
+ 
+ 
+上游器件寄存器的Tclk-Q 延迟：clock_to_out_delay 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+最大延迟为max_delay，即：max_delay = clock_to_out_delay_max + board_trace_delay_max 
+ 
+最小延迟为min_delay，即：min_delay = clock_to_out_delay_min + board_trace_delay_min 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay [get_ports input_data] 
+4.2.3 输入延迟约束-系统同步-下降沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+input clock
+clock to out delay
+input data
+ 
+图 4-10 系统同步-下降沿采样的数据传输示意图 
+系统同步输入接口是外部上游器件和FPGA 使用相同时钟的接口，下降沿采样发生在启动后一个时
+钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+fall data
+clock_to_out_delay_min + board_trace_delay_min
+clock_to_out_delay_max + board_trace_delay_max
+ 
+
+PAGE 29
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+24 
+2026.01 
+ 
+ 
+ 
+图 4-11 系统同步-下降沿采样时输入时钟和数据相对关系示意图 
+数据相对于系统时钟的延迟主要由两部分组成：一是上游器件寄存器的Tclk-，二是板上的走线延
+迟。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+输入管脚：input_data 
+ 
+上游器件寄存器的Tclk-Q 延迟：clock_to_out_delay 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+最大延迟为max_delay，即：max_delay = clock_to_out_delay_max + board_trace_delay_max 
+ 
+最小延迟为min_delay，即：min_delay = clock_to_out_delay_min + board_trace_delay_min 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay -clock_fall [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay -clock_fall [get_ports input_data] 
+4.2.4 输入延迟约束-系统同步-双沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+input clock
+clock to out delay
+input data
+ 
+图 4-12 系统同步-双沿采样的数据传输示意图 
+
+PAGE 30
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+25 
+2026.01 
+ 
+ 
+ 
+系统同步输入接口是外部上游器件和FPGA 使用相同时钟的接口，双沿采样发生在启动后半个时钟
+周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+rise_clock_to_out_delay_max + 
+board_trace_delay_max
+rise_clock_to_out_delay_min + 
+board_trace_delay_min
+fall data
+fall_clock_to_out_delay_min + 
+board_trace_delay_min
+fall_clock_to_out_delay_max + 
+board_trace_delay_max
+ 
+图 4-13 系统同步-双沿采样时输入时钟和数据相对关系示意图 
+数据相对于系统时钟的延迟主要由两部分组成：一是上游器件寄存器的Tclk-Q，二是板上的走线
+延迟。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+输入管脚：input_data 
+ 
+上游器件寄存器的Tclk-Q 延迟，相对上升沿的延迟：rise_clock_to_out_delay,相对下降沿的延
+迟：fall_clock_to_out_delay 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+上升沿最大延迟：rise_max_delay，即rise_max_delay= rise_clock_to_out_delay_max + 
+board_trace_delay_max 
+ 
+上升沿最小延迟：rise_min_delay，即rise_min_delay= rise_clock_to_out_delay_min + 
+board_trace_delay_min 
+ 
+下降沿最大延迟：fall_max_delay，即fall_max_delay= fall_clock_to_out_delay_max + 
+board_trace_delay_max 
+ 
+下降沿最小延迟：fall_min_delay，即fall_min_delay= fall_clock_to_out_delay_min + 
+board_trace_delay_min 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max rise_max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min rise_min_delay [get_ports input_data] 
+set_input_delay -clock input_clock -max fall_max_delay -clock_fall [get_ports input_data] 
+-add_delay 
+
+PAGE 31
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+26 
+2026.01 
+ 
+ 
+ 
+set_input_delay -clock input_clock -min fall_min_delay -clock_fall [get_ports input_data] 
+-add_delay 
+4.2.5 输入延迟约束-源同步-边沿对齐-上升沿采样 
+在同一单板上FPGA 器件接收其他器件的数据采用源同步接口边沿对齐的方式，在FPGA 内部一般
+有两种方式接收数据，一种是源同步时钟经过锁相环(Phase Locked Loop ,PLL),另外一种是源同步时
+钟直接采样送到寄存器。 
+源同步时钟经过锁相环后，采样送到寄存器数据，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+PLL
+ 
+图 4-14 数据传输示意图 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟上升沿与数据的结束对齐，上升沿采
+样发生在启动后一个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+ 
+图 4-15 输入时钟和数据的相对关系示意图 
+源同步的时钟与数据的延迟是相对的，通常形容为偏斜（SKEW）。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+
+PAGE 32
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+27 
+2026.01 
+ 
+ 
+ 
+ 
+输入管脚：input_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge,简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge,简称skew_are 
+ 
+最大延迟：max_delay，即max_delay = skew_are 
+ 
+最小延迟：min_delay，即min_delay = -skew_bre 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay [get_ports input_data] 
+源同步时钟直接采样送到寄存器的数据，其传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-16 数据传输示意图 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟上升沿与数据的起始对齐，上升沿采
+样发生在启动后一个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+ 
+图 4-17 输入时钟和数据的相对关系示意图 
+输入延迟约束各要素如下： 
+ 
+系统时钟名字为input_clock 
+
+PAGE 33
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+28 
+2026.01 
+ 
+ 
+ 
+ 
+系统时钟周期为input_clock_period 
+ 
+输入管脚名字为input_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge,简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge,简称skew_are 
+ 
+最大延迟：max_delay,即max_delay = input_clock_period + skew_are 
+ 
+最小延迟：min_delay,即min_delay = input_clock_period - skew_bre 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay [get_ports input_data] 
+4.2.6 输入延迟约束-源同步-边沿对齐-下降沿采样 
+在同一单板上FPGA 器件接收其他器件的数据采用源同步接口边沿对齐的方式，在FPGA 内部一般
+有两种方式接收数据，一种是源同步时钟经过锁相环，另外一种是源同步时钟直接采样送到寄存器。 
+源同步时钟经过锁相环后，采样送到寄存器数据，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+PLL
+ 
+图 4-18 数据传输示意图 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟下降沿与数据的结束对齐，下降沿采
+样发生在启动后一个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+
+PAGE 34
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+29 
+2026.01 
+ 
+ 
+ 
+input clock
+input data
+fall data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+ 
+图 4-19 输入时钟和数据的相对关系示意图 
+源同步的时钟与数据的延迟是相对的，通常形容为偏斜（SKEW）。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+输入管脚：input_data 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge,简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge,简称skew_afe 
+ 
+最大延迟：max_delay,即max_delay = skew_afe 
+ 
+最小延迟：min_delay,即min_delay = -skew_bfe 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay -clock_fall [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay -clock_fall [get_ports input_data] 
+源同步时钟直接采样送到寄存器数据，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-20 数据传输示意图 
+
+PAGE 35
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+30 
+2026.01 
+ 
+ 
+ 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟下降沿与数据的起始对齐，下降沿采
+样发生在启动后一个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+fall data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+ 
+图 4-21 输入时钟和数据的相对关系示意图 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+系统时钟周期：input_clock_period 
+ 
+输入管脚：input_data 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge,简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge,简称skew_afe 
+ 
+最大延迟：max_delay，即max_delay = input_clock_period + skew_afe 
+ 
+最小延迟：min_delay，即min_delay = input_clock_period - skew_bfe 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay -clock_fall [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay -clock_fall [get_ports input_data] 
+4.2.7 输入延迟约束-源同步-边沿对齐-双沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据采用源同步接口边沿对齐的方式，在FPGA 内部一般
+有两种方式接收数据：一是源同步时钟经过锁相环，二是源同步时钟直接采样送到寄存器。 
+源同步时钟经过锁相环后，采样送到寄存器的数据，其数据传输示意图如下图所示： 
+
+PAGE 36
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+31 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+PLL
+ 
+图 4-22 数据传输示意图 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟沿与数据的结束对齐，双沿采样发生
+在启动后半个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+fall data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+ 
+图 4-23 输入时钟和数据的相对关系示意图 
+源同步的时钟与数据的延迟是相对的，通常形容为偏斜（SKEW）。 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+输入管脚：input_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge,简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge,简称skew_are 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge,简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge,简称skew_afe 
+
+PAGE 37
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+32 
+2026.01 
+ 
+ 
+ 
+ 
+上升沿分析最大延迟：rise_max_delay，即rise_max_delay = skew_are 
+ 
+上升沿分析最小延迟：rise_min_delay，即rise_min_delay = -skew_bre 
+ 
+下降沿分析最大延迟：fall_max_delay，即fall_max_delay = skew_afe 
+ 
+下降沿分析最小延迟：fall_min_delay，即fall_min_delay = -skew_bfe 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max rise_max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min rise_min_delay [get_ports input_data] 
+set_input_delay -clock input_clock -max fall_max_delay -clock_fall [get_ports input_data] 
+-add_delay 
+set_input_delay -clock input_clock -min fall_min_delay -clock_fall [get_ports input_data] 
+-add_delay 
+源同步时钟直接采样传送至寄存器数据，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-24 数据传输示意图 
+源同步输入边沿对齐的时钟和数据是同时转换的，源同步时钟沿与数据的起始对齐，双沿采样发生
+在启动后半个时钟周期，捕获新数据，输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+fall data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+ 
+图 4-25 输入时钟和数据的相对关系 
+输入延迟约束各要素如下： 
+
+PAGE 38
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+33 
+2026.01 
+ 
+ 
+ 
+ 
+系统时钟：input_clock 
+ 
+系统时钟周期：input_clock_period 
+ 
+输入管脚名字：input_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge，简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge，简称skew_are 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge，简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge，简称skew_afe 
+ 
+上升沿分析最大延迟：rise_max_delay，即rise_max_delay = input_clock_period/2 + 
+skew_afe 
+ 
+上升沿分析最小延迟：rise_min_delay，即rise_min_delay = input_clock_period/2 -
+skew_bfe 
+ 
+下降沿分析最大延迟记：fall_max_delay，即fall_max_delay = input_clock_period/2 + 
+skew_ar 
+ 
+下降沿分析最小延迟：fall_min_delay，即fall_min_delay = input_clock_period/2 -
+skew_bre 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max rise_max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min rise_min_delay [get_ports input_data] 
+set_input_delay -clock input_clock -max fall_max_delay -clock_fall [get_ports input_data] 
+-add_delay 
+set_input_delay -clock input_clock -min fall_min_delay -clock_fall [get_ports input_data] 
+-add_delay 
+4.2.8  输入延迟约束-源同步-中心对齐-上升沿采样 
+源同步输入的数据传输示意图如下图所示： 
+
+PAGE 39
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+34 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-26 数据传输示意图 
+中心对齐的源同步接口，时钟转换与数据有效窗口的中心对齐。相同的时钟沿用于启动和捕获数据。
+输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data valid before the 
+rising clock edge
+Data valid after the 
+rising clock edge
+ 
+图 4-27 输入时钟和数据的相对关系示意图 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+系统时钟周期：input_clock_period 
+ 
+输入管脚名字：input_data 
+ 
+上升沿之前的数据有效时间：data_valid_before_rising_clock_edge,简称dv_bre 
+ 
+上升沿之后的数据有效时间：data_valid_after_rising_clock_edge,简称dv_are 
+ 
+最大延迟：max_delay，即max_delay =input_clock_period - dv_bre 
+ 
+最小延迟：min_delay，即min_delay = dv_are 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay [get_ports input_data] 
+
+PAGE 40
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+35 
+2026.01 
+ 
+ 
+ 
+4.2.9 输入延迟约束-源同步-中心对齐-下降沿采样 
+源同步输入的数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-28 数据传输示意图 
+中心对齐的源同步接口，时钟转换与数据有效窗口的中心对齐。相同的时钟沿用于启动和捕获数据。
+输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+fall data
+Data valid before the 
+falling clock edge
+Data valid after the 
+falling clock edge
+ 
+图 4-29 输入时钟和数据的相对关系示意图 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+系统时钟周期：input_clock_period 
+ 
+输入管脚：input_data 
+ 
+下降沿之前的数据有效时间：data_valid_before_falling_clock_edge,简称dv_bfe 
+ 
+下降沿之后的数据有效时间：data_valid_after_falling_clock_edge,简称dv_afe 
+ 
+最大延迟：max_delay，即：max_delay =input_clock_period - dv_bfe 
+ 
+最小延迟：min_delay，即min_delay = dv_afe 
+
+PAGE 41
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+36 
+2026.01 
+ 
+ 
+ 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min min_delay [get_ports input_data] 
+4.2.10  输入延迟约束-源同步-中心对齐-双沿采样 
+源同步输入的数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+input clock
+input data
+ 
+图 4-30 数据传输示意图 
+中心对齐的源同步接口，时钟转换与数据有效窗口的中心对齐。相同的时钟沿用于启动和捕获数据。
+输入时钟和数据的相对关系如下图所示： 
+input clock
+input data
+rise data
+Data valid before the 
+rising clock edge
+Data valid after the 
+rising clock edge
+fall data
+Data valid before the 
+falling clock edge
+Data valid after the 
+falling clock edge
+ 
+图 4-31 输入时钟和数据的相对关系示意图 
+输入延迟约束各要素如下： 
+ 
+系统时钟：input_clock 
+ 
+系统时钟周期：input_clock_period 
+ 
+输入管脚：input_data 
+
+PAGE 42
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+37 
+2026.01 
+ 
+ 
+ 
+ 
+上升沿之前的数据有效时间：data_valid_before_rising_clock_edge，简称dv_bre 
+ 
+上升沿之后的数据有效时间：data_valid_after_rising_clock_edge，简称dv_are 
+ 
+下降沿之前的数据有效时间：data_valid_before_falling_clock_edge，简称dv_bfe 
+ 
+下降沿之后的数据有效时间：data_valid_after_falling_clock_edge，简称dv_afe 
+ 
+最大延迟：rise_max_delay，即rise_max_delay =input_clock_period/2 - dv_bfe 
+ 
+最小延迟：rise_min_delay，即rise_min_delay = dv_are 
+ 
+最大延迟：fall_max_delay，即fall_max_delay =input_clock_period/2 - dv_bre 
+ 
+最小延迟：fall_min_delay，即fall_min_delay = dv_afe 
+输入延迟约束如下： 
+set_input_delay -clock input_clock -max rise_max_delay [get_ports input_data] 
+set_input_delay -clock input_clock -min rise_min_delay [get_ports input_data] 
+set_input_delay -clock input_clock -max fall_max_delay -clock_fall [get_ports input_data] 
+-add_delay 
+set_input_delay -clock input_clock -min fall_min_delay -clock_fall [get_ports input_data] 
+-add_delay 
+ 
+ 
+
+PAGE 43
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+38 
+2026.01 
+ 
+ 
+ 
+4.2.11 输出延迟约束-系统同步-上升沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+output data
+dest clock
+destination device 
+requirement time
+ 
+图 4-32 数据传输示意图 
+系统同步输出接口是FPGA 器件与外部下游器件使用相同时钟的接口，系统时钟的相同有效边沿用
+于源设备和目标设备，目的时钟和数据的相对关系如下图所示： 
+dest clock
+output data
+data
+board_trace_delay_max + Tsu
+board_trace_delay_min - Th  
+ 
+图 4-33 输入时钟和数据的相对关系示意图 
+输出数据和目标时钟的相对延迟，取决于板上延迟和目标器件寄存器的建立和保持时间要求。 
+输出延迟约束各要素如下： 
+ 
+系统时钟：dest_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+
+PAGE 44
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+39 
+2026.01 
+ 
+ 
+ 
+ 
+目标器件寄存器建立时间要求：Tsu 
+ 
+目标器件寄存器保持时间要求：Th 
+ 
+最大延迟：max_delay，即max_delay = board_trace_delay_max + Tsu 
+ 
+最小延迟：min_delay，即min_delay = board_trace_delay_min - Th 
+输出延迟约束如下： 
+set_output_delay -clock dest_clock -max max_delay [get_ports output_data] 
+set_output_delay -clock dest_clock -min min_delay [get_ports output_data] 
+4.2.12 输出延迟约束-系统同步-下降沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+output data
+dest clock
+destination device 
+requirement time
+ 
+图 4-34 数据传输示意图 
+系统同步输出接口是FPGA 器件与外部下游器件使用相同时钟的接口，系统时钟的相同有效边沿用
+于源设备和目标设备，目的时钟和数据的相对关系如下图所示： 
+
+PAGE 45
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+40 
+2026.01 
+ 
+ 
+ 
+dest clock
+output data
+data
+board_trace_delay_max + Tsu
+board_trace_delay_min - Th  
+ 
+图 4-35 输入时钟和数据的相对关系 
+输出数据和目标时钟的相对延迟，取决于板上延迟和目标器件寄存器的建立和保持时间要求。 
+输出延迟约束各要素如下： 
+ 
+系统时钟：dest_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+目标器件寄存器建立时间要求：Tsu 
+ 
+目标器件寄存器保持时间要求：Th 
+ 
+最大延迟：max_delay，即max_delay = board_trace_delay_max + Tsu 
+ 
+最小延迟：min_delay，即min_delay = board_trace_delay_min - Th 
+输出延迟约束如下： 
+set_output_delay -clock dest_clock -max max_delay -clock_fall [get_ports output_data] 
+set_output_delay -clock dest_clock -min min_delay -clock_fall [get_ports output_data] 
+4.2.13 输出延迟约束-系统同步-双沿采样 
+在同一单板上，FPGA 器件接收其他器件的数据时，采用系统同步的数据传输模式，其示意图如下
+图所示： 
+
+PAGE 46
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+41 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+system clock
+board trace delay
+source device
+destination device
+FPGA device
+output data
+dest clock
+destination device 
+requirement time
+ 
+图 4-36 数据传输示意图 
+系统同步输出接口是FPGA 器件与外部下游器件使用相同时钟的接口，系统时钟的相同有效边沿用
+于源设备和目标设备，目的时钟和数据的相对关系如下图所示： 
+dest clock
+output data
+data
+board_trace_delay_max + Tsu_f 
+board_trace_delay_min - Th_f
+data
+board_trace_delay_max + Tsu_r 
+board_trace_delay_max - Th_r 
+ 
+图 4-37 输入时钟和数据的相对关系 
+输出数据和目标时钟的相对延迟，取决于板上延迟和目标器件寄存器的建立和保持时间要求。 
+输出延迟约束各要素如下： 
+ 
+系统时钟：dest_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+目标器件寄存器时钟上升沿建立时间要求：Tsu_r 
+ 
+目标器件寄存器时钟上升沿保持时间要求：Th_r 
+
+PAGE 47
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+42 
+2026.01 
+ 
+ 
+ 
+ 
+目标器件寄存器时钟下降沿建立时间要求：Tsu_f 
+ 
+目标器件寄存器时钟下降沿保持时间要求：Th_f 
+ 
+上升沿最大延迟：r_max_delay，即r_max_delay = board_trace_delay_max + Tsu_r 
+ 
+上升沿最小延迟：r_min_delay，即r_min_delay = board_trace_delay_min – Th_r 
+ 
+下降沿最大延迟：f_max_delay，即f_max_delay = board_trace_delay_max + Tsu_f 
+ 
+下降沿最小延迟：f_min_delay，即f_min_delay = board_trace_delay_min – Th_f 
+输出延迟约束如下： 
+set_output_delay -clock dest_clock -max r_max_delay [get_ports output_data] 
+set_output_delay -clock dest_clock -min r_min_delay [get_ports output_data] 
+set_output_delay -clock dest_clock -max f_max_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+set_output_delay -clock dest_clock -min f_min_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+4.2.14 输出延迟约束-源同步-上升沿采样 
+在同一单板上，FPGA 器件与其他器件的数据采用源同步接口的方式传输，计算输出延迟一般有两
+种参考方式：一种是基于目标器件的寄存器建立保持时间要求；另外一种是基于源同步时钟与数据的偏
+差。 
+输出延迟是基于目标器件的寄存器建立保持时间要求来计算的，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+source device
+destination device
+forwarded clock
+output data
+board trace delay
+destination device 
+requirement time
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+sync clock
+FPGA device
+ODDR
+ 
+图 4-38 数据传输示意图 
+
+PAGE 48
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+43 
+2026.01 
+ 
+ 
+ 
+输出数据的延迟，取决于板上延迟和目标器件的寄存器的建立和保持时间要求。输出的源时钟一般
+通过FPGA 内部ODDR 进行输出，对于这个时钟的定义，业界称之为forwarded clock。 
+forwarded clock 与数据的相对关系如下图所示： 
+data
+forwarded clock
+output data
+Tsu
+ Th  
+ 
+图 4-39 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+目标器件寄存器建立时间要求：Tsu 
+ 
+目标器件寄存器保持时间要求：Th 
+ 
+最大延迟：max_delay，即max_delay = board_trace_delay_max + Tsu 
+ 
+最小延迟：min_delay，即min_delay = board_trace_delay_min - Th 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max max_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -min min_delay [get_ports output_data] 
+输出延迟是基于源同步时钟与数据的偏差来计算的，其数据传输示意图如下图所示： 
+
+PAGE 49
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+44 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+forwarded clock
+output data
+ODDR
+ 
+图 4-40 数据传输示意图 
+forwarded clock 与数据的相对关系如下图所示： 
+output data
+data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+forwarded clock
+ 
+图 4-41 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+forwarded clock 时钟周期：fw_clock_period 
+ 
+输出管脚：output_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge，简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge，简称skew_are 
+ 
+最大延迟：max_delay，即max_delay = fw_clock_period - skew_are 
+ 
+最小延迟：min_delay，即min_delay = skew_bre 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max max_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -min min_delay [get_ports output_data] 
+
+PAGE 50
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+45 
+2026.01 
+ 
+ 
+ 
+4.2.15 输出延迟约束-源同步-下降沿采样 
+在同一单板上，FPGA 器件与其他器件的数据采用源同步接口的方式传输，计算输出延迟一般有两
+种参考方式：一种是基于目标器件的寄存器建立保持时间要求；另外一种是基于源同步时钟与数据的偏
+差。 
+输出延迟是基于目标器件的寄存器建立保持时间要求来计算的，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+source device
+destination device
+forwarded clock
+output data
+board trace delay
+destination device 
+requirement time
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+sync clock
+FPGA device
+ODDR
+ 
+图 4-42 数据传输示意图 
+输出数据的延迟，取决于板上延迟和目标器件的寄存器的建立和保持时间要求。输出的源时钟一般
+通过FPGA 内部ODDR 进行输出，对于这个时钟的定义，业界称之为forwarded clock。 
+forwarded clock 与数据的相对关系如下图所示： 
+data
+forwarded clock
+output data
+Tsu
+Th  
+ 
+图 4-43 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+
+PAGE 51
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+46 
+2026.01 
+ 
+ 
+ 
+ 
+目标器件寄存器建立时间要求：Tsu 
+ 
+目标器件寄存器保持时间要求：Th 
+ 
+最大延迟：max_delay，即max_delay = board_trace_delay_max + Tsu 
+ 
+最小延迟：min_delay，即min_delay = board_trace_delay_min - Th 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max max_delay -clock_fall [get_ports output_data] 
+set_output_delay -clock fw_clock -min min_delay -clock_fall [get_ports output_data] 
+输出延迟是基于源同步时钟与数据之间的偏差进行计算，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+forwarded clock
+output data
+ODDR
+ 
+图 4-44 数据传输示意图 
+forwarded clock 与数据的相对关系如下图所示： 
+output data
+data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+forwarded clock
+ 
+图 4-45 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+forwarded clock 时钟周期：fw_clock_period 
+
+PAGE 52
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+47 
+2026.01 
+ 
+ 
+ 
+ 
+输出管脚：output_data 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge,简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge,简称skew_afe 
+ 
+最大延迟：max_delay，即max_delay = fw_clock_period - skew_afe 
+ 
+最小延迟：min_delay，即min_delay = skew_bfe 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max max_delay -clock_fall [get_ports output_data] 
+set_output_delay -clock fw_clock -min min_delay -clock_fall [get_ports output_data] 
+4.2.16 输出延迟约束-源同步-双沿采样 
+在同一单板上，FPGA 器件与其他器件的数据采用源同步接口的方式传输，计算输出延迟一般有两
+种参考方式：一种是基于目标器件的寄存器建立保持时间要求；另外一种是基于源同步时钟与数据的偏
+差。 
+输出延迟是基于目标器件的寄存器建立保持时间要求来计算的，其数据传输示意图如下图所示： 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+source device
+destination device
+forwarded clock
+output data
+board trace delay
+destination device 
+requirement time
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+sync clock
+FPGA device
+ODDR
+ 
+图 4-46 数据传输示意图 
+输出数据的延迟，取决于板上延迟和目标器件的寄存器的建立和保持时间要求。输出的源时钟一般
+通过FPGA 内部ODDR 进行输出，对于这个时钟的定义，业界称之为forwarded clock。 
+forwarded clock 与数据的相对关系如下图所示： 
+
+PAGE 53
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+48 
+2026.01 
+ 
+ 
+ 
+output data
+ data
+ data
+forwarded clock
+Tsu_r
+Th_r  
+Tsu_f
+Th_f  
+ 
+图 4-47 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+输出管脚：output_data 
+ 
+板上的走线延迟：board_trace_delay 
+ 
+目标器件寄存器时钟上升沿建立时间要求：Tsu_r 
+ 
+目标器件寄存器时钟上升沿保持时间要求：Th_r 
+ 
+目标器件寄存器时钟下降沿建立时间要求：Tsu_f 
+ 
+目标器件寄存器时钟下降沿保持时间要求：Th_f 
+ 
+上升沿最大延迟：r_max_delay，即r_max_delay = board_trace_delay_max + Tsu_r 
+ 
+上升沿最小延迟：r_min_delay，即r_min_delay = board_trace_delay_min – Th_r 
+ 
+下降沿最大延迟：f_max_delay，即f_max_delay = board_trace_delay_max + Tsu_f 
+ 
+下降沿最小延迟：f_min_delay，即f_min_delay = board_trace_delay_min – Th_f 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max r_max_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -min r_min_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -max f_max_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+set_output_delay -clock fw_clock -min f_min_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+输出延迟是基于源同步时钟与数据之间的偏差进行计算的，其数据传输示意图如下图所示： 
+
+PAGE 54
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+49 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg A
+CK
+D
+Q
+Tsu
+Th
+Tclk-Q
+Reg B
+CK
+sync clock
+source device
+destination device
+FPGA device
+forwarded clock
+output data
+ODDR
+ 
+图 4-48 数据传输示意图 
+forwarded clock 与数据的相对关系如下图所示： 
+data
+Data invalid before the 
+rising clock edge
+Data invalid after the 
+rising clock edge
+data
+Data invalid before the 
+falling clock edge
+Data invalid after the 
+falling clock edge
+output data
+forwarded clock
+ 
+图 4-49 forwarded clock 和数据的相对关系示意图 
+输出延迟约束各要素如下： 
+ 
+forwarded clock 时钟：fw_clock 
+ 
+forwarded clock 时钟周期：fw_clock_period 
+ 
+输出管脚：output_data 
+ 
+上升沿之前的数据无效时间：skew_before_rising_clock_edge,简称skew_bre 
+ 
+上升沿之后的数据无效时间：skew_after_rising_clock_edge,简称skew_are 
+ 
+下降沿之前的数据无效时间：skew_before_falling_clock_edge,简称skew_bfe 
+ 
+下降沿之后的数据无效时间：skew_after_falling_clock_edge,简称skew_afe 
+ 
+上升沿最大延迟：r_max_delay，即r_max_delay = fw_clock_period/2 - skew_afe 
+ 
+上升沿最小延迟：r_min_delay，即r_min_delay = skew_bre 
+
+PAGE 55
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+50 
+2026.01 
+ 
+ 
+ 
+ 
+下降沿最大延迟：f_max_delay，即f_max_delay = fw_clock_period/2 - skew_are 
+ 
+下降沿最小延迟：f_min_delay，即f_min_delay = skew_bfe 
+输出延迟约束如下： 
+set_output_delay -clock fw_clock -max r_max_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -min r_min_delay [get_ports output_data] 
+set_output_delay -clock fw_clock -max f_max_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+set_output_delay -clock fw_clock -min f_min_delay -clock_fall [get_ports output_data] \ 
+-add_delay 
+4.3 时序例外约束 
+4.3.1 伪路径（false path）约束 
+伪路径的约束可以减少时序分析工具的运行时间。当从时序分析中删除伪路径时，TD 不需要对这
+些路径进行分析或者优化，同时提高结果质量（QOR），如果一些伪路径存在时序违例，TD 可能会尝试
+修复这些路径，而不是在真正的功能路径上工作。 
+示例一：删除从复位端口到所有寄存器的时序路径 
+set_false_path –from [get_port reset] -to [all_registers] 
+示例二：约束两个异步时钟路径 
+set_false_path -from [get_clocks async_clk1] -to [get_clocks async_clk2] 
+set_false_path -from [get_clocks async_clk2] -to [get_clocks async_clk1] 
+ 
+ 
+
+PAGE 56
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+51 
+2026.01 
+ 
+ 
+ 
+4.3.2 异步fifo 约束 
+异步fifo 约束是跨时钟域约束较为典型的案例，首先介绍一下异步fifo 的架构，如下图所示，
+wr_b2g_ff1
+b2g
+g2b
+b2g
+g2b
+compare
+compare
+fifo_wrclk
+fifo_rdclk
+wr_ptr
+rd_ptr
+wr_ptr_rdclk_next
+rd_ptr_wrclk_next
+fifo_full_next
+fifo_empty_next
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+Q
+Q
+S ET
+C LR
+D
+wr_ptr_b2g
+wr_b2g_ff0
+rd_ptr_b2g
+rd_ptr_ff0
+rd_ptr_ff1
+ 
+图 4-50 异步fifo 的架构示意图 
+图中binary to gray(简称b2g)，gray to binary (简称g2b)，fifo 写时钟fifo_wrclk，fifo 读
+时钟fifo_rdclk。 
+写时钟到读时钟传输过程，fifo_wrclk 时钟域里wr_ptr 通过b2g 后，存放在wr_ptr_b2g 寄存器
+里，然后跨时钟域传输至fifo_rdclk 里的wr_b2g_ff0 和wr_b2g_ff1 ，通过g2b 缓存至
+wr_ptr_rdclk_next 寄存器，此时这个wr_ptr 数据被传输至fifo_rdclk 时钟域里。 
+读时钟到写时钟传输过程，fifo_rdclk 时钟域里rd_ptr 通过b2g 后，存放在rd_ptr_b2g 寄存器
+里，然后跨时钟域传输至fifo_wrclk 里的rd_b2g_ff0 和rd_b2g_ff1 ，通过g2b 缓存至
+rd_ptr_wrclk_next 寄存器，此时这个rd_ptr 数据被传输至fifo_wrclk 时钟域里。 
+FIFO 读写时钟的约束示例： 
+create_clock -name fifo_wrclk -period 6.4 -waveform {0 3.2} [get_ports {fifo_wrclk}] 
+create_clock -name fifo_rdclk -period 6.2 -waveform {0 3.1} [get_ports {fifo_rdclk}] 
+FIFO 读写时钟要进行异步分析的约束，-datapath_only 100 可以放松整体的时序 
+set_max_delay -from [get_clocks {fifo_wrclk}] -to [get_clocks {fifo_rdclk}] \ 
+-datapath_only 100 
+set_max_delay -from [get_clocks {fifo_rdclk}] -to [get_clocks {fifo_wrclk}] \ 
+-datapath_only 100 
+FIFO 读写时钟的格雷码跨时钟部分约束，收紧这部分约束，需要至少达到Tmin 
+set_max_delay -from [get_regs {*wr_ptr_b2g[*]}] -to [get_regs {*wr_b2g_ff0[*]}] \ 
+-datapath_only 6.2 
+
+PAGE 57
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+52 
+2026.01 
+ 
+ 
+ 
+set_max_delay -from [get_regs {*rd_ptr_b2g[*]}] -to [get_regs {*rd_b2g_ff0[*]}] \ 
+-datapath_only 6.2 
+4.3.3 最大/最小延迟（Max/Min delay）约束 
+对于那些从FPGA 管脚进入或输出都不经过任何时序元件的纯组合逻辑路径可以用set_max_delay 
+/ set_min_delay 来约束。 
+比如约束所有端口输入到输出的最大延迟40ns,最小延迟10ns，示例： 
+set_max_delay 40 -from [all_inputs] -to [all_outputs] 
+set_min_delay 10 -from [all_inputs] -to [all_outputs] 
+异步fifo 中跨时钟域寄存器的走线延迟约束，set_max_delay 命令+ datapath_only 进行约束。示
+例详情见4.3.2 小节。 
+当使用寄存器跨时钟同步时，set_max_delay 命令通常用于定义跨时钟域的时序约束。假设两个寄
+存器（REG1 和REG2）由不同的时钟驱动，并且REG2 的输入连接在REG1 的输出，且此连接的延迟限制
+为最大1ns，示例： 
+set_max_delay -from [get_regs REG1] -to [get_regs REG2 ] -datapath_only 1 
+4.3.4 多周期路径（multicycle_path）约束 
+在RTL 的设计中或者使用FPGA 内部某些硬核单元时，常常需要时序分析工具不按照默认的规则
+（default:setup 1 cycle,hold 0 cycle）进行分析，时序分析工具默认分析如下图所示： 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ 
+图 4-51 时序分析工具默认分析示意图 
+有些路径往往需要更多的时钟周期才能使数据稳定，如下图所示。 
+D
+Q
+Reg A
+CK
+CE
+D
+Q
+Reg B
+CK
+CE
+Combinational 
+logic
+ Clock enable
+ Clock
+3 cycles delay
+ 
+图 4-52 多周期路径约束示意图 
+
+PAGE 58
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+53 
+2026.01 
+ 
+ 
+ 
+有关multicycle_path 的详细命令释义见《SWUG105_TCL_Command》的4.5.11 小节内容。
+set_multicycle_path 命令的几个参数-setup /-hold /-start /-end 的具体使用如下。 
+4.3.4.1 End Multicycle Setup 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup -end
+-10ns
+-20ns
+EMS=2
+ Destination clock
+End Multicycle Setup
+Default
+EMS=3
+EMS=4
+ 
+图 4-53 End Multicycle Setup 时序分析示意图 
+set_multicycle_path 设置-setup 参数后,时序分析不仅会影响setup 的分析，还会影响hold 的
+分析。如果希望hold 的分析不受影响，需要单独加-hold 的参数命令。 
+4.3.4.2 Start Multicycle Setup 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+-10ns
+0ns
+10ns
+20ns
+30ns
+40ns
+Setup -start
+-20ns
+-30ns
+ Source clock
+Start Multicycle Setup
+Default
+SMS=4
+SMS=3
+SMS=2
+ 
+图 4-54 Start Multicycle Setup 理论时序分析示意图 
+set_multicycle_path 的-setup 参数默认是与-end 参数配合的，如果设置-start 的参数后，理论
+上的分析是按照上图所示的标注，实际时序分析工具按照下图进行分析的。 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+20ns
+30ns
+40ns
+50ns
+60ns
+70ns
+Setup -start
+10ns
+0ns
+ Source clock
+Start Multicycle Setup
+Default
+SMS=4
+SMS=3
+SMS=2
+ 
+图 4-55 Start Multicycle Setup 实际时序分析示意图 
+ 
+
+PAGE 59
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+54 
+2026.01 
+ 
+ 
+ 
+4.3.4.3 Start Multicycle Hold 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Hold -start
+-10ns
+-20ns
+SMH=1
+Start Multicycle Hold
+Default
+ Source clock
+SMH=2
+SMH=3
+ 
+图 4-56 Start Multicycle Hold 时序分析示意图 
+set_multicycle_path 的-hold 参数默认是与-start 参数配合的。 
+4.3.4.4 End Multicycle Hold 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+-10ns
+0ns
+10ns
+20ns
+30ns
+40ns
+Hold -end
+-20ns
+-30ns
+End Multicycle Hold
+Default
+EMH=1
+ Destination clock
+EMH=2
+EMH=3
+ 
+图 4-57 End Multicycle Hold 理论时序分析示意图 
+set_multicycle_path 的-hold 参数如果和-end 配合使用，时序工具分析分析理论上是按照上图所
+示进行的，实际上是按照下图所示进行分析的。 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+20ns
+30ns
+40ns
+50ns
+60ns
+70ns
+Hold -end
+10ns
+0ns
+End Multicycle Hold
+Default
+EMH=1
+ Destination clock
+EMH=2
+EMH=3
+ 
+图 4-58 End Multicycle Hold 实际时序分析示意图 
+多周期的约束典型应用场景分为以下几类： 
+ 
+单时钟域 
+ 
+有固定相位差的同频时钟 
+ 
+快速时钟到慢速时钟 
+
+PAGE 60
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+55 
+2026.01 
+ 
+ 
+ 
+ 
+慢速时钟到快速时钟 
+4.3.4.5 单时钟域多周期的约束示例 
+如下图所示，RegA 输出至RegB，数据更新间隔为三个时钟周期，此时需要进行多周期约束来描述
+两个寄存器之间的关系。 
+D
+Q
+Reg A
+CK
+CE
+D
+Q
+Reg B
+CK
+CE
+Combinational 
+logic
+ Clock enable
+ Clock
+3 cycles delay
+ 
+图 4-59 单时钟域多周期的约束示意图 
+约束如下： 
+set_multicycle_path 3 -setup -from [get_regs REGA] -to [get_regs REGB] 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+约束前
+约束后
+ 
+图 4-60 set_multicycle_path 约束前后的时序分析示意图 
+set_multicycle_path 设置-setup 参数后，时序分析不仅影响setup 的分析，还会影响hold 的分
+析，此时hold 分析影响如上图所示，对于REGA 寄存器来说，需要保持两个周期的数据，由于该案例包
+含时钟使能的信号，REGA 无需长时间保持数据，可通过增加hold 约束来放宽保持时间。 
+约束如下： 
+
+PAGE 61
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+56 
+2026.01 
+ 
+ 
+ 
+set_multicycle_path 2 -hold -end -from [get_regs REGA] -to [get_regs REGB] 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+约束前
+约束后
+ 
+图 4-61 set_multicycle_path 约束前后的时序分析示意图 
+这条约束里面使用了-end 参数，因为捕获沿需要向后移动2 个时钟周期。由于是单时钟域，这里
+不使用-end 参数一样可以达到约束目的。 
+约束总结：单周期时钟域内，对于REGA 到REGB 需要三个周期的建立时钟要求，0 个周期的保持时
+间要求，那么约束如下： 
+set_multicycle_path 3 -setup -from [get_regs REGA] -to [get_regs REGB] 
+set_multicycle_path 2 -hold -end -from [get_regs REGA] -to [get_regs REGB] 
+4.3.4.6 有固定相位差的同频时钟多周期的约束示例 
+如下图所示，RegA 输出至RegB，分别由Clock A 和Clock B 驱动，Clock A 和Clock B 是同频不
+同相位，且Clock B 比Clock A 延迟了1ns。如果按照时序分析工具默认分析的话，Clock A 和Clock 
+B 之间的逻辑将被过度约束，此时需要进行多周期约束来描述两个时钟之间的关系。 
+ 
+ 
+
+PAGE 62
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+57 
+2026.01 
+ 
+ 
+ 
+D
+Q
+Reg A
+CK
+CE
+D
+Q
+Reg B
+CK
+CE
+Combinational 
+logic
+ Clock A
+ Clock B
+1'b1
+1'b1
+ 
+图 4-62 有固定相位差的同频时钟多周期的约束示意图 
+约束如下： 
+set_multicycle_path 2 -setup -from [get_clocks Clock_A] -to [get_clocks Clock_B] 
+约束前
+约束后
+ launch edge
+capture edge
+Source clock    
+Clock A
+ Destination clock 
+Clock B
+-20ns
+-10ns
+0ns
+10ns
+20ns
+30ns
+Setup Hold
+Delay +1ns
+ launch edge
+capture edge
+Source clock    
+Clock A
+ Destination clock 
+Clock B
+-20ns
+-10ns
+0ns
+10ns
+20ns
+30ns
+Setup Hold
+Delay +1ns
+ 
+图 4-63 set_multicycle_path 约束前后的时序分析示意图 
+如上图所示，约束前的分析是时序分析工具的默认建立保持关系，这会导致更严格的建立时间要求。
+在上述示例中，由于相移而产生的设置约束是1ns，会导致布局布线难以实现建立时间要求。另一方面，
+hold 的budget 为9ns，这将导致hold 分析过于宽松。由于时钟相移，时序分析工具使用的默认建立和
+保持关系可能无法达到预期，所以需要进行多周期约束。 
+约束后的分析，建立要求的捕获边沿向前移动一个周期，无需指定保持的默认边沿。 
+在负相移的情况下，如下图所示，在两个时钟域之间，用于建立和保持检查的启动和捕获边沿与单
+时钟域的相似。通常不需要多周期约束来抵消相移的影响。如果相移过大，必须要调整时钟启动或捕获
+边沿以保证实际的建立和保持要求，否则会出现问题。 
+
+PAGE 63
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+58 
+2026.01 
+ 
+ 
+ 
+ launch edge
+capture edge
+Source clock    
+Clock A
+ Destination clock 
+Clock B
+-20ns
+-10ns
+0ns
+10ns
+20ns
+30ns
+Setup Hold
+Delay -1ns
+ 
+图 4-64 负相移情况下时序分析示意图 
+约束总结：同频正相移的两个时钟，需要进行多周期约束，约束示例： 
+set_multicycle_path 2 -setup -from [get_clocks Clock_A] -to [get_clocks Clock_B] 
+4.3.4.7 快速时钟到慢速时钟多周期的约束示例 
+如下图所示，RegA 输出至RegB，分别由Slow_Clock 和Fast_Clock 驱动，Slow_Clock 和Fast_Clock
+是同相位不同频，且Slow_Clock 的周期是Fast_Clock 的3 倍。 
+D
+Q
+Reg A
+CK
+CE
+D
+Q
+Reg B
+CK
+CE
+Combinational 
+logic
+ Slow_Clock
+Fast_Clock
+1'b1
+1'b1
+ 
+图 4-65 快速时钟到慢速时钟多周期的约束示意图 
+约束如下： 
+set_multicycle_path 3 -setup –start -from [get_clocks Fast _Clock] -to \ 
+[get_clocks Slow_Clock] 
+set_multicycle_path 2 -hold -from [get_clocks Fast _Clock] -to [get_clocks Slow_Clock] 
+
+PAGE 64
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+59 
+2026.01 
+ 
+ 
+ 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+约束前
+约束后
+Fast_Clock
+ Slow_Clock
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+Fast_Clock
+ Slow_Clock
+ 
+图 4-66 set_multicycle_path 约束前后的时序分析示意图 
+如上图所示，第一条-setup 约束生效后，发送沿向后移动至0ns 处，建立要求满足，此时影响到
+保持要求。所以加上第二条-hold 的约束，如下图所示，保持要求的发送沿向后移动2 个周期。两者的
+捕获时钟沿不变。 
+约束前
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+Fast_Clock
+ Slow_Clock
+约束后
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+Fast_Clock
+ Slow_Clock
+ 
+图 4-67 set_multicycle_path 约束前后的时序分析示意图 
+约束总结：对于快速时钟到慢速时钟的多周期约束，设定相对于发送时钟（-start）N 的建立要求，
+设定N-1 的保持要求，约束示例： 
+set_multicycle_path N -setup –start -from [get_clocks Fast_Clock] –to \ 
+[get_clocks Slow_Clock] 
+set_multicycle_path N-1 -hold -from [get_clocks Fast _Clock] -to [get_clocks Slow_Clock] 
+ 
+
+PAGE 65
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+60 
+2026.01 
+ 
+ 
+ 
+4.3.4.8 慢速时钟到快速时钟多周期的约束示例 
+如下图所示，RegA 输出至RegB，分别由Slow_Clock 和Fast_Clock 驱动，Slow_Clock 和Fast_Clock
+是同相位不同频，且Slow_Clock 的周期是Fast_Clock 的2 倍。RegB 上的有时钟使能信号，允许在两
+个时钟之间设置多周期约束。 
+D
+Q
+Reg A
+CK
+CE
+D
+Q
+Reg B
+CK
+CE
+Combinational 
+logic
+ Slow_Clock
+Fast_Clock
+1'b1
+ Clock enable
+ 
+图 4-68 慢速时钟到快速时钟多周期的约束示意图 
+约束如下： 
+set_multicycle_path 2 -setup -from [get_clocks Slow_Clock] -to [get_clocks Fast_Clock] 
+约束前
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Slow_Clock
+Fast_Clock
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+约束后
+ Slow_Clock
+Fast_Clock
+ 
+图 4-69 set_multicycle_path 约束前后的时序分析示意图 
+如上图，约束前的分析是时序分析工具的默认建立保持关系，这会导致更严格的建立时间要求。上
+述多周期的约束将会使得捕获沿向前移动一个周期，启动沿不变。因为RegB 上的有时钟使能信号，所
+以在没有传输亚稳态风险的情况下保持要求时间是安全的。 
+为了放松前面的保持要求时间，保持关系的捕获沿必须向后移动1 个时钟周期。 
+约束如下： 
+set_multicycle_path 1 -hold –end -from [get_clocks Slow_Clock] -to \ 
+[get_clocks Fast_Clock] 
+
+PAGE 66
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+61 
+2026.01 
+ 
+ 
+ 
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+约束后
+ Slow_Clock
+Fast_Clock
+ launch edge
+capture edge
+ Source clock
+ Destination clock
+0ns
+10ns
+20ns
+30ns
+40ns
+50ns
+Setup Hold
+ Clock enable
+约束前
+ Slow_Clock
+Fast_Clock
+ 
+图 4-70 set_multicycle_path 约束前后的时序分析示意图 
+约束总结：慢速时钟到快速时钟的多周期约束，当定义了“N”的建立要求时，需要对捕获时钟（-
+end）定义N-1 的保持要求，约束示例： 
+set_multicycle_path N -setup –from [get_clocks Slow_Clock] -to \ 
+[get_clocks Fast_Clock] 
+set_multicycle_path N-1 -hold -end -from [get_clocks Slow_Clock] -to \ 
+[get_clocks Fast_Clock] 
+ 
+
+PAGE 67
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+62 
+2026.01 
+ 
+ 
+ 
+版本信息 
+日期 
+修订信息 
+2024/09/22 
+首次根据TD6.0.3 版本软件发布手册 
+2025/07/23 
+1. 更新图3-1 生成时钟的重命名操作图。 
+2. 更新4.3.3 最大/最小延迟（Max/Min delay）约束一节的标题。 
+3. 更新4.1.6 时钟选择单元约束一节中的create_generated_clock 描述，
+增加-divide_by 1。 
+2026/01/15 
+1. 删除3 时序约束基本命令。 
+2. 4.1.4 锁相环PLL 单元时钟约束一节中新增create_generated_clock 约
+束命令的-add。 
+3. 更新4.1.4 锁相环PLL 单元时钟约束一节中的derive_clocks 命令名称。 
+ 
+ 
+ 
+ 
+
+PAGE 68
+ 
+ 
+时序约束用户手册 
+ 
+SWUG200 
+www.anlogic.com 
+63 
+2026.01 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+版权所有©2026 上海安路信息科技股份有限公司  
+未经本公司书面许可，任何单位和个人都不得擅自摘抄、复制、翻译本文档内容的部分或全部，并不得
+以任何形式传播。 
+免责声明 
+本文档并未授予任何知识产权的许可，并未以明示或暗示，或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考，协助用户正确地使用安路科技产品之用，其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。 
+安路科技将不定期地对本文档进行更新、修订。用户如需获取最新版本的文档，可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。 

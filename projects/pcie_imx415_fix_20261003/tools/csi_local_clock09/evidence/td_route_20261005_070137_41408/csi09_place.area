@@ -1,0 +1,75 @@
+standard
+***Report Model: td_local09_top Device: PH1A90SEG324***
+
+Design Statistics
+#IO                         7   out of    148    4.73%
+  #input                    6
+  #output                   1
+  #inout                    0
+#lut6                     401   out of  64320    0.62%
+#reg                      463
+  #slice reg              463   out of 128640    0.36%
+  #pad reg                  0
+
+Utilization Statistics
+#slice                    474   out of  64320    0.74%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic             474
+    #with luts            289
+    #with adder           112
+    #reg only              73
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       0   out of    272    0.00%
+  #eram20k                  0
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                       12   out of    148    8.11%
+#pll                        0   out of     12    0.00%
+#gclk                       3   out of     32    9.38%
+#lclk                       2   out of     36    5.56%
+#sclk                       0   out of     96    0.00%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+
+Detailed IO Report
+
+          Name            Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg    DiffResistor  
+    mipi_clk_hs_rx_p        INPUT        E13         LVDS18       HRIO          N/A           NONE       NONE          100       
+  mipi_clk_hs_rx_p(n)       INPUT        F13         LVDS18       HRIO          N/A           NONE       NONE          100       
+   mipi_data_hs_p[3]        INPUT        G17         LVDS18       HRIO          N/A           NONE       DDRX2         100       
+  mipi_data_hs_p[3](n)      INPUT        G16         LVDS18       HRIO          N/A           NONE       NONE          100       
+   mipi_data_hs_p[2]        INPUT        A15         LVDS18       HRIO          N/A           NONE       DDRX2         100       
+  mipi_data_hs_p[2](n)      INPUT        A16         LVDS18       HRIO          N/A           NONE       NONE          100       
+   mipi_data_hs_p[1]        INPUT        D14         LVDS18       HRIO          N/A           NONE       DDRX2         100       
+  mipi_data_hs_p[1](n)      INPUT        E15         LVDS18       HRIO          N/A           NONE       NONE          100       
+   mipi_data_hs_p[0]        INPUT        C14         LVDS18       HRIO          N/A           NONE       DDRX2         100       
+  mipi_data_hs_p[0](n)      INPUT        D13         LVDS18       HRIO          N/A           NONE       NONE          100       
+        sys_clk             INPUT        T16        LVCMOS18      HRIO          N/A          PULLUP      NONE          NONE      
+        uart_tx            OUTPUT        U11        LVCMOS18      HRIO           8            NONE       NONE          NONE      
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance                                        |Module             |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                                             |td_local09_top     |289       |112     |463     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  phy                                           |csi_rx_phy         |225       |96      |360     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[0]$u_csi_rx_byte_align  |csi_rx_byte_align  |32        |0       |36      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[0]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |2         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[1]$u_csi_rx_byte_align  |csi_rx_byte_align  |30        |0       |31      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[2]$u_csi_rx_byte_align  |csi_rx_byte_align  |30        |0       |33      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[2]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |2         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[3]$u_csi_rx_byte_align  |csi_rx_byte_align  |31        |0       |43      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[3]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |1         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_auto_delay_ctl                            |auto_delay_ctl     |64        |72      |90      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_csi_rx_clock_det                          |csi_rx_clock_det   |30        |24      |58      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    u_rx_clk_gen                                |rx_clk_gen         |0         |0       |0       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    gen_channel_wrapper[1]$u_csi_rx_hs_data_phy |csi_rx_hs_data_phy |1         |0       |16      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

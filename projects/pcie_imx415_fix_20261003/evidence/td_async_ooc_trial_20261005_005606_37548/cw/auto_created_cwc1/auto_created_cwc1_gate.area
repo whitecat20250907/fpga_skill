@@ -1,0 +1,62 @@
+standard
+***Report Model: auto_created_cwc1 Device: PH1A90SEG324***
+
+Design Statistics
+#IO                        89   out of    148   60.14%
+  #input                   65
+  #output                  24
+  #inout                    0
+#lut                      162
+  #lut1                     5
+  #lut2                    45
+  #lut3                    10
+  #lut4                    22
+  #lut5                    35
+  #lut6                    45
+#reg                      211
+  #slice reg              211   out of 128640    0.16%
+  #pad reg                  0
+
+Utilization Statistics
+#slice*                   141   out of  64320    0.22%
+  #used ram                 8
+    #dram lut               0
+    #shifter lut            8
+  #used logic             133
+    #with luts*           110
+    #with adder             0
+    #reg only*             23
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       1   out of    272    0.37%
+  #eram20k                  1
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                        0   out of    148    0.00%
+#pll                        0   out of     12    0.00%
+#gclk                       0   out of     32    0.00%
+#lclk                       0   out of     36    0.00%
+#sclk                       0   out of     96    0.00%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+* Note! The LUT and Slice count after Optimize-Gate is not the final value, Run Optimize-place for a more realistic count.
+
+Report Hierarchy Area:
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance                                               |Module                 |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                                                    |auto_created_cwc1      |110       |0       |211     |1       |0       |0        |8           |0       |0       |0       |0        |0       |0       |
+|  wrapper_cwc_top                                      |top_cwc_hub            |110       |0       |211     |1       |0       |0        |8           |0       |0       |0       |0        |0       |0       |
+|    U_cwc                                              |anlogic01_cwc          |106       |0       |174     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|      TRIG_ONLY_MODE$U_emb_ctrl                        |anlogic04_cwc_emb_ctrl |31        |0       |36      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|      U_cwc_bus_top                                    |anlogic02_cwc_bus_top  |30        |0       |47      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|        CWC_BUS_DETECTOR[0]$BUS_DETECTOR$U_cwc_bus_det |anlogic03_cwc_bus_det  |30        |0       |47      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    U_cwc_ram                                          |anlogic05_cwc_ram      |1         |0       |0       |1       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    status_pipe                                        |anlogic06_pipe         |1         |0       |17      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    watch_pipe                                         |anlogic06_pipe         |0         |0       |16      |0       |0       |0        |8           |0       |0       |0       |0        |0       |0       |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

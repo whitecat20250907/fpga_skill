@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-10-05T13:11:16.848511+00:00",
+  "scope": "Independent candidate only. No main FPGA, driver, board or other agent files modified.",
+  "candidate_sha256": {
+    "csi_rx_phy.v": "906359628b61393e66a2c8df272acda11619287a1a1bdef3086465c120cfb05a",
+    "csi_rx_hs_data_phy.v": "0beb88845db54662febcc93ed60e02553c51da7bd5b7365727616c99476f8d13",
+    "tb_csi_reset8.sv": "422051969d4db3760620db849764747f8d49dd69ecc28fb8c0dae27473e372b1",
+    "reset8.do": "9c7ef4af9f74603c399ffcfc68beaa9f9dd621f182a09387ecfad79cdebd0747",
+    "td_reset8_top.v": "0ac35ba4a45d9d3a84e0a2ee877229e9ceca829556ade9cdb27a0f00f2e5c3ad",
+    "td_reset8.tcl": "4503448aaaf5da29b064393f3a3da90b06fd1f0bca9cdd81fa4ec72dc537d40a",
+    "td_reset8.adc": "ca49ad5e0baee9c5b878d372c3de941f8f0b3b5b73fbcf4eb14550c14ccbcfb1",
+    "README.md": "2985adfafdd02a4c1f31adac40f99fb33ccf9495ade4726fc0844bdc020c34dc"
+  },
+  "simulation": {
+    "log": "tools/csi_reset8/evidence/modelsim_20261005_060541_40052/simulation.log",
+    "sha256": "9e3b8d07058c2700af2fbd19c3da2167ba79e894b0329ba631e5c6d727e6b6aa",
+    "result": "PASS_DIGITAL_NOT_PHYSICAL",
+    "complete_packets": 83,
+    "complete_packet_lane_bytes": 8300,
+    "qualified_aborted_packet_lane_bytes": 20,
+    "total_absolute_golden_bytes": 8320,
+    "clock_phase_pairs": 8,
+    "short_resets_including_mid_packet": 66,
+    "stopped_clock_resets": 8,
+    "clock_loss_restarts": 1,
+    "in_packet_clock_pauses": 1,
+    "common_reset_checks": 58520,
+    "override_checks": 8,
+    "errors": 0,
+    "warnings": 0,
+    "clock_generator_stub": "No installed PH1_PHY_LCLK_V2 model; explicit related 4:2:1 only. Native IDDRx2/IDELAY/GSR and actual alignment/reset RTL are not stubbed."
+  },
+  "synthesis_only": {
+    "log": "tools/csi_reset8/td_launcher3.log",
+    "sha256": "c157f58439fd2c4c137267c751c6209ebba88510601346c6b15722474243526d",
+    "output": "tools/csi_reset8/evidence/td_20261005_060734_34412",
+    "result": "PASS_GATE_RULE_ONLY_WITH_UNASSIGNED_IO_LIMITATION",
+    "SYN_6024_count": 0,
+    "SYN_6021_count": 1,
+    "unassigned_logical_ports": 102,
+    "async_cells": 19,
+    "common_HS_reset_chain_cells": 3,
+    "no_place_route_bitgen": true,
+    "actual_pin_mapping_proven": false,
+    "full_STA_proven": false
+  },
+  "physical_validation": "PENDING main08 full TD and new bit on-board active calibration/ungated counters/camera frames; old07 best_len=0 and SYN6024 failure retained."
+}

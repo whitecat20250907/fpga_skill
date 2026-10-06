@@ -1,0 +1,10 @@
+{
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\td_commands_prompt.exe",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/update_trial.tcl"
+  ],
+  "pid": 24580,
+  "returncode": 1,
+  "timed_out": false,
+  "elapsed_seconds": 10.826
+}

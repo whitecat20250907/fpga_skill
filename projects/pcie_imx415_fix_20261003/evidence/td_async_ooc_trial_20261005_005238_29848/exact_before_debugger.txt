@@ -1,0 +1,7 @@
+source_gate_inventory=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/td_async_ooc_trial_20261005_005238_29848/cdc_attributes_gate.txt
+expected_count=3
+missing_or_ambiguous name=async_sync_reg[0] matches=0
+missing_or_ambiguous name=async_sync_reg[1] matches=0
+missing_or_ambiguous name=async_sync_reg[2] matches=0
+validated_count=0
+problem_count=3

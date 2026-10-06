@@ -1,0 +1,12 @@
+{
+  "status": "candidate only; no main edit, TD compile or board action",
+  "main09_top_sha256": "fe69b14bcfd4aadd6b4debfa1d5e6d9cb6978ceb9278bc2c4142a66550339df7",
+  "candidate_top_sha256": "ec02b945fbaec411959ae7bc4f33f61a155a7e4e8f04cbd99db23fb5676d321b",
+  "old_production_read_sha256": "4086208771fd04bbead5ad8f2d6b610e1f0e1224d150cd4846c68de2b5bd88a1",
+  "new_production_read_sha256": "411426569605ece672cb9d986cda154731c0d3e34211264827d1521c36382b2f",
+  "bar0": "0x21200000..0x212fffff, 1MiB; user driver selects BAR0",
+  "change": "read qualifier upper31:16 zero -> BAR0 offset19:16 zero; same low16 range/case",
+  "source_version": "0x56440901 retained; root owns any next version update",
+  "deferred": "AXI response backpressure, write alias and WSTRB remain issue13",
+  "simulator_scope": "exact extracted production read selector/register block, deterministic signal fixtures, sentinel app data; no PCIe/AXI engine or PHY simulation"
+}

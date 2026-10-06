@@ -1,0 +1,20 @@
+RUN-1002 : start command "connect_cable -host_name localhost"
+RUN-1003 : finish command "connect_cable -host_name localhost" in  0.009944s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%)
+
+RUN-1004 : used memory is 26 MB, reserved memory is 10 MB, peak memory is 26 MB
+RUN-1002 : start command "list_cable"
+PRG-1000 : Connect device:
+0:PH1A90
+
+RUN-1003 : finish command "list_cable" in  0.542018s wall, 0.000000s user + 0.015625s system = 0.015625s CPU (2.9%)
+
+RUN-1004 : used memory is 36 MB, reserved memory is 10 MB, peak memory is 36 MB
+RUN-1002 : start command "download -bit E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/direct_build_20261005_050803_12488/imx415_pcie_4k_compress.bit -mode jtag -spd 7 -cable 0"
+PRG-2014 : Chip validation success: PH1A90
+
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+RUN-1003 : finish command "download -bit E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/direct_build_20261005_050803_12488/imx415_pcie_4k_compress.bit -mode jtag -spd 7 -cable 0" in  18.049769s wall, 1.437500s user + 0.140625s system = 1.578125s CPU (8.7%)
+
+RUN-1004 : used memory is 36 MB, reserved memory is 11 MB, peak memory is 126 MB

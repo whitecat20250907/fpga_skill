@@ -1,0 +1,78 @@
+# do run_isp_golden.do
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 22:01:59 on Oct 04,2026
+# vlog -work ispwork -sv ../fpga/uisrc/03_ip/ui_isp/ui_BLC.v ../fpga/uisrc/03_ip/ui_isp/ui_top_demosaic.v ../fpga/uisrc/03_ip/ui_isp/ui_raw_matrix_3x3_buffer.v ../fpga/uisrc/03_ip/ui_isp/ui_bilinear_interpolation.v tb_isp_golden.sv 
+# -- Compiling module ui_BLC
+# -- Compiling module ui_top_demosaic
+# -- Compiling module ui_raw_matrix_3x3_buffer
+# -- Compiling module ui_bilinear_interpolation
+# -- Compiling module isp_case
+# -- Compiling module tb_isp_golden
+# 
+# Top level modules:
+# 	tb_isp_golden
+# End time: 22:01:59 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs="+acc" -onfinish stop ispwork.tb_isp_golden 
+# Start time: 22:01:59 on Oct 04,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_isp_golden(fast)
+# Loading work.isp_case(fast)
+# Loading work.ui_BLC(fast)
+# Loading work.ui_top_demosaic(fast)
+# Loading work.ui_raw_matrix_3x3_buffer(fast)
+# Loading work.ui_bilinear_interpolation(fast)
+# Loading work.isp_case(fast__1)
+# Loading work.ui_top_demosaic(fast__1)
+# Loading work.ui_bilinear_interpolation(fast__1)
+# Loading work.isp_case(fast__2)
+# Loading work.ui_top_demosaic(fast__2)
+# Loading work.ui_bilinear_interpolation(fast__2)
+# Loading work.isp_case(fast__3)
+# Loading work.ui_top_demosaic(fast__3)
+# Loading work.ui_bilinear_interpolation(fast__3)
+# PASS RGGB 4x1 frames=3 holes=0 stalls=0
+# PASS BGGR 4x1 frames=3 holes=0 stalls=0
+# PASS GRBG 4x1 frames=3 holes=0 stalls=0
+# PASS GBRG 4x1 frames=3 holes=0 stalls=0
+# PASS RGGB 8x2 frames=3 holes=1 stalls=1
+# PASS BGGR 8x2 frames=3 holes=1 stalls=1
+# PASS GRBG 8x2 frames=3 holes=1 stalls=1
+# PASS GBRG 8x2 frames=3 holes=1 stalls=1
+# PASS RGGB 16x6 frames=4 holes=0 stalls=1
+# PASS BGGR 16x6 frames=4 holes=0 stalls=1
+# PASS GRBG 16x6 frames=4 holes=0 stalls=1
+# PASS GBRG 16x6 frames=4 holes=0 stalls=1
+# PASS RGGB 20x7 frames=3 holes=1 stalls=1
+# PASS BGGR 20x7 frames=3 holes=1 stalls=1
+# PASS GRBG 20x7 frames=3 holes=1 stalls=1
+# PASS GBRG 20x7 frames=3 holes=1 stalls=1
+# PASS RGGB 1280x720 frames=2 holes=1 stalls=1
+# PASS BGGR 1280x720 frames=2 holes=1 stalls=1
+# PASS GRBG 1280x720 frames=2 holes=1 stalls=1
+# PASS GBRG 1280x720 frames=2 holes=1 stalls=1
+# PASS RGGB 1920x1080 frames=2 holes=1 stalls=1
+# PASS BGGR 1920x1080 frames=2 holes=1 stalls=1
+# PASS GRBG 1920x1080 frames=2 holes=1 stalls=1
+# PASS GBRG 1920x1080 frames=2 holes=1 stalls=1
+# PASS ISP ALL GOLDEN CASES
+# ** Note: $finish    : tb_isp_golden.sv(141)
+#    Time: 29993364 ns  Iteration: 2  Instance: /tb_isp_golden
+# Break in Module tb_isp_golden at tb_isp_golden.sv line 141
+# Stopped at tb_isp_golden.sv line 141
+# End time: 22:04:43 on Oct 04,2026, Elapsed time: 0:02:44
+# Errors: 0, Warnings: 0

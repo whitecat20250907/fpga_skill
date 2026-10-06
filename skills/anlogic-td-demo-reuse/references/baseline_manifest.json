@@ -1,0 +1,2534 @@
+{
+  "schema": 1,
+  "confirmed_by_user": "2026-09-23",
+  "examples_root": "E:/qianrufpga/fpga-lab/examples",
+  "demos": {
+    "01": {
+      "directory": "01_uart_loop",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "uart_top",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/01_uart_loop",
+        "source_files": [
+          "uisrc/01_rtl/uart_top.v",
+          "uisrc/03_ip/uiuart_rx.v",
+          "uisrc/03_ip/uiuart_tx.v",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/01_uart_loop/fpga_prj.al",
+        "errors": [],
+        "warnings": [
+          "Check simulator/author machine paths before running: uisrc/02_sim/cmd.do",
+          "Check simulator/author machine paths before running: uisrc/02_sim/modelsim.ini",
+          "Check simulator/author machine paths before running: uisrc/02_sim/verified/modelsim.ini",
+          "Check simulator/author machine paths before running: uisrc/02_sim/verified/run.do"
+        ],
+        "ip_files": [],
+        "pin_inventory": [
+          {
+            "signal": "I_sysclk",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_uart_tx",
+            "location": "U11",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_uart_rx",
+            "location": "V11",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "20f78b5573226ab2be891a9f27641d05211e82d046e3916651a69b56b2e9a493",
+        "uisrc/01_rtl/uart_top.v": "20523cb2d23d50f0267b2ddc3a5f4e50a893801276ec68430233a9c3a11007b6",
+        "uisrc/02_sim/cmd.do": "d91ff88563facf8bc9ec70c153661b40f8d2a793c328ec002d0f50dec9966c0f",
+        "uisrc/02_sim/compile.f": "76ac0d859b8a91d69677ee8376d55a752cd7d415ce2f61c71d03eca8efa0173f",
+        "uisrc/02_sim/modelsim.ini": "d2b764818e96310e6dad8b3cdd47b767ae2969db121060015b9130d4a72725c2",
+        "uisrc/02_sim/sim_top_tb.v": "aab54d0ae6aadeb07e92b6b665e55f11c250a5bd03b16d65fd867090a293421e",
+        "uisrc/02_sim/verified/.gitignore": "0ba4e522124f36651e233c4583453d591a84a312a54379a96da7261130a5d96f",
+        "uisrc/02_sim/verified/modelsim.ini": "ba29a7d3ffba07ddd097a074559d4e48df83601dad40ebcb7f6970bc3decd162",
+        "uisrc/02_sim/verified/run.do": "ccd810d2c259f8e1974da38baaa88bbfc196eaaedb8e71a6a6f9601efa7f7d2e",
+        "uisrc/02_sim/verified/uart_loop_tb.sv": "8fc145869b768a18e7ada156eab69a77d24b20f250ce9a25b658ea1afb9510f0",
+        "uisrc/03_ip/uiuart_rx.v": "76f1c4a71dd464e978a8fb3d85e8cd76039df1552af4ccc6fb51a01055970993",
+        "uisrc/03_ip/uiuart_tx.v": "b853da18dbd4a7b862a6a46a839d8f8de858a1635a29160e3104c6bd74b7d0f5",
+        "uisrc/04_pin/fpga_pin.adc": "6a08d46050d688d1a71f0b2b8f97e472bb03e5030939c2c1c66a7f5b7f903681",
+        "uisrc/04_pin/timing.sdc": "ec7cfdcd046ddfb039ec1c8e1446dc527174c9ea9148bdc921f75dde6371381d"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "f2df31eb80409f19c39964a2f7df77a4417ff7e4638c52b7aa29db9a4dc27ffa",
+          "bytes": 4850270
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "f85abe83b5ba04864330a2a9bb42330fe1565c5fedc34cbc11e7628095b29886",
+          "bytes": 326352
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 33.003ns | STNS 0.000ns | HWNS 0.061ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    },
+    "02": {
+      "directory": "02_i2c_eeprom",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "eeprom_test",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/02_i2c_eeprom",
+        "source_files": [
+          "uisrc/01_rtl/eeprom_test.v",
+          "uisrc/03_ip/uii2c.v",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc",
+          "al_ip/cwc/cwc.xml"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/02_i2c_eeprom/fpga_prj.al",
+        "errors": [],
+        "warnings": [],
+        "ip_files": [
+          "al_ip/cwc/cwc.xml"
+        ],
+        "pin_inventory": [
+          {
+            "signal": "I_sysclk",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_iic_scl",
+            "location": "N14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "IO_iic_sda",
+            "location": "U16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "59a38f016cbf3312fdd4b80f47394ac072fc1bdd25a022419953ec2de670df72",
+        "al_ip/cwc/.m_params_cwc.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "al_ip/cwc/.params_cwc.txt": "5494865af34899df2244b5e3912d698295ef1387c515ec13475703059aaa6385",
+        "al_ip/cwc/.ports_cwc.txt": "7ea6a18776dbac21829db35b4d0f6872227fa7a3917fd9b36d7e6524de763fb7",
+        "al_ip/cwc/Design.xml": "c03aa83daa1d52b621cd6fa3599019be35cfd30f70b33cafa89cfec35f9c7c08",
+        "al_ip/cwc/DesignConfiguration.xml": "55c2725f11d4292f0b7c993354da72dbd487289eaa400a53e84e31e234cc1e4a",
+        "al_ip/cwc/cwc.v": "d4742c37a1bc836d63268582ef62862e45255c5de23a4c5c32e888a8a8a13457",
+        "al_ip/cwc/cwc.xml": "2b51f79540e80537a51cb8167932a681b3a8dbd67615153ffc20f8cb3e6a30df",
+        "al_ip/cwc/Other/templa.tcl": "b3ef134318503500fb1e82bdb06364802e4cc988e29b23be51f0ce0241a1d059",
+        "al_ip/cwc/Other/upgrade.tcl": "fc2e00b77153877b7101adcfcf7285f02acf906a5359cf2d1d8c4777e9c2f6d9",
+        "al_ip/cwc/RTL/ChipWatcher_cwc.sv": "45fe0691835b793b16d287ad47013f7c5d0ecb26894206b181ad5debf5871f6d",
+        "al_ip/cwc/RTL/include/define.v": "adb8e56aca1fd2a6fd16b6f7a5c4ec481942c20e3853178abdbb2d443f9e677e",
+        "uisrc/01_rtl/eeprom_test.v": "4e86973764efd6f122ec3e2a62bab6c1cc50b41d8e9ca594e620b06fd6a2c138",
+        "uisrc/02_sim/eeprom.v": "d4ccd8461215b2d08925261069d3b139eae5cda88a4ce014448352e04089b073",
+        "uisrc/02_sim/sim_top_tb.v": "25c86a2e72d356333d8637f03b69d0cd5e22ea2c5a5abd8848ecd60d3ae73278",
+        "uisrc/03_ip/uii2c.v": "2094ec4b16811866f01bbd813a8fca7f04741a33b4e52524cd2ca87dc7400e6b",
+        "uisrc/04_pin/fpga_pin.adc": "dd8d73a8ce86eb5fa0be882714ed9e8615ad666151ce527dc39aec57e49e6596",
+        "uisrc/04_pin/timing.sdc": "e8b8cce57df38f79ae9710b59042c6c20abb8b0f652d763799abc9892c35619b"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "e3414241b72adc146acdfff5c343098b04ac1ad55b4756baaa5990d7b0b2c7ad",
+          "bytes": 4850319
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "a625e98582fde441dd2db8ca064ca6e6f82a77f33f66f9ec5270d6f7fe42c83b",
+          "bytes": 402113
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 0.618ns | STNS 0.000ns | HWNS 0.020ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    },
+    "03": {
+      "directory": "03_iic_rtc",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "rtc_clock_ds1337",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/03_iic_rtc",
+        "source_files": [
+          "uisrc/01_rtl/rtc_clock_ds1337.v",
+          "uisrc/03_ip/uart_tx_block.v",
+          "uisrc/03_ip/uii2c.v",
+          "uisrc/03_ip/uiuart_tx.v",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/03_iic_rtc/fpga_prj.al",
+        "errors": [],
+        "warnings": [],
+        "ip_files": [],
+        "pin_inventory": [
+          {
+            "signal": "I_sysclk",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_iic_scl",
+            "location": "N14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "IO_iic_sda",
+            "location": "U16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_uart_tx",
+            "location": "U11",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "ed004c15c72c55bdec848179a4c2b2479b190c35aa58205166323c90c3be4b43",
+        "uisrc/01_rtl/rtc_clock_ds1337.v": "0ba21f24dd47093700bc0962684acfeff698f66904f740d526237afa5639f2ec",
+        "uisrc/03_ip/uart_tx_block.v": "bd6b413c957db325006a0a861442a9145c4f93858f5d2fd1a51e576ce1863d37",
+        "uisrc/03_ip/uii2c.v": "2094ec4b16811866f01bbd813a8fca7f04741a33b4e52524cd2ca87dc7400e6b",
+        "uisrc/03_ip/uiuart_tx.v": "df55e1ad9d9e860f2fd3b71412adaab8e7c9f6635b153c5398d5bb4793802bc6",
+        "uisrc/04_pin/fpga_pin.adc": "180aa7e9d31bfd9e69eccb0723de5f96ad19d8e094430b25182df8f83ae2d731",
+        "uisrc/04_pin/timing.sdc": "ec7cfdcd046ddfb039ec1c8e1446dc527174c9ea9148bdc921f75dde6371381d"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "6c3e7bbc090d63928c6b6ca094867576a7d5129fad22b970361defe88323fba7",
+          "bytes": 4850278
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "61066cf997dd7cfb785bb8fc28ab2a7aa6c6bd390e99f49eca4e488dbe251d5e",
+          "bytes": 242648
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 33.847ns | STNS 0.000ns | HWNS 0.127ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    },
+    "04": {
+      "directory": "04_ddr3_axi_fdma_test",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "example_top",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/04_ddr3_axi_fdma_test",
+        "source_files": [
+          "uisrc/01_rtl/system_top.v",
+          "uisrc/01_rtl/fdma_test.v",
+          "uisrc/03_ip/uifdma/uiFDMA.v",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc",
+          "al_ip/cwc/cwc.xml",
+          "uisrc/03_ip/ui_ddr/ui_ddr.ipc"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/04_ddr3_axi_fdma_test/fpga_prj.al",
+        "errors": [],
+        "warnings": [
+          "Check simulator/author machine paths before running: uisrc/02_sim/modelsim.ini"
+        ],
+        "ip_files": [
+          "al_ip/cwc/cwc.xml",
+          "uisrc/03_ip/ui_ddr/ui_ddr.ipc"
+        ],
+        "pin_inventory": [
+          {
+            "signal": "ddr_dq[0]",
+            "location": "U8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[1]",
+            "location": "T8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[2]",
+            "location": "U9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[3]",
+            "location": "U7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[4]",
+            "location": "V10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[5]",
+            "location": "P10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[6]",
+            "location": "V9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[7]",
+            "location": "R10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[8]",
+            "location": "U6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[9]",
+            "location": "V5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[10]",
+            "location": "T5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[11]",
+            "location": "V4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[12]",
+            "location": "V1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[13]",
+            "location": "U1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[14]",
+            "location": "V2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[15]",
+            "location": "U2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[0]",
+            "location": "T9",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[0]",
+            "location": "T10",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[1]",
+            "location": "U4",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[1]",
+            "location": "U3",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[0]",
+            "location": "N9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[1]",
+            "location": "V6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_n[0]",
+            "location": "N7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_p[0]",
+            "location": "P7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ras_n",
+            "location": "T6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cas_n",
+            "location": "R1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_we_n",
+            "location": "R2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_reset_n",
+            "location": "P9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cke[0]",
+            "location": "R8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cs_n[0]",
+            "location": "R5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_odt[0]",
+            "location": "P1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[0]",
+            "location": "T4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[1]",
+            "location": "N4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[2]",
+            "location": "R6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[3]",
+            "location": "T3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[4]",
+            "location": "N3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[5]",
+            "location": "P5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[6]",
+            "location": "N5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[7]",
+            "location": "P8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[8]",
+            "location": "M5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[9]",
+            "location": "R7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[10]",
+            "location": "P2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[11]",
+            "location": "N6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[12]",
+            "location": "P3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[13]",
+            "location": "N8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[0]",
+            "location": "T1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[1]",
+            "location": "P4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[2]",
+            "location": "R3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[0]",
+            "location": "U8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[1]",
+            "location": "T8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[2]",
+            "location": "U9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[3]",
+            "location": "U7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[4]",
+            "location": "V10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[5]",
+            "location": "P10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[6]",
+            "location": "V9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[7]",
+            "location": "R10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[8]",
+            "location": "U6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[9]",
+            "location": "V5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[10]",
+            "location": "T5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[11]",
+            "location": "V4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[12]",
+            "location": "V1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[13]",
+            "location": "U1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[14]",
+            "location": "V2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[15]",
+            "location": "U2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[0]",
+            "location": "T9",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[0]",
+            "location": "T10",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[1]",
+            "location": "U4",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[1]",
+            "location": "U3",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[0]",
+            "location": "N9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[1]",
+            "location": "V6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_n[0]",
+            "location": "N7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_p[0]",
+            "location": "P7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ras_n",
+            "location": "T6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cas_n",
+            "location": "R1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_we_n",
+            "location": "R2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_reset_n",
+            "location": "P9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cke[0]",
+            "location": "R8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cs_n[0]",
+            "location": "R5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_odt[0]",
+            "location": "P1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[0]",
+            "location": "T4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[1]",
+            "location": "N4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[2]",
+            "location": "R6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[3]",
+            "location": "T3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[4]",
+            "location": "N3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[5]",
+            "location": "P5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[6]",
+            "location": "N5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[7]",
+            "location": "P8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[8]",
+            "location": "M5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[9]",
+            "location": "R7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[10]",
+            "location": "P2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[11]",
+            "location": "N6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[12]",
+            "location": "P3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[13]",
+            "location": "N8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[0]",
+            "location": "T1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[1]",
+            "location": "P4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[2]",
+            "location": "R3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "I_ddr_clk",
+            "location": "T13",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "70981e2be90e33e7acfae573ad7cc5de0989ae8986f8f835e6abb92683202518",
+        "al_ip/cwc/.m_params_cwc.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "al_ip/cwc/.params_cwc.txt": "b5cc43afc0c35c5d9ae6a111b437eb2dcb65e1c6460985ed9af17d6267b85266",
+        "al_ip/cwc/.ports_cwc.txt": "e1016dbeb6f78579accf8a492598343b202da9e4a8aca5b104ef5875bfb909d0",
+        "al_ip/cwc/Design.xml": "bb3d0b03d19773856b6a39ad9593716e84a2202dd00bcdffd3e5b29c2d97222f",
+        "al_ip/cwc/DesignConfiguration.xml": "55c2725f11d4292f0b7c993354da72dbd487289eaa400a53e84e31e234cc1e4a",
+        "al_ip/cwc/cwc.v": "3f78122d695518c87d607a1a70876974e584d47214529acc8597c10f921ea50d",
+        "al_ip/cwc/cwc.xml": "154da9a86c5e2be5358da62ef7f0f6ab3d199bebd6adbe47808db4bee308853c",
+        "al_ip/cwc/Other/templa.tcl": "b3ef134318503500fb1e82bdb06364802e4cc988e29b23be51f0ce0241a1d059",
+        "al_ip/cwc/Other/upgrade.tcl": "fc2e00b77153877b7101adcfcf7285f02acf906a5359cf2d1d8c4777e9c2f6d9",
+        "al_ip/cwc/RTL/ChipWatcher_cwc.sv": "0453e1e54b1dfc899952dc3d33fe1c0a1c6d7454655e183d1120258197562ae0",
+        "al_ip/cwc/RTL/include/define.v": "df14083f6ebb5347f243c48e03970d1237864056153e1a0710f0e60cf562381c",
+        "uisrc/01_rtl/fdma_test.v": "e837806165731f3bf435de42c96fde2cdb4228129d6ea3779758af1a9fa64edf",
+        "uisrc/01_rtl/system_top.v": "e6ee7d3c96974df1141cc3bddf9b2c944f26e0d4d5bc2c4f6213400fb78e40df",
+        "uisrc/02_sim/cmd.do": "309c50c1f8d910990b4d20286b2459ae7bc296e965c168cd50d62a69dbc31b27",
+        "uisrc/02_sim/compile.f": "eab365e9e6c9731326a8a0dad7b3d88b73039cee5d511c16fe7ada1e57d1642f",
+        "uisrc/02_sim/modelsim.ini": "b3a50363a687e7f1f09ac5451686bcf210f899b84accb3d17b77ff174e4f63d4",
+        "uisrc/02_sim/my_wave.do": "2ccd98a5d486a011c5ceed313f8cfa77c738612ddeb9ec35fdac1a9ba8f91909",
+        "uisrc/02_sim/setup_td_latest.csh": "1fd9a235e214492722958efb98c98d9912db123891719957d43b039bc5dc9d5c",
+        "uisrc/02_sim/sim_prj.cr.mti": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "uisrc/02_sim/sim_prj.mpf": "aa3586baff0484470cc7f43849f26fd85b6ff3c3d5a16f7b3bcd74bbad67d55d",
+        "uisrc/02_sim/hdl_srcs/sim_tb_top.sv": "ef75cf562e804c08afa5e495a2e2db7b0cb55111333ad335d6c9e260b6726ff8",
+        "uisrc/02_sim/hdl_srcs/common/_info": "d500b4eb372f63f7ce65649d8475cad64a1ae58960938b8c532b1af9a55ff8a2",
+        "uisrc/02_sim/hdl_srcs/common/_lib.qdb": "c8c777e5db4bc9953309edd8218cd1080b0061e9011ee0d202c1d0a821feefea",
+        "uisrc/02_sim/hdl_srcs/common/_lib1_0.qdb": "3248bef1439a458a641e0b3af482545d9b53651ab1951d6f5c55b92eab9ab6fa",
+        "uisrc/02_sim/hdl_srcs/common/_lib1_0.qpg": "65c5ef9417130835136d768e6eee5ca411d2d0d34dd79ac7d49a069b2da40766",
+        "uisrc/02_sim/hdl_srcs/common/_lib1_0.qtl": "633b2124de1beb724bf100f74fe142ddda4c6936f7fe9a8b8b889a53c09c7b1f",
+        "uisrc/02_sim/hdl_srcs/common/_vmake": "d287f8a335408d3f94fea840ad628f2cbed3775952c49131049ef8f60fd337c9",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/ddr3.v": "96aecbbf8482e019c3404575c99cbc44ae58fee6646d2a337c18fe35d90281da",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/ddr3.v.bak": "a67e8c8c6c82a69982980fa71bc7c53aa87f64b3968dd1792747d28002404c9c",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/include/1024Mb_ddr3_parameters.vh": "d6f150ddc7777d4f65a080a299852926bede972ee95b863800da0051399f2d4d",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/include/2048Mb_ddr3_parameters.vh": "9a02e80c10bbde9900e7dce6c7a2f16a675d9017460b4db4f730bf7089246da6",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/include/4096Mb_ddr3_parameters.vh": "6414a811a8feed2acd874ad68bd2e02b935b2f81fdc9a294d2f8d511e9d65941",
+        "uisrc/02_sim/hdl_srcs/ddr3_sim_model/include/8192Mb_ddr3_parameters.vh": "22cfb486a50e5863dc58afd397131938bd1317a9d57cbc5bf7c5f65abbe6ce2d",
+        "uisrc/02_sim/mcu_rom/mcu_rom.txt": "cd913458ff92970525649254b69f4f8123ff968ab9a9172018d1adbf2f73b2b7",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.0": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.2": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.3": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.4": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.5": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.6": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[0].u_ddr3_x16.open_bank_file.7": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.0": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.1": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.2": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.3": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.4": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.5": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.6": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[1].u_ddr3_x16.open_bank_file.7": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.0": "81e1e330635bdc118e3a78533453b9ceacde629b63fd1f189bb31583eeb37824",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.1": "c289201074be17846a7a3c4598ef5e348912b471c3da66a8f926f421c8898e29",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.2": "d12c907addd9bfff56ab863483c04e16bf8c06a2b9de7b4691352e9a4d9bb03f",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.3": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.4": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.5": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.6": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[2].u_ddr3_x16.open_bank_file.7": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.0": "81e1e330635bdc118e3a78533453b9ceacde629b63fd1f189bb31583eeb37824",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.1": "c289201074be17846a7a3c4598ef5e348912b471c3da66a8f926f421c8898e29",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.2": "d12c907addd9bfff56ab863483c04e16bf8c06a2b9de7b4691352e9a4d9bb03f",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.3": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.4": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.5": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.6": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/02_sim/tmp/sim_tb_top.mem_model_x16.memModel[3].u_ddr3_x16.open_bank_file.7": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/03_ip/ui_ddr/ddr_ip.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+        "uisrc/03_ip/ui_ddr/ui_ddr.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+        "uisrc/03_ip/ui_ddr/ui_ddr.ipc": "1b8fcaf9260cf5375112e7d8edd96dcc57f7358de765707146ea58c57cfca44f",
+        "uisrc/03_ip/ui_ddr/ui_ddr.sdc": "3b0689e56fb78f9bf8bf57ec941864fd75b058f269bc7b15304c946442251342",
+        "uisrc/03_ip/ui_ddr/ui_ddr.sv": "b6c0a6127c2049d5087d1f913edefb9d8f8a4fa86f34b6cb95ba92503ef50f73",
+        "uisrc/03_ip/ui_ddr/ui_ddr_cfg_rom.mif": "a95ad6d63736e6f283e1241bccbae9fe2db2c34d956ff85977a9fd98184f36c1",
+        "uisrc/03_ip/ui_ddr/ui_ddr_cfg_rom.txt": "07d7d978421e5a56cb96e603d005500c628525ee37393e45b226879020a57392",
+        "uisrc/03_ip/ui_ddr/ui_ddr_mcu_rom.txt": "cd913458ff92970525649254b69f4f8123ff968ab9a9172018d1adbf2f73b2b7",
+        "uisrc/03_ip/uifdma/uiFDMA.v": "40fd49fb90961ab7217fd562e907f3daa714948d39eb5b748e8b3d573d965194",
+        "uisrc/04_pin/fpga_pin.adc": "964fe256284555b079c7ed88a9ff688ccf7aba56f9bfbe0bd242a4a3bd6a5390",
+        "uisrc/04_pin/timing.sdc": "fdab1a10d61015c3b44ff652f47fe8bb9a4aad6f0e376c4eb1c579dfbb49787b",
+        "uisrc/06_doc/ddr_parts_cust.csv": "dcd5456674039ea446c7a5845c57506eeff8bebdb30e1727dbc12e94aa605efd",
+        "uisrc/06_doc/非IP中的ddr颗粒使用说明.docx": "592e6b0c57705d29fa8f36e35d1a02101f8ea4082986588532e05d86e55f5b87",
+        "uisrc/06_doc/ddr_axi/alc_mc_enc.sv": "e3e047d4b92f708a9e98c6755e776e5e399d7ef0afafec7f8f138b9f1c8ba6f9"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "b6c28769855400ff1aee1a9930e694a7e1a5205c22aad7f8aebecc3be3be3f53",
+          "bytes": 4850319
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "307c2e19b0a07415ff0f75b73b58682633cce7d2592d3bf1f51192a5c2d0f325",
+          "bytes": 1469313
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 0.745ns | STNS 0.000ns | HWNS 0.020ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    },
+    "05": {
+      "directory": "05_tpg_dsi_7cun",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "system_top",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/05_tpg_dsi_7cun",
+        "source_files": [
+          "uisrc/01_rtl/system_top.v",
+          "uisrc/03_ip/dsi/hdl_source/dsi_video_mode_packet.v",
+          "uisrc/03_ip/dsi/hdl_source/reset_gen.v",
+          "uisrc/03_ip/dsi/hdl_source/rgb_24b_to_32b.v",
+          "uisrc/03_ip/dsi/hdl_source/video_source.v",
+          "uisrc/03_ip/dsi/hdl_source/video_tpg.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/display_config_wrapper.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/ecc_gen.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_execution.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_fetch.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_rom.v",
+          "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.v",
+          "uisrc/03_ip/dsi/hdl_source/dphy_tx_general/enc_file/mipi_dphy_tx_wrapper.enc.v",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc",
+          "uisrc/03_ip/alip/pll/pll.ipc",
+          "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/05_tpg_dsi_7cun/fpga_prj.al",
+        "errors": [],
+        "warnings": [
+          "Review broad exclusive clock groups/CDC before integration: uisrc\\04_pin\\timing.sdc"
+        ],
+        "ip_files": [
+          "uisrc/03_ip/alip/pll/pll.ipc",
+          "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc"
+        ],
+        "pin_inventory": [
+          {
+            "signal": "I_sys_clk_25m",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_hs_p",
+            "location": "E16",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_lp_n",
+            "location": "B13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_lp_p",
+            "location": "A13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[0]",
+            "location": "F18",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[1]",
+            "location": "K16",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[2]",
+            "location": "D17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[3]",
+            "location": "J17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[0]",
+            "location": "G14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[0]",
+            "location": "G13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[1]",
+            "location": "H14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[1]",
+            "location": "J14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[2]",
+            "location": "D18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[2]",
+            "location": "E18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[3]",
+            "location": "J15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[3]",
+            "location": "K15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "03bd3f065da9b3b02f34567c36dcfdef292664caa467b9ffa6eb0eeb25a692f1",
+        "uisrc/01_rtl/system_top.v": "de3a2f22968471f40fc2f3283d01679c0d584407a83520cee743e7c5c4338b24",
+        "uisrc/03_ip/alip/pll/pll.ipc": "28bb06abaa7ecff17ac6f3ac1eed11b32188d71a9197791a5147d4b0a0217023",
+        "uisrc/03_ip/alip/pll/pll.v": "0f14194dc0e79b66db79cd99159c5ca81bc13349e2fe936b2f5d05cfedabb602",
+        "uisrc/03_ip/alip/pll/pll.vhd": "95414ee4b653b0be8f73ab7a8b83ea3949677a43f86855be111443304d1447cd",
+        "uisrc/03_ip/dsi/hdl_source/dsi_video_mode_packet.v": "403f00b2e88e8c51cac58d5786febb5f8680823fe38790e5f72804ba00483dfc",
+        "uisrc/03_ip/dsi/hdl_source/reset_gen.v": "984b6fa1a6f55e951e12262f1dee7858d843271ddb85aa4e5fa1462fbf00e2d7",
+        "uisrc/03_ip/dsi/hdl_source/rgb_24b_to_32b.v": "380ac48f50136d6077406a63d029165ce26fcbde68d4e8350299a9730a045013",
+        "uisrc/03_ip/dsi/hdl_source/video_source.v": "63a77aa0ba508f2640fa52d65fa62d65b67c65ba0b5580ea458e6379bcf1d0a2",
+        "uisrc/03_ip/dsi/hdl_source/video_tpg.v": "9a54bde44f382f3fbd727d7d9bdc61c3c09b4abb1a6b65b2c62d6e994b0e9101",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif": "490a24da72c4f171150342c15120474ae051582ee43760dc7847057db0c9ec57",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif.dat": "302ef46925fa2325ba5ce2e5f64a62f87aaead6aa649e097f96b9d20cc0b1480",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif.dath": "7e7f7b3138b95d516d5cd6debdb32f3ecddf1443b9b0a826e49a86febe8a4d25",
+        "uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v": "96434780e0bd275c25ab694bbf3cca842e8a4b92220feda15fdcd4889aea01c7",
+        "uisrc/03_ip/dsi/hdl_source/display_config/display_config_wrapper.v": "ac4ea0143ca67e9ec15fb3abd9ab5f465138e3a47f7be206fd345cb83845bcd9",
+        "uisrc/03_ip/dsi/hdl_source/display_config/ecc_gen.v": "ae56cac42b2b3f36fc71873eb74fab97d58940b869e3cf9ded61fc1ce45fea7a",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_execution.v": "10f25e8ff26416589ae677134d39cec5ccafcaa8bba07344f306a30b9225f640",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_fetch.v": "e87324cc34e239d36f35b644b23b13e8d54b4af759c1ead4ae1f4cf3f03ba7b6",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_rom.v": "0c65893100492a79124de181d2b9348635926529c9a6efac88798f94c4879ade",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc": "9639def2ad7045374a8c9339895e9d99346dc3b9b4a95afbfbb80613ca75349d",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.v": "cdfbce064d21d807b62b85bf5590dd5b050e99b442d8bc253bc36bd08c837391",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.vhd": "5f0beefb30531556656f79d0e7cf953a509f3d7ecfd63e786713095adf5dab7c",
+        "uisrc/03_ip/dsi/hdl_source/dphy_tx_general/enc_file/mipi_dphy_tx_wrapper.enc.v": "554b3321abfad29ce3ea5161538476fe67baa5dfe5636093bb5b4dcfbc2215c6",
+        "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.ipc": "81132667223db8eb92f96c6a46369fe09df717de8bfdb2e4b9897943d1ce3f9b",
+        "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.v": "5f23f003fdca8a578103c09278bdd3c65174978da030e91b438d02669a5041a5",
+        "uisrc/04_pin/fpga_pin.adc": "fe5b48d62a5433b0b93eda1775135873dcc0cd2fa6787054741872f62ba3bf42",
+        "uisrc/04_pin/timing.sdc": "358f8507aa44154f0aad2ef761858a9046abe5dd4c8c7178cce29bbda17b0dd5",
+        "uisrc/06_doc/APUG030-MIPI DSI Host Example Design(1).pdf": "590379c6da51505713efad48947afae677668e9852e373215f92f80d8e8b0318",
+        "uisrc/06_doc/APUG042-MIPI D-PHY Transmitter(TX).pdf": "b13f662eadd1ea62a0d7746f0b8b5232ac055ee5344490e5a677520b71f6d304"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "e25b48496d436e7e0d404dc6ab9f3c3859a4d1a3ac0e5670c23c1256f107d07b",
+          "bytes": 4850318
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "c335fac44f56f2767dbbbb497557191ef4996adbc034ecf7701d7d6b31196b43",
+          "bytes": 388224
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 7.994ns | STNS 0.000ns | HWNS 0.061ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    },
+    "06": {
+      "directory": "06_csi_2_dsi_imx415_7cun",
+      "audit": {
+        "name": "fpga_prj",
+        "device": "PH1A90SEG324",
+        "speed": "-2",
+        "top": "system_top",
+        "td_version": "6.2.200067",
+        "project_root": "E:/qianrufpga/fpga-lab/examples/06_csi_2_dsi_imx415_7cun",
+        "source_files": [
+          "uisrc/01_rtl/system_top.v",
+          "uisrc/03_ip/ui_ae_set/ui_ae_set.v",
+          "uisrc/03_ip/ui_ae_set/ui_key.v",
+          "uisrc/03_ip/ui_csi_raw/ui_csi_unpacket_4lane.v",
+          "uisrc/03_ip/ui_csi_raw/ui_image_correction.v",
+          "uisrc/03_ip/ui_csi_raw/ui_raw10_unpacket_4lane.v",
+          "uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v",
+          "uisrc/03_ip/ui_imx415_cfg/ui_i2c.v",
+          "uisrc/03_ip/ui_imx415_cfg/ui_imx415_reg.v",
+          "uisrc/03_ip/al_ip/mipi_rx/data_lane_rx_wrapper.enc.v",
+          "uisrc/03_ip/al_ip/mipi_rx/mipi_dphy_rx_over_lvds_wrapper.v",
+          "uisrc/03_ip/al_ip/mipi_rx/rx_clk_gen.v",
+          "uisrc/03_ip/ui_isp/ui_BLC/ui_BLC.v",
+          "uisrc/03_ip/ui_isp/ui_isp_top.v",
+          "uisrc/03_ip/ui_isp/ui_awb/ui_awb.v",
+          "uisrc/03_ip/ui_isp/ui_awb/ui_signal_delay.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_bilinear_interpolation.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_line_buffer_demosaic.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_mipi_to_raw_converter.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_raw_matrix_3x3_buffer.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_top_demosaic.v",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_zhenghe.v",
+          "uisrc/03_ip/ui_isp/ui_data128_96/ui_data128_96.v",
+          "uisrc/03_ip/ui_isp/ui_brightness_adj/ui_Brightness_adj.v",
+          "uisrc/03_ip/ui_isp/ui_contrast_adj/ui_contrast_adj.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_gamma.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_0_8.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_2.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_4.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_6.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_8.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_0.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_2.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_4.v",
+          "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_6.v",
+          "uisrc/03_ip/ui_isp/ui_image_cut/ui_image_cut.v",
+          "uisrc/03_ip/ui_isp/ui_saturation_adj/ui_Saturation_adj.v",
+          "uisrc/03_ip/ui_isp/ui_awb/divider_gate.v",
+          "uisrc/03_ip/ui_dbuf/uidbuf.v",
+          "uisrc/03_ip/ui_dbuf/sfifo/sfifo.v",
+          "uisrc/03_ip/ui_setvbuf/uisetvbuf.v",
+          "uisrc/03_ip/ui_fdma/uiFDMA.v",
+          "uisrc/03_ip/dsi/hdl_source/dsi_video_mode_packet.v",
+          "uisrc/03_ip/dsi/hdl_source/reset_gen.v",
+          "uisrc/03_ip/dsi/hdl_source/rgb_24b_to_32b.v",
+          "uisrc/03_ip/dsi/hdl_source/video_source.v",
+          "uisrc/03_ip/dsi/hdl_source/video_tpg.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/display_config_wrapper.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/ecc_gen.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_execution.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_fetch.v",
+          "uisrc/03_ip/dsi/hdl_source/display_config/instruction_rom.v",
+          "uisrc/03_ip/dsi/hdl_source/dphy_tx_general/enc_file/mipi_dphy_tx_wrapper.enc.v",
+          "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.v",
+          "uisrc/03_ip/ui_isp/ui_data96_128/ui_data96_128.v",
+          "uisrc/03_ip/al_ip/mipi_rx/channel_aligner_wrapper.enc.sv",
+          "uisrc/03_ip/al_ip/mipi_rx/hs_rx_wrapper.sv",
+          "uisrc/04_pin/fpga_pin.adc",
+          "uisrc/04_pin/timing.sdc",
+          "uisrc/03_ip/al_ip/ui_pll/ui_pll.ipc",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_demosaic/ui_ram_demosaic.ipc",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_zhenghe/ui_ram_zhenghe.ipc",
+          "uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.ipc",
+          "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.ipc",
+          "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc"
+        ],
+        "project": "E:/qianrufpga/fpga-lab/examples/06_csi_2_dsi_imx415_7cun/fpga_prj.al",
+        "errors": [],
+        "warnings": [
+          "Review broad exclusive clock groups/CDC before integration: uisrc\\04_pin\\timing.sdc"
+        ],
+        "ip_files": [
+          "uisrc/03_ip/al_ip/ui_pll/ui_pll.ipc",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_demosaic/ui_ram_demosaic.ipc",
+          "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_zhenghe/ui_ram_zhenghe.ipc",
+          "uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.ipc",
+          "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.ipc",
+          "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc"
+        ],
+        "pin_inventory": [
+          {
+            "signal": "ddr_dq[0]",
+            "location": "U8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[1]",
+            "location": "T8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[2]",
+            "location": "U9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[3]",
+            "location": "U7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[4]",
+            "location": "V10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[5]",
+            "location": "P10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[6]",
+            "location": "V9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[7]",
+            "location": "R10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[8]",
+            "location": "U6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[9]",
+            "location": "V5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[10]",
+            "location": "T5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[11]",
+            "location": "V4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[12]",
+            "location": "V1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[13]",
+            "location": "U1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[14]",
+            "location": "V2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[15]",
+            "location": "U2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[0]",
+            "location": "T9",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[0]",
+            "location": "T10",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[1]",
+            "location": "U4",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[1]",
+            "location": "U3",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[0]",
+            "location": "N9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[1]",
+            "location": "V6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_n[0]",
+            "location": "N7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_p[0]",
+            "location": "P7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ras_n",
+            "location": "T6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cas_n",
+            "location": "R1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_we_n",
+            "location": "R2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_reset_n",
+            "location": "P9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cke[0]",
+            "location": "R8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cs_n[0]",
+            "location": "R5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_odt[0]",
+            "location": "P1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[0]",
+            "location": "T4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[1]",
+            "location": "N4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[2]",
+            "location": "R6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[3]",
+            "location": "T3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[4]",
+            "location": "N3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[5]",
+            "location": "P5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[6]",
+            "location": "N5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[7]",
+            "location": "P8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[8]",
+            "location": "M5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[9]",
+            "location": "R7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[10]",
+            "location": "P2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[11]",
+            "location": "N6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[12]",
+            "location": "P3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[13]",
+            "location": "N8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[0]",
+            "location": "T1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[1]",
+            "location": "P4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[2]",
+            "location": "R3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[0]",
+            "location": "U8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[1]",
+            "location": "T8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[2]",
+            "location": "U9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[3]",
+            "location": "U7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[4]",
+            "location": "V10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[5]",
+            "location": "P10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[6]",
+            "location": "V9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[7]",
+            "location": "R10",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[8]",
+            "location": "U6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[9]",
+            "location": "V5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[10]",
+            "location": "T5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[11]",
+            "location": "V4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[12]",
+            "location": "V1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[13]",
+            "location": "U1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[14]",
+            "location": "V2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dq[15]",
+            "location": "U2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[0]",
+            "location": "T9",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[0]",
+            "location": "T10",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_n[1]",
+            "location": "U4",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dqs_p[1]",
+            "location": "U3",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[0]",
+            "location": "N9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_dm[1]",
+            "location": "V6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_n[0]",
+            "location": "N7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ck_p[0]",
+            "location": "P7",
+            "iostandard": "DIFF_SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ras_n",
+            "location": "T6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cas_n",
+            "location": "R1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_we_n",
+            "location": "R2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_reset_n",
+            "location": "P9",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cke[0]",
+            "location": "R8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_cs_n[0]",
+            "location": "R5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_odt[0]",
+            "location": "P1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[0]",
+            "location": "T4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[1]",
+            "location": "N4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[2]",
+            "location": "R6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[3]",
+            "location": "T3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[4]",
+            "location": "N3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[5]",
+            "location": "P5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[6]",
+            "location": "N5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[7]",
+            "location": "P8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[8]",
+            "location": "M5",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[9]",
+            "location": "R7",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[10]",
+            "location": "P2",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[11]",
+            "location": "N6",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[12]",
+            "location": "P3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_addr[13]",
+            "location": "N8",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[0]",
+            "location": "T1",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[1]",
+            "location": "P4",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "ddr_ba[2]",
+            "location": "R3",
+            "iostandard": "SSTL135",
+            "file": "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "I_clk",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "I_rst_n",
+            "location": "U14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_dsi_pwm",
+            "location": "H17",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_clk_hs_p",
+            "location": "C14",
+            "iostandard": "LVDS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_hs_p[0]",
+            "location": "C17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_hs_p[1]",
+            "location": "A13",
+            "iostandard": "LVDS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_hs_p[2]",
+            "location": "C15",
+            "iostandard": "LVDS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_hs_p[3]",
+            "location": "A14",
+            "iostandard": "LVDS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_clk_lp_p",
+            "location": "D14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_clk_lp_n",
+            "location": "E15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_p[0]",
+            "location": "D18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_n[0]",
+            "location": "E18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_p[1]",
+            "location": "A18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_n[1]",
+            "location": "B18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_p[2]",
+            "location": "B16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_n[2]",
+            "location": "C16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_p[3]",
+            "location": "A15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "O_data_lp_n[3]",
+            "location": "A16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/03_ip/dsi/constraint_source/pin.adc",
+            "direct_project_constraint": false
+          },
+          {
+            "signal": "I_sysclk_25m",
+            "location": "T16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_ddr_clk",
+            "location": "T13",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_cam_scl",
+            "location": "B14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "IO_cam_sda",
+            "location": "A14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_rst",
+            "location": "B18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "S_clk_25m",
+            "location": "A18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_clk_hs_p",
+            "location": "E13",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_hs_p[0]",
+            "location": "C14",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_hs_p[1]",
+            "location": "D14",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_hs_p[2]",
+            "location": "A15",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_hs_p[3]",
+            "location": "G17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_p[0]",
+            "location": "B16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_n[0]",
+            "location": "C16",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_p[1]",
+            "location": "C15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_n[1]",
+            "location": "D15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_p[2]",
+            "location": "C17",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_n[2]",
+            "location": "B17",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_p[3]",
+            "location": "F15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "I_data_lp_n[3]",
+            "location": "F14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_hs_p",
+            "location": "E16",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_lp_n",
+            "location": "B13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_clk_lp_p",
+            "location": "A13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[0]",
+            "location": "F18",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[1]",
+            "location": "K16",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[2]",
+            "location": "D17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_hs_p[3]",
+            "location": "J17",
+            "iostandard": "LVDS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[0]",
+            "location": "G14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[0]",
+            "location": "G13",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[1]",
+            "location": "H14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[1]",
+            "location": "J14",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[2]",
+            "location": "D18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[2]",
+            "location": "E18",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_p[3]",
+            "location": "J15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          },
+          {
+            "signal": "O_data_lp_n[3]",
+            "location": "K15",
+            "iostandard": "LVCMOS18",
+            "file": "uisrc/04_pin/fpga_pin.adc",
+            "direct_project_constraint": true
+          }
+        ],
+        "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+      },
+      "inputs_sha256": {
+        "fpga_prj.al": "ba24bc9648b85e02338b0adb2e4b5004ff488ba9d3c4eb6f7f1a1121894e7b5d",
+        "uisrc/01_rtl/system_top.v": "1b82ae8cf1d0d425a055ba7464aa113fe0654f22784829fdbdb3e2c40fe4b079",
+        "uisrc/03_ip/al_ip/mipi_rx/channel_aligner_wrapper.enc.sv": "abe0f8184b892b4d53d4c5fe4e9c8d0683e506edcff4bf7ba40f768deca7117b",
+        "uisrc/03_ip/al_ip/mipi_rx/data_lane_rx_wrapper.enc.v": "87e9f6a09b367d6619402c5d8571493eb79fde8a4e8306665bfba5e564a6d805",
+        "uisrc/03_ip/al_ip/mipi_rx/hs_rx_wrapper.sv": "755ab8a62c1616210a74bfe8f4f2594bd3547339e66fae40d1e41c7b0a270083",
+        "uisrc/03_ip/al_ip/mipi_rx/mipi_dphy_rx_over_lvds_wrapper.v": "456798cffe2b024a0fd6988e185a6f8ca8a2d00d7867a52e2b4a8f4989ab7e8e",
+        "uisrc/03_ip/al_ip/mipi_rx/rx_clk_gen.v": "77766559e0295db9a628fa241237b262c29419384158ba39ed807465b2885bd9",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/hdmi_phy_warpper.v": "54ce5b3d586061d1c87991af90d84d78a273e7a5aa6db8ee5f3c400b63bd455a",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/hdmi_tx_controller_wrapper.enc.v": "30e3666e95e34e9f4ecbbe3e30bf7475ba630969d64d3f560ed045073e32f8e1",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/lane_lvds_10_1.v": "042f2943abbd11816c482a0af78291ed527f2cba1aa2868f51d0e3ae0e5d3208",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/ui_HDMI_TX.v": "e09819429f88220e80609321439a5f4f62bb511e0997d7f0de99e8f93fcb0c0a",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/Component.xml": "110798441fafc4870380055f0f536dc4b11e56ce4fb9c29d43bd8909f7eafe80",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/Dependency.tcl": "5a48507f0f7a21f39696dbbf0caf01f19fe4cc70201b2ff6d7fd172794984bff",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/Layout.tcl": "2472e3b3d81541deead01be59dd30239fc882e840755a5ad213f10e3e50700bb",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx.pack": "5727f77aab39607268e958b1d7c190e8735ee796003a7fd4a10cc0e712079cdc",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx_files/RTL/hdmi_phy_warpper.v": "54ce5b3d586061d1c87991af90d84d78a273e7a5aa6db8ee5f3c400b63bd455a",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx_files/RTL/hdmi_tx_controller_wrapper.enc.v": "30e3666e95e34e9f4ecbbe3e30bf7475ba630969d64d3f560ed045073e32f8e1",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx_files/RTL/lane_lvds_10_1.v": "042f2943abbd11816c482a0af78291ed527f2cba1aa2868f51d0e3ae0e5d3208",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx_files/RTL/ui_HDMI_TX.v": "ca264cedf714e8d50edca846f936f8b0b03588a661701b5c6174dc9deaf726c7",
+        "uisrc/03_ip/al_ip/ui_HDMI_TX/uihdmi_tx/uihdmi_tx_files/RTL/uihdmi_tx.v": "6312c0ae0ec50052dfc83bb96332c44ba5f79b3cd0e12373b2344f41e57f6097",
+        "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.ipc": "1b8fcaf9260cf5375112e7d8edd96dcc57f7358de765707146ea58c57cfca44f",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.sdc": "3b0689e56fb78f9bf8bf57ec941864fd75b058f269bc7b15304c946442251342",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.sv": "b6c0a6127c2049d5087d1f913edefb9d8f8a4fa86f34b6cb95ba92503ef50f73",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_cfg_rom.mif": "a95ad6d63736e6f283e1241bccbae9fe2db2c34d956ff85977a9fd98184f36c1",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_cfg_rom.txt": "07d7d978421e5a56cb96e603d005500c628525ee37393e45b226879020a57392",
+        "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_mcu_rom.txt": "cd913458ff92970525649254b69f4f8123ff968ab9a9172018d1adbf2f73b2b7",
+        "uisrc/03_ip/al_ip/ui_pll/ui_pll.ipc": "c1bcb6adc0dcc85467e32f7117f25bb09e678f8d569879486947c7f6b212360f",
+        "uisrc/03_ip/al_ip/ui_pll/ui_pll.v": "a20e5b88d364af951acaab02fff3bb46b465dd53e1933074186894337405d675",
+        "uisrc/03_ip/al_ip/ui_pll/ui_pll.vhd": "6fea44f694a60a1ac546481f2fd2dfebf96432340e6c34d88bdfdde9d7a5f946",
+        "uisrc/03_ip/dsi/constraint_source/debug.cwc": "0323244ab0226f7fee96e1408782a8ee8d9a794eab92efbf9e6ee49c5830af95",
+        "uisrc/03_ip/dsi/constraint_source/pin.adc": "9ed904c91b0f3a00bc1e87c91c024e0da33604057778a6f219dbc7b7d336da73",
+        "uisrc/03_ip/dsi/constraint_source/timing.sdc": "3a1d4d8bf57d1c64e16a1d8a200d084242d6cf3cd73fa674c57bc4446440d01b",
+        "uisrc/03_ip/dsi/hdl_source/dsi_video_mode_packet.v": "403f00b2e88e8c51cac58d5786febb5f8680823fe38790e5f72804ba00483dfc",
+        "uisrc/03_ip/dsi/hdl_source/pll.ipc": "226d9b5a5053a09a6a41d840772ca34470ae5f04fd276f847c16e6fe245d5c0f",
+        "uisrc/03_ip/dsi/hdl_source/pll.v": "049242d5eb2d2d22a263255688ef7d54b51cd41d2f2a361207d6ec0c107bf26a",
+        "uisrc/03_ip/dsi/hdl_source/pll.vhd": "593da0c0e8808749103e48c829042dbf2bfdb1ffb063c11e7697e94556a1aeae",
+        "uisrc/03_ip/dsi/hdl_source/reset_gen.v": "984b6fa1a6f55e951e12262f1dee7858d843271ddb85aa4e5fa1462fbf00e2d7",
+        "uisrc/03_ip/dsi/hdl_source/rgb_24b_to_32b.v": "380ac48f50136d6077406a63d029165ce26fcbde68d4e8350299a9730a045013",
+        "uisrc/03_ip/dsi/hdl_source/top.v": "8bbb598312607302d9797fa68e8c869036334da9c360a814cc487e60d45ffcef",
+        "uisrc/03_ip/dsi/hdl_source/video_source.v": "63a77aa0ba508f2640fa52d65fa62d65b67c65ba0b5580ea458e6379bcf1d0a2",
+        "uisrc/03_ip/dsi/hdl_source/video_tpg.v": "9a54bde44f382f3fbd727d7d9bdc61c3c09b4abb1a6b65b2c62d6e994b0e9101",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif": "490a24da72c4f171150342c15120474ae051582ee43760dc7847057db0c9ec57",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif.dat": "302ef46925fa2325ba5ce2e5f64a62f87aaead6aa649e097f96b9d20cc0b1480",
+        "uisrc/03_ip/dsi/hdl_source/display_config/config_data_nes.mif.dath": "7e7f7b3138b95d516d5cd6debdb32f3ecddf1443b9b0a826e49a86febe8a4d25",
+        "uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v": "96434780e0bd275c25ab694bbf3cca842e8a4b92220feda15fdcd4889aea01c7",
+        "uisrc/03_ip/dsi/hdl_source/display_config/display_config_wrapper.v": "ac4ea0143ca67e9ec15fb3abd9ab5f465138e3a47f7be206fd345cb83845bcd9",
+        "uisrc/03_ip/dsi/hdl_source/display_config/ecc_gen.v": "ae56cac42b2b3f36fc71873eb74fab97d58940b869e3cf9ded61fc1ce45fea7a",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_execution.v": "10f25e8ff26416589ae677134d39cec5ccafcaa8bba07344f306a30b9225f640",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_fetch.v": "e87324cc34e239d36f35b644b23b13e8d54b4af759c1ead4ae1f4cf3f03ba7b6",
+        "uisrc/03_ip/dsi/hdl_source/display_config/instruction_rom.v": "0c65893100492a79124de181d2b9348635926529c9a6efac88798f94c4879ade",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.ipc": "9639def2ad7045374a8c9339895e9d99346dc3b9b4a95afbfbb80613ca75349d",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.v": "cdfbce064d21d807b62b85bf5590dd5b050e99b442d8bc253bc36bd08c837391",
+        "uisrc/03_ip/dsi/hdl_source/display_config/rom/instruction_rom.vhd": "5f0beefb30531556656f79d0e7cf953a509f3d7ecfd63e786713095adf5dab7c",
+        "uisrc/03_ip/dsi/hdl_source/dphy_tx_general/enc_file/mipi_dphy_tx_wrapper.enc.v": "554b3321abfad29ce3ea5161538476fe67baa5dfe5636093bb5b4dcfbc2215c6",
+        "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.ipc": "81132667223db8eb92f96c6a46369fe09df717de8bfdb2e4b9897943d1ce3f9b",
+        "uisrc/03_ip/dsi/hdl_source/fifo_w32_d512/fifo_w32_d512.v": "5f23f003fdca8a578103c09278bdd3c65174978da030e91b438d02669a5041a5",
+        "uisrc/03_ip/dsi/sim_source/display_config_wrapper_sim_top.v": "334771118d052fb423248e9c838ee7b6b9b03bad3755f57aa2a38260e5909e63",
+        "uisrc/03_ip/dsi/sim_source/lp_tx_sim_top.v": "e4650ed06e07bf4f34f30a964e3256c971fea33aaafbe86f2124c3cc14e4aebf",
+        "uisrc/03_ip/dsi/sim_source/sim_top.v": "2766ed261160f7d4f0ae723fed6f82511d56b4f34c8a1612d457383aaf0885c8",
+        "uisrc/03_ip/ui_ae_set/ui_ae_set.v": "13d37f2d57373fe37e3f91683e76337ef5d3655b87a9d00776d7bc9d1e2bdb03",
+        "uisrc/03_ip/ui_ae_set/ui_key.v": "9d7eb69b3d4f41eaa9a31d9a99bb95e8e481ba64c19c1bb16843761a4e31f894",
+        "uisrc/03_ip/ui_csi_raw/ui_csi_unpacket_4lane.v": "a5edd69b6dc503b18fb992fbcbf8c6ef5df967e25270117ec2766d8288460454",
+        "uisrc/03_ip/ui_csi_raw/ui_image_correction.v": "0e9f01a49bcb8f893a5858396581d27aad91b49090918037369fe379068396e8",
+        "uisrc/03_ip/ui_csi_raw/ui_raw10_unpacket_4lane.v": "df5e4479c906b47d9a7b3b62b5a64b91ac04845d58d3713ab8f57af7366c5541",
+        "uisrc/03_ip/ui_dbuf/uidbuf.v": "35d2b89d407690a746a4a6c8620ae0d24cf440e538a88bd3049c57a31fe3f773",
+        "uisrc/03_ip/ui_dbuf/sfifo/sfifo.v": "b3462c4b45e4279560a74723884ba568f6d6d8e8650d3debc78e885f09bc646c",
+        "uisrc/03_ip/ui_fdma/uiFDMA.v": "4ff460f7c145d2c375015a9309f0154919c0eb5159586f5058776d1a80505dc3",
+        "uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v": "f61325fca5c57fc69ca01016e592a1262f549a4fd0496609c24132577f74ec86",
+        "uisrc/03_ip/ui_imx415_cfg/ui_i2c.v": "d40e2ab1f44ea391ca4589cc9c6f861a10c7af04a4043fedc11f5c365411a1d6",
+        "uisrc/03_ip/ui_imx415_cfg/ui_imx415_reg.v": "a988734d4ffbcd2a7d3002de32c9fd180b333bb6004b116681d37f400fe11cae",
+        "uisrc/03_ip/ui_isp/ui_isp_top.v": "10efe0f9c5f798f44a1d002c713938cda4c51dcf40cb5294daef9742d320db50",
+        "uisrc/03_ip/ui_isp/ui_BLC/ui_BLC.v": "324e87c614624b3826d430f06d069a6126b5bbcb22444947079e7d0dc49cdf4a",
+        "uisrc/03_ip/ui_isp/ui_awb/divider.ipc": "95478636e7359de18220944cec9ca0128a739e69e2e12428d36d433b9238023b",
+        "uisrc/03_ip/ui_isp/ui_awb/divider_gate.v": "892d573d7b82ae6bc7ae644eaee95731ff69b1458632580483d05a1031038b9f",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_awb.v": "afd0e41d0ab6be0df456664c61e8f4018bd04ddd06762234fa0fb9525daa5497",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_signal_delay.v": "8a71c4466976b061d9c58d1a54fec59a3334b7c26a14cc88c5274f04edb30845",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/.m_params_ui_divider.txt": "9da5631b35ec744ba601ee21e2529d6dbe5bbc39e53daa9a5ba340b120eeaa04",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/.params_ui_divider.txt": "a6e7b352fe35dca564592fa68fb90dec973cc95960784052c6b21b8fd09ec4c3",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/.ports_ui_divider.txt": "be0a56c6a96cdb738e3515883b4623a8776562316e77010e517c1a33993e9e52",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/Design.xml": "fc531695ccb5b973b86957826401b6e53ac3c993d64cd5b2f6212b1a3c571f7c",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/DesignConfiguration.xml": "653a37bb59745303bcd39034b91f5701652214bf2e1b1b05e8f134acadaad9d5",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/ui_divider.sv": "763c3efaaea4d08cce2325968e0f4a04d7d60fdbb015c107842c2b641d4acf1d",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/ui_divider.xml": "6416702e2b1748b1fb22126ee8ed156b2fe5b95e658c4d88667f0e73d9343128",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/RTL/divider_top_ae263170b655.sv": "06359ec223b0b6c4a40b705318db19136b37b084a7bc49f3a1fb7021126db0c2",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_divider/ui_divider/RTL/include/define.v": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.ipc": "ce4d6888f04530684cff8b0dc50498a186e24a229ca9d60cf557ba826ac76a2f",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.v": "0ee0b8b7785ad53bb959af0c7c68f4a1d2526ba226428370f7d9c238609acb02",
+        "uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.vhd": "a277da404e8c400c3a7e5b2b8043fd657285c57c90a3bcad684493074abbea37",
+        "uisrc/03_ip/ui_isp/ui_brightness_adj/ui_Brightness_adj.v": "6aff0c860dddd7b78f4e29895f916e750672ab7b3e623ab45182a55fddfa7c84",
+        "uisrc/03_ip/ui_isp/ui_contrast_adj/ui_contrast_adj.v": "85f8a7a0b0c833cb3cbcaea5a669fb287a046e2b38b4466e97cfb6ad8042186b",
+        "uisrc/03_ip/ui_isp/ui_data128_96/ui_data128_96.v": "604480ef339dcf5f692e4548d48663029895c71ea83db6b1e5bdf758398224df",
+        "uisrc/03_ip/ui_isp/ui_data96_128/ui_data96_128.v": "e5e0e0c75cfba76376e09cde4fa542e4fd83d537ee0fb459edaf249d5b97a0b2",
+        "uisrc/03_ip/ui_isp/ui_data96_64/ui_data96_64.v": "aed22b0834918cc49146caa08cb85b4ced27c932e88554fc0751dbea6799dd3d",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_bilinear_interpolation.v": "73f1f931782d6a8d099117d596a4858dba933bf759e35b9cc4cf66f838bc7a18",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_line_buffer_demosaic.v": "369872df935086bfb08c7a778aae6f13453391b176d93cf87a0091997d43dc91",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_mipi_to_raw_converter.v": "35fd15b960027d1ed380688bf2f5cc68d197092988183e04d018db236b4cad94",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_raw_matrix_3x3_buffer.v": "c01bd02893d94867ddcfefeeb231b81a32c4ca681b69caebc6ccbd8b31680298",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_top_demosaic.v": "defd9f7c358fb984ff239ffa05236c0e2e7c396bc5a54e4f1180a298093f4a8d",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_zhenghe.v": "28b3dca907ce1cad399a45a9127ed170cd77a7813f2d728e8effae4f0747a2a1",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_demosaic/ui_ram_demosaic.ipc": "95c346452f4ea05ed9328ffe5ae3075e3672e7068d9f33dffbef3610d9aa5a50",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_demosaic/ui_ram_demosaic.v": "0be80fa2e0ae04272ea596c49281ff6c092dddedd816c50241658d54494953f0",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_demosaic/ui_ram_demosaic.vhd": "806f57a089c4c4d36a81a50f7cbfbb3e338b94926c83ee3f004bf28ebdbc3be5",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_zhenghe/ui_ram_zhenghe.ipc": "243a7ed288d3146fcfa84907e932e0ec190c5ee7bc317d166f39769b66c8b97b",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_zhenghe/ui_ram_zhenghe.v": "1420666db354c6324f552f5fc0a4e8683c81fc97b203ba1d0391d7e37f7969a1",
+        "uisrc/03_ip/ui_isp/ui_demosaic/ui_ram_zhenghe/ui_ram_zhenghe.vhd": "e4fea2f16dea576dcc4a7f9e1e8178453126400032072f2b6bb68cdb19717d03",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_gamma.v": "fe293f5b79620d621b0d1c270fb0d626db66ac7577dc628a9d1f60f00a8826d1",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_0_8.v": "a767e62e4b625cc297c2455ef40e0e46e7d060769a51fcde658760fbc7eaedf9",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_2.v": "06443b8a397ba796060de8c9476fb434cb233af4c38c1df85cf4331ce7b70fb1",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_4.v": "033f714e286996bd496d0ebcfabf67331fa65991ad26b04b9b8326c98027b6ce",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_6.v": "8911211543c181899a49682f619142320975bf8b775acb1b1630bd4412f9982b",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_8.v": "5b4b873ff3315bbe126dbaa6f3c8c7c7171b45ea2c125487c7ad3938d6993806",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_0.v": "9a0d0daa67f2db6b300604e237ba0d1aff3cc5e62688fbb5dc175c64085db128",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_2.v": "854cdcc776e2293eacdbb1c869b013c7f9c0f9d1e995c364d1698e0725ffbb08",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_4.v": "80d63d590d0e1e5765e2ca9ce866207a4fd3bbbca91d2e02734cfb8bf7c2e7ab",
+        "uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_6.v": "82b2f149b13ec9d01d224ba7d70d97eb6f7375463d3805982811bb07cfb85107",
+        "uisrc/03_ip/ui_isp/ui_image_cut/ui_image_cut.v": "6f4b95e576c13bd0ea432945e7a23c337a883eefc24f240ee918fe39a13af078",
+        "uisrc/03_ip/ui_isp/ui_saturation_adj/ui_Saturation_adj.v": "af8fa3a65433f4b0a0d8d8dd82f0512fe44cdbd8452d330aaddd2f28ee10fa51",
+        "uisrc/03_ip/ui_setvbuf/component.xml": "19ac84be43dbfae5f259f5e73754657ed8a85191bf4371a3fa240489196fb9d3",
+        "uisrc/03_ip/ui_setvbuf/uisetvbuf.v": "815e440cba27eea6911b0c1eb3e5f906fe8e2ef01a76badb92bc5cbe0e05d6e4",
+        "uisrc/03_ip/ui_vtc/ui_VTC.v": "f9ecba346f24931b52c4f9b569a85f1604429660f3549327e6d8d8e67ff75914",
+        "uisrc/03_ip/ui_vtc/ui_VTC/Component.xml": "fb51aacf5b773e749daf23852f8597ff83c6bff1f83faa78b64def9cefc27c6b",
+        "uisrc/03_ip/ui_vtc/ui_VTC/Dependency.tcl": "dc8230fe1b38915fce51b1d825c28274a11f2590ac2f877790bbf94ac35c96b3",
+        "uisrc/03_ip/ui_vtc/ui_VTC/Layout.tcl": "67b895d3dde42d3b3a5c3282e348f852eae58124edfd20d39780471d7199b673",
+        "uisrc/03_ip/ui_vtc/ui_VTC/ui_VTC.pack": "5d0e38e586c10c933dbbca8c54e8244907923f4260760b006d93e35d35091690",
+        "uisrc/03_ip/ui_vtc/ui_VTC/ui_VTC_files/RTL/ui_VTC.v": "c6c4ae309087aa2aba82c39763edd1d03283c481752452aa75d041791171a3a4",
+        "uisrc/04_pin/fpga_pin.adc": "0ae33f1ee4d02af2e95a0067271fd83c730976e8441149d3df1ebdc6b91fa231",
+        "uisrc/04_pin/timing.sdc": "a62bd1c8f7bda7327300e322f83cb1faaa9743e3335c1e26d68e571787cef0a5",
+        "uisrc/06_doc/ddr_parts_cust.csv": "dcd5456674039ea446c7a5845c57506eeff8bebdb30e1727dbc12e94aa605efd",
+        "uisrc/06_doc/非IP中的ddr颗粒使用说明.docx": "592e6b0c57705d29fa8f36e35d1a02101f8ea4082986588532e05d86e55f5b87",
+        "uisrc/06_doc/ddr_axi/alc_mc_enc.sv": "e3e047d4b92f708a9e98c6755e776e5e399d7ef0afafec7f8f138b9f1c8ba6f9"
+      },
+      "bit_evidence": {
+        "fpga_prj.bit": {
+          "sha256": "616e070f45fafbd66861aa254d3fa02d3ea0e3363cc2a584a037b2e892e420d8",
+          "bytes": 4850318
+        },
+        "fpga_prj_compress.bit": {
+          "sha256": "16bd293b4ed8b7030087c769cc1c6816afe0a46ffffb824b2919c783750e84bd",
+          "bytes": 2973120
+        }
+      },
+      "latest_timing_line": [
+        "Timing info: SWNS 0.904ns | STNS 0.000ns | HWNS 0.020ns | HTNS 0.000ns."
+      ],
+      "evidence_note": "Current files/logs inventoried; user confirmed board operation. Historical bit-to-source identity is not independently proven."
+    }
+  }
+}

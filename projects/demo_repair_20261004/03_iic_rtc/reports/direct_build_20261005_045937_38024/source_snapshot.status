@@ -1,0 +1,4 @@
+input_source=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/fpga_prj.al
+staged_project=E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/reports/direct_build_20261005_045937_38024/fpga_prj.al
+input_al_sha256=ddfacdd3350d5a524658b7ec9d5036100971f6b8255cee37c008fc72a7e9ab66
+All listed source copies were checked byte-for-byte; hashes are configuration-time provenance.

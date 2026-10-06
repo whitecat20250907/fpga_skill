@@ -1,0 +1,152 @@
+PAGE 1
+第一章MIPI-ISP-PCIE 链路测试
+1 简介
+本项目基于自研异构核心板，融合安路PH1A90SEG324FPGA 与瑞芯微RK3576 处理
+器，构建「MIPI 采集+FPGA 预处理+PCIe/MIPI 双链路高速互联+RK3576AI 分析」的
+完整异构视频处理架构。
+系统支持通过FMC 扩展多路MIPI-CSI 接口，兼容主流工业相机，由FPGA 实现高吞吐
+量图像采集与实时ISP 预处理；FPGA 与ARM 平台间基于PCIe/MIPI 双链路的自定义高
+速传输协议，实现稳定、低延迟的数据交互；RK3576
+内置NPU 支持YOLOv5 等AI 算法，可对预处理后的视频流进行实时智能分析与结构化
+输出。
+平台配套QT 可视化测速与监控工具，直观展示链路与算法性能，广泛适用于工业检测、
+边缘计算、智能制造等多路视频实时分析场景。
+2 框图
+3 烧写FPGA 端程序
+先看提供文件夹给的readme.txt 完成镜像的烧录
+准备好本文档的附件，解压到纯英文路径后后找到imx415_pcie_4k.al，再使用TD 打
+
+PAGE 2
+开开发板确保断电的情况下，接入jtag 再上电开机：
+左侧栏连接硬件：
+
+PAGE 3
+选择附件下名为为imx415_pcie_4k_compress.bit 的文件
+选择mode
+
+PAGE 4
+点击run 然后等烧录完下方会出现succeeded
+在官网下载https://www.uisrc.com/t-6245.html 3576debian 镜像然后
+把提供的boot.img 烧录至boot 分区,开发板直接上电，烧录分区镜像不要按
+boot 键
+加跳线帽
+4 测试实验
+cd 到deploy 文件夹
+输入指令：
+chmod+x*.sh
+./pcie_setup.sh
+等脚本完成了驱动编译，安装，pcie 链路绑定这个需要联网并同步时间
+
+PAGE 5
+v4l2-ctl -d /dev/video73 --set-fmt-video=width=1280,height=720,pixelformat=RGB3
+gst-launch-1.0 v4l2src device=/dev/video73 io-mode=dmabuf ! video/x-raw,width=1280,height=720,format=RGB !
+videoconvert ! kmssink connector-id=188 sync=false
+
+PAGE 6
+第二章YOLO 识别添加
+1 文件拷贝到开发板
+把附件中提供的rock 文件夹拷贝放到开发板下这里我以放到/home 下为例子
+验证：
+cd /home/rock/yolo
+ls
+cd /home/rock/whls
+ls
+2 开发板环境配置（离线安装）
+2.1 安装Python 依赖
+# 确认Python 版本是3.11
+python3 --version
+# 必须输出Python 3.11.x
+# 确认目标目录存在
+python3 -c "import site; print(site.getsitepackages())"
+# 通常包含/usr/local/lib/python3.11/dist-packages
+# 进入whl 所在目录
+cd /home/rock/whls
+# 按顺序逐个解压安装（复制以下全部内容一次性粘贴）
+unzip -o numpy-2.2.6-cp311-*.whl
+-d /usr/local/lib/python3.11/dist-packages/
+
+PAGE 7
+unzip -o ruamel_yaml_clib-0.2.15-cp311-*.whl
+-d /usr/local/lib/python3.11/dist-packages/
+unzip -o ruamel_yaml-0.19.1-*.whl
+-d /usr/local/lib/python3.11/dist-packages/
+unzip -o psutil-7.2.2-*.whl
+-d /usr/local/lib/python3.11/dist-packages/
+unzip -o rknn_toolkit_lite2-2.3.0-cp311-*.whl
+-d /usr/local/lib/python3.11/dist-packages/
+2.2 安装OpenCV
+开发板原先预装的是headless 版（无显示功能），必须替换为完整版：
+# 删除旧的headless 版
+rm -rf /usr/local/lib/python3.11/dist-packages/cv2
+rm -rf /usr/local/lib/python3.11/dist-packages/opencv_python_headless*
+# 安装完整版
+unzip -o opencv_python-5.0.0.93-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl \
+-d /usr/local/lib/python3.11/dist-packages/
+2.3 验证所有依赖
+python3 -c "import numpy; print('numpy:', numpy.__version__); import cv2; print('opencv:', cv2.__version__); print('imshow:',
+hasattr(cv2, 'imshow')); import psutil; print('psutil:', psutil.__version__); from rknnlite.api import RKNNLite; print('RKNNLite:
+OK'); print('ALL OK')"
+如果某一项报错，检查对应whl 是否解压正确。
+2.4 配置PCIe 链路
+每次开机后必须先执行这一步，摄像头才能被识别：
+# cd 到deploy 文件夹（PCIe 驱动脚本所在位置）
+# 具体路径看你资料包解压在哪里，这里我们放在/root/deploy
+cd /root/deploy
+# 赋权并执行
+chmod +x *.sh
+sudo ./pcie_setup.sh
+等待脚本完成（编译驱动、安装、PCIe 绑定），这个过程需要联网同步时间。
+2.5 测试原始画面
+先确认PCIe 链路摄像头画面正常：
+
+PAGE 8
+v4l2-ctl -d /dev/video73 --set-fmt-video=width=1280,height=720,pixelformat=RGB3
+gst-launch-1.0 v4l2src device=/dev/video73 io-mode=dmabuf ! \
+video/x-raw,width=1280,height=720,format=RGB ! \
+videoconvert ! kmssink connector-id=188 sync=false
+显示器正常出画面后，Ctrl+C 退出，继续下一步。
+3 运行YOLOv5s-Relu 实时推理
+运行
+export DISPLAY=:0
+cd /home/rock/yolo
+python3 rk3576_yolov5s_pcie.py
+
+PAGE 9
+第三章添加自启动
+1 文件
+/etc/rc.local
+开机入口，.no_yolo 开关，sleep 45 后后台调用启动脚本
+/home/rock/yolo/start_yolov5_pcie.sh
+核心：跑pcie_setup →动态找设备→启动YOLO
+/home/rock/yolo/rk3576_yolov5s_pcie.py 识别主程序，支持YOLO_DEVICE 环境变量
+/root/deploy/pcie_setup.sh 厂商脚本：GPIO 上电/PERST 复位/rebind →insmod 驱动→配置FPGA
+2 配套保护
+2.1 panic 自动重启（防永久卡死）
+内核崩溃（panic）后5 秒自动重启，不会一直卡住：
+echo "kernel.panic = 5" > /etc/sysctl.d/99-panic.conf
+sysctl -p /etc/sysctl.d/99-panic.conf
+sysctl kernel.panic
+最后一行输出kernel.panic = 5 即成功。
+2.2 启用rc-local 服务（开机执行rc.local）
+chmod +x /etc/rc.local
+systemctl enable rc-local
+systemctl status rc-local
+2.3 语法检查+ 手动验证
+bash -n /home/rock/yolo/start_yolov5_pcie.sh && sh -n /etc/rc.local && echo "syntax OK"
+export DISPLAY=:0
+/home/rock/yolo/start_yolov5_pcie.sh
+2.4 no_yolo 开关（一键禁用自启）
+touch /root/.no_yolo
+# 禁用自启（下次开机不跑YOLO）
+rm -f
+/root/.no_yolo
+# 恢复自启
+
+PAGE 10
+3 重启验证
+reboot 重启约一分钟后自动弹全屏窗口
+rm -f /root/.no_yolo
+# 先确认开关已删
+reboot
+pkill -9 -f rk3576_yolov5s_pcie.py
+#结束自动识别

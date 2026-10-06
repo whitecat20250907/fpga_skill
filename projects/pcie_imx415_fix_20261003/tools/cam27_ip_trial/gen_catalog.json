@@ -1,0 +1,22 @@
+{
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\IpTool.exe",
+    "E:/qianrufpga/TD",
+    "-gen",
+    "E:/qianrufpga/TD/ip/depot/Catalog.xml",
+    "-device",
+    "PH1A90SEG324",
+    "-export_to",
+    "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/cam27_ip_trial/generated",
+    "-comp",
+    "cam27_generated",
+    "-use_value",
+    "default",
+    "-app_path",
+    "E:/qianrufpga/TD/bin/td.exe"
+  ],
+  "pid": 37524,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_seconds": 6.977
+}

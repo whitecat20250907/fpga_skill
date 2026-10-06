@@ -1,0 +1,128 @@
+--- E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\fpga\deploy\sgdma_drv\anlogic_pci_lib.c (before)
++++ E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\fpga\deploy\sgdma_drv\anlogic_pci_lib.c
+@@ -2596,6 +2596,7 @@
+ 	u64 ep_addr_max = ep_addr + aperture - 1;
+ 	ssize_t done = 0;
+ 	int i, rv = 0;
++	long wait_rv;
+ 
+ 	if (!engine) {
+ 		pr_err("dma engine NULL\n");
+@@ -2792,13 +2793,15 @@
+ 		if (engine->cmplthp)
+ 			sgdma_kthread_wakeup(engine->cmplthp);
+ 
++		/* Preserve timeout (0) versus interruption (<0). The vendor
++		 * retrying wait wrapper masks real signals until its deadline. */
+ 		if (timeout_ms > 0)
+-			al_wait_event_interruptible_timeout(xfer->wq,
+-				(xfer->state != TRANSFER_STATE_SUBMITTED),
++			wait_rv = wait_event_interruptible_timeout(xfer->wq,
++				(READ_ONCE(xfer->state) != TRANSFER_STATE_SUBMITTED),
+ 				msecs_to_jiffies(timeout_ms));
+ 		else
+-			al_wait_event_interruptible(xfer->wq,
+-				(xfer->state != TRANSFER_STATE_SUBMITTED));
++			wait_rv = wait_event_interruptible(xfer->wq,
++				(READ_ONCE(xfer->state) != TRANSFER_STATE_SUBMITTED));
+ 
+ 		spin_lock_irqsave(&engine->lock, flags);
+ 
+@@ -2827,8 +2830,11 @@
+ 			break;
+ 		default:
+ 			/* transfer can still be in-flight */
+-			pr_info("xfer 0x%p,%u, s 0x%x timed out, ep 0x%llx.\n",
+-				xfer, xfer->len, xfer->state, req->ep_addr);
++			pr_info("xfer 0x%p,%u, s 0x%x wait=%ld (%s), ep 0x%llx.\n",
++				xfer, xfer->len, xfer->state, wait_rv,
++				wait_rv < 0 ? "interrupted" :
++				(wait_rv == 0 && timeout_ms > 0 ? "timeout" : "state error"),
++				req->ep_addr);
+ 			rv = engine_status_read(engine, 0, 1);
+ 			if (rv < 0) {
+ 				pr_err("Failed to read engine status\n");
+@@ -2849,7 +2855,8 @@
+ 			transfer_dump(xfer);
+ 			sgt_dump(sgt);
+ #endif
+-			rv = -ERESTARTSYS;
++			rv = wait_rv < 0 ? wait_rv :
++				(wait_rv == 0 && timeout_ms > 0 ? -ETIMEDOUT : -EIO);
+ 			break;
+ 		}
+ 
+@@ -2883,6 +2890,7 @@
+ 	struct anlogic_dev *sgdev = (struct anlogic_dev *)dev_hndl;
+ 	struct anlogic_dma_engine *engine;
+ 	int rv = 0, tfer_idx = 0, i;
++	long wait_rv;
+ 	ssize_t done = 0;
+ 	struct scatterlist *sg;
+ 	int nents, idx;
+@@ -3020,13 +3028,15 @@
+ 		if (engine->cmplthp)
+ 			sgdma_kthread_wakeup(engine->cmplthp);
+ 
++		/* Preserve timeout (0) versus interruption (<0). The vendor
++		 * retrying wait wrapper masks real signals until its deadline. */
+ 		if (timeout_ms > 0)
+-			al_wait_event_interruptible_timeout(xfer->wq,
+-				(xfer->state != TRANSFER_STATE_SUBMITTED),
++			wait_rv = wait_event_interruptible_timeout(xfer->wq,
++				(READ_ONCE(xfer->state) != TRANSFER_STATE_SUBMITTED),
+ 				msecs_to_jiffies(timeout_ms));
+ 		else
+-			al_wait_event_interruptible(xfer->wq,
+-				(xfer->state != TRANSFER_STATE_SUBMITTED));
++			wait_rv = wait_event_interruptible(xfer->wq,
++				(READ_ONCE(xfer->state) != TRANSFER_STATE_SUBMITTED));
+ 
+ 		spin_lock_irqsave(&engine->lock, flags);
+ 
+@@ -3065,8 +3075,11 @@
+ 			break;
+ 		default:
+ 			/* transfer can still be in-flight */
+-			pr_info("%s xfer 0x%p,%u, s 0x%x timed out, ep 0x%llx.\n",
+-				engine->name, xfer, xfer->len, xfer->state, req->ep_addr);
++			pr_info("%s xfer 0x%p,%u, s 0x%x wait=%ld (%s), ep 0x%llx.\n",
++				engine->name, xfer, xfer->len, xfer->state, wait_rv,
++				wait_rv < 0 ? "interrupted" :
++				(wait_rv == 0 && timeout_ms > 0 ? "timeout" : "state error"),
++				req->ep_addr);
+ 			rv = engine_status_read(engine, 0, 1);
+ 			if (rv < 0) {
+ 				pr_err("Failed to read engine status\n");
+@@ -3087,7 +3100,8 @@
+ 			transfer_dump(xfer);
+ 			sgt_dump(sgt);
+ #endif
+-			rv = -ERESTARTSYS;
++			rv = wait_rv < 0 ? wait_rv :
++				(wait_rv == 0 && timeout_ms > 0 ? -ETIMEDOUT : -EIO);
+ 			break;
+ 		}
+ 
+--- E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\fpga\deploy\v4l2_drv\milianke_v4l2_zerocopy.c (before)
++++ E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\fpga\deploy\v4l2_drv\milianke_v4l2_zerocopy.c
+@@ -53,7 +53,8 @@
+ 
+ /* Frame format - Phase 11: raw pixel data, no header */
+ #define BPP                     3               /* RGB24 bytes per pixel */
+-#define DMA_TIMEOUT_MS          100             /* sgdma poll timeout per frame */
++#define DMA_TIMEOUT_MS          100             /* steady-state frame timeout */
++#define DMA_STARTUP_TIMEOUT_MS  1000            /* calibration + first complete frame */
+ #define MIN_BUFFERS             4 /* requires the validated 64 MiB CMA boot */
+ #define MAX_BUFFERS             8
+ 
+@@ -458,7 +459,8 @@
+                 /* 2. DMA directly into vb2 buffer - no staging, no memcpy */
+                 xfer_len = sgdma_xfer_submit(mdev->sgdev, 0, false, 0,
+                                              &mbuf->sgt, true,
+-                                             DMA_TIMEOUT_MS, NULL);
++                                             delivered_frames ? DMA_TIMEOUT_MS :
++                                             DMA_STARTUP_TIMEOUT_MS, NULL);
+ 
+                 if (xfer_len < 0) {
+                         bool stopping = kthread_should_stop() ||

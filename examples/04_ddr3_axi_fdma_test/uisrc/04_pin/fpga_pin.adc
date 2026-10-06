@@ -1,0 +1,3 @@
+
+set_pin_assignment  { I_ddr_clk	}		{ LOCATION = T13;  IOSTANDARD = LVDS18; } 
+

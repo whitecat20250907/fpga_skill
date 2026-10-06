@@ -1,0 +1,740 @@
+PAGE 1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SALPHOENIX®1A 系列 FPGA 
+ PCI Express 定制向导IP 
+用户手册 
+ 
+ 
+ 
+上海安路信息科技股份有限公司 
+ 
+ 
+IPUG011（v1.4）2024 年03 月
+
+PAGE 2
+ 
+                                         SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 I 
+2024.03 
+目  录 
+1 IP 概述 ...................................................... 1 
+1.1 功能描述 ...................................................................... 1 
+1.2 资源 .......................................................................... 2 
+2 IP 说明 ...................................................... 3 
+2.1 界面说明 ...................................................................... 3 
+2.1.1 第一页PCIe Basic ........................................................ 3 
+2.1.2 第二页Capability 1 ...................................................... 5 
+2.1.3 第三页Capability 2 ...................................................... 7 
+2.1.4 第四页ID and Class ..................................................... 11 
+2.1.5 第五页BAR .............................................................. 14 
+2.1.6 第六页Port Control ..................................................... 16 
+2.1.7 第七页Summary .......................................................... 19 
+2.2 生成的文件 ................................................................... 21 
+3 IP 例化流程 ................................................. 22 
+4 IP 应用注意事项 .............................................. 24 
+4.1 实施注意事项 ................................................................. 24 
+4.1.1 约束 ................................................................... 24 
+4.1.2 txt 文件 ................................................................ 24 
+4.1.3 dat 文件 ................................................................ 24 
+4.2 仿真注意事项 ................................................................. 24 
+4.2.1 库的编译 ............................................................... 24 
+4.2.2 配置文件 ............................................................... 24 
+版本信息 ...................................................... 25 
+
+PAGE 3
+ 
+                                         SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 II 
+2024.03 
+免责声明 ...................................................... 25 
+ 
+ 
+ 
+ 
+ 
+ 
+
+PAGE 4
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 1 
+2024.03 
+上海安路信息科技有限公司SALPHOENIX®1A（以下简称PH1A）系列FPGA，内嵌了PCI Express（以
+下简写为PCIe）硬核。该硬核的详细说明，请见《UG913_安路科技PH1A 系列FPGA PCIE 用户手册》。
+本手册主要介绍如何通过TD 软件IP Generator 中的PCI Express IP 图形化界面来配置、例化和使用
+PCI Express 硬核。 
+1 IP 概述 
+本章介绍本IP 的基本特性，包括所支持的器件，以及功能描述。 
+表1-1 PH1A PCI Express CORE 支持的器件表 
+器件型号 
+支持 
+PH1A400SFG900 
+Yes 
+PH1A400SFG676 
+Yes 
+PH1A90SBG484 
+Yes 
+PH1A90SEG324 
+Yes 
+PH1A90SEG325 
+Yes 
+PH1A180SFG676 
+Yes 
+1.1 功能描述 
+本IP 支持以下用户可配置选项： 
+ 
+支持PCI Express Endpoint、Legacy PCI Express Endpoint，Root Port of PCI Express Root 
+Complex 
+ 
+PH1A 系列FPGA 支持Gen1/Gen2/Gen3 link speed，支持X1/X2/X4 link width 
+ 
+支持简易和高级配置模式 
+ 
+支持1~2 个Physical Function，每个Physical Function 支持0~2 个Virtual Function 
+ 
+支持PME 和ASPM 
+ 
+支持Legacy INT/MSI/MSI-X 
+ 
+支持多个能力寄存器 
+- FLR (Function Level Reset) 
+- AER (Advanced Error Reporting) 
+- Device SN (Serial Number) 
+- ARI (Alternative Routing ID Interpretation) 
+- SR-IOV (Single Root I/O Virtualization) 
+
+PAGE 5
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 2 
+2024.03 
+- TPH (TLP Processing Hints) 
+- ATS (Address Translation Services) 
+- SPCIE (Secondary PCI Express) 
+- ACS (Access Control Services) 
+- LTR (Latency Tolerance Reporting) 
+- PRS/PRI (Page Request Services/Page Request Interface) 
+- DPA (Dynamic Power Allocation) 
+- RTR (Readiness Time Reporting) 
+- RAS D.E.S (Reliability/Availability/Serviceability, Debug/Error injection/Statistics) 
+ 
+支持用户自定义的Vendor ID/Device ID 和Class Code 
+ 
+支持多个BAR 空间 
+ 
+支持可选的用户接口 
+1.2 资源 
+PH1A 系列FPGA PCIe IP 会根据客户定制时的不同选择，消耗少量的可编程资源，包括一个PLL。
+消耗的可编程资源，主要用于PCIe 控制器的初始化，以及对PCIe 输出时钟，Clock Skew 的平衡。 
+ 
+ 
+
+PAGE 6
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 3 
+2024.03 
+2 IP 说明 
+2.1 界面说明 
+本IP 一共有7 个页面用于配置PCI Express 硬核的参数。分别是“PCIe Basic”、“Capability 
+1” 、“Capability 2” 、“ID and Class” 、“BAR”、“Port Control”和“Summary”，分别是PCIe 的
+基本设置、Capability 寄存器设置1、Capability 寄存器设置2、Vendor ID/Device ID/Class Code
+设置、BAR 设置、端口控制和总结页面。以下小节将分别介绍各个页面的选项的含义和使用方法。 
+2.1.1 第一页PCIe Basic 
+ 
+图 2-1 IP GUI 第一页PCIe Basic 图示  
+上图显示 IP 图形界面第一页“PCIe Basic”的默认设置选项。 
+Device Type 
+Device Type 默认选项为PCI Express Endpoint，用户可选PCI Express Endpoint，Legacy PCI 
+Express Endpoint，Root Port of PCI Express Root Complex。当用户需要支持IO 空间、作为Completer
+响应Lock Memory 访问时，请选择Legacy PCI Express Endpoint；否则，请选择PCI Express Endpoint。
+当用户需要FPGA 作为RC 端时，请选择Root Port of PCI Express Root Complex。 
+PCIe Generation 
+对于PH1A 系列，PCIe Generation 默认选项为Gen1，用户可选Gen1/Gen2/Gen3。 
+Link Width 
+Link Width 默认选项为X1，用户可选为X1/X2/X4。用户配置为X1、X2 或X4，生成的.v 文件端口
+上，用户分别看到1、2 或4 对差分对。硬核默认支持Lane Reversal，无须特别设置。 
+
+PAGE 7
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 4 
+2024.03 
+Link Location 
+对于PH1A400 以及PH1A90，无论封装，PCIe IP 根据不同位宽，选择SERDES BANK 的位置，x1 时
+为BANK83 Lane1,x2 时为BANK83 Lane0 和Lane1，x4 时为BANK82 和BANK83 所有lane。 
+对于PH1A180，无论封装，PCIe IP 根据不同位宽，选择SERDES BANK 的位置，x1 时为BANK81 
+Lane1,x2 时为BANK81 Lane0 和Lane1，x4 时为BANK81 和BANK80 所有lane。 
+Reference Clock Frequency 
+当前PCIe IP 物理层差分参考时钟输入频率默认为100Mhz。 
+对于PH1A400，无论封装，Link Width 为X1/X2 时，默认使用BANK83 的差分参考时钟作为输入源；
+Link Width 为X4 时，默认使用BANK82 的差分参考时钟作为输入源。 
+对于PH1A90，无论封装，Link Width 为X1/X2 时，默认使用BANK83 的差分参考时钟作为输入源；
+Link Width 为X4 时，默认使用BANK82 的差分参考时钟作为输入源，也可选BANK83。 
+对于PH1A180，无论封装，Link Width 为X1/X2 时，默认使用BANK81 的差分参考时钟作为输入源；
+Link Width 为X4 时，默认使用BANK80 的差分参考时钟作为输入源，也可选BANK81。 
+PCIe Application Mode 
+PCIe Application Mode 默认为Basic，用户可选为Basic 或Advanced。Base 为简易配置模式，用
+户不需要设置PCI Express 的Capability 寄存器。 
+PCIe Application Mode 只有被设置为Advanced 时，用户才能设置第二页Capability 1 和第三页
+Capability 2。 
+PCIe AUX Clock Frequency 
+设置PCIe 辅助时钟频率，可选25Mhz、50Mhz 和100Mhz。辅助时钟用于上电初始化PCIe IP 配置。 
+Include Pipeline Logic 
+设置PCIe IP 是否包含时序打拍优化逻辑，默认使能，建议用户使能该选项，有助于PCIe IP 时序
+收敛。 
+Export DAT File 
+PCIe IP 配置信息生成与IP 同名的.dat 文件，.dat 信息可以存储到rom 中，用做PCIe 自恢复。
+在使能Include Pipeline Logic 后,该选项强制使能。 
+ 
+ 
+
+PAGE 8
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 5 
+2024.03 
+2.1.2 第二页Capability 1 
+第二页到第六页，会根据Device Type 选择的不同，GUI 配置界面也会发生变化，对于Device Type
+选择为PCI Express Endpoint，Legacy PCI Express Endpoint，以下简称为EP，选择Root Port of 
+PCI Express Root Complex,以下简称为RC。 
+ 
+图 2-2 IP GUI 第二页Capability 1 图示(EP) 
+ 
+ 
+图 2-3 IP GUI 第二页Capability 1 图示(RC) 
+
+PAGE 9
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 6 
+2024.03 
+Physical Functions 
+1. Physical Function 0 
+Physical Function 0 默认勾选。 
+PF0 MAX Payload Size 默认是2048 Bytes，用户可选为128/256/512/1024/2048 Bytes。 
+Extended Tag Field 默认勾选，用户可以选择不勾选。Extended Tag Filed 将应用于所有的
+Physical Function 和Virtual Function。 
+2. Physical Function 1(EP Only) 
+Physical Function 1 默认是不勾选，用户可以选择不勾选。当用户使能Physical Function 1 时，
+用户将会得到2 个Physical Function，这个PCIe Device 就变成了多功能设备。 
+PF1 MAX Payload Size 默认是2048 Bytes，用户可选为128/256/512/1024/2048 Bytes。 
+Virtual Functions(EP Only) 
+1. PF0-VFs 
+想要使用PF0 的VF，请先使能SR-IOV，然后选择Number of VFs。Number of VFs 可选为1/2。 
+用户可以设置VFs Device ID，这个ID 将作用于PF0 的所有VF。 
+2. PF1-VFs 
+只有Physical Function 1 被使能时，PF1_VFs 才可以被用户设置。 
+想要使用PF1 的VF，请先使能SR-IOV，然后选择Number of VFs。Number of VFs 可选为0/1/2。 
+用户可以设置VFs Device ID，这个ID 将作用于PF1 的所有VF。 
+Power Management 
+1. PM CAP Reg 
+PM Capability 中，D1 support 默认被勾选，D2 support 默认不勾选，两者都允许用户选择不勾
+选。 
+2. PME Support(EP Only) 
+PM Capability 中，D0/D1/D2/D3hot 的PME 默认不勾选，都允许用户选择不勾选。另外，D3cold 的
+PME 是使能的，但没有在IP GUI 上呈现出来。 
+当用户想分别使能D1、D2 时，请先在PM CAP reg 里分别使能D1 support、D2 support。 
+3. ASPM Support 
+PCIe 本地电源管理机制，默认是No ASPM。No ASPM/L0s/L1/L0s and L1，允许用户四选一。 
+
+PAGE 10
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 7 
+2024.03 
+1) 四. Other PCIe Capability 
+Slot Clock Configuration 和Function Level Reset 默认都是不勾选，允许用户选择勾选。 
+如果用户使能了多个Physical Function 或多个Virtual Function，且想精准控制每个Function
+的复位，请使能Function Level Reset；否则，请勿选中。 
+2.1.3 第三页Capability 2 
+Capability 2 的界面如下图所示，分为Interrupt 和Extended Capability 两部分。 
+ 
+图 2-4 IP GUI 第三页Capability 2 图示(EP) 
+
+PAGE 11
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 8 
+2024.03 
+ 
+图 2-5 IP GUI 第三页Capability 2 图示(RC) 
+Interrupt(EP only) 
+Interrupt 下面有4 个子页，分别是PF0、PF1、PF0-VFs 和PF1-VFs。PF0 是Physical Function 0
+的简称，同样的，PF1 是Physical Function 1 的简称，PF0-VFs 和PF1-VFs 分别是PF0 和PF1 所有的
+Virtual Function 的简称。 
+1. PF0 和PF1 
+对PF0 和PF1，用户的可设置分为INT Pin、MSI 和MSI-X。 
+(1) INT Pin 
+INT Pin 兼容了PCI 的中断机制。 
+当只有PF0 被使能时，PF0 的INT pin 为用户可配置为None 或INTA，默认为None。 
+当PF0 和PF1 都被使能时，PF0 和PF1 的INT 默认都为None，可选为None 、INTA、INTB、INTC 和
+INTD。 
+(2) MSI 
+PF0 的MSI 默认为不使能，可选为使能或不使能。 
+
+PAGE 12
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 9 
+2024.03 
+当PF1 被使能时，PF1 的MSI 默认为不使能，可选为使能或不使能。当PF1 不被使能时，PF1 的MSI
+不可设置。 
+Vector 默认是4，用户可选为1/2/4/8/16/32。此值指示了软件可配的连续中断的个数。 
+64 bit address 默认不被使能，用户可选为使能或不使能。 
+Per-Vector Masking 默认使能，不可设置。 
+(3) MSI-X 
+PF0 的MSI-X 默认为不勾选，可设为不勾选。 
+当PF1 被使能时，PF1 的MSI-X 默认为不勾选，可设为勾选。当PF1 不被使能时，PF1 的MSI-X 不
+可设置。 
+MSI-X Table 的Table Size、Table Offset 和MSI-X PBA 的PBA Offset 需要用户输入。MSI-X 
+Table 的BAR Indicator 和MSI-X PBA 的PBA BAR Indicator，用户可以通过下拉菜单选择。 
+2. PF0-VFs 和PF1-VFs 
+PF0-VFs 和PF1-VFs 的MSI-X Table 和PBA 的设置，请参考PF0 和PF1 的MSI-X。 
+Extended Capability 
+以下扩展能力寄存器，分别针对Physical Function 0 和Physical Function 1 进行设置。 
+当Physical Function 1 没有被使能时，PF1 的扩展能力寄存器无法被用户设置。 
+1. AER Capability 
+AER Capability 默认被使能，不可设置。ECRC Generation 和ECRC Check 默认不使能，用户可选。这
+个选项是用来设置是否产生或检查PCIe 的TLP Digest 。 
+2. Device Serial Number Capability 
+Device Serial Number Capability 默认不使能，用户可以选为使能或不使能。 
+具体的Serial Number 的设置，请参考《UG913_安路科技PH1A 系列FPGA PCIE 用户手册》的寄存
+器表格。 
+3. ARI Capability(EP Only) 
+ARI Capability 默认不使能，用户可以选为使能或不使能。 
+4. SR-IOV Capability(EP Only) 
+SR-IOV Capability 不需要用户单独选择。当Physical Function0 的SR-IOV 或Physical 
+Function 1 的SR-IOV 被使能时，PF0 的SR-IOV Capability 或PF1 的SR-IOV Capability 就会被自动
+设置为使能。 
+
+PAGE 13
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 10 
+2024.03 
+5. TPH Capability 
+TPH Capability 默认不使能，用户可以选为使能或不使能。 
+6. Secondary PCIe Capability 
+Secondary PCIe Capability 无需单独设置。当用户选择PCIe Generation 为Gen1 或Gen2 时，
+此Capability 不被使能；当用户选择PCIe Generation 为Gen1 或Gen2 时，此Capability 自动使
+能。 
+7. ATS Capability(EP Only) 
+ATS Capability 默认不使能，用户可以选为使能或不使能。 
+ATS 是为SR-IOV 服务的，用户在选择ATS 时，请确认SR-IOV 已经被使能。 
+8. LTR Capability(EP Only) 
+Latency Tolerance Reporting Capability (LTR)默认不使能，用户可以选为使能或不使能。 
+9. PRS Capability(EP Only) 
+PRS Capability 默认不使能，用户可以选为使能或不使能。 
+10. DPA Capability(EP Only) 
+DPA Capability 默认不使能，用户可以选为使能或不使能。 
+如果用户设计里需要PCIe 板卡有电源功率协商功能，请使能DPA Capability。 
+11. RTR Capability 
+RTR Capability 默认不使能，用户可以选为使能或不使能。 
+RTR 是Readiness Time Reporting 的缩写。如果用户需要PCIe 设备有特别的配置时间需求，请
+使能RTR Capability。 
+12. RAS DES Capability 
+RAS D.E.S. Capability 默认不使能，用户可以选为使能或不使能。 
+不建议用户选中此选项。如果用户需要做可靠性测试，比如注入错误、做统计等，请在公司技术人
+员的指导下使用。 
+ 
+ 
+
+PAGE 14
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 11 
+2024.03 
+2.1.4 第四页ID and Class 
+ID and Class 页里有2 个子页--PF0、PF1。也就是说Physical Function 0 和Physical Function 
+1，可以设置各自的ID 和Class Code。 
+ 
+图 2-6 IP GUI 第四页ID and Class 图示（EP） 
+
+PAGE 15
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 12 
+2024.03 
+ 
+图 2-7 IP GUI 第四页ID and Class 图示（RC） 
+ID Init Values 
+1. Vendor ID 
+Vendor ID 需要用户输入4 位十六进制值。默认的Vendor ID 是1EDB，为公司专属的Vendor ID。 
+PCI-SIG 组织统一编制各厂商的Vendor ID。Vendor ID 作为PCI 设备身份的标识，是唯一的。 
+2. Device ID 
+Device ID 需要用户输入4 位十六进制值。 
+Device ID 是设备本身代码的标识。如果用户要区别自己的不同型号的设备。 
+3. Revision ID 
+Revision ID 需要用户输入2 位十六进制值，是用户设计的修订版本号。 
+4. Subsystem Vendor ID 
+
+PAGE 16
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 13 
+2024.03 
+Subsystem Vendor ID 需要用户输入4 位十六进制数值。 
+跟Vendor ID 类似的，Subsystem Vendor ID 是PCI-SIG 组织认证的子系统制造厂商的标识码。作
+为PCI 子系统身份的标识，也是唯一的。 
+5. Subsystem Device ID 
+Subsystem Device ID 需要用户输入4 位十六进制数值。 
+Subsystem Device ID 是子系统代码的标识，用来区别自己的不同型号的子系统。 
+Class Code 
+系统会通过读Class Code 来判断PCIe Device 存在不存在。全0，系统会判定设备不存在。因此，
+请一定要设置Class Code，不要保持Class Code 默认为“Unclassified device”，即全0。 
+另外，系统会通过ID 和Class Code 来加载设备驱动。 
+IP 界面里提供了最新的Class Code/Sub-Class Code 的可选项，根据用户选择设备的类型，Class 
+Code/Sub-Class Code 就会自动显示。Class Code、Sub-Class Code 和Programming Interface Value
+一起，显示在最下面的Class Code 文本框里。 
+1. Base Class Menu 和Base Class Value 
+用户选Base Class Menu 下拉菜单，Base Class Value 的2 位十六进制值就自动出现在文本显示
+框中，同时也作为Class Code 的前2 位十六进制数显示在Class Code 的文本框里。 
+如果Device Type 选中为Root Port of PCI Express Root Complex，Base Class Menu 只能选择
+为Bridge(06H)。 
+2. Sub-Class Menu 和Sub-Class Value 
+Base Class 下细分为一个或多个Sub-Class。 
+用户选Sub-Class Menu 下拉菜单，Sub-Class Value 的2 位十六进制值就自动出现在文本显示框
+中，同时也作为Class Code 的中间2 位十六进制数显示在Class Code 的文本框里。 
+3. Interface Value 
+Sub-Class 下细分为一个或多个Programming Interface。 
+Interface Value 需要用户输入2 位Programming Interface 十六进制数值。 
+Programming Interface 因为选择项太多，本IP 没有提供Programming Interface 下拉菜单。 
+ 
+ 
+
+PAGE 17
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 14 
+2024.03 
+2.1.5 第五页BAR 
+对于EP 设备，PH1A PCIe 硬核的PF0 和PF1 提供了BAR0/BAR2/BAR4/Expansion ROM，PF0-VFs 和
+PF1-VFs 提供了BAR0/BAR2/BAR4 给用户使用。 
+对于RC 设备，PH1A PCIe 硬核的PF0 提供了BAR0/Expansion ROM 用户使用。 
+ 
+图 2-8 IP GUI 第五页BAR 图示（EP） 
+ 
+
+PAGE 18
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 15 
+2024.03 
+ 
+图 2-9 IP GUI 第五页BAR 图示（RC） 
+BAR setting 
+如果用户把Device Type 设置为PCI Express Endpoint，BAR0~5 的Type 只能选为memory；如果
+用户把Device Type 设置为Legacy PCI Express Endpoint，BAR0~5 的Type 可选为memory 和IO。 
+首先，用户可以单独使能BAR0~5 中的一个或多个。 
+当BAR0/2/4 的Type 为Memory 时，64-bit 可被使能或不使能，Prefetchable 可被选为使能或不使
+能。当BAR0/2/4 为IO 时，64-bit 不能勾选，Prefetchable 不能勾选。Size 的可选范围是2^7 (128) 
+Bytes 到2^1  (2) G Bytes；当BAR0/2/4 为IO 时，Size 的可选范围是2^2 (4) Bytes 到2^8 (256) 
+Bytes。 
+当BAR1/3/5 的Type 只能为Memory，且Size 的只能选择2^6 Kbytes。 
+Device Type 设置为PCI Express Endpoint 或Legacy PCI Express Endpoint 时。用户可以选择
+每个BAR 的数据通路，Local Bus 选择ELBI(convenient bus for register access) 和Other TX/RX 
+Bus（High bandwidth bus）。 只能存在一个BAR，使用ELBI 总线，其他均使用Other TX/RX Bus。 
+Device Type 设置为Root Port of PCI Express Root Complex 时， 仅有BAR0 被使能，且无法使
+用ELBI 总线。 
+用户设置完以上的选项后，BAR Value 就以十六进制数自动显示在Value 后的文本框里，供用户参
+考。 
+Expansion ROM 
+用户可以通过选择框来使能Expansion ROM。 
+Expansion ROM Size 的设置范围是2^1 (2) Kbytes~2^4 (16) Mbytes。用户设置好Size 后，BAR 
+Value 就以十六进制数自动显示在Value 后的文本框里，供用户参考。 
+ 
+ 
+
+PAGE 19
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 16 
+2024.03 
+2.1.6 第六页Port Control 
+要详细了解PCIe 硬核端口，请阅读《UG913_安路科技PH1A 系列FPGA PCIE 用户手册》。本IP 的
+Port Control 页，便于用户选择所需端口。PH1A PCIe 硬核，有多个端口组。请用户在详细了解端口
+的用法之后，设置本页的选项。 
+ 
+图 2-10 IP GUI 第六页Port Control 图示(EP) 
+ 
+ 
+图 2-11 IP GUI 第六页Port Control 图示(RC) 
+TX Port Control 
+XALI0 默认使能，XALI1 默认不使能，两者用户都可选使能或不使能。 
+
+PAGE 20
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 17 
+2024.03 
+用户发送TLP request 或Completion，需要用XALI0/XALI1，XALI0 对应Client0 总线接口，XALI1
+对应Client1 总线接口。 
+XALI0/XALI1 的异同和用法，请参考《UG913_安路科技PH1A 系列FPGA PCIE 用户手册》。 
+RX Port Control 
+TRGT1 和BYPASS 默认是使能的，用户可选使能或不使能。 
+TRGT1 是用于接收对端的TLP Request，BYPASS 是用于接收对端的Completion。 
+Interrupt 
+Interrupt 端口控制包括MSI/MSI-X/Legacy INT，但这3 个选项无需用户手动设置。如果用户在
+Capability 2 这一页中设置了INT Pin/MSI/MSI-X，相应的Legacy INT/MSI/MSI-X 端口就会被自动使
+能。 
+对于RC 设备，PH1A PCIe 硬核提供了legacy int 的中断检测，MSI/MSI-X 相关需要用户在
+fabric 逻辑处理。 
+Other Interfaces 
+1. ELBI Signals 
+使能ELBI 总选，ELBI Signals 无须用户设置。当用户在BAR 界面中选中ELBI 总选通路，ELBI 就
+自动被使能；当所有的BAR 都未使用ELBI 总选时，ELBI 就会自动被设置为不使能。 
+2. DBI Signals 
+DBI Signals 默认使能。 
+用户通过DBI 端口来访问PCIe 硬核的配置空间。配置空间寄存器表格，请阅读《UG913_安路科技
+PH1A 系列FPGA PCIE 用户手册》的附录。 
+3. endor-Defined Message Signals 
+Vendor-defined Message Signals 默认不使能，用户可选为使能或不使能。 
+如果用户使用了Vendor-defined Message，请使能本端口控制信号。 
+4. LTR message Generation Signals(EP Only) 
+LTR message Generation Signals 默认是不使能的，用户可选为使能或不使能。 
+PH1A PCIe 硬核提供了产生LTR message 的专用端口，简单易用，可以很方便的产生LTR 
+Message。 
+5. Power Management Signals 
+Power Management Signals 默认不使能，用户可选为使能或不使能。 
+
+PAGE 21
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 18 
+2024.03 
+用户可以通过这些端口直接控制PCIe 硬核的功耗模式。 
+6. Configuration Info Signals 
+Configuration Info Signals 默认不使能，用户可选为使能或不使能。 
+当Configuration Info Signals 被使能时，跟配置信息相关的端口，将被呈现给用户。 
+7. Debug Signals 
+Debug Signals 默认不使能，用户可选为使能或不使能。 
+当Debug Signals 被使能时，跟调试相关的端口将会被呈现给用户。 
+8. RAS D.E.S. Signals 
+RAS D.E.S. Signals 默认不使能，用户可选为使能或不使能。 
+当RAS D.E.S. Signals 被使能时，测试硬核相关的端口，将被呈现给用户。 
+9. FLR Signals 
+FLR Signals 默认不使能，用户可选为使能或不使能。 
+当用户需要对PF 或VF 做复位的精准控制时，请使能FLR Signals。 
+10. ROM Validation Signals 
+ROM Validation Signals 默认不使能，用户可选为使能或不使能。 
+当ROM Validation Signals 被使能时，用户可以通过这些端口来便捷的获得Expansion ROM 的状
+态和细节。 
+ 
+ 
+
+PAGE 22
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 19 
+2024.03 
+2.1.7 第七页Summary 
+此界面主要用来展示用户的配置，包括Device Type,中断类型，物理Lane 位置等。Summary 界面
+不包含任何配置项，仅对前面几页最重要的配置或状态信息进行展示，便于客户在定制化PCIe IP
+时，总结配置的重要选项。 
+ 
+图 2-12 IP GUI 第七页Summary 图示 
+Target Device 
+显示当前PCIe IP 所属FPGA 器件。 
+IP Module Name 
+PCIe IP 模块名称。 
+Device Type 
+PCIe IP 选择的PCIe 类型，共三种可选，分别为PCI Express Endpoint，Legacy PCI Express 
+Endpoint，Root Port of PCI Express Root Complex。 
+
+PAGE 23
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 20 
+2024.03 
+Max Speed Support 
+最大支持的PCIe 协商速度。 
+Max Width Support 
+最大支持的PCIe 协商位宽。 
+Max Payload Size Support 
+最大支持的PCIe 有效数据载荷量。 
+PFn_Enabled 
+PFn 是否被使能，PF0 必须被使能。 
+PFn_ID(Hex) 
+PFn 的Vendor ID 和Device ID，两个ID 组成32 位，16 进制显示。 
+PFn_Class_Code 
+PFn 的Sub-Class Menu。 
+PFn_BAR 
+PFn 当前被使能的BAR。 
+PFn_VFs 
+PFn 所属的VF 个数，如果没有使能SR-IOV，则不显示。 
+PCIe Logic Lane0/1/2/3 
+指示PCIe 控制器的逻辑Lane 与物理Lane 的对应关系。Link Width 选择X1 时，只显示PCIe Logic 
+Lane0；X2 时，只显示PCIe Logic Lane0/1；X4 时，只显示PCIe Logic Lane0/1/2/3。 
+Reference Clock Frequency 
+显示当前PCIe IP 使用的物理参考时钟频率和位置。 
+ 
+ 
+
+PAGE 24
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 21 
+2024.03 
+2.2 生成的文件 
+IP 通过图形界面用户选择配置的不同，会生成不同的配置文件，假设PCIe IP 名称为pcie，具体
+文件名以及生成规则如下： 
+表2-1 PCIe IPGen 生成文件表 
+文件名 
+描述 
+备注 
+pcie.ipc 
+PCIe IP 图形化界面配置文件，可直接使用TD
+打开 
+默认生成 
+pcie.v 
+PCIe IP 可实例化verilog 文件，包含PCIe 硬
+核。如果使能Include Pipeline Logic，会额
+外包含PCIe 硬核的初始化以及时序优化逻辑。 
+pcie.txt 
+PCIe IP 配置信息 
+pcie.dat 
+PCIe IP 配置信息二进制数据，用于存储在ROM
+中，复位后重新读取PCIe IP 配置信息并通过
+DBI 总线写入到PCIe 硬核中 
+使能Export DAT 
+File 
+pcie_ph1_dbi_init_mux.v 
+PCIe 硬核自恢复模块，用于复位后，将PCIe 的
+配置信息，重新写入到PCIe 硬核中 
+使
+能
+Include 
+Pipeline Logic 
+pcie_ph1_pcie_basic_top.v 
+PCIe 硬核数据接口打拍逻辑，有助于PCIe 硬核
+接口处时序收敛 
+pcie_ph1_pcie_cfg_rom.v 
+存储PCIe 配置信息的ROM 
+pcie_ph1_pcie_clock_ctrl.v PCIe 硬核输出时钟链路优化，根据当前链路协
+商的速度和位宽，动态配置PLL 
+pcie_ph1_pcie_core_pll.v 
+PLL，用于减少PCIe 硬核输出时钟的clock skew 
+pcie.adc 
+包含pll 和sclk 的位置信息 
+pcie.sdc 
+约束PCIe 硬核输出时钟，以及PLL 输出时钟 
+ 
+ 
+ 
+
+PAGE 25
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 22 
+2024.03 
+3 IP 例化流程 
+本流程以实际案例的形式，介绍如何生成IP、如何使用生成的IP、以及注意事项等。 
+1. 打开软件，启动IP Catalog 图形界面，如下图。 
+ 
+图 3-1 IP Catalog 界面 
+2. 双击PCI Express，填写IP 文件输出路径以及IP 名称，点击OK，即可进入PCIe IP 配置界面。 
+ 
+图 3-2 输入文件名和存放路径 
+3. 配置完PCIe IP 后，点击OK，TD 软件会生产PCIe IP 相关文件，存放在之前指定的目录。 
+
+PAGE 26
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 23 
+2024.03 
+4. 生成完毕，TD 软件会弹出对话框，提示用户是否要把生成的.v 文件添加到当前的TD 工程。如果用
+户需要添加，请勾选生成的.v 文件，并点击选择“Yes”；否则，请点击“No”。 
+ 
+图 3-3 询问是否添加TD 工程的提示界面 
+ 
+ 
+
+PAGE 27
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 24 
+2024.03 
+4 IP 应用注意事项 
+4.1 实施注意事项 
+4.1.1 约束 
+PH1A 的PCIe 硬核的位置是固定的，因此不需要位置约束。 
+PH1A 的core_clk 在Gen1/Gen2/Gen3 时，分别是62.5/125/250MHz。如果用户使能Include Pipeline 
+Logic，IP 在生成时，会自动生成sdc 文件约束core_clk，否则需要用户对此时钟做频率或周期约束。 
+4.1.2 txt 文件 
+IP 生成.v 的同时，会生成要给同名的.txt 文件。请确保这两个文件是放在同一个目录下。如果
+同名的.txt 文件未被TD 软件检测到，用户配置PCIe 的信息将不会出现在位流文件里。 
+4.1.3 dat 文件 
+PCIE IP 的配置信息是由IP GUI 生成的.txt 文件来控制的，当FPGA 上电后，会从bit 流中自动
+加载.txt 文件信息，如果复位PCIE IP，会清空PCIE 的配置信息，导致PCIE IP 处于上电默认状态。 
+PCIE GUI 提供了一种PCIE 自恢复方案，将dat 文件用作Rom 的init file,且在PCIE IP 复位
+后，将Rom 中的信息通过DBI 写入到PCIE IP 中，即可实现自恢复，需要使能Include Pipeline 
+Logic。 
+4.2 仿真注意事项 
+4.2.1 库的编译 
+PH1A PCIe 的仿真文件是.sv 文件，但是其中包含了.sv 的模块。因此，建议用户在编译库的时
+候，请选中System Verilog 支持。 
+对应PH1A400，无论封装，仿真模型为ph1a_phy_pcie_v2.sv 
+对应PH1A90 和PH1A180，无论封装，仿真模型为ph1a_phy_pcie_v3.sv 
+4.2.2 配置文件 
+有些仿真软件，比如Modelsim 或Questa，需要把IP 生成的.txt 和.dat 文件拷贝到仿真目录
+下，这样配置信息才能被加载到仿真模型，从而获得跟上板一致的仿真功能。 
+ 
+
+PAGE 28
+  
+                                        SALPHOENIX®1A 系列FPGA PCI Express 定制向导IP 用户手册 
+IPUG011_1.4                          www.anlogic.com                                 25 
+2024.03 
+版本信息 
+日期 
+版本 
+修订记录 
+2020/12/29 
+1.0 
+首次发布中文版 
+2021/06/24 
+1.1 
+支持PH1A400 器件 
+2021/12/16 
+1.2  
+1.支持RC 选项 
+2.增加DAT 文件输出选项 
+2022/11/14 
+1.3 
+1.删除Clock Aligner 相关描述 
+2.增加对PH1A90SBG484 器件PCIe 支持 
+3.将文档中的PH1 统一更为PH1A 
+4.更新文档免责说明 
+2024/03/19 
+1.4 
+1.增加Include Pipeline Logic 说明 
+2.增加Summary 界面的说明 
+3.增加对PH1A90SBG484 器件PCIe 支持 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+版权所有©2024 上海安路信息科技股份有限公司 
+未经本公司书面许可，任何单位和个人都不得擅自摘抄、复制、翻译本文档内容的部分或全部，并不得
+以任何形式传播。 
+免责声明 
+本文档并未授予任何知识产权的许可，并未以明示或暗示，或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考，协助用户正确地使用安路科技产品之用，其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。  
+安路科技将不定期地对本文档进行更新、修订。用户如需获取最新版本的文档，可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。 

@@ -1,0 +1,80 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Mon Oct  5 06:06:30 2026
+
+   Run on =     �ԼҺ�D������
+============================================================
+RESET8_TD_OUTPUT=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/evidence/td_20261005_060630_41844
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  9.726722s wall, 7.812500s user + 1.125000s system = 8.937500s CPU (91.9%)
+
+RUN-1004 : used memory is 1287 MB, reserved memory is 1317 MB, peak memory is 1321 MB
+RUN-1002 : start command "set_param rtl directive:async_reg on"
+RUN-1002 : start command "analyze -file reset8_bundle.v"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file reset8_bundle.v
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_phy.v in reset8_bundle.v(1)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(1)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_hs_data_phy.v in reset8_bundle.v(2)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(2)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/td_reset8_top.v in reset8_bundle.v(3)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(3)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/rx_clk_gen.v in reset8_bundle.v(4)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(4)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v in reset8_bundle.v(5)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(5)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v in reset8_bundle.v(6)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(6)
+HDL-1007 : analyze included file E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v in reset8_bundle.v(7)
+HDL-1007 : back to file 'reset8_bundle.v' in reset8_bundle.v(7)
+RUN-1002 : start command "elaborate -top td_reset8_top"
+HDL-1007 : elaborate module td_reset8_top in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/td_reset8_top.v(2)
+HDL-1007 : elaborate module csi_rx_phy(DEVICE="PH1A") in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_phy.v(23)
+HDL-1007 : elaborate module rx_clk_gen(DEVICE="PH1A") in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/rx_clk_gen.v(2)
+HDL-1007 : elaborate module PH1_PHY_LCLK_V2(DIV="2") in E:\qianrufpga\TD\arch/ph1_macro.v(3476)
+HDL-1007 : elaborate module PH1_PHY_LCLK_V2(DIV="4") in E:\qianrufpga\TD\arch/ph1_macro.v(3476)
+HDL-1007 : elaborate module csi_rx_clock_det in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v(3)
+HDL-1007 : elaborate module auto_delay_ctl(TAP_COUNT=32) in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v(21)
+HDL-1007 : elaborate module csi_rx_hs_data_phy(DEVICE="PH1A") in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_hs_data_phy.v(4)
+HDL-1007 : elaborate module PH1_LOGIC_DYNAMIC_IDELAY in E:\qianrufpga\TD\arch/ph1_macro.v(11853)
+HDL-1007 : elaborate module PH1_LOGIC_IDDRx2 in E:\qianrufpga\TD\arch/ph1_macro.v(11706)
+HDL-1007 : elaborate module csi_rx_byte_align in E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v(1)
+HDL-1200 : Current top model is td_reset8_top
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "read_adc "
+USR-8462 CRITICAL-WARNING: read_adc: option file is required.
+FAIL_RESET8_TD=
+
+    while executing
+"read_adc [file join $trial td_reset8.adc]"

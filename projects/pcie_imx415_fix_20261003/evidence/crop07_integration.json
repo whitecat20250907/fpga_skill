@@ -1,0 +1,33 @@
+{
+  "version": "0x56440701",
+  "top_sha256": "1dfe6e9303db139b23a297222d1158f206911d9da51703bb6fd673cd5e1edadf",
+  "source06": "build06_sources.json; interrupted before STA because crop defect found",
+  "observed_short_bytes": 6197776,
+  "expected_bytes": 6220800,
+  "old_crop_selected_rows": 1077,
+  "old_matrix_emitted_rows": 1076,
+  "profiles": {
+    "1080p": {
+      "raw_height": 1097,
+      "start": 15,
+      "end": 1096,
+      "first": 16,
+      "last": 1095
+    },
+    "4K": {
+      "raw_height": 2192,
+      "start": 15,
+      "end": 2176,
+      "first": 16,
+      "last": 2175
+    },
+    "720p": {
+      "raw_height": 1097,
+      "start": 35,
+      "end": 756,
+      "first": 36,
+      "last": 755
+    }
+  },
+  "status": "Digital crop/physical RAW height/STA/hardware still require verification"
+}

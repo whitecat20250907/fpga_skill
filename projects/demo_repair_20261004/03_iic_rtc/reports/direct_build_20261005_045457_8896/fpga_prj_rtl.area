@@ -1,0 +1,37 @@
+standard
+***Report Model: rtc_clock_ds1337 Device: PH1A90SEG324***
+
+IO Statistics
+#IO                         4
+  #input                    1
+  #output                   2
+  #inout                    1
+
+Gate Statistics
+#Basic gates              463
+  #and                     24
+  #nand                     0
+  #or                      22
+  #nor                      0
+  #xor                      0
+  #xnor                     0
+  #buf                      0
+  #not                     48
+  #bufif1                   1
+  #MX21                   149
+  #FADD                     0
+  #DFF                    219
+  #LATCH                    0
+#MACRO_ADD                 16
+#MACRO_EQ                  13
+#MACRO_MUX                 93
+
+Report Hierarchy Area:
++---------------------------------------------------------------+
+|Instance             |Module           |gates  |seq    |macros |
++---------------------------------------------------------------+
+|top                  |rtc_clock_ds1337 |244    |219    |29     |
+|  X_ui_i2c           |ui_i2c           |82     |68     |17     |
+|  X_ui_uart_tx_block |ui_uart_tx_block |117    |86     |10     |
+|    X_ui_uart_tx     |ui_uart_tx       |10     |24     |7      |
++---------------------------------------------------------------+

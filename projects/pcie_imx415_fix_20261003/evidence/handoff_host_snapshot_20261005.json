@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-10-05T22:58:40.1121842-07:00",
+  "timezone": "America/Los_Angeles",
+  "present_ports": [
+    {
+      "Status": "OK",
+      "FriendlyName": "蓝牙链接上的标准串行 (COM3)",
+      "InstanceId": "BTHENUM\\{00001101-0000-1000-8000-00805F9B34FB}_VID&0001005D_PID&223B\\9&2D35CF3F&0&3053C10EF1FE_C00000000"
+    },
+    {
+      "Status": "OK",
+      "FriendlyName": "蓝牙链接上的标准串行 (COM4)",
+      "InstanceId": "BTHENUM\\{00001101-0000-1000-8000-00805F9B34FB}_LOCALMFG&0000\\9&2D35CF3F&0&000000000000_00000000"
+    }
+  ],
+  "task_processes": [],
+  "last_confirmed_board": "FPGA09 SRAM programmed; SGDMA07 loaded; V4L2 unloaded; BAR video read precheck failed. Not re-observed on the board at handoff.",
+  "source_version": "0x56440a01",
+  "build10_stage": "place"
+}

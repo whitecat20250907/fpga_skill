@@ -1,0 +1,7 @@
+source_gate_inventory=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/td_async_ooc_trial_20261005_005606_37548/cdc_attributes_gate.txt
+expected_count=3
+name=async_sync_reg[0] object=async_sync_reg[0] NAME=async_sync_reg[0] CLASS=cell REF_NAME=AL_MAP_SEQ TYPE=AL_MAP_SEQ ASYNC_REG=1
+name=async_sync_reg[1] object=async_sync_reg[1] NAME=async_sync_reg[1] CLASS=cell REF_NAME=AL_MAP_SEQ TYPE=AL_MAP_SEQ ASYNC_REG=1
+name=async_sync_reg[2] object=async_sync_reg[2] NAME=async_sync_reg[2] CLASS=cell REF_NAME=AL_MAP_SEQ TYPE=AL_MAP_SEQ ASYNC_REG=1
+validated_count=3
+problem_count=0

@@ -1,0 +1,14 @@
+{
+  "received_frames": 10,
+  "first_fpga_frame_id": 1,
+  "last_fpga_frame_id": 10,
+  "lost_or_duplicated_frames": [],
+  "bad_previous_frame_geometry_indices": [],
+  "lane_error_frames": [],
+  "bridge_overflow_frames": [],
+  "processing_error_frames": [],
+  "median_sof_period_ticks": 1856079,
+  "median_fpga_fps_from_nominal_clock": 60.0055,
+  "nominal_rx_clock_hz": 111375000,
+  "caveat": "RX clock value is from sensor mode table, not instrument-calibrated"
+}

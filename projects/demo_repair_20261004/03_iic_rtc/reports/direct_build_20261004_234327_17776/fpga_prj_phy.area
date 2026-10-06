@@ -1,0 +1,84 @@
+standard
+***Report Model: rtc_clock_ds1337 Device: PH1A90SEG324***
+
+Design Statistics
+#IO                         4   out of    148    2.70%
+  #input                    1
+  #output                   2
+  #inout                    1
+#lut6                     188   out of  64320    0.29%
+#reg                      221
+  #slice reg              221   out of 128640    0.17%
+  #pad reg                  0
+
+Utilization Statistics
+#slice                    203   out of  64320    0.32%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic             203
+    #with luts            142
+    #with adder            46
+    #reg only              15
+#feedthrough              134
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       0   out of    272    0.00%
+  #eram20k                  0
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                        4   out of    148    2.70%
+#pll                        0   out of     12    0.00%
+#gclk                       2   out of     32    6.25%
+#lclk                       0   out of     36    0.00%
+#sclk                       5   out of     96    5.21%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+
+Detailed IO Report
+
+     Name       Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg    DiffResistor  
+   I_sysclk       INPUT        T16        LVCMOS18      HRIO          N/A          PULLUP      NONE          NONE      
+  O_iic_scl      OUTPUT        N14        LVCMOS18      HRIO           8            NONE       NONE          NONE      
+  O_uart_tx      OUTPUT        U11        LVCMOS18      HRIO           8            NONE       NONE          NONE      
+  IO_iic_sda      INOUT        U16        LVCMOS18      HRIO           8           PULLUP      NONE          NONE      
+
+Report Clock Domain Luts:
+
+-------------------------------------------------------------------------------------------------------------
+  Index   |  Name    |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
+-------------------------------------------------------------------------------------------------------------
+  #1      |  sysclk  |  25MHz       |  209            |  0                |  0             |  0      |  0
+-------------------------------------------------------------------------------------------------------------
+
+Clock Resource Statistics
+Index     ClockNet            Type            DriverType         Driver                             ClockFanout        GclkLocation
+#1        I_sysclk_dup_1      InferredGclk    io                 I_sysclk_syn_2.di                  123                x37y99z0
+#2        X_ui_i2c/scl_clk    InferredGclk    lslice             X_ui_i2c/scl_clk_reg_syn_11.oqa    41                 x37y99z1
+
+Report Hierarchy Area:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance             |Module           |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                  |rtc_clock_ds1337 |142       |46      |221     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  X_ui_i2c           |ui_i2c           |46        |0       |70      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  X_ui_uart_tx_block |ui_uart_tx_block |68        |16      |88      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    X_ui_uart_tx     |ui_uart_tx       |20        |0       |24      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+DataNet Average Fanout:
+
+   Index     Fanout    Nets  
+    #1         1       234   
+    #2         2        72   
+    #3         3        22   
+    #4         4        22   
+    #5        5-10      19   
+    #6       11-50      10   
+  Average     2.18           

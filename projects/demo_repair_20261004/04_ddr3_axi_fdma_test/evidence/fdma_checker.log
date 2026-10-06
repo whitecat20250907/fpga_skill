@@ -1,0 +1,50 @@
+# do run_fdma.do
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 23:31:31 on Oct 04,2026
+# vlog ../uisrc/01_rtl/fdma_test.v 
+# -- Compiling module ui_fdma_test
+# 
+# Top level modules:
+# 	ui_fdma_test
+# End time: 23:31:32 on Oct 04,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 23:31:32 on Oct 04,2026
+# vlog -sv tb_fdma_checker.sv 
+# -- Compiling module cwc
+# -- Compiling module tb_fdma_checker
+# 
+# Top level modules:
+# 	cwc
+# 	tb_fdma_checker
+# End time: 23:31:32 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_fdma_checker 
+# Start time: 23:31:32 on Oct 04,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 1 FSM in module "ui_fdma_test(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ui_fdma_test(fast)".
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_fdma_checker(fast)
+# Loading work.ui_fdma_test(fast)
+# Loading work.cwc(fast)
+# Loading work.ui_fdma_test(fast__1)
+# FDMA CHECKER PASS: 12 bursts/4 rounds, 5 single-bit injections incl bit127, bounded nonmultiple span, reset, invalid-config no traffic
+# ** Note: $stop    : tb_fdma_checker.sv(92)
+#    Time: 23580 ns  Iteration: 1  Instance: /tb_fdma_checker
+# Break in Module tb_fdma_checker at tb_fdma_checker.sv line 92
+# End time: 23:31:34 on Oct 04,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

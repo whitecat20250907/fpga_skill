@@ -1,0 +1,89 @@
+# puts "CSI_LOCAL_CLOCK09_OUTPUT=$out"
+# vmap -c
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c 
+# Copying D:/Modelsim/soft/win64/../modelsim.ini to modelsim.ini
+# vlib work
+# vlog -sv E:/qianrufpga/TD/sim_release/ph1/ph1_phy_lclk_v2.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_io.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_dynamic_idelay.v E:/qianrufpga/TD/sim_release/ph1/ph1_phy_gsr.v [file join $test_root csi_rx_hs_data_phy.v] [file join $test_root csi_rx_phy.v] [file join $test_root rx_clk_gen.v] [file join $task_root fpga uisrc 03_ip mipi_csi_2 csi_rx_byte_align.v] [file join $task_root fpga uisrc 03_ip mipi_csi_2 csi_rx_clock_det.v] [file join $task_root fpga uisrc 03_ip mipi_csi_2 auto_delay_ctl.v] [file join $test_root tb_csi_local_clock09.sv]
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 06:55:37 on Oct 05,2026
+# vlog -sv E:/qianrufpga/TD/sim_release/ph1/ph1_phy_lclk_v2.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_io.v E:/qianrufpga/TD/sim_release/ph1/ph1_logic_dynamic_idelay.v E:/qianrufpga/TD/sim_release/ph1/ph1_phy_gsr.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/csi_rx_hs_data_phy.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/csi_rx_phy.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/rx_clk_gen.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/tb_csi_local_clock09.sv 
+# -- Compiling module PH1_LOGIC_IDDR
+# -- Compiling module PH1_LOGIC_ODDR
+# -- Compiling module PH1_LOGIC_IDDRx2
+# -- Compiling module PH1_LOGIC_IDDRx2l
+# -- Compiling module PH1_LOGIC_ODDRx2
+# -- Compiling module PH1_LOGIC_ODDRx2l
+# -- Compiling module PH1_LOGIC_HP_ISERDES
+# -- Compiling module PH1_LOGIC_HP_OSERDES
+# -- Compiling module PH1_LOGIC_DYNAMIC_IDELAY
+# -- Compiling module PH1_LOGIC_DYNAMIC_HP_IDELAY
+# -- Compiling module PH1_LOGIC_DYNAMIC_HP_ODELAY
+# -- Compiling module PH1_PHY_GSR
+# -- Compiling module csi_rx_hs_data_phy
+# -- Compiling module csi_rx_phy
+# -- Compiling module rx_clk_gen
+# -- Compiling module csi_rx_byte_align
+# -- Compiling module csi_rx_clock_det
+# -- Compiling module auto_delay_ctl
+# -- Compiling module tb_csi_local_clock09
+# 
+# Top level modules:
+# 	PH1_LOGIC_IDDR
+# 	PH1_LOGIC_IDDRx2l
+# 	PH1_LOGIC_ODDRx2
+# 	PH1_LOGIC_ODDRx2l
+# 	PH1_LOGIC_HP_ISERDES
+# 	PH1_LOGIC_HP_OSERDES
+# 	PH1_LOGIC_DYNAMIC_HP_IDELAY
+# 	PH1_LOGIC_DYNAMIC_HP_ODELAY
+# 	PH1_PHY_GSR
+# 	tb_csi_local_clock09
+# End time: 06:55:40 on Oct 05,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+# vsim -c -novopt -onfinish stop work.tb_csi_local_clock09 work.PH1_PHY_GSR
+# vsim -c -novopt -onfinish stop work.tb_csi_local_clock09 work.PH1_PHY_GSR 
+# Start time: 06:55:40 on Oct 05,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.tb_csi_local_clock09
+# Loading sv_std.std
+# Loading work.tb_csi_local_clock09
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.csi_rx_phy
+# Loading work.csi_rx_phy
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.rx_clk_gen
+# Loading work.rx_clk_gen
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.csi_rx_clock_det
+# Loading work.csi_rx_clock_det
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.auto_delay_ctl
+# Loading work.auto_delay_ctl
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.PH1_PHY_GSR
+# Loading work.PH1_PHY_GSR
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.csi_rx_hs_data_phy
+# Loading work.csi_rx_hs_data_phy
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.csi_rx_byte_align
+# Loading work.csi_rx_byte_align
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.PH1_LOGIC_DYNAMIC_IDELAY
+# Loading work.PH1_LOGIC_DYNAMIC_IDELAY
+# Refreshing E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/evidence/modelsim_20261005_065537_15672/work.PH1_LOGIC_IDDRx2
+# Loading work.PH1_LOGIC_IDDRx2
+# run -all
+# ** Fatal: HS reset release wrong edge=3 rst=0 chain=000 qualify=0
+#    Time: 203112 ps  Scope: tb_csi_local_clock09 File: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/tb_csi_local_clock09.sv Line: 47
+# ** Note: $finish    : E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/tb_csi_local_clock09.sv(47)
+#    Time: 203112 ps  Iteration: 0  Instance: /tb_csi_local_clock09
+# Break in Module tb_csi_local_clock09 at E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_local_clock09/tb_csi_local_clock09.sv line 47
+# End time: 06:55:44 on Oct 05,2026, Elapsed time: 0:00:04
+# Errors: 1, Warnings: 1

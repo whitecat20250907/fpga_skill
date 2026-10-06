@@ -1,0 +1,5 @@
+project=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/imx415_pcie_4k.al
+top=imx415_pcie_top
+device=PH1A90SEG324 speed=2
+start_epoch=1791185057
+mode=fresh_source_single_run

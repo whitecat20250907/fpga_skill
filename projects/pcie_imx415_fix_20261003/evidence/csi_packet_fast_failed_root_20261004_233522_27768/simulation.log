@@ -1,0 +1,26 @@
+# puts "CSI_PACKET_FAST_OUTPUT=$test_out"
+# vmap -c
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c 
+# Copying D:/Modelsim/soft/win64/../modelsim.ini to modelsim.ini
+# vlib work_fast
+# vmap csi_fast work_fast
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap csi_fast work_fast 
+# Modifying modelsim.ini
+# proc binary_read {path} {
+#     set f [open $path rb]
+#     set s [read $f]
+#     close $f
+#     return $s
+# }
+# proc binary_write {path text} {
+#     set f [open $path wb]
+#     puts -nonewline $f $text
+#     close $f
+# }
+# set parser_dir [file join $test_root fpga uisrc 03_ip mipi_csi_2]
+# D:/Modelsim/soft/tcl/fpga/uisrc/03_ip/mipi_csi_2
+# set old [binary_read [file join $parser_dir csi_rx_packet_handler.v]]
+# ** Error: couldn't open "D:/Modelsim/soft/tcl/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_packet_handler.v": no such file or directory
+# Executing ONERROR command at macro E:\qianrufpga\fpga-lab\projects\pcie_imx415_fix_20261003\tools\csi_packet_fast.do line 28

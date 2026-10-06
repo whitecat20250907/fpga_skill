@@ -1,0 +1,46 @@
+{
+  "source": "data/person_s2.yuyv",
+  "model": "models/yolov5s_relu.rknn",
+  "model_sha256": "418ccc10ddd9aea78658fb477a09b12d613e3e359eb5c829b4ddd00b3ef8cfe7",
+  "width": 1920,
+  "height": 1080,
+  "runs": 10,
+  "input_format": "YUYV",
+  "preprocess_ms": 11.959,
+  "first_inference_ms": 43.282,
+  "npu_ms_median": 32.307,
+  "npu_ms_p95": 39.439,
+  "postprocess_ms": 23.057,
+  "output_shapes": [
+    [
+      1,
+      255,
+      80,
+      80
+    ],
+    [
+      1,
+      255,
+      40,
+      40
+    ],
+    [
+      1,
+      255,
+      20,
+      20
+    ]
+  ],
+  "detections": [
+    {
+      "xyxy": [
+        0,
+        14,
+        845,
+        1047
+      ],
+      "score": 0.4024,
+      "class_id": 0
+    }
+  ]
+}

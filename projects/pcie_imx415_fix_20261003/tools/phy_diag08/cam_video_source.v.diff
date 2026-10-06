@@ -1,0 +1,43 @@
+--- main07/cam_video_source.v
++++ candidate08/cam_video_source.v
+@@ -60,6 +60,11 @@
+     output wire          mipi_tvalid_out,    // MIPI receiver raw tvalid (for debug)
+     output wire [7:0]    dbg_mipi,           // MIPI ÄÚ²¿µ÷ÊÔ×ÜÏß£¨hs_div_clk Óò£©
+     output wire [7:0]    dbg_delay,          // delay µ÷ÊÔ×ÜÏß£¨hs_div_clk Óò£©
++    // Shadow command lives in user_clk; held-bus CDC is inside mipi_csi_rx.
++    input wire [6:0] phy_control_shadow, // bit6 override enable, bits5:0 tap
++    output wire [223:0] phy_diag0, phy_diag1, // [223:192] source byte-clock cycles
++    output wire [31:0] phy_diag0_status, phy_diag1_status,
++    output wire [31:0] phy_diag0_clock_delta, phy_diag1_clock_delta,
+     output wire [223:0] csi_snapshot,
+     output wire [31:0] csi_snapshot_status,
+     output wire [31:0] csi_clock_delta,
+@@ -185,6 +190,18 @@
+     //    CDC: internal sfifo bridges hs_rx_clk ¡ú m_axis_video_aclk (user_clk)
+     // ================================================================
+     wire [191:0] csi_stats;
++    wire [191:0] phy_diag0_byte, phy_diag1_byte;
++    // Both diagnostic buses originate in BYTE clock, not UI clock. Each
++    // snapshot has a coherent hold/ack transfer and its own reset synchronizers.
++    // Default PERIOD is destination user_clk cycles (12.5M = 100ms at 125MHz).
++    csi_stats_snapshot u_phy_diag0_snapshot (
++        .src_clk(mipi_div_clk_out), .dst_clk(user_clk), .rst_n(user_rst_n),
++        .src_stats(phy_diag0_byte), .snapshot(phy_diag0),
++        .status(phy_diag0_status), .clock_delta(phy_diag0_clock_delta));
++    csi_stats_snapshot u_phy_diag1_snapshot (
++        .src_clk(mipi_div_clk_out), .dst_clk(user_clk), .rst_n(user_rst_n),
++        .src_stats(phy_diag1_byte), .snapshot(phy_diag1),
++        .status(phy_diag1_status), .clock_delta(phy_diag1_clock_delta));
+     csi_stats_snapshot u_csi_snapshot (.src_clk(mipi_div_clk_out),
+         .dst_clk(user_clk),.rst_n(user_rst_n),.src_stats(csi_stats),
+         .snapshot(csi_snapshot),.status(csi_snapshot_status),
+@@ -194,6 +211,9 @@
+         .DEVICE     (DEVICE)
+     ) u_mipi_csi_rx (
+         .I_debug_button         (debug_button),
++        .I_phy_control_shadow   (phy_control_shadow),
++        .O_phy_diag0            (phy_diag0_byte),
++        .O_phy_diag1            (phy_diag1_byte),
+         .I_ref_clock            (mipi_ref_clock),
+         .I_clk_hs_rx_p          (mipi_clk_hs_rx_p),
+         .I_reset_n              (user_rst_n),

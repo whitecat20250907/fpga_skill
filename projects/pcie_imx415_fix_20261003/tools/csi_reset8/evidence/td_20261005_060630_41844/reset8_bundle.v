@@ -1,0 +1,7 @@
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_phy.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/csi_rx_hs_data_phy.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_reset8/td_reset8_top.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/rx_clk_gen.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v"
+`include "E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v"

@@ -1,0 +1,1050 @@
+============================================================
+   TD Release_2026.1_SP2
+   Copyright (c) 2012-2026 Anlogic Inc.
+   Executable = E:/qianrufpga/TD/bin/td_commands_prompt.exe
+   Build number = 6.2.2.200067
+   Built at =   16:15:53 Apr 23 2026
+   Run by =     zjh13
+   Run Date =   Mon Oct  5 00:24:17 2026
+
+   Run on =     �ԼҺ�D������
+============================================================
+DIRECT_BUILD_OUTPUT=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/direct_build_20261005_002417_15824
+DIRECT_BUILD_PROJECT=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/imx415_pcie_4k.al
+DIRECT_BUILD_STAGE=analyze_current_project
+RUN-1002 : start command "import_device ph1_90.db -package PH1A90SEG324 -speed 2"
+ARC-1001 : Device Initialization.
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO           |   SETTING   
+ARC-1001 : ----------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs         |    gpio    
+ARC-1001 :            jtag           |  C10/D11/A10/B11/E11  |  dedicate  
+ARC-1001 : ----------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_90.db -package PH1A90SEG324 -speed 2" in  9.417824s wall, 7.906250s user + 0.718750s system = 8.625000s CPU (91.6%)
+
+RUN-1004 : used memory is 1287 MB, reserved memory is 1317 MB, peak memory is 1320 MB
+RUN-1002 : start command "open_project E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/imx415_pcie_4k.al -single_run"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :     Parameters    |   Settings   |  Default Values  |  Note  
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 :    enable_seed    |     off      |       off        |        
+RUN-1001 :    hfn_to_clock   |  1000000000  |    1000000000    |        
+RUN-1001 :      message      |   standard   |     standard     |        
+RUN-1001 :    qor_monitor    |      on      |        on        |        
+RUN-1001 :   speedup_effort  |      0       |        0         |        
+RUN-1001 :    syn_ip_flow    |     off      |       off        |        
+RUN-1001 :       thread      |     auto     |       auto       |        
+RUN-1001 : -------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file uisrc/01_rtl/para_def.vh
+HDL-1007 : analyze verilog file uisrc/01_rtl/param_tpg.v
+HDL-1007 : analyze verilog file uisrc/01_rtl/param_imx415.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE_ph1_dbi_init_mux.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE_ph1_pcie_cfg_rom.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE_ph1_pcie_clock_ctrl.v
+HDL-1007 : analyze verilog file al_ip/PH1_LOGIC_PCIE_ph1_pcie_core_pll.v
+HDL-1007 : analyze verilog file al_ip/pcie_brg_pcie_core/pcie_brg_pcie_core.v
+HDL-1007 : undeclared symbol 'apb4_preset_in', assumed default net type 'wire' in al_ip/pcie_brg_pcie_core/pcie_brg_pcie_core.v(618)
+HDL-1007 : analyze verilog file al_ip/sgdma_pll.v
+HDL-1007 : undeclared symbol 'sgdma_pll_open0', assumed default net type 'wire' in al_ip/sgdma_pll.v(94)
+HDL-1007 : undeclared symbol 'sgdma_pll_open1', assumed default net type 'wire' in al_ip/sgdma_pll.v(103)
+HDL-1007 : undeclared symbol 'sgdma_pll_open2', assumed default net type 'wire' in al_ip/sgdma_pll.v(104)
+HDL-1007 : undeclared symbol 'sgdma_pll_open10', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open9', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open8', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open7', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open6', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open5', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open4', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open3', assumed default net type 'wire' in al_ip/sgdma_pll.v(105)
+HDL-1007 : undeclared symbol 'sgdma_pll_open23', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open21', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open19', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open17', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open15', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open13', assumed default net type 'wire' in al_ip/sgdma_pll.v(107)
+HDL-1007 : undeclared symbol 'sgdma_pll_open24', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open22', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open20', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open18', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open16', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open14', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open12', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : undeclared symbol 'sgdma_pll_open11', assumed default net type 'wire' in al_ip/sgdma_pll.v(108)
+HDL-1007 : analyze verilog file al_ip/ui_pll.v
+HDL-1007 : undeclared symbol 'ui_pll_open0', assumed default net type 'wire' in al_ip/ui_pll.v(104)
+HDL-1007 : undeclared symbol 'ui_pll_open1', assumed default net type 'wire' in al_ip/ui_pll.v(113)
+HDL-1007 : undeclared symbol 'ui_pll_open2', assumed default net type 'wire' in al_ip/ui_pll.v(114)
+HDL-1007 : undeclared symbol 'ui_pll_open10', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open9', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open8', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open7', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open6', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open5', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open4', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open3', assumed default net type 'wire' in al_ip/ui_pll.v(115)
+HDL-1007 : undeclared symbol 'ui_pll_open22', assumed default net type 'wire' in al_ip/ui_pll.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open20', assumed default net type 'wire' in al_ip/ui_pll.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open18', assumed default net type 'wire' in al_ip/ui_pll.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open16', assumed default net type 'wire' in al_ip/ui_pll.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open14', assumed default net type 'wire' in al_ip/ui_pll.v(117)
+HDL-1007 : undeclared symbol 'ui_pll_open23', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open21', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open19', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open17', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open15', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open13', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open12', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : undeclared symbol 'ui_pll_open11', assumed default net type 'wire' in al_ip/ui_pll.v(118)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_awb/divider_gate.v
+HDL-1007 : undeclared symbol 'open_n2', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(2729)
+HDL-1007 : undeclared symbol 'open_n5', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(2811)
+HDL-1007 : undeclared symbol 'open_n8', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(3783)
+HDL-1007 : undeclared symbol 'open_n11', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(3872)
+HDL-1007 : undeclared symbol 'open_n14', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(4854)
+HDL-1007 : undeclared symbol 'open_n17', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(4950)
+HDL-1007 : undeclared symbol 'open_n20', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(5948)
+HDL-1007 : undeclared symbol 'open_n23', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(6051)
+HDL-1007 : undeclared symbol 'open_n26', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(7065)
+HDL-1007 : undeclared symbol 'open_n29', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(7175)
+HDL-1007 : undeclared symbol 'open_n32', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(8205)
+HDL-1007 : undeclared symbol 'open_n35', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(8322)
+HDL-1007 : undeclared symbol 'open_n38', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(9368)
+HDL-1007 : undeclared symbol 'open_n41', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(9492)
+HDL-1007 : undeclared symbol 'open_n44', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(10548)
+HDL-1007 : undeclared symbol 'open_n47', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(10679)
+HDL-1007 : undeclared symbol 'open_n50', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(11751)
+HDL-1007 : undeclared symbol 'open_n53', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(11889)
+HDL-1007 : undeclared symbol 'open_n56', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(12977)
+HDL-1007 : undeclared symbol 'open_n59', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(13122)
+HDL-1007 : undeclared symbol 'open_n62', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(15070)
+HDL-1007 : undeclared symbol 'open_n65', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(15222)
+HDL-1007 : undeclared symbol 'open_n68', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(16342)
+HDL-1007 : undeclared symbol 'open_n71', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(16501)
+HDL-1007 : undeclared symbol 'open_n74', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(17631)
+HDL-1007 : undeclared symbol 'open_n77', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(17797)
+HDL-1007 : undeclared symbol 'open_n80', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(18943)
+HDL-1007 : undeclared symbol 'open_n83', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(19116)
+HDL-1007 : undeclared symbol 'open_n86', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(20278)
+HDL-1007 : undeclared symbol 'open_n89', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(20458)
+HDL-1007 : undeclared symbol 'open_n92', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(21636)
+HDL-1007 : undeclared symbol 'open_n95', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(21823)
+HDL-1007 : undeclared symbol 'open_n98', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(23017)
+HDL-1007 : undeclared symbol 'open_n101', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(23211)
+HDL-1007 : undeclared symbol 'open_n104', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(24415)
+HDL-1007 : undeclared symbol 'open_n107', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(24616)
+HDL-1007 : undeclared symbol 'open_n110', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(25836)
+HDL-1007 : undeclared symbol 'open_n113', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(26044)
+HDL-1007 : undeclared symbol 'open_n116', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(27280)
+HDL-1007 : undeclared symbol 'open_n119', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(27495)
+HDL-1007 : undeclared symbol 'open_n122', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(29638)
+HDL-1007 : undeclared symbol 'open_n125', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(29860)
+HDL-1007 : undeclared symbol 'open_n128', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(31128)
+HDL-1007 : undeclared symbol 'open_n129', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(31359)
+HDL-1007 : undeclared symbol 'open_n132', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(32637)
+HDL-1007 : undeclared symbol 'open_n133', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(32868)
+HDL-1007 : undeclared symbol 'open_n134', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(32875)
+HDL-1007 : undeclared symbol 'open_n137', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(34153)
+HDL-1007 : undeclared symbol 'open_n138', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(34384)
+HDL-1007 : undeclared symbol 'open_n139', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(34391)
+HDL-1007 : undeclared symbol 'open_n142', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(35669)
+HDL-1007 : undeclared symbol 'open_n143', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(35900)
+HDL-1007 : undeclared symbol 'open_n144', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(35907)
+HDL-1007 : undeclared symbol 'open_n147', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(37185)
+HDL-1007 : undeclared symbol 'open_n148', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(37416)
+HDL-1007 : undeclared symbol 'open_n149', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(37423)
+HDL-1007 : undeclared symbol 'open_n152', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(38701)
+HDL-1007 : undeclared symbol 'open_n153', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(38932)
+HDL-1007 : undeclared symbol 'open_n154', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(38939)
+HDL-1007 : undeclared symbol 'open_n157', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(40217)
+HDL-1007 : undeclared symbol 'open_n158', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(40448)
+HDL-1007 : undeclared symbol 'open_n159', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(40455)
+HDL-1007 : undeclared symbol 'open_n162', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(41733)
+HDL-1007 : undeclared symbol 'open_n163', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(41964)
+HDL-1007 : undeclared symbol 'open_n164', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(41971)
+HDL-1007 : undeclared symbol 'open_n167', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(43249)
+HDL-1007 : undeclared symbol 'open_n168', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(43480)
+HDL-1007 : undeclared symbol 'open_n169', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(43487)
+HDL-1007 : undeclared symbol 'open_n172', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(45678)
+HDL-1007 : undeclared symbol 'open_n173', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(45909)
+HDL-1007 : undeclared symbol 'open_n174', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(45916)
+HDL-1007 : undeclared symbol 'open_n177', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(47194)
+HDL-1007 : undeclared symbol 'open_n178', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(47425)
+HDL-1007 : undeclared symbol 'open_n179', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(47432)
+HDL-1007 : undeclared symbol 'open_n182', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(48710)
+HDL-1007 : undeclared symbol 'open_n183', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(48941)
+HDL-1007 : undeclared symbol 'open_n184', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(48948)
+HDL-1007 : undeclared symbol 'open_n187', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(50226)
+HDL-1007 : undeclared symbol 'open_n188', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(50457)
+HDL-1007 : undeclared symbol 'open_n189', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(50464)
+HDL-1007 : undeclared symbol 'open_n192', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(51742)
+HDL-1007 : undeclared symbol 'open_n193', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(51973)
+HDL-1007 : undeclared symbol 'open_n194', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(51980)
+HDL-1007 : undeclared symbol 'open_n197', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(53258)
+HDL-1007 : undeclared symbol 'open_n198', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(53489)
+HDL-1007 : undeclared symbol 'open_n199', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(53496)
+HDL-1007 : undeclared symbol 'open_n202', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(54774)
+HDL-1007 : undeclared symbol 'open_n203', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(55005)
+HDL-1007 : undeclared symbol 'open_n204', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(55012)
+HDL-1007 : undeclared symbol 'open_n207', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(57048)
+HDL-1007 : undeclared symbol 'open_n208', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(57167)
+HDL-1007 : undeclared symbol 'open_n209', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(57174)
+HDL-1007 : undeclared symbol 'open_n212', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(58460)
+HDL-1007 : undeclared symbol 'open_n215', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(58507)
+HDL-1007 : undeclared symbol 'open_n218', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(59405)
+HDL-1007 : undeclared symbol 'open_n221', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(59459)
+HDL-1007 : undeclared symbol 'open_n224', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(60367)
+HDL-1007 : undeclared symbol 'open_n227', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(60428)
+HDL-1007 : undeclared symbol 'open_n230', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(61352)
+HDL-1007 : undeclared symbol 'open_n233', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(61420)
+HDL-1007 : undeclared symbol 'open_n236', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(62360)
+HDL-1007 : undeclared symbol 'open_n239', assumed default net type 'wire' in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(62435)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_awb/ui_ram_awb_delay_signal/ui_ram_awb_delay_signal.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v
+Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/)
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+All rights reserved.
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(587)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(883)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1084)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1436)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1437)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1438)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1439)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1440)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1491)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1492)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1493)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1494)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1495)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1496)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1498)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1499)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5182)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(9937)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10110)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13357)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13443)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13444)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(16323)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(16423)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22305)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(355)
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/top/ph2_pcie_rst_sync.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_subsys.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_vtc/ui_vtc.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/vid_frame_gate.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/vid_drop_detect.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/frame_completer.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/axis_stream_fifo.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/stdvid_nobp_packer.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_bdf_dec.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_bdf_enc.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cdc_bus_sync.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_10bit_unpack.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cdc_gray.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cdc_handshake.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cdc_sync.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_hdr_ecc.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_ctrl.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_ctrl.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_ctrl.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_ctrl.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_hs_clk_phy.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_flow_ctrl.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_flow_ctrl.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_flow_ctrl.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_flow_ctrl.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_hs_data_phy.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_mgmt.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_mgmt.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_mgmt.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_mgmt.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_idelayctrl_gen.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_status.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_status.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_status.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cfg_status.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_packet_handler.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_demux.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_demux.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_demux.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_demux.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_phy.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_enc.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_enc.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_enc.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_cq_rc_enc.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_vid2stream.v
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_word_align.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_fifo.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_fifo.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_fifo.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_fifo.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/csi_rx_word_gear_box.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_int.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_int.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_int.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_int.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/mipi_csi_rx.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon_np_cpl.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/rx_clk_gen.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon_rq.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon_rq.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon_rq.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon_rq.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/sfifo.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_mon.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/mipi_csi_2/wfifo.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_recv_msg.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_recv_msg.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_recv_msg.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_recv_msg.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/image_correction.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_reg_slice.sv
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_BLC.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_dec.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_dec.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_dec.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_dec.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_bilinear_interpolation.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_line_buffer_demosaic.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_mux.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_mux.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_mux.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rq_cc_mux.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_mipi_to_raw_converter.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_dec.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_dec.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_dec.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_dec.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_ram_demosaic/ui_ram_demosaic.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_demux.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_demux.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_demux.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_demux.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_ram_zhenghe/ui_ram_zhenghe.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_width_conv.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_width_conv.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_width_conv.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx_width_conv.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_raw_matrix_3x3_buffer.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_rx.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_top_demosaic.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_enc.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_enc.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_enc.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_enc.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_zhenghe.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_mux.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_mux.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_mux.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_mux.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v
+HDL-1007 : undeclared symbol 'iic_busy', assumed default net type 'wire' in uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v(217)
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_width_conv.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_width_conv.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_width_conv.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx_width_conv.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_imx415_cfg/ui_i2c.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_tx.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_imx415_cfg/ui_imx415_reg.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_wrapper.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_wrapper.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_wrapper.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_wrapper.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/serializer_128to24.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_xmit_msg.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_xmit_msg.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_xmit_msg.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_xmit_msg.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/pack4_rgb24_to_128.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/pack4_rgb24_to_512.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/sync_fifo_130.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/cam_video_source.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg.sv
+HDL-1007 : analyze included file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg_def.svh in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg.sv(1)
+HDL-1007 : back to file 'uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg.sv' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/core/pcie_brg.sv(1)
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/top/pcie_brg_clk_rst.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v2/rtl/top/pcie_brg_top.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/axil_anal.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/desc_anal.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/desc_byp_channel_block.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/ram_wrapper.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v
+HDL-1007 : undeclared symbol 'cfg_mgmt_addr', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(432)
+HDL-1007 : undeclared symbol 'cfg_mgmt_write', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(433)
+HDL-1007 : undeclared symbol 'cfg_mgmt_write_data', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(434)
+HDL-1007 : undeclared symbol 'cfg_mgmt_byte_enable', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(435)
+HDL-1007 : undeclared symbol 'cfg_mgmt_read', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(436)
+HDL-1007 : undeclared symbol 'cfg_mgmt_read_data', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(437)
+HDL-1007 : undeclared symbol 'cfg_mgmt_read_write_done', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(438)
+HDL-1007 : undeclared symbol 'cfg_mgmt_type1_cfg_reg_access', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(439)
+HDL-5007 WARNING: block identifier is required on this block in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(537)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ready_0_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(680)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_load_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(681)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_src_addr_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(682)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_dst_addr_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(683)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_len_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(684)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ctl_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(685)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ready_1_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(687)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_load_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(688)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_src_addr_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(689)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_dst_addr_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(690)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_len_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(691)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ctl_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(692)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ready_2_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(694)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_load_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(695)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_src_addr_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(696)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_dst_addr_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(697)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_len_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(698)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ctl_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(699)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ready_3_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(701)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_load_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(702)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_src_addr_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(703)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_dst_addr_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(704)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_len_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(705)
+HDL-1007 : undeclared symbol 'c2h_dsc_byp_ctl_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(706)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ready_0_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(708)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_load_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(709)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_src_addr_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(710)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_dst_addr_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(711)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_len_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(712)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ctl_0_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(713)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ready_1_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(715)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_load_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(716)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_src_addr_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(717)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_dst_addr_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(718)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_len_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(719)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ctl_1_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(720)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ready_2_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(722)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_load_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(723)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_src_addr_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(724)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_dst_addr_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(725)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_len_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(726)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ctl_2_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(727)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ready_3_i', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(729)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_load_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(730)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_src_addr_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(731)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_dst_addr_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(732)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_len_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(733)
+HDL-1007 : undeclared symbol 'h2c_dsc_byp_ctl_3_o', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(734)
+HDL-1007 : undeclared symbol 's_axil_awaddr', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(744)
+HDL-1007 : undeclared symbol 's_axil_awprot', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(745)
+HDL-1007 : undeclared symbol 's_axil_awvalid', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(746)
+HDL-1007 : undeclared symbol 's_axil_awready', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(747)
+HDL-1007 : undeclared symbol 's_axil_wdata', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(748)
+HDL-1007 : undeclared symbol 's_axil_wstrb', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(749)
+HDL-1007 : undeclared symbol 's_axil_wvalid', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(750)
+HDL-1007 : undeclared symbol 's_axil_wready', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(751)
+HDL-1007 : undeclared symbol 's_axil_bvalid', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(752)
+HDL-1007 : undeclared symbol 's_axil_bresp', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(753)
+HDL-1007 : undeclared symbol 's_axil_bready', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(754)
+HDL-1007 : undeclared symbol 's_axil_araddr', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(755)
+HDL-1007 : undeclared symbol 's_axil_arprot', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(756)
+HDL-1007 : undeclared symbol 's_axil_arvalid', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(757)
+HDL-1007 : undeclared symbol 's_axil_arready', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(758)
+HDL-1007 : undeclared symbol 's_axil_rdata', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(759)
+HDL-1007 : undeclared symbol 's_axil_rresp', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(760)
+HDL-1007 : undeclared symbol 's_axil_rvalid', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(761)
+HDL-1007 : undeclared symbol 's_axil_rready', assumed default net type 'wire' in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(762)
+HDL-5370 WARNING: parameter 'LOOPBACK_INFO_W' becomes localparam in 'sgdma_app' with formal parameter declaration list in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(483)
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4mmb.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4mmlp.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4mmr.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4mmw.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_c2h.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_h2c.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_lp.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_cfgrw.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_ctrl.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_dmarw.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/sgdma_app/src/usr_irq.v
+HDL-5007 WARNING: block identifier is required on this block in uisrc/03_ip/sgdma/sgdma_app/src/usr_irq.v(41)
+HDL-5007 WARNING: block identifier is required on this block in uisrc/03_ip/sgdma/sgdma_app/src/usr_irq.v(103)
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_data128_96/ui_data128_96.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_awb/ui_signal_delay.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_awb/ui_awb.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_image_cut/ui_image_cut.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_0_8.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_2.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_4.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_6.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_8.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_0.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_2.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_4.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_6.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_gamma/ui_gamma.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_contrast_adj/ui_contrast_adj.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_brightness_adj/ui_Brightness_adj.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_saturation_adj/ui_Saturation_adj.v
+HDL-1007 : analyze verilog file uisrc/03_ip/ui_isp/ui_data96_128/ui_data96_128.v
+HDL-1007 : analyze verilog file uisrc/01_rtl/imx415_pcie_top.v
+HDL-1007 : undeclared symbol 'fifo_fill_level', assumed default net type 'wire' in uisrc/01_rtl/imx415_pcie_top.v(615)
+HDL-1007 : undeclared symbol 'fifo_in_tready', assumed default net type 'wire' in uisrc/01_rtl/imx415_pcie_top.v(637)
+HDL-7225 CRITICAL-WARNING: 'fifo_in_tready' is already implicitly declared on line 637 in uisrc/01_rtl/imx415_pcie_top.v(648)
+HDL-7225 CRITICAL-WARNING: 'fifo_fill_level' is already implicitly declared on line 615 in uisrc/01_rtl/imx415_pcie_top.v(649)
+HDL-1007 : undeclared symbol 'fc_in_tready', assumed default net type 'wire' in uisrc/01_rtl/imx415_pcie_top.v(664)
+HDL-7225 CRITICAL-WARNING: 'fc_in_tready' is already implicitly declared on line 664 in uisrc/01_rtl/imx415_pcie_top.v(673)
+HDL-1007 : analyze verilog file uisrc/01_rtl/debug_uart.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v
+HDL-1007 : undeclared symbol 'dbi2mgmt_debug', assumed default net type 'wire' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(742)
+HDL-1007 : undeclared symbol 'ven2msi_debug', assumed default net type 'wire' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(805)
+HDL-1007 : undeclared symbol 'app_auxclk_g', assumed default net type 'wire' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(1056)
+HDL-1007 : undeclared symbol 'user_rstn', assumed default net type 'wire' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(1069)
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client02rq_new.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client12cc.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_bypass2rc.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_trgt2cq.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_dbi2mgmt.v
+HDL-1007 : analyze verilog file uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_msi.v
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_msi.v(344)
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/csi_stats_snapshot.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/cam_pll27.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/cam_clock27_monitor.v
+HDL-1007 : analyze verilog file uisrc/03_ip/vid_pipeline/camera_clock_startup.v
+PRJ-1401 : Successfully analyzed 141 source files.
+RUN-1003 : finish command "open_project E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/imx415_pcie_4k.al -single_run" in  4.435250s wall, 2.734375s user + 1.140625s system = 3.875000s CPU (87.4%)
+
+RUN-1004 : used memory is 1359 MB, reserved memory is 1386 MB, peak memory is 1359 MB
+RUN-1002 : start command "load_run_param -run syn_1"
+RUN-1002 : start command "set_param rtl directive:async_reg on"
+RUN-1002 : start command "report_param"
+RUN-1001 : Flow stage "flow" with all default parameters.
+RUN-1001 : Flow stage "design" with all default parameters.
+RUN-1001 : Flow stage "rtl" with all default parameters.
+RUN-1001 : Flow stage "gate" with all default parameters.
+RUN-1001 : Flow stage "place" with all default parameters.
+RUN-1001 : Flow stage "route" with all default parameters.
+RUN-1001 : Flow stage "timing" with all default parameters.
+RUN-1001 : Flow stage "sim" with all default parameters.
+RUN-1001 : Flow stage "bitgen" with all default parameters.
+DIRECT_BUILD_STAGE=elaborate
+RUN-1002 : start command "elaborate -top imx415_pcie_top"
+HDL-1007 : elaborate module imx415_pcie_top in uisrc/01_rtl/imx415_pcie_top.v(13)
+HDL-1007 : elaborate module PH1_LOGIC_BUFG in E:\qianrufpga\TD\arch/ph1_macro.v(11589)
+HDL-1007 : elaborate module ui_pll in al_ip/ui_pll.v(24)
+HDL-1007 : elaborate module PH1_PHY_PLL(REFCLK_DIV=2,FBCLK_DIV=3,CLKC0_CPHASE=7,CLKC1_CPHASE=11,CLKC2_CPHASE=49,CLKC0_DIV=8,CLKC1_DIV=12,CLKC2_DIV=50,CLKC0_DUTY_INT=4,CLKC1_DUTY_INT=6,CLKC2_DUTY_INT=25,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",CLKC2_ENABLE="ENABLE",FIN="100.000000",PLL_USR_RST="ENABLE",PLL_FEED_TYPE="EXTERNAL",INTPI=1,SSC_RNGE=0) in E:\qianrufpga\TD\arch/ph1_macro.v(856)
+HDL-1007 : elaborate module sgdma_pll in al_ip/sgdma_pll.v(23)
+HDL-1007 : elaborate module PH1_PHY_PLL(FBCLK_DIV=5,CLKC0_CPHASE=7,CLKC1_CPHASE=39,CLKC0_DIV=8,CLKC1_DIV=40,CLKC0_DUTY_INT=4,CLKC1_DUTY_INT=20,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",FIN="25.000000",PLL_USR_RST="ENABLE",PLL_FEED_TYPE="EXTERNAL",LPF_RES=3,ICP_CUR=11,GMC_GAIN=1,SSC_RNGE=0) in E:\qianrufpga\TD\arch/ph1_macro.v(856)
+HDL-1007 : elaborate module cam_pll27 in uisrc/03_ip/vid_pipeline/cam_pll27.v(14)
+HDL-1007 : elaborate module PH1_PHY_PLL(CLKC0_CPHASE=53,CLKC1_CPHASE=49,CLKC0_DIV=54,CLKC1_DIV=50,CLKC0_DUTY_INT=27,CLKC1_DUTY_INT=25,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",FIN="25.000000",PLL_USR_RST="ENABLE",PLL_FEED_TYPE="EXTERNAL",LPF_RES=3,ICP_CUR=11,GMC_GAIN=1,INTPI=1,SSC_RNGE=0) in E:\qianrufpga\TD\arch/ph1_macro.v(856)
+HDL-1007 : elaborate module camera_clock_startup in uisrc/03_ip/vid_pipeline/camera_clock_startup.v(7)
+HDL-1007 : elaborate module cam_clock27_monitor(REF_HZ=125000000) in uisrc/03_ip/vid_pipeline/cam_clock27_monitor.v(5)
+HDL-1007 : port 'cfg_mgmt_read_data_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'cfg_mgmt_read_write_done_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'legacy_enable_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'legacy_vector_width_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'msix_enable_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'msix_vector_width_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_awready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_wready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_bvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_bresp_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_arready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_rdata_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_rresp_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axil_rvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axis_tx_rst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axis_rx_rst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 's_axis_tx_run_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axis_rx_run_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_araddr_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arlen_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arsize_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arburst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arprot_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arlock_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_arcache_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_rready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awaddr_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awlen_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awsize_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awburst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awprot_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awlock_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_awcache_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_wdata_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_wstrb_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_wlast_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_wvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axib_bready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_araddr_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arlen_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arsize_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arburst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arprot_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arlock_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_arcache_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_rready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awaddr_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awlen_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awsize_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awburst_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awprot_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awlock_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_awcache_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_wdata_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_wstrb_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_wlast_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_wvalid_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'm_axi_bready_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'c2h_dsc_byp_ready_0_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'c2h_dsc_byp_ready_1_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'c2h_dsc_byp_ready_2_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'c2h_dsc_byp_ready_3_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'h2c_dsc_byp_ready_0_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'h2c_dsc_byp_ready_1_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'h2c_dsc_byp_ready_2_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : port 'h2c_dsc_byp_ready_3_o' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(801)
+HDL-1007 : elaborate module sgdma_subsys(DEVICE_FAMILY="PH1A",USER_CLK_FREQ=125,LINK_WIDTH=1,DATA_WIDTH=128,AXI4ST_BUS_EN=1,USR_IRQ_NUM=16,H2C_DSC_BYP_MAP=4'b0,C2H_DSC_BYP_MAP=4'b0) in uisrc/03_ip/sgdma/sgdma_subsys.v(12)
+HDL-1007 : port 'requester_id_i' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'sys_int' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'assert_inta_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'assert_intb_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'assert_intc_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'assert_intd_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'deassert_inta_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'deassert_intb_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'deassert_intc_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'deassert_intd_grt' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : port 'cfg_interrupt_msix_fail' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(746)
+HDL-1007 : elaborate module al_pcie_if_ep(LINK_WIDTH=1) in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(19)
+HDL-1007 : elaborate module axi4_st_mux(C_AXI_DATA_WIDTH=128,C_KEEP_WIDTH=4) in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(19)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(100)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(101)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(108)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(109)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(110)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(111)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(112)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(123)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(134)
+HDL-5007 WARNING: delay control is not supported for synthesis in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/axi4_st_mux.v(135)
+HDL-5007 Similar messages will be suppressed.
+HDL-5007 Similar messages will be suppressed.
+HDL-1007 : port 'wr_rst_done' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client02rq_new.v(204)
+HDL-1007 : elaborate module pcie_tx_client02rq(USER_WIDTH=62) in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client02rq_new.v(20)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7083)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7083)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7095)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7097)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7102)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7103)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7105)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-5007 WARNING: actual bit length 159 differs from formal bit length 160 for port 'di' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client02rq_new.v(217)
+HDL-5007 WARNING: actual bit length 159 differs from formal bit length 160 for port 'dout' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client02rq_new.v(219)
+HDL-5007 WARNING: actual bit length 4 differs from formal bit length 1 for port 's_axis_rq_tready' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(500)
+HDL-5007 WARNING: actual bit length 63 differs from formal bit length 62 for port 's_axis_rq_tuser' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(504)
+HDL-1007 : elaborate module pcie_tx_client12cc(DW_WIDTH=4,NBYTE_WIDTH=16) in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client12cc.v(20)
+HDL-5007 WARNING: actual bit length 159 differs from formal bit length 160 for port 'di' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client12cc.v(229)
+HDL-5007 WARNING: actual bit length 159 differs from formal bit length 160 for port 'dout' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/tx_if/pcie_tx_client12cc.v(231)
+HDL-5007 WARNING: actual bit length 4 differs from formal bit length 1 for port 's_axis_cc_tready' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(561)
+HDL-1007 : port 'wr_rst_done' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_bypass2rc.v(299)
+HDL-1007 : port 'wr_rst_done' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_bypass2rc.v(324)
+HDL-1007 : elaborate module pcie_rx_bypass2rc in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_bypass2rc.v(21)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7095)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7097)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7102)
+HDL-5007 WARNING: actual bit length ** differs from formal bit length *** for port '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7103)
+HDL-5007 Similar messages will be suppressed.
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : port 'wr_rst_done' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_trgt2cq.v(556)
+HDL-1007 : elaborate module pcie_rx_trgt2cq in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_trgt2cq.v(23)
+HDL-1007 : extracting RAM for identifier 'mem_id_ram' in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/rx_if/pcie_rx_trgt2cq.v(677)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module pcie_sideband_dbi2mgmt in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_dbi2mgmt.v(18)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_msi.v(344)
+HDL-1007 : elaborate module pcie_sideband_msi in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/al_pcie_if/sideband_if/pcie_sideband_msi.v(21)
+HDL-1007 : elaborate module al_pcie_ip in al_ip/PH1_LOGIC_PCIE.v(13)
+HDL-1007 : elaborate module al_pcie_ip_ph1_clock_ctrl(AUX_FREQ=25000000) in al_ip/PH1_LOGIC_PCIE_ph1_pcie_clock_ctrl.v(13)
+HDL-1007 : elaborate module PH1_PHY_SCLK_V2 in E:\qianrufpga\TD\arch/ph1_macro.v(3517)
+HDL-1007 : elaborate module al_pcie_ip_ph1_core_pll in al_ip/PH1_LOGIC_PCIE_ph1_pcie_core_pll.v(15)
+HDL-1007 : elaborate module PH1_PHY_PLL(CLKC0_CPHASE=15,CLKC1_CPHASE=15,CLKC0_DIV=16,CLKC1_DIV=16,CLKC0_DUTY_INT=8,CLKC1_DUTY_INT=8,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",FIN="62.500",PLL_USR_RST="ENABLE",PLL_FEED_TYPE="EXTERNAL",SSC_RNGE=0) in E:\qianrufpga\TD\arch/ph1_macro.v(856)
+HDL-1007 : elaborate module PH1_PHY_HCLK in E:\qianrufpga\TD\arch/ph1_macro.v(3530)
+HDL-1007 : elaborate module al_pcie_ip_ph1_dbi_init_mux in al_ip/PH1_LOGIC_PCIE_ph1_dbi_init_mux.v(13)
+HDL-1007 : port 'ecc_sbiterr' remains unconnected for this instance in al_ip/PH1_LOGIC_PCIE_ph1_pcie_cfg_rom.v(22)
+HDL-1007 : port 'ecc_dbiterr' remains unconnected for this instance in al_ip/PH1_LOGIC_PCIE_ph1_pcie_cfg_rom.v(22)
+HDL-1007 : elaborate module al_pcie_ip_ph1_pcie_cfg_rom in al_ip/PH1_LOGIC_PCIE_ph1_pcie_cfg_rom.v(13)
+HDL-1007 : elaborate module PH1_LOGIC_ERAM(DATA_WIDTH_A=68,DATA_WIDTH_B=68,ADDR_WIDTH_A=7,ADDR_WIDTH_B=7,DATA_DEPTH_A=128,DATA_DEPTH_B=128,MODE="SP",REGMODE_A="OUTREG",INIT_FILE="al_pcie_ip.dat") in E:\qianrufpga\TD\arch/ph1_macro.v(22)
+HDL-1007 : elaborate module PH1_PHY_PCIE_V3(AL_PH1_PCIE_CFG_FILE="al_pcie_ip.txt",PIPE_PHY0_LANE0_EN=1'b0,PIPE_PHY0_LANE1_EN=1'b0,PIPE_PHY1_LANE0_EN=1'b0,PIPE_PHY0_REF_REPEAT_CLK_EN=1'b0,PIPE_PHY0_REF_USE_PAD=1'b0,PIPE_PHY1_REF_USE_PAD=1'b1,CORE_CLK_WINDOW_SET=5'b01,MUXD_AUX_CLK_WINDOW_SET=5'b01,MUXD_AUX_CLK_G_WINDOW_SET=5'b01) in E:\qianrufpga\TD\arch/ph1_macro.v(5520)
+HDL-1007 : elaborate module al_pcie_ip_ph1_pcie_basic_top in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(13)
+HDL-1007 : elaborate module al_pcie_ip_clinet_pipeline in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(805)
+HDL-1007 : elaborate module al_pcie_ip_trgt_pipeline in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(1123)
+HDL-1007 : elaborate module al_pcie_ip_bypass_pipeline in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(1285)
+HDL-1007 : elaborate module al_pcie_ip_dbi_pipeline in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(1488)
+HDL-1007 : elaborate module al_pcie_ip_msi_pipeline in al_ip/PH1_LOGIC_PCIE_ph1_pcie_basic_top.v(1667)
+HDL-5323 WARNING: input port 'requester_id_i[15]' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(748)
+HDL-5317 WARNING: input port 'cfg_link_eq_req_int' is not connected on this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(748)
+HDL-5323 WARNING: input port 'prs_res_failure[1]' remains unconnected for this instance in uisrc/03_ip/sgdma/pcie_bridge/bridge_v1_ph1/case_ep/al_pcie_if_ep.v(815)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1165)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1270)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2042)
+HDL-1007 : elaborate module sgdma_ip(DATA_WIDTH=128,MSI_EN=1,H2C_CHNL_NUM=1,H2C_DSC_BYP_MAP=4'b0,C2H_CHNL_NUM=1,C2H_DSC_BYP_MAP=4'b0,DMA_USR_IRQ=16) in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(18217)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13629)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12144)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(14418)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(3331)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10566)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10646)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10648)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10958)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10963)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10967)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10972)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10976)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10980)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10983)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10988)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10992)
+HDL-5007 WARNING: case condition never applies in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10996)
+HDL-5007 Similar messages will be suppressed.
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10619)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10623)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10640)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10643)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(11092)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(11099)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13920)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13716)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12253)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12254)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12255)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12256)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12257)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7649)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(16043)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22907)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22851)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(18376)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(3020)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(15283)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(15585)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(15203)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(15280)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19330)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19366)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19279)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19443)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7831)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10158)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13716)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10266)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10267)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10268)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10269)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(10270)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19557)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(9349)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(9278)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(3731)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(21618)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6019)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(8192)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(8375)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(8025)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19811)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(21254)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(21125)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5647)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5729)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22357)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(21966)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22194)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(22308)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(14932)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(20842)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(20398)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(20962)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5647)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(4753)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(4316)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6422)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6336)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5647)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(4025)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(16915)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(17225)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(17226)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(17101)
+HDL-5314 WARNING: net '**' does not have a driver in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(17102)
+HDL-5314 Similar messages will be suppressed.
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2687)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(20064)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(19955)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(12568)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(16442)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13351)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(13248)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2432)
+HDL-1007 : port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2650)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2279)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5647)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(5755)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(8700)
+HDL-5323 WARNING: input port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(906)
+HDL-5323 WARNING: input port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1177)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(1526)
+HDL-5323 WARNING: input port '**' remains unconnected for this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2047)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(2103)
+HDL-5323 WARNING: input port 'cfg_interrupt_msix_address[63]' remains unconnected for this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(393)
+HDL-5317 WARNING: input port 'pcie_cq_np_req[1]' is not connected on this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(393)
+HDL-5317 WARNING: input port 'tl_cfg_msix_enable_i[3]' is not connected on this instance in uisrc/03_ip/sgdma/sgdma_subsys.v(830)
+HDL-1007 : elaborate module cam_video_source(DEVICE="PH1A") in uisrc/03_ip/vid_pipeline/cam_video_source.v(19)
+HDL-1007 : elaborate module csi_stats_snapshot in uisrc/03_ip/vid_pipeline/csi_stats_snapshot.v(3)
+HDL-1007 : elaborate module mipi_csi_rx(DEVICE="PH1A") in uisrc/03_ip/mipi_csi_2/mipi_csi_rx.v(23)
+HDL-1007 : elaborate module csi_rx_phy(DEVICE="PH1A") in uisrc/03_ip/mipi_csi_2/csi_rx_phy.v(23)
+HDL-1007 : elaborate module rx_clk_gen(DEVICE="PH1A") in uisrc/03_ip/mipi_csi_2/rx_clk_gen.v(2)
+HDL-1007 : elaborate module PH1_PHY_LCLK_V2(DIV="2") in E:\qianrufpga\TD\arch/ph1_macro.v(3476)
+HDL-1007 : elaborate module PH1_PHY_LCLK_V2(DIV="4") in E:\qianrufpga\TD\arch/ph1_macro.v(3476)
+HDL-1007 : elaborate module csi_rx_clock_det in uisrc/03_ip/mipi_csi_2/csi_rx_clock_det.v(3)
+HDL-1007 : elaborate module auto_delay_ctl(TAP_COUNT=32) in uisrc/03_ip/mipi_csi_2/auto_delay_ctl.v(21)
+HDL-1007 : elaborate module csi_rx_hs_data_phy(DEVICE="PH1A") in uisrc/03_ip/mipi_csi_2/csi_rx_hs_data_phy.v(4)
+HDL-1007 : elaborate module PH1_LOGIC_DYNAMIC_IDELAY in E:\qianrufpga\TD\arch/ph1_macro.v(11853)
+HDL-1007 : elaborate module PH1_LOGIC_IDDRx2 in E:\qianrufpga\TD\arch/ph1_macro.v(11706)
+HDL-1007 : elaborate module csi_rx_byte_align in uisrc/03_ip/mipi_csi_2/csi_rx_byte_align.v(1)
+HDL-1007 : elaborate module csi_rx_word_align(MIPI_LAN=4) in uisrc/03_ip/mipi_csi_2/csi_rx_word_align.v(1)
+HDL-1007 : extracting RAM for identifier 'r_taps' in uisrc/03_ip/mipi_csi_2/csi_rx_word_align.v(48)
+HDL-1007 : elaborate module csi_rx_word_gear_box in uisrc/03_ip/mipi_csi_2/csi_rx_word_gear_box.v(1)
+HDL-1007 : elaborate module csi_rx_packet_handler in uisrc/03_ip/mipi_csi_2/csi_rx_packet_handler.v(9)
+HDL-1007 : elaborate module csi_rx_hdr_ecc in uisrc/03_ip/mipi_csi_2/csi_rx_hdr_ecc.v(17)
+HDL-1007 : elaborate module csi_rx_10bit_unpack in uisrc/03_ip/mipi_csi_2/csi_rx_10bit_unpack.v(8)
+HDL-1007 : elaborate module csi_rx_vid2stream in uisrc/03_ip/mipi_csi_2/csi_rx_vid2stream.v(21)
+HDL-1007 : port 'doa' remains unconnected for this instance in uisrc/03_ip/mipi_csi_2/sfifo.v(216)
+HDL-1007 : port 'dib' remains unconnected for this instance in uisrc/03_ip/mipi_csi_2/sfifo.v(216)
+HDL-1007 : elaborate module mipi_sfifo(DATA_WIDTH_W=42,DATA_WIDTH_R=42,ADDR_WIDTH_W=13,ADDR_WIDTH_R=13,AL_FULL_NUM=4096,AL_EMPTY_NUM=2,SHOW_AHEAD_EN=1'b1) in uisrc/03_ip/mipi_csi_2/sfifo.v(3)
+HDL-1007 : elaborate module fifo_cross_domain_addr_process_al_0322d65db018(ADDR_WIDTH=13) in uisrc/03_ip/mipi_csi_2/sfifo.v(240)
+HDL-1007 : elaborate module ram_infer_0322d65db018(DATAWIDTH_A=42,ADDRWIDTH_A=13,DATAWIDTH_B=42,ADDRWIDTH_B=13) in uisrc/03_ip/mipi_csi_2/sfifo.v(323)
+HDL-1007 : extracting RAM for identifier 'memory' in uisrc/03_ip/mipi_csi_2/sfifo.v(388)
+HDL-5317 WARNING: input port 'dib[41]' is not connected on this instance in uisrc/03_ip/mipi_csi_2/sfifo.v(221)
+HDL-1007 : elaborate module image_correction in uisrc/03_ip/ui_isp/image_correction.v(20)
+HDL-1007 : elaborate module ui_BLC(Black_level_offset_r0=10'b0110010,Black_level_offset_r1=10'b0110010,Black_level_offset_r2=10'b0110010,Black_level_offset_r3=10'b0110010) in uisrc/03_ip/ui_isp/ui_BLC.v(36)
+HDL-1007 : elaborate module ui_top_demosaic(BAYER_MODE="RGGB") in uisrc/03_ip/ui_isp/ui_top_demosaic.v(36)
+HDL-1007 : elaborate module ui_raw_matrix_3x3_buffer in uisrc/03_ip/ui_isp/ui_raw_matrix_3x3_buffer.v(43)
+HDL-1007 : elaborate module ui_ram_demosaic_eram_infer(MODE="SDP",BYTE_SIZE=1,WEA_WIDTH=1,WRITEMODE_A="WRITETHROUGH",ADDRWIDTH_A=11,DATAWIDTH_B=32,WEB_WIDTH=1,WRITEMODE_B="READBEFOREWRITE",ADDRWIDTH_B=11,FILL_REMAIN=0) in uisrc/03_ip/ui_isp/ui_ram_demosaic/ui_ram_demosaic.v(75)
+HDL-1007 : extracting RAM for identifier 'memory' in uisrc/03_ip/ui_isp/ui_ram_demosaic/ui_ram_demosaic.v(152)
+HDL-1007 : elaborate module ui_bilinear_interpolation(BAYER_MODE="RGGB") in uisrc/03_ip/ui_isp/ui_bilinear_interpolation.v(41)
+HDL-1007 : elaborate module ui_data128_96 in uisrc/03_ip/ui_isp/ui_data128_96/ui_data128_96.v(10)
+HDL-1007 : port 'remainder' remains unconnected for this instance in uisrc/03_ip/ui_isp/ui_awb/ui_awb.v(74)
+HDL-1007 : port 'remainder' remains unconnected for this instance in uisrc/03_ip/ui_isp/ui_awb/ui_awb.v(76)
+HDL-1007 : elaborate module ui_awb(IMG_HEIGHT=2160,IMG_WIDTH=3840) in uisrc/03_ip/ui_isp/ui_awb/ui_awb.v(23)
+HDL-1007 : elaborate module divider in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(5)
+HDL-1007 : elaborate module AL_DFF_X in E:\qianrufpga\TD\arch/al_lmacro.v(277)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10000000100000000000000010000000,EQN="(C*B*A*~(~E*D))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b01,EQN="(~F*~E*~D*~C*~B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b01000,EQN="(~F*~E*~D*~C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01111111111111110000000000000000,EQN="(E*~(D*C*B*A))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT2(INIT=4'b010,EQN="(~B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(48)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b010,EQN="(~C*~B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_ADDER(ALUTYPE="SUB_CARRY") in E:\qianrufpga\TD\arch/al_lmacro.v(72)
+HDL-1007 : elaborate module AL_MAP_ADDER(ALUTYPE="SUB") in E:\qianrufpga\TD\arch/al_lmacro.v(72)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b11011000,EQN="(C*~(B)*~(A)+C*B*~(A)+~(C)*B*A+C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b01,EQN="(~D*~C*~B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b1000000000000000,EQN="(D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b11100100,EQN="(B*~(C)*~(A)+B*C*~(A)+~(B)*C*A+B*C*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b010000000,EQN="(~F*~E*~D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b010000000,EQN="(~E*~D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b010000000,EQN="(~D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b10000000,EQN="(C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01,EQN="(~E*~D*~C*~B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01000,EQN="(~E*~D*~C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b01000,EQN="(~D*~C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b01000,EQN="(~C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b1000100010001000000010001000100000000000100010000000000000001000,EQN="(B*A*(~(D)*~((~E*C))*~(F)+~(D)*~((~E*C))*F+D*~((~E*C))*F+~(D)*(~E*C)*F))") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b0111111101111111000000001000000011111111011111110000000000000000,EQN="(~((C*B*A))*~(D)*E*~(F)+~((C*B*A))*D*E*~(F)+(C*B*A)*D*E*~(F)+(C*B*A)*~(D)*~(E)*F+~((C*B*A))*~(D)*E*F+~((C*B*A))*D*E*F)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b0111011111111111111101110111111100000000000000000000000000000000,EQN="(F*~(B*A*(D@(~E*C))))") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT2(INIT=4'b1000,EQN="(B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(48)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b010,EQN="(~F*~E*~D*~C*~B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b010,EQN="(~E*~D*~C*~B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b010,EQN="(~D*~C*~B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b01,EQN="(~C*~B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT2(INIT=4'b0100,EQN="(B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(48)
+HDL-1007 : elaborate module AL_MAP_LUT2(INIT=4'b01,EQN="(~B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(48)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b1000000000000000000000000000000000000000000000000000000000000000,EQN="(F*E*D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT4(INIT=16'b1011111101000000,EQN="(D@(C*B*~A))") in E:\qianrufpga\TD\arch/al_lmacro.v(24)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10000000111000001111100011111110,EQN="(A*~(B)*~(C)*~(D)*~(E)+~(A)*B*~(C)*~(D)*~(E)+A*B*~(C)*~(D)*~(E)+~(A)*~(B)*C*~(D)*~(E)+A*~(B)*C*~(D)*~(E)+~(A)*B*C*~(D)*~(E)+A*B*C*~(D)*~(E)+A*B*~(C)*D*~(E)+~(A)*~(B)*C*D*~(E)+A*~(B)*C*D*~(E)+~(A)*B*C*D*~(E)+A*B*C*D*~(E)+A*~(B)*C*~(D)*E+~(A)*B*C*~(D)*E+A*B*C*~(D)*E+A*B*C*D*E)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01000000000000001000000000000000,EQN="(D*C*B*(E@A))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b1011111111111111111111111111111101000000000000000000000000000000,EQN="(F@(E*D*C*B*~A))") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b1101010101111111111111010101011100000000000000000000000000000000,EQN="(F*~(A*~(D@(~(B)*~(C)*~(E)+~(B)*~(C)*E+B*~(C)*E+~(B)*C*E))))") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b11001010,EQN="(A*~(B)*~(C)+A*B*~(C)+~(A)*B*C+A*B*C)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b01000000,EQN="(C*B*~A)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b1111111101111111001111110001111100001111000001110000001100000001,EQN="(~(B)*~(C)*~((~D*A))*~(E)*~(F)+~(B)*~(C)*~((~D*A))*E*~(F)+B*~(C)*~((~D*A))*E*~(F)+~(B)*~(C)*(~D*A)*E*~(F)+~(B)*~(C)*~((~D*A))*~(E)*F+B*~(C)*~((~D*A))*~(E)*F+~(B)*C*~((~D*A))*~(E)*F+~(B)*~(C)*(~D*A)*~(E)*F+B*~(C)*(~D*A)*~(E)*F+~(B)*~(C)*~((~D*A))*E*F+B*~(C)*~((~D*A))*E*F+~(B)*C*~((~D*A))*E*F+B*C*~((~D*A))*E*F+~(B)*~(C)*(~D*A)*E*F+B*~(C)*(~D*A)*E*F+~(B)*C*(~D*A)*E*F)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10111111111111110100000000000000,EQN="(E@(D*C*B*~A))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT3(INIT=8'b01001101,EQN="(~(A)*~(B)*~(C)+~(A)*B*~(C)+A*B*~(C)+~(A)*B*C)") in E:\qianrufpga\TD\arch/al_lmacro.v(36)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10001000000000000000100010000000,EQN="(B*A*(D@(~E*C)))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b11110000011110000011110000011110,EQN="(C@(B*~((~D*A))*~(E)+~(B)*(~D*A)*~(E)+B*(~D*A)*~(E)+B*(~D*A)*E))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01111111111101110000000000000000,EQN="(E*~(B*A*~(D@C)))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01000000110100001111010011111101,EQN="(~(A)*~(B)*~(C)*~(D)*~(E)+~(A)*B*~(C)*~(D)*~(E)+A*B*~(C)*~(D)*~(E)+~(A)*~(B)*C*~(D)*~(E)+A*~(B)*C*~(D)*~(E)+~(A)*B*C*~(D)*~(E)+A*B*C*~(D)*~(E)+~(A)*B*~(C)*D*~(E)+~(A)*~(B)*C*D*~(E)+A*~(B)*C*D*~(E)+~(A)*B*C*D*~(E)+A*B*C*D*~(E)+~(A)*~(B)*C*~(D)*E+~(A)*B*C*~(D)*E+A*B*C*~(D)*E+~(A)*B*C*D*E)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10000000000000000000000000000000,EQN="(E*D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b10111111111110110100000000000100,EQN="(E@(B*~A*~(D@C)))") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b0111010111011111111101110101110100000000000000000000000000000000,EQN="(F*~(A*~(D@(B*~(C)*~(E)+~(B)*~(C)*E+B*~(C)*E+B*C*E))))") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT6(INIT=64'b01000000000000000,EQN="(~F*~E*D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(2)
+HDL-1007 : elaborate module AL_MAP_LUT5(INIT=32'b01000000000000000,EQN="(~E*D*C*B*A)") in E:\qianrufpga\TD\arch/al_lmacro.v(13)
+HDL-5317 WARNING: input port 'b' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(2727)
+HDL-5317 WARNING: input port 'a' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(2809)
+HDL-5317 WARNING: input port 'b' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(3781)
+HDL-5317 WARNING: input port 'a' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(3870)
+HDL-5317 WARNING: input port 'b' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(4852)
+HDL-5317 WARNING: input port 'a' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(4948)
+HDL-5317 WARNING: input port 'b' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(5946)
+HDL-5317 WARNING: input port 'a' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(6049)
+HDL-5317 WARNING: input port 'b' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(7063)
+HDL-5317 WARNING: input port 'a' is not connected on this instance in uisrc/03_ip/ui_isp/ui_awb/divider_gate.v(7173)
+HDL-5317 Similar messages will be suppressed.
+HDL-1007 : elaborate module ui_image_cut(IMG_WIDTH=3840,IMG_HEIGHT=2160,SKIP_ROWS_top=0,SKIP_ROWS_bottom=0,SKIP_COLS_left=1,SKIP_COLS_right=0) in uisrc/03_ip/ui_isp/ui_image_cut/ui_image_cut.v(35)
+HDL-1007 : elaborate module ui_gamma in uisrc/03_ip/ui_isp/ui_gamma/ui_gamma.v(34)
+HDL-1007 : elaborate module ui_lut_2_6 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_6.v(32)
+HDL-1007 : elaborate module ui_lut_2_4 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_4.v(32)
+HDL-1007 : elaborate module ui_lut_2_2 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_2.v(32)
+HDL-1007 : elaborate module ui_lut_2_0 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_2_0.v(32)
+HDL-1007 : elaborate module ui_lut_1_8 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_8.v(32)
+HDL-1007 : elaborate module ui_lut_1_6 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_6.v(32)
+HDL-1007 : elaborate module ui_lut_1_4 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_4.v(32)
+HDL-1007 : elaborate module ui_lut_1_2 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_1_2.v(32)
+HDL-1007 : elaborate module ui_lut_0_8 in uisrc/03_ip/ui_isp/ui_gamma/ui_lut_0_8.v(32)
+HDL-1007 : elaborate module ui_Contrast_adj(contrast_level=140) in uisrc/03_ip/ui_isp/ui_contrast_adj/ui_contrast_adj.v(38)
+HDL-1007 : elaborate module ui_Brightness_adj(BRIGHTNESS_ADD=5) in uisrc/03_ip/ui_isp/ui_brightness_adj/ui_Brightness_adj.v(34)
+HDL-1007 : elaborate module ui_Saturation_adj(ADJUST_VAL=130) in uisrc/03_ip/ui_isp/ui_saturation_adj/ui_Saturation_adj.v(42)
+HDL-1007 : elaborate module ui_data96_128 in uisrc/03_ip/ui_isp/ui_data96_128/ui_data96_128.v(10)
+HDL-1007 : elaborate module sync_fifo_130(ADDR_WIDTH=10) in uisrc/03_ip/vid_pipeline/sync_fifo_130.v(11)
+HDL-1007 : extracting RAM for identifier 'mem' in uisrc/03_ip/vid_pipeline/sync_fifo_130.v(31)
+HDL-1007 : elaborate module pack4_rgb24_to_128 in uisrc/03_ip/vid_pipeline/pack4_rgb24_to_128.v(4)
+HDL-1007 : elaborate module vid_frame_gate(DATA_WIDTH=128) in uisrc/03_ip/vid_pipeline/vid_frame_gate.v(26)
+HDL-1007 : elaborate module vid_drop_detect(DATA_WIDTH=128) in uisrc/03_ip/vid_pipeline/vid_drop_detect.v(23)
+HDL-1007 : elaborate module axis_stream_fifo(DATA_WIDTH=128,DEPTH=2048,ADDR_BITS=11) in uisrc/03_ip/vid_pipeline/axis_stream_fifo.v(20)
+HDL-1007 : extracting RAM for identifier 'mem' in uisrc/03_ip/vid_pipeline/axis_stream_fifo.v(49)
+HDL-1007 : elaborate module frame_completer(DATA_WIDTH=128,TIMEOUT_CYCLES=50000) in uisrc/03_ip/vid_pipeline/frame_completer.v(22)
+HDL-1007 : port 'O_iic_sda_dg' remains unconnected for this instance in uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v(199)
+HDL-1007 : elaborate module ui_cfg_imx415(CLK_DIV=16'b011101111) in uisrc/03_ip/ui_imx415_cfg/ui_cfg_imx415.v(34)
+HDL-1007 : elaborate module ui_i2c(WMEN_LEN=4,RMEN_LEN=1,CLK_DIV=16'b011101111) in uisrc/03_ip/ui_imx415_cfg/ui_i2c.v(41)
+HDL-1007 : elaborate module ui_imx415reg in uisrc/03_ip/ui_imx415_cfg/ui_imx415_reg.v(35)
+HDL-1007 : elaborate module sgdma_app(OKEEP_WIDTH=16,H2C_DSC_BYP_MAP=4'b0,C2H_DSC_BYP_MAP=4'b0,DESC_BYP_EN=1'b0) in uisrc/03_ip/sgdma/sgdma_app/src/sgdma_app.v(14)
+HDL-1007 : elaborate module axil_anal in uisrc/03_ip/sgdma/sgdma_app/src/axil_anal.v(17)
+HDL-1007 : extracting RAM for identifier 'axi_reg_ram' in uisrc/03_ip/sgdma/sgdma_app/src/axil_anal.v(79)
+HDL-1007 : elaborate module usr_ctrl in uisrc/03_ip/sgdma/sgdma_app/src/usr_ctrl.v(5)
+HDL-1007 : elaborate module usr_cfgrw in uisrc/03_ip/sgdma/sgdma_app/src/usr_cfgrw.v(16)
+HDL-1007 : elaborate module usr_axi4st_h2c in uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_h2c.v(12)
+HDL-1007 : elaborate module usr_axi4st_c2h in uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_c2h.v(12)
+HDL-1007 : elaborate module usr_axi4st_lp in uisrc/03_ip/sgdma/sgdma_app/src/usr_axi4st_lp.v(12)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(6770)
+HDL-1007 : elaborate module ** in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7112)
+HDL-1007 : extracting RAM for identifier '**' in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7180)
+HDL-5317 WARNING: input port '**' is not connected on this instance in uisrc/03_ip/sgdma/src_enc/sgdma_ip_all.enc.v(7093)
+HDL-1007 : elaborate module usr_dmarw in uisrc/03_ip/sgdma/sgdma_app/src/usr_dmarw.v(14)
+HDL-1007 : elaborate module usr_irq(USR_INT_NUM=8,MSI_EN=1) in uisrc/03_ip/sgdma/sgdma_app/src/usr_irq.v(10)
+HDL-1007 : elaborate module csi_stats_snapshot(PERIOD=2500000) in uisrc/03_ip/vid_pipeline/csi_stats_snapshot.v(3)
+HDL-1007 : elaborate module debug_uart in uisrc/01_rtl/debug_uart.v(17)
+HDL-5317 WARNING: input port 'legacy_enable' is not connected on this instance in uisrc/01_rtl/imx415_pcie_top.v(994)
+HDL-1200 : Current top model is imx415_pcie_top
+HDL-5106 WARNING: Initial value omitted on non-DFF net "scl_r" in uisrc/03_ip/ui_imx415_cfg/ui_i2c.v(112) 
+HDL-5106 WARNING: Initial value omitted on non-DFF net "sda_o" in uisrc/03_ip/ui_imx415_cfg/ui_i2c.v(120) 
+HDL-1100 : Inferred 28 RAMs.
+PRJ-8001 ERROR: Hex file al_ip\al_pcie_ip.txt is not exist.
+RUN-1003 : finish command "elaborate -top imx415_pcie_top" in  9.658760s wall, 8.875000s user + 0.468750s system = 9.343750s CPU (96.7%)
+
+RUN-1004 : used memory is 1787 MB, reserved memory is 1854 MB, peak memory is 2054 MB
+DIRECT_BUILD_FAILED_STAGE=elaborate
+DIRECT_BUILD_OUTPUT=E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/direct_build_20261005_002417_15824
+
+
+    while executing
+"elaborate -top $task_top"

@@ -1,0 +1,32 @@
+{
+  "source": "E:/qianrufpga/fpga-lab/examples/03_iic_rtc",
+  "target": "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc",
+  "baseline_drift": {
+    "missing": [],
+    "added": [],
+    "changed": []
+  },
+  "copied_source_hashes": {
+    "fpga_prj.al": "ed004c15c72c55bdec848179a4c2b2479b190c35aa58205166323c90c3be4b43",
+    "uisrc/01_rtl/rtc_clock_ds1337.v": "0ba21f24dd47093700bc0962684acfeff698f66904f740d526237afa5639f2ec",
+    "uisrc/03_ip/uart_tx_block.v": "bd6b413c957db325006a0a861442a9145c4f93858f5d2fd1a51e576ce1863d37",
+    "uisrc/03_ip/uii2c.v": "2094ec4b16811866f01bbd813a8fca7f04741a33b4e52524cd2ca87dc7400e6b",
+    "uisrc/03_ip/uiuart_tx.v": "df55e1ad9d9e860f2fd3b71412adaab8e7c9f6635b153c5398d5bb4793802bc6",
+    "uisrc/04_pin/fpga_pin.adc": "180aa7e9d31bfd9e69eccb0723de5f96ad19d8e094430b25182df8f83ae2d731",
+    "uisrc/04_pin/timing.sdc": "ec7cfdcd046ddfb039ec1c8e1446dc527174c9ea9148bdc921f75dde6371381d"
+  },
+  "changes": [
+    "Relocated .al Project Path",
+    "Added build.tcl",
+    "Added independent direct build caller/config/template",
+    "Repaired uisrc/03_ip/uart_tx_block.v",
+    "Repaired uisrc/01_rtl/rtc_clock_ds1337.v"
+  ],
+  "status": "Cloned only; build and board verification pending",
+  "repair_date": "2026-10-04",
+  "repair_source_hashes": {
+    "uisrc/03_ip/uart_tx_block.v": "e662899eddeed8b4804b470a1b1eaeeaa91c65d28a6ab95c7b2a5abf827e7a48",
+    "uisrc/01_rtl/rtc_clock_ds1337.v": "7a3aa3e1d285c5328b1701ef4a3eb0f766f7e4bbc796ffcec761fd2e910668d3"
+  },
+  "repair_status": "Self-checking ModelSim tests passed; target TD build and board verification pending"
+}

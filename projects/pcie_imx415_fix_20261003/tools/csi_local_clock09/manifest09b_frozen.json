@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-05T14:12:51.305409+00:00",
+  "source_frozen": {
+    "rx_clk_gen.v": "3c568be86e4bed43ebab2e5318aced934993ee043b0c7b2137c4c3116034ef13",
+    "csi_rx_phy.v": "df203275a110d9889fc027a2a261315f77284f22899ac38e2cd090a56fef3905",
+    "csi_rx_hs_data_phy.v": "a8161b7d0eae646302e8e4265c90ee63ee8e5ee0b2a96f9ed1f1f1517d25a4d9",
+    "td_local09_top.v": "152c303bb55f4615527ec1975d27ddb8116cdc425606f165a782e8b7329062ca",
+    "td_local09.adc": "e6a5be02c0547c04b31a82e004aad2a6f1e1b3b2c33c416589ee3b0efb9b450a",
+    "td_local09.sdc": "071f84d23abef7e59aea1fd6ee6cd81e39016dd8d445f7207233450f3347f119",
+    "td_local09.tcl": "dc76a8bbdf686d22f633fdd6e3382d0ba2523c21c329be8449f07ac2510d8204",
+    "local_clock09.do": "0707c027fd85b6f772f73bcb51b43d7f8057f88dc7da132f436bd0aa820fa967",
+    "tb_csi_local_clock09.sv": "fc5e5301d7a15c99c9ae482a1d1f89ff1e9c803467e599587ceba5fb6d9c8423"
+  },
+  "previous_09a": "tools/csi_local_clock09/09a_frozen/frozen_files.json",
+  "candidate": "09b active-high common 3FF, same cycle and external reset_n contract; PAD/fabric local clock split and n0/n1 unchanged",
+  "functional_native_golden": {
+    "result": "PASS",
+    "log": "tools/csi_local_clock09/evidence/modelsim_20261005_070858_17132/simulation.log",
+    "complete_packets": 83,
+    "golden_lane_bytes": 8320,
+    "errors": 0,
+    "warnings": 1,
+    "warning": "8891 -novopt"
+  },
+  "small_physical_trial": {
+    "output": "tools/csi_local_clock09/evidence/td_route_20261005_071009_40084",
+    "result": "PASS_INTERNAL_RELATED_STA_NOT_BOARD",
+    "setup_ns": 0.174,
+    "hold_ns": 0.022,
+    "all_IO_real_ADC": 7,
+    "SYN_6021": 0,
+    "SYN_6024": 0,
+    "no_false_path_or_frequency_relaxation": true
+  },
+  "matched_exports": {
+    "csi09_route.db": "9e16ac093629873f7c8872fcb918c02996f1b729659f3d4e677593c738088684",
+    "csi09_phy_sim.v": "ed6e8e4711312479201f8ac7f5309b65a37d5b03be692614b83bbc37ea782ffe",
+    "csi09_phy_sim.sdf": "cafdf6ddee0741dedaef089c613d3c2f02fe3bf8d7bc383b9443bf17e6a11168",
+    "csi09_final.timing": "bd2e3e72ae23ea26c058ccb6b2e173b4ee107a16ebc71c6f5b9bd862561cb5fa"
+  },
+  "SDF_simulation": "PENDING_REAL_INJECTION",
+  "full_project_STA": "PENDING_PARENT",
+  "board": "NOT_TESTED",
+  "no_main_or08_changed": true
+}

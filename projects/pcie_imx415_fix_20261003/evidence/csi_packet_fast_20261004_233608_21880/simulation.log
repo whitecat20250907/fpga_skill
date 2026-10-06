@@ -1,0 +1,881 @@
+# puts "CSI_PACKET_FAST_OUTPUT=$test_out"
+# vmap -c
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c 
+# Copying D:/Modelsim/soft/win64/../modelsim.ini to modelsim.ini
+# vlib work_fast
+# vmap csi_fast work_fast
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap csi_fast work_fast 
+# Modifying modelsim.ini
+# proc binary_read {path} {
+#     set f [open $path rb]
+#     set s [read $f]
+#     close $f
+#     return $s
+# }
+# proc binary_write {path text} {
+#     set f [open $path wb]
+#     puts -nonewline $f $text
+#     close $f
+# }
+# set parser_dir [file join $test_root fpga uisrc 03_ip mipi_csi_2]
+# E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2
+# set old [binary_read [file join $parser_dir csi_rx_packet_handler.v]]
+# //--------------------------------------------------------------------------------------------
+# // CSI-2 接收包处理器 (完全符合Verilog语法)
+# // 严格遵守：
+# //   1. 三段式状态机（状态声明、状态转移、输出逻辑）
+# //   2. Verilog-2001标准
+# //   3. 统一的命名规范
+# //--------------------------------------------------------------------------------------------
+# 
+# module csi_rx_packet_handler #(
+#     parameter MIPI_LAN = 4,
+#     parameter VC_ID = 0,
+#     parameter GAP_TIMEOUT = 64
+# )(
+#     input wire I_clock, I_reset_n, I_enable, I_count_enable,
+#     input wire [31:0] I_data,
+#     input wire I_data_valid,
+#     output reg O_packet_done,
+#     output wire O_sync_wait,
+#     output reg [31:0] O_payload_out,
+#     output reg O_payload_valid,
+#     output reg [2:0] O_payload_bytes,
+#     output reg O_payload_last,
+#     output reg O_vsync_out,
+#     output reg O_in_frame,
+#     output reg O_in_line,
+#     output reg O_packet_error,
+#     output reg [31:0] O_raw_packets,
+#     output reg [31:0] O_crc_errors,
+#     output reg [31:0] O_ecc_errors,
+#     output reg [31:0] O_wc_errors,
+#     output reg [31:0] O_timeout_errors
+# );
+# // A 32-bit word contains up to four consecutive CSI bytes, lane 0 first.
+# // WC describes payload ONLY. CRC occupies the next two bytes, including when
+# // those bytes share the final payload word. Padding is never a RAW10 byte.
+# localparam [1:0] WAIT_HDR=0, RX_BODY=1, DRAIN=2;
+# reg [1:0] state;
+# reg [15:0] packet_len;
+# reg [16:0] bytes_read;
+# reg raw_packet, raw_wc_ok, selected_vc;
+# reg [15:0] crc_calc, crc_rx;
+# reg [15:0] gap_count;
+# reg [2:0] drain_count;
+# wire [7:0] expected_ecc;
+# wire [5:0] packet_type = I_data[5:0];
+# wire [15:0] header_wc = I_data[23:8];
+# wire header_ecc_ok = I_data[31:24] == expected_ecc;
+# wire header_vc_ok = I_data[7:6] == VC_ID[1:0];
+# csi_rx_hdr_ecc ecc_inst(.data(I_data[23:0]), .ecc(expected_ecc));
+# 
+# // Reflected CRC-16 polynomial x^16+x^12+x^5+1, init FFFF, no final xor.
+# // This equals the local DSI crc16_8b.v equations and CSI transmitted byte order.
+# function [15:0] crc_byte;
+#     input [15:0] crc;
+#     input [7:0] data;
+#     reg [15:0] v;
+#     integer n;
+#     begin
+#         v=crc;
+#         for(n=0;n<8;n=n+1)
+#             if(v[0]^data[n]) v=(v>>1)^16'h8408;
+#             else v=v>>1;
+#         crc_byte=v;
+#     end
+# endfunction
+# 
+# integer b;
+# reg [16:0] byte_pos;
+# reg [15:0] next_crc, next_crc_rx;
+# reg [2:0] payload_n;
+# reg [31:0] payload_masked;
+# always @(*) begin
+#     next_crc=crc_calc;
+#     next_crc_rx=crc_rx;
+#     payload_n=0;
+#     payload_masked=0;
+#     byte_pos=0;
+#     for(b=0;b<4;b=b+1) begin
+#         byte_pos=bytes_read+b;
+#         if(byte_pos < {1'b0,packet_len}) begin
+#             next_crc=crc_byte(next_crc,I_data[b*8+:8]);
+#             payload_masked[b*8+:8]=I_data[b*8+:8];
+#             payload_n=payload_n+1'b1;
+#         end else if(byte_pos == {1'b0,packet_len})
+#             next_crc_rx[7:0]=I_data[b*8+:8];
+#         else if(byte_pos == ({1'b0,packet_len}+17'd1))
+#             next_crc_rx[15:8]=I_data[b*8+:8];
+#     end
+# end
+# assign O_sync_wait = state == WAIT_HDR;
+# 
+# always @(posedge I_clock or negedge I_reset_n) begin
+#     if(!I_reset_n) begin
+#         state<=WAIT_HDR; packet_len<=0; bytes_read<=0;
+#         raw_packet<=0; raw_wc_ok<=0; selected_vc<=0;
+#         crc_calc<=16'hffff; crc_rx<=0; gap_count<=0; drain_count<=0;
+#         O_packet_done<=0; O_payload_out<=0; O_payload_valid<=0;
+#         O_payload_bytes<=0; O_payload_last<=0; O_vsync_out<=0;
+#         O_in_frame<=0; O_in_line<=0; O_packet_error<=0;
+#         O_raw_packets<=0; O_crc_errors<=0; O_ecc_errors<=0;
+#         O_wc_errors<=0; O_timeout_errors<=0;
+#     end else begin
+#         O_packet_done<=0; O_payload_valid<=0; O_payload_last<=0;
+#         O_payload_bytes<=0; O_vsync_out<=0; O_in_line<=0;
+#         O_packet_error<=0;
+#         if(!I_enable) begin
+#             state<=WAIT_HDR; bytes_read<=0; gap_count<=0;
+#             O_in_frame<=0; raw_packet<=0;
+#         end else case(state)
+#             WAIT_HDR: if(I_data_valid) begin
+#                 if(!header_ecc_ok) begin
+#                     // Release byte/word alignment after an invalid header.
+#                     if(I_count_enable) O_ecc_errors<=O_ecc_errors+1'b1;
+#                     O_packet_error<=1; O_packet_done<=1;
+#                     drain_count<=3; state<=DRAIN;
+#                 end else if(packet_type <= 6'h0f) begin
+#                     if(header_vc_ok && packet_type==0) begin
+#                         O_in_frame<=1; O_vsync_out<=1;
+#                     end
+#                     if(header_vc_ok && packet_type==1) O_in_frame<=0;
+#                     O_packet_done<=1; drain_count<=3; state<=DRAIN;
+#                 end else begin
+#                     packet_len<=header_wc; bytes_read<=0;
+#                     crc_calc<=16'hffff; crc_rx<=0; gap_count<=0;
+#                     selected_vc<=header_vc_ok;
+#                     raw_packet<=header_vc_ok && packet_type==6'h2b;
+#                     raw_wc_ok<=header_wc!=0 && (header_wc%16'd5)==0;
+#                     if(header_vc_ok && packet_type==6'h2b) begin
+#                         if(header_wc==0 || (header_wc%16'd5)!=0) begin
+#                             if(I_count_enable) O_wc_errors<=O_wc_errors+1'b1;
+#                             O_packet_error<=1;
+#                         end else O_in_line<=1;
+#                     end
+#                     state<=RX_BODY;
+#                 end
+#             end
+#             RX_BODY: begin
+#                 if(I_data_valid) begin
+#                     gap_count<=0;
+#                     crc_calc<=next_crc; crc_rx<=next_crc_rx;
+#                     bytes_read<=bytes_read+17'd4;
+#                     if(payload_n!=0 && raw_packet && raw_wc_ok && O_in_frame) begin
+#                         O_payload_out<=payload_masked;
+#                         O_payload_valid<=1; O_payload_bytes<=payload_n;
+#                         O_payload_last<=bytes_read+17'd4 >= {1'b0,packet_len};
+#                     end
+#                     if(bytes_read+17'd4 >= {1'b0,packet_len}+17'd2) begin
+#                         if(next_crc!=next_crc_rx && selected_vc) begin
+#                             if(I_count_enable) O_crc_errors<=O_crc_errors+1'b1;
+#                             O_packet_error<=1;
+#                         end else if(raw_packet && raw_wc_ok)
+#                             if(I_count_enable) O_raw_packets<=O_raw_packets+1'b1;
+#                         O_packet_done<=1; drain_count<=3; state<=DRAIN;
+#                     end
+#                 end else if(gap_count==GAP_TIMEOUT-1) begin
+#                     if(I_count_enable) O_timeout_errors<=O_timeout_errors+1'b1;
+#                     O_packet_error<=1; O_packet_done<=1;
+#                     drain_count<=3; state<=DRAIN; gap_count<=0;
+#                 end else gap_count<=gap_count+1'b1;
+#             end
+#             DRAIN: begin
+#                 // Allow registered aligner/gearbox data to drain before a new
+#                 // header search. CSI HS bursts require a sync per packet.
+#                 if(drain_count==0) state<=WAIT_HDR;
+#                 else drain_count<=drain_count-1'b1;
+#             end
+#             default: state<=WAIT_HDR;
+#         endcase
+#     end
+# end
+# endmodule
+# 
+# if {[regsub {module csi_rx_packet_handler #} $old {module csi_rx_packet_handler_reference #} reference] != 1} {
+#     error "Unable to name the unchanged reference parser uniquely"
+# }
+# binary_write parser_reference.v $reference
+# Reuse all exact nominal/error/reset/FIFO/stream checks from the existing TB.
+# Add only an explicit completion marker to a generated copy, no relaxed count.
+# set main_tb [binary_read [file join $test_root tb tb_csi_integrity.sv]]
+# `timescale 1ns/1ps
+# module tb_csi_integrity;
+#     reg clk=0, video_clk=0;
+#     always #2.5 clk=~clk;
+#     always #3.4 video_clk=~video_clk;
+#     reg reset_n=0, enable=1, in_valid=0;
+#     reg [31:0] in_data=0;
+#     wire packet_done,sync_wait,payload_valid,payload_last,fs,frame,line,packet_error;
+#     wire [31:0] payload, raw_packets,crc_errors,ecc_errors,wc_errors,timeouts;
+#     wire [2:0] payload_bytes;
+#     csi_rx_packet_handler #(.GAP_TIMEOUT(64)) parser(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),.I_count_enable(1'b1),
+#         .I_data(in_data),.I_data_valid(in_valid),
+#         .O_packet_done(packet_done),.O_sync_wait(sync_wait),
+#         .O_payload_out(payload),.O_payload_valid(payload_valid),
+#         .O_payload_bytes(payload_bytes),.O_payload_last(payload_last),
+#         .O_vsync_out(fs),.O_in_frame(frame),.O_in_line(line),
+#         .O_packet_error(packet_error),.O_raw_packets(raw_packets),
+#         .O_crc_errors(crc_errors),.O_ecc_errors(ecc_errors),
+#         .O_wc_errors(wc_errors),.O_timeout_errors(timeouts)
+#     );
+#     wire [39:0] unpack;
+#     wire unpack_valid,unpack_last,unpack_error;
+#     csi_rx_10bit_unpack unpacker(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),
+#         .I_line_in(line),.I_data_in(payload),.I_din_valid(payload_valid),
+#         .I_din_bytes(payload_bytes),.I_din_last(payload_last),
+#         .O_data_out(unpack),.O_dout_valid(unpack_valid),
+#         .O_dout_last(unpack_last),.O_unpack_error(unpack_error)
+#     );
+#     reg ready=0, allow_reads=1;
+#     wire tuser,tlast,tvalid;
+#     wire [39:0] tdata;
+#     wire [31:0] overflows;
+#     wire overflow_pulse;
+#     csi_rx_vid2stream stream(
+#         .I_data_clk(clk),.I_reset_n(reset_n),.I_enable(enable),
+#         .I_packet_done(packet_done),.I_packet_line(line),.I_packet_frame(frame),
+#         .I_frame_start(fs),.I_data_unpack(unpack),
+#         .I_dout_unpack_valid(unpack_valid),.I_dout_unpack_last(unpack_last),
+#         .m_axis_video_aclk(video_clk),.m_axis_video_aresetn(reset_n),
+#         .m_axis_video_tready(ready),.m_axis_video_tuser(tuser),
+#         .m_axis_video_tlast(tlast),.m_axis_video_tvalid(tvalid),
+#         .m_axis_video_tdata(tdata),.O_fifo_overflows(overflows),
+#         .O_overflow_pulse(overflow_pulse)
+#     );
+#     reg [23:0] hdr_data=0;
+#     wire [7:0] hdr_ecc;
+#     csi_rx_hdr_ecc header_encoder(.data(hdr_data),.ecc(hdr_ecc));
+#     reg crc_init=0, crc_en=0;
+#     reg [7:0] crc_byte=0;
+#     wire [15:0] ref_crc;
+#     // Actual vendor DSI checksum RTL, independent from parser's bit-serial
+#     // function. No PHY/PLL primitive is modeled by this digital protocol test.
+#     crc16_8b golden_crc(.clk(clk),.rst(!reset_n),.init(crc_init),
+#         .din(crc_byte),.din_en(crc_en),.crc(ref_crc));
+# 
+#     reg [39:0] expected_data[0:40000];
+#     reg expected_last[0:40000];
+#     reg expected_user[0:40000];
+#     integer expected_n=0,actual_n=0,payload_total=0;
+#     integer stream_sofs=0,stream_lasts=0;
+#     reg [7:0] bytes[0:8191];
+#     reg [7:0] lfsr=8'hd7;
+#     reg stalled=0;
+#     reg [41:0] held;
+#     always @(negedge video_clk) begin
+#         lfsr={lfsr[6:0],lfsr[7]^lfsr[5]^lfsr[4]^lfsr[3]};
+#         ready=reset_n && allow_reads && (lfsr[1:0]!=0);
+#     end
+#     always @(posedge video_clk) begin
+#         if(reset_n) begin
+#             if(stalled && (!tvalid || {tdata,tlast,tuser}!==held))
+#                 $fatal(1,"AXI payload/markers changed while stalled at %0d",actual_n);
+#             stalled=tvalid && !ready;
+#             held={tdata,tlast,tuser};
+#             if(tvalid && ready) begin
+#                 if(actual_n>=expected_n) $fatal(1,"Unexpected pixel group %0d",actual_n);
+#                 if(tdata!==expected_data[actual_n] || tlast!==expected_last[actual_n] || tuser!==expected_user[actual_n])
+#                     $fatal(1,"Stream mismatch at %0d data=%h exp=%h last=%b/%b user=%b/%b",actual_n,tdata,expected_data[actual_n],tlast,expected_last[actual_n],tuser,expected_user[actual_n]);
+#                 if(tlast) stream_lasts=stream_lasts+1;
+#                 if(tuser) stream_sofs=stream_sofs+1;
+#                 actual_n=actual_n+1;
+#             end
+#         end else stalled=0;
+#     end
+#     always @(posedge clk) begin
+#         if(payload_valid) payload_total=payload_total+payload_bytes;
+#         if(unpack_error) $fatal(1,"RAW10 unpack shape error");
+#     end
+#     task automatic idle(input integer cycles);
+#         begin
+#             @(negedge clk); in_valid=0; in_data=0;
+#             repeat(cycles) @(negedge clk);
+#         end
+#     endtask
+#     task automatic word(input reg [31:0] value);
+#         begin
+#             @(negedge clk); in_valid=1; in_data=value;
+#         end
+#     endtask
+#     task automatic header(input reg [5:0] dt,input integer count,input reg [1:0] vc,input reg bad_ecc);
+#         reg [31:0] h;
+#         begin
+#             wait(sync_wait); @(negedge clk);
+#             hdr_data={count[15:0],vc,dt}; #0.1;
+#             h={hdr_ecc,hdr_data};
+#             if(bad_ecc) h[24]=!h[24];
+#             in_valid=1; in_data=h;
+#         end
+#     endtask
+#     task automatic short_packet(input reg [5:0] dt,input integer index);
+#         begin header(dt,index,0,0); idle(12); end
+#     endtask
+#     task automatic send_line(input integer width,input integer row,input integer frame_id,input integer gap_mod,input reg bad_crc,input reg enqueue);
+#         integer g,p,n,j,wc,start_n,before_payload;
+#         reg [9:0] pixel[0:3];
+#         reg [15:0] c;
+#         reg [31:0] w;
+#         begin
+#             wc=(width/4)*5;
+#             before_payload=payload_total;
+#             start_n=expected_n;
+#             // All 10 bits vary independently and encode position/frame/row.
+#             for(g=0;g<width/4;g=g+1) begin
+#                 for(p=0;p<4;p=p+1)
+#                     pixel[p]=(g*4+p+row*67+frame_id*149)^((g*13+p*17)<<2);
+#                 bytes[g*5+0]=pixel[0][9:2]; bytes[g*5+1]=pixel[1][9:2];
+#                 bytes[g*5+2]=pixel[2][9:2]; bytes[g*5+3]=pixel[3][9:2];
+#                 bytes[g*5+4]={pixel[3][1:0],pixel[2][1:0],pixel[1][1:0],pixel[0][1:0]};
+#                 if(enqueue) begin
+#                     expected_data[expected_n]={pixel[3],pixel[2],pixel[1],pixel[0]};
+#                     expected_last[expected_n]=g==width/4-1;
+#                     expected_user[expected_n]=row==0 && g==0;
+#                     expected_n=expected_n+1;
+#                 end
+#             end
+#             @(negedge clk); crc_init=1;
+#             @(negedge clk); crc_init=0; crc_en=1;
+#             for(n=0;n<wc;n=n+1) begin
+#                 crc_byte=bytes[n]; @(negedge clk);
+#             end
+#             crc_en=0; c=ref_crc;
+#             if(bad_crc) c=c^16'h0100;
+#             bytes[wc]=c[7:0]; bytes[wc+1]=c[15:8];
+#             bytes[wc+2]=8'hbf;bytes[wc+3]=8'h51;bytes[wc+4]=8'h2b;
+#             header(6'h2b,wc,0,0);
+#             for(n=0;n<wc+2;n=n+4) begin
+#                 w=0;
+#                 for(j=0;j<4;j=j+1) w[j*8+:8]=bytes[n+j];
+#                 word(w);
+#                 if(n+4<wc+2 && gap_mod!=0 && ((n/4)%gap_mod)==gap_mod-1) idle(1+(n%3));
+#             end
+#             // Deliberately valid tail words: parser must not emit CRC/padding.
+#             word(32'hdeadbeef); word(32'hdeadbeef); idle(12);
+#             if(payload_total-before_payload!=wc)
+#                 $fatal(1,"WC clipping failed width=%0d payload=%0d expected=%0d",width,payload_total-before_payload,wc);
+#             if(enqueue) begin
+#                 wait(actual_n==expected_n); idle(3);
+#                 $display("PASS RAW line width=%0d WC=%0d groups=%0d gap=%0d CRCbad=%0d",width,wc,expected_n-start_n,gap_mod,bad_crc);
+#             end
+#         end
+#     endtask
+#     integer n,check_packets;
+#     initial begin
+#         #40; @(negedge clk); reset_n=1; idle(20);
+#         short_packet(0,1);
+#         send_line(4,0,1,0,0,1);
+#         send_line(8,1,1,2,0,1);
+#         send_line(12,2,1,0,0,1);
+#         send_line(16,3,1,3,0,1);
+#         send_line(20,4,1,0,0,1);
+#         short_packet(1,1);
+#         // The actual IMX415 lines are divisible by five, not necessarily four.
+#         short_packet(0,2);
+#         send_line(1944,0,2,0,0,1);
+#         send_line(1944,1,2,7,0,1);
+#         send_line(3888,2,2,11,0,1);
+#         send_line(1920,3,2,0,0,1);
+#         send_line(1280,4,2,0,0,1);
+#         short_packet(1,2);
+#         if(raw_packets!=10 || crc_errors!=0 || wc_errors!=0 || ecc_errors!=0 || timeouts!=0)
+#             $fatal(1,"Unexpected nominal counters packets=%0d crc=%0d wc=%0d ecc=%0d timeout=%0d",raw_packets,crc_errors,wc_errors,ecc_errors,timeouts);
+#         check_packets=raw_packets;
+#         short_packet(0,3);
+#         // CRC diagnosis is intentionally streaming: data is emitted before CRC
+#         // verdict. It must be counted, not mislabeled as discarded/corrected.
+#         send_line(1944,0,3,0,1,1);
+#         short_packet(1,3);
+#         if(crc_errors!=1 || raw_packets!=check_packets) $fatal(1,"Bad CRC not counted");
+#         // Inconsistent RAW10 byte count is not forwarded to the unpacker.
+#         header(6'h2b,7,0,0); word(32'h11223344); word(32'h55667788); word(32'h00001234); idle(12);
+#         if(wc_errors!=1) $fatal(1,"Malformed WC not counted");
+#         header(6'h2b,10,0,1); idle(12);
+#         if(ecc_errors!=1) $fatal(1,"Bad ECC not counted");
+#         header(6'h2b,20,0,0); idle(80);
+#         if(timeouts!=1) $fatal(1,"Missing payload timeout not counted");
+#         // A non-selected VC must not affect frame state or RAW pixels.
+#         n=payload_total;
+#         header(0,42,1,0); idle(12);
+#         if(frame) $fatal(1,"Other-VC frame start leaked");
+#         if(payload_total!=n || overflows!=0) $fatal(1,"Unexpected VC data/overflow");
+#         if(stream_lasts!=11 || stream_sofs!=3) $fatal(1,"Incorrect boundary counts");
+#         allow_reads=0; idle(12);
+#         force stream.I_dout_unpack_valid=1'b1;
+#         force stream.I_dout_unpack_last=1'b0;
+#         force stream.I_data_unpack=40'h1122334455;
+#         repeat(9000) @(negedge clk);
+#         release stream.I_dout_unpack_valid;
+#         release stream.I_dout_unpack_last;
+#         release stream.I_data_unpack;
+#         idle(5);
+#         if(overflows!=809) $fatal(1,"FIFO drop counter incorrect %0d expected809",overflows);
+#         $display("PASS FIFO full: 8191 stored groups / 809 explicitly counted rejected groups");
+#         @(negedge clk); reset_n=0; idle(15);
+#         reset_n=1; allow_reads=1; idle(20);
+#         if(overflows!=0 || raw_packets!=0) $fatal(1,"Receiver reset did not clear state/counters");
+#         short_packet(0,4); send_line(1944,0,4,3,0,1); short_packet(1,4);
+#         $display("PASS CSI integrity groups=%0d SOF=%0d TLAST=%0d CRC/ECC/WC/timeout counters verified; actual vendor sfifo RAM+CDC and DSI crc16 RTL used",actual_n,stream_sofs,stream_lasts);
+#         $finish;
+#     end
+#     initial begin #5000000; $fatal(1,"CSI integrity simulation timeout"); end
+# endmodule
+# 
+# set main_tb [string map [list {module tb_csi_integrity;} {module tb_csi_integrity; reg test_done=0;} \
+#     {$display("PASS CSI integrity groups=} {test_done=1; $display("PASS CSI integrity groups=}] $main_tb]
+# `timescale 1ns/1ps
+# module tb_csi_integrity; reg test_done=0;
+#     reg clk=0, video_clk=0;
+#     always #2.5 clk=~clk;
+#     always #3.4 video_clk=~video_clk;
+#     reg reset_n=0, enable=1, in_valid=0;
+#     reg [31:0] in_data=0;
+#     wire packet_done,sync_wait,payload_valid,payload_last,fs,frame,line,packet_error;
+#     wire [31:0] payload, raw_packets,crc_errors,ecc_errors,wc_errors,timeouts;
+#     wire [2:0] payload_bytes;
+#     csi_rx_packet_handler #(.GAP_TIMEOUT(64)) parser(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),.I_count_enable(1'b1),
+#         .I_data(in_data),.I_data_valid(in_valid),
+#         .O_packet_done(packet_done),.O_sync_wait(sync_wait),
+#         .O_payload_out(payload),.O_payload_valid(payload_valid),
+#         .O_payload_bytes(payload_bytes),.O_payload_last(payload_last),
+#         .O_vsync_out(fs),.O_in_frame(frame),.O_in_line(line),
+#         .O_packet_error(packet_error),.O_raw_packets(raw_packets),
+#         .O_crc_errors(crc_errors),.O_ecc_errors(ecc_errors),
+#         .O_wc_errors(wc_errors),.O_timeout_errors(timeouts)
+#     );
+#     wire [39:0] unpack;
+#     wire unpack_valid,unpack_last,unpack_error;
+#     csi_rx_10bit_unpack unpacker(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),
+#         .I_line_in(line),.I_data_in(payload),.I_din_valid(payload_valid),
+#         .I_din_bytes(payload_bytes),.I_din_last(payload_last),
+#         .O_data_out(unpack),.O_dout_valid(unpack_valid),
+#         .O_dout_last(unpack_last),.O_unpack_error(unpack_error)
+#     );
+#     reg ready=0, allow_reads=1;
+#     wire tuser,tlast,tvalid;
+#     wire [39:0] tdata;
+#     wire [31:0] overflows;
+#     wire overflow_pulse;
+#     csi_rx_vid2stream stream(
+#         .I_data_clk(clk),.I_reset_n(reset_n),.I_enable(enable),
+#         .I_packet_done(packet_done),.I_packet_line(line),.I_packet_frame(frame),
+#         .I_frame_start(fs),.I_data_unpack(unpack),
+#         .I_dout_unpack_valid(unpack_valid),.I_dout_unpack_last(unpack_last),
+#         .m_axis_video_aclk(video_clk),.m_axis_video_aresetn(reset_n),
+#         .m_axis_video_tready(ready),.m_axis_video_tuser(tuser),
+#         .m_axis_video_tlast(tlast),.m_axis_video_tvalid(tvalid),
+#         .m_axis_video_tdata(tdata),.O_fifo_overflows(overflows),
+#         .O_overflow_pulse(overflow_pulse)
+#     );
+#     reg [23:0] hdr_data=0;
+#     wire [7:0] hdr_ecc;
+#     csi_rx_hdr_ecc header_encoder(.data(hdr_data),.ecc(hdr_ecc));
+#     reg crc_init=0, crc_en=0;
+#     reg [7:0] crc_byte=0;
+#     wire [15:0] ref_crc;
+#     // Actual vendor DSI checksum RTL, independent from parser's bit-serial
+#     // function. No PHY/PLL primitive is modeled by this digital protocol test.
+#     crc16_8b golden_crc(.clk(clk),.rst(!reset_n),.init(crc_init),
+#         .din(crc_byte),.din_en(crc_en),.crc(ref_crc));
+# 
+#     reg [39:0] expected_data[0:40000];
+#     reg expected_last[0:40000];
+#     reg expected_user[0:40000];
+#     integer expected_n=0,actual_n=0,payload_total=0;
+#     integer stream_sofs=0,stream_lasts=0;
+#     reg [7:0] bytes[0:8191];
+#     reg [7:0] lfsr=8'hd7;
+#     reg stalled=0;
+#     reg [41:0] held;
+#     always @(negedge video_clk) begin
+#         lfsr={lfsr[6:0],lfsr[7]^lfsr[5]^lfsr[4]^lfsr[3]};
+#         ready=reset_n && allow_reads && (lfsr[1:0]!=0);
+#     end
+#     always @(posedge video_clk) begin
+#         if(reset_n) begin
+#             if(stalled && (!tvalid || {tdata,tlast,tuser}!==held))
+#                 $fatal(1,"AXI payload/markers changed while stalled at %0d",actual_n);
+#             stalled=tvalid && !ready;
+#             held={tdata,tlast,tuser};
+#             if(tvalid && ready) begin
+#                 if(actual_n>=expected_n) $fatal(1,"Unexpected pixel group %0d",actual_n);
+#                 if(tdata!==expected_data[actual_n] || tlast!==expected_last[actual_n] || tuser!==expected_user[actual_n])
+#                     $fatal(1,"Stream mismatch at %0d data=%h exp=%h last=%b/%b user=%b/%b",actual_n,tdata,expected_data[actual_n],tlast,expected_last[actual_n],tuser,expected_user[actual_n]);
+#                 if(tlast) stream_lasts=stream_lasts+1;
+#                 if(tuser) stream_sofs=stream_sofs+1;
+#                 actual_n=actual_n+1;
+#             end
+#         end else stalled=0;
+#     end
+#     always @(posedge clk) begin
+#         if(payload_valid) payload_total=payload_total+payload_bytes;
+#         if(unpack_error) $fatal(1,"RAW10 unpack shape error");
+#     end
+#     task automatic idle(input integer cycles);
+#         begin
+#             @(negedge clk); in_valid=0; in_data=0;
+#             repeat(cycles) @(negedge clk);
+#         end
+#     endtask
+#     task automatic word(input reg [31:0] value);
+#         begin
+#             @(negedge clk); in_valid=1; in_data=value;
+#         end
+#     endtask
+#     task automatic header(input reg [5:0] dt,input integer count,input reg [1:0] vc,input reg bad_ecc);
+#         reg [31:0] h;
+#         begin
+#             wait(sync_wait); @(negedge clk);
+#             hdr_data={count[15:0],vc,dt}; #0.1;
+#             h={hdr_ecc,hdr_data};
+#             if(bad_ecc) h[24]=!h[24];
+#             in_valid=1; in_data=h;
+#         end
+#     endtask
+#     task automatic short_packet(input reg [5:0] dt,input integer index);
+#         begin header(dt,index,0,0); idle(12); end
+#     endtask
+#     task automatic send_line(input integer width,input integer row,input integer frame_id,input integer gap_mod,input reg bad_crc,input reg enqueue);
+#         integer g,p,n,j,wc,start_n,before_payload;
+#         reg [9:0] pixel[0:3];
+#         reg [15:0] c;
+#         reg [31:0] w;
+#         begin
+#             wc=(width/4)*5;
+#             before_payload=payload_total;
+#             start_n=expected_n;
+#             // All 10 bits vary independently and encode position/frame/row.
+#             for(g=0;g<width/4;g=g+1) begin
+#                 for(p=0;p<4;p=p+1)
+#                     pixel[p]=(g*4+p+row*67+frame_id*149)^((g*13+p*17)<<2);
+#                 bytes[g*5+0]=pixel[0][9:2]; bytes[g*5+1]=pixel[1][9:2];
+#                 bytes[g*5+2]=pixel[2][9:2]; bytes[g*5+3]=pixel[3][9:2];
+#                 bytes[g*5+4]={pixel[3][1:0],pixel[2][1:0],pixel[1][1:0],pixel[0][1:0]};
+#                 if(enqueue) begin
+#                     expected_data[expected_n]={pixel[3],pixel[2],pixel[1],pixel[0]};
+#                     expected_last[expected_n]=g==width/4-1;
+#                     expected_user[expected_n]=row==0 && g==0;
+#                     expected_n=expected_n+1;
+#                 end
+#             end
+#             @(negedge clk); crc_init=1;
+#             @(negedge clk); crc_init=0; crc_en=1;
+#             for(n=0;n<wc;n=n+1) begin
+#                 crc_byte=bytes[n]; @(negedge clk);
+#             end
+#             crc_en=0; c=ref_crc;
+#             if(bad_crc) c=c^16'h0100;
+#             bytes[wc]=c[7:0]; bytes[wc+1]=c[15:8];
+#             bytes[wc+2]=8'hbf;bytes[wc+3]=8'h51;bytes[wc+4]=8'h2b;
+#             header(6'h2b,wc,0,0);
+#             for(n=0;n<wc+2;n=n+4) begin
+#                 w=0;
+#                 for(j=0;j<4;j=j+1) w[j*8+:8]=bytes[n+j];
+#                 word(w);
+#                 if(n+4<wc+2 && gap_mod!=0 && ((n/4)%gap_mod)==gap_mod-1) idle(1+(n%3));
+#             end
+#             // Deliberately valid tail words: parser must not emit CRC/padding.
+#             word(32'hdeadbeef); word(32'hdeadbeef); idle(12);
+#             if(payload_total-before_payload!=wc)
+#                 $fatal(1,"WC clipping failed width=%0d payload=%0d expected=%0d",width,payload_total-before_payload,wc);
+#             if(enqueue) begin
+#                 wait(actual_n==expected_n); idle(3);
+#                 $display("PASS RAW line width=%0d WC=%0d groups=%0d gap=%0d CRCbad=%0d",width,wc,expected_n-start_n,gap_mod,bad_crc);
+#             end
+#         end
+#     endtask
+#     integer n,check_packets;
+#     initial begin
+#         #40; @(negedge clk); reset_n=1; idle(20);
+#         short_packet(0,1);
+#         send_line(4,0,1,0,0,1);
+#         send_line(8,1,1,2,0,1);
+#         send_line(12,2,1,0,0,1);
+#         send_line(16,3,1,3,0,1);
+#         send_line(20,4,1,0,0,1);
+#         short_packet(1,1);
+#         // The actual IMX415 lines are divisible by five, not necessarily four.
+#         short_packet(0,2);
+#         send_line(1944,0,2,0,0,1);
+#         send_line(1944,1,2,7,0,1);
+#         send_line(3888,2,2,11,0,1);
+#         send_line(1920,3,2,0,0,1);
+#         send_line(1280,4,2,0,0,1);
+#         short_packet(1,2);
+#         if(raw_packets!=10 || crc_errors!=0 || wc_errors!=0 || ecc_errors!=0 || timeouts!=0)
+#             $fatal(1,"Unexpected nominal counters packets=%0d crc=%0d wc=%0d ecc=%0d timeout=%0d",raw_packets,crc_errors,wc_errors,ecc_errors,timeouts);
+#         check_packets=raw_packets;
+#         short_packet(0,3);
+#         // CRC diagnosis is intentionally streaming: data is emitted before CRC
+#         // verdict. It must be counted, not mislabeled as discarded/corrected.
+#         send_line(1944,0,3,0,1,1);
+#         short_packet(1,3);
+#         if(crc_errors!=1 || raw_packets!=check_packets) $fatal(1,"Bad CRC not counted");
+#         // Inconsistent RAW10 byte count is not forwarded to the unpacker.
+#         header(6'h2b,7,0,0); word(32'h11223344); word(32'h55667788); word(32'h00001234); idle(12);
+#         if(wc_errors!=1) $fatal(1,"Malformed WC not counted");
+#         header(6'h2b,10,0,1); idle(12);
+#         if(ecc_errors!=1) $fatal(1,"Bad ECC not counted");
+#         header(6'h2b,20,0,0); idle(80);
+#         if(timeouts!=1) $fatal(1,"Missing payload timeout not counted");
+#         // A non-selected VC must not affect frame state or RAW pixels.
+#         n=payload_total;
+#         header(0,42,1,0); idle(12);
+#         if(frame) $fatal(1,"Other-VC frame start leaked");
+#         if(payload_total!=n || overflows!=0) $fatal(1,"Unexpected VC data/overflow");
+#         if(stream_lasts!=11 || stream_sofs!=3) $fatal(1,"Incorrect boundary counts");
+#         allow_reads=0; idle(12);
+#         force stream.I_dout_unpack_valid=1'b1;
+#         force stream.I_dout_unpack_last=1'b0;
+#         force stream.I_data_unpack=40'h1122334455;
+#         repeat(9000) @(negedge clk);
+#         release stream.I_dout_unpack_valid;
+#         release stream.I_dout_unpack_last;
+#         release stream.I_data_unpack;
+#         idle(5);
+#         if(overflows!=809) $fatal(1,"FIFO drop counter incorrect %0d expected809",overflows);
+#         $display("PASS FIFO full: 8191 stored groups / 809 explicitly counted rejected groups");
+#         @(negedge clk); reset_n=0; idle(15);
+#         reset_n=1; allow_reads=1; idle(20);
+#         if(overflows!=0 || raw_packets!=0) $fatal(1,"Receiver reset did not clear state/counters");
+#         short_packet(0,4); send_line(1944,0,4,3,0,1); short_packet(1,4);
+#         test_done=1; $display("PASS CSI integrity groups=%0d SOF=%0d TLAST=%0d CRC/ECC/WC/timeout counters verified; actual vendor sfifo RAM+CDC and DSI crc16 RTL used",actual_n,stream_sofs,stream_lasts);
+#         $finish;
+#     end
+#     initial begin #5000000; $fatal(1,"CSI integrity simulation timeout"); end
+# endmodule
+# 
+# binary_write tb_csi_integrity_generated.sv $main_tb
+# binary_write tb_counter_event_equivalence.sv {
+# `timescale 1ns/1ps
+# module tb_counter_event_equivalence;
+#     reg clk=0;
+#     always #2.5 clk=~clk;
+#     reg reset_n=0,enable=1,count_enable=1,in_valid=0;
+#     reg [31:0] in_data=0;
+#     wire [42:0] candidate_control,reference_control;
+#     wire [159:0] candidate_counts,reference_counts;
+#     wire candidate_sync,reference_sync;
+#     wire [31:0] cp,rp;
+#     wire [2:0] cb,rb;
+#     wire cd,cv,cl,cf,ci,cil,ce,rd,rv,rl,rf,ri,ril,re;
+#     wire [31:0] cr,cc,cec,cw,ct,rr,rc,rec,rw,rt;
+#     csi_rx_packet_handler #(.GAP_TIMEOUT(64)) candidate(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),.I_count_enable(count_enable),
+#         .I_data(in_data),.I_data_valid(in_valid),.O_packet_done(cd),.O_sync_wait(candidate_sync),
+#         .O_payload_out(cp),.O_payload_valid(cv),.O_payload_bytes(cb),.O_payload_last(cl),
+#         .O_vsync_out(cf),.O_in_frame(ci),.O_in_line(cil),.O_packet_error(ce),
+#         .O_raw_packets(cr),.O_crc_errors(cc),.O_ecc_errors(cec),.O_wc_errors(cw),.O_timeout_errors(ct));
+#     csi_rx_packet_handler_reference #(.GAP_TIMEOUT(64)) reference(
+#         .I_clock(clk),.I_reset_n(reset_n),.I_enable(enable),.I_count_enable(count_enable),
+#         .I_data(in_data),.I_data_valid(in_valid),.O_packet_done(rd),.O_sync_wait(reference_sync),
+#         .O_payload_out(rp),.O_payload_valid(rv),.O_payload_bytes(rb),.O_payload_last(rl),
+#         .O_vsync_out(rf),.O_in_frame(ri),.O_in_line(ril),.O_packet_error(re),
+#         .O_raw_packets(rr),.O_crc_errors(rc),.O_ecc_errors(rec),.O_wc_errors(rw),.O_timeout_errors(rt));
+#     assign candidate_control={cp,cb,cd,candidate_sync,cv,cl,cf,ci,cil,ce};
+#     assign reference_control={rp,rb,rd,reference_sync,rv,rl,rf,ri,ril,re};
+#     assign candidate_counts={cr,cc,cec,cw,ct};
+#     assign reference_counts={rr,rc,rec,rw,rt};
+#     reg [159:0] previous_reference_counts=0;
+#     integer compared_cycles=0,qualified_cases=0,blocked_cases=0;
+#     reg test_done=0;
+#     // The exact golden count is delayed one clock, rather than relaxed.
+#     // Async reset discards the pending event and clears the delay scoreboard.
+#     always @(posedge clk or negedge reset_n) begin
+#         if(!reset_n) begin
+#             previous_reference_counts=0;
+#             #0.2;
+#             if(candidate_counts!==160'b0 || reference_counts!==160'b0)
+#                 $fatal(1,"Asynchronous counter reset mismatch");
+#         end else begin
+#             #0.2;
+#             if(candidate_control!==reference_control)
+#                 $fatal(1,"Protocol/control changed candidate=%h reference=%h",candidate_control,reference_control);
+#             if(candidate_counts!==previous_reference_counts)
+#                 $fatal(1,"One-cycle exact counter mismatch candidate=%h golden_delayed=%h",candidate_counts,previous_reference_counts);
+#             previous_reference_counts=reference_counts;
+#             compared_cycles=compared_cycles+1;
+#         end
+#     end
+#     reg [23:0] hdr_data=0;
+#     wire [7:0] hdr_ecc;
+#     csi_rx_hdr_ecc encoder(.data(hdr_data),.ecc(hdr_ecc));
+#     function automatic [15:0] stimulus_crc;
+#         input [15:0] crc;
+#         input [7:0] data;
+#         reg [15:0] v;
+#         integer bitno;
+#         begin
+#             v=crc;
+#             for(bitno=0;bitno<8;bitno=bitno+1)
+#                 if(v[0]^data[bitno])v=(v>>1)^16'h8408;
+#                 else v=v>>1;
+#             stimulus_crc=v;
+#         end
+#     endfunction
+#     task automatic idle(input integer cycles);
+#         begin
+#             @(negedge clk);in_valid=0;in_data=0;
+#             repeat(cycles)@(negedge clk);
+#         end
+#     endtask
+#     task automatic header(input [5:0] dt,input integer wc,input bad_ecc);
+#         reg [31:0] h;
+#         begin
+#             wait(candidate_sync && reference_sync);
+#             @(negedge clk);hdr_data={wc[15:0],2'b00,dt};#0.1;
+#             h={hdr_ecc,hdr_data};if(bad_ecc)h[24]=~h[24];
+#             in_data=h;in_valid=1;
+#         end
+#     endtask
+#     task automatic word(input [31:0] value);
+#         begin @(negedge clk);in_data=value;in_valid=1;end
+#     endtask
+#     task automatic raw5(input bad_crc);
+#         reg [15:0] c;
+#         begin
+#             header(0,0,0);idle(12);
+#             c=16'hffff;
+#             c=stimulus_crc(c,8'h13);c=stimulus_crc(c,8'h27);
+#             c=stimulus_crc(c,8'h91);c=stimulus_crc(c,8'h3a);c=stimulus_crc(c,8'hc5);
+#             if(bad_crc)c=c^16'h0100;
+#             header(6'h2b,5,0);word(32'h3a912713);word({8'h55,c[15:8],c[7:0],8'hc5});
+#         end
+#     endtask
+#     // Returns immediately after the decision clock; live gates reverse before
+#     // the counter clock. Counts must follow the earlier captured qualification.
+#     task automatic event_case(input integer kind,input qualified);
+#         begin
+#             @(negedge clk);enable=1;count_enable=qualified;in_valid=0;
+#             case(kind)
+#                 0:raw5(0);
+#                 1:raw5(1);
+#                 2:header(6'h2b,10,1);
+#                 3:header(6'h2b,7,0);
+#                 4:begin
+#                     header(6'h2b,10,0);
+#                     @(negedge clk);in_valid=0;
+#                     repeat(63)@(negedge clk);
+#                     // The next posedge is the 64th empty body cycle.
+#                 end
+#             endcase
+#             @(posedge clk);#0.4;
+#             @(negedge clk);count_enable=~qualified;enable=0;in_valid=0;
+#             repeat(4)@(negedge clk);
+#             enable=1;idle(12);
+#             if(qualified)qualified_cases=qualified_cases+1;
+#             else blocked_cases=blocked_cases+1;
+#         end
+#     endtask
+#     integer kind;
+#     initial begin
+#         #30;@(negedge clk);reset_n=1;idle(12);
+#         for(kind=0;kind<5;kind=kind+1)begin
+#             event_case(kind,1);event_case(kind,0);
+#         end
+#         idle(4);
+#         if(candidate_counts!=={32'd1,32'd1,32'd1,32'd1,32'd1})
+#             $fatal(1,"Qualified/blocked event totals incorrect: %h",candidate_counts);
+#         $display("PASS event qualification: five captured-enabled events survive live gates off; five captured-disabled events remain blocked after gates on");
+#         // Drop a newly registered ECC event by asserting reset between clocks.
+#         @(negedge clk);enable=1;count_enable=1;
+#         header(6'h2b,10,1);@(posedge clk);#0.4;reset_n=0;in_valid=0;
+#         #0.5;
+#         if(candidate_counts!==160'b0 || reference_counts!==160'b0)
+#             $fatal(1,"Reset did not clear pending diagnostics");
+#         repeat(3)@(negedge clk);reset_n=1;idle(12);
+#         if(candidate_counts!==160'b0)$fatal(1,"Pending pre-reset event reappeared");
+#         event_case(2,1);idle(4);
+#         if(candidate_counts!=={32'd0,32'd0,32'd1,32'd0,32'd0})
+#             $fatal(1,"Post-reset exact totals incorrect");
+#         test_done=1;
+#         $display("PASS one-cycle counter/control equivalence cycles=%0d qualified=%0d blocked=%0d reset_pending_event_verified",compared_cycles,qualified_cases,blocked_cases);
+#         $finish;
+#     end
+#     initial begin #100000;$fatal(1,"Counter equivalence simulation timeout");end
+# endmodule
+# }
+# set crc_vendor E:/qianrufpga/fpga-lab/examples/06_csi_2_dsi_imx415_7cun/uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v
+# E:/qianrufpga/fpga-lab/examples/06_csi_2_dsi_imx415_7cun/uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v
+# vlog -work csi_fast -sv [file join $parser_dir csi_rx_hdr_ecc.v] \
+#     [file join $test_root tools csi_rx_packet_handler_fast.v] \
+#     [file join $parser_dir csi_rx_10bit_unpack.v] [file join $parser_dir csi_rx_vid2stream.v] \
+#     [file join $parser_dir sfifo.v] $crc_vendor tb_csi_integrity_generated.sv \
+#     parser_reference.v tb_counter_event_equivalence.sv
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 23:36:09 on Oct 04,2026
+# vlog -work csi_fast -sv E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_hdr_ecc.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/csi_rx_packet_handler_fast.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_10bit_unpack.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/csi_rx_vid2stream.v E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/sfifo.v E:/qianrufpga/fpga-lab/examples/06_csi_2_dsi_imx415_7cun/uisrc/03_ip/dsi/hdl_source/display_config/crc16_8b.v tb_csi_integrity_generated.sv parser_reference.v tb_counter_event_equivalence.sv 
+# -- Compiling module csi_rx_hdr_ecc
+# -- Compiling module csi_rx_packet_handler
+# -- Compiling module csi_rx_10bit_unpack
+# -- Compiling module csi_rx_vid2stream
+# -- Compiling module mipi_sfifo
+# -- Compiling module fifo_cross_domain_addr_process_al_0322d65db018
+# -- Compiling module ram_infer_0322d65db018
+# -- Compiling module crc16_8b
+# -- Compiling module tb_csi_integrity
+# -- Compiling module csi_rx_packet_handler_reference
+# -- Compiling module tb_counter_event_equivalence
+# 
+# Top level modules:
+# 	tb_csi_integrity
+# 	tb_counter_event_equivalence
+# End time: 23:36:09 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs=+acc -onfinish stop csi_fast.tb_csi_integrity
+# vsim -c -voptargs="+acc" -onfinish stop csi_fast.tb_csi_integrity 
+# Start time: 23:36:09 on Oct 04,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "csi_rx_packet_handler(fast)".
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/sfifo.v(221): (vopt-2685) [TFMPC] - Too few port connections for 'ram_inst'.  Expected 16, found 14.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/sfifo.v(221): (vopt-2718) [TFMPC] - Missing connection for port 'dib'.
+# ** Warning: E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/fpga/uisrc/03_ip/mipi_csi_2/sfifo.v(221): (vopt-2718) [TFMPC] - Missing connection for port 'doa'.
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_csi_integrity(fast)
+# Loading work.csi_rx_packet_handler(fast)
+# Loading work.csi_rx_hdr_ecc(fast)
+# Loading work.csi_rx_10bit_unpack(fast)
+# Loading work.csi_rx_vid2stream(fast)
+# Loading work.mipi_sfifo(fast)
+# Loading work.fifo_cross_domain_addr_process_al_0322d65db018(fast)
+# Loading work.ram_infer_0322d65db018(fast)
+# Loading work.crc16_8b(fast)
+# run -all
+# PASS RAW line width=4 WC=5 groups=1 gap=0 CRCbad=0
+# PASS RAW line width=8 WC=10 groups=2 gap=2 CRCbad=0
+# PASS RAW line width=12 WC=15 groups=3 gap=0 CRCbad=0
+# PASS RAW line width=16 WC=20 groups=4 gap=3 CRCbad=0
+# PASS RAW line width=20 WC=25 groups=5 gap=0 CRCbad=0
+# PASS RAW line width=1944 WC=2430 groups=486 gap=0 CRCbad=0
+# PASS RAW line width=1944 WC=2430 groups=486 gap=7 CRCbad=0
+# PASS RAW line width=3888 WC=4860 groups=972 gap=11 CRCbad=0
+# PASS RAW line width=1920 WC=2400 groups=480 gap=0 CRCbad=0
+# PASS RAW line width=1280 WC=1600 groups=320 gap=0 CRCbad=0
+# PASS RAW line width=1944 WC=2430 groups=486 gap=0 CRCbad=1
+# PASS FIFO full: 8191 stored groups / 809 explicitly counted rejected groups
+# PASS RAW line width=1944 WC=2430 groups=486 gap=3 CRCbad=0
+# PASS CSI integrity groups=3731 SOF=4 TLAST=12 CRC/ECC/WC/timeout counters verified; actual vendor sfifo RAM+CDC and DSI crc16 RTL used
+# ** Note: $finish    : tb_csi_integrity_generated.sv(220)
+#    Time: 177380 ns  Iteration: 1  Instance: /tb_csi_integrity
+# Break in Module tb_csi_integrity at tb_csi_integrity_generated.sv line 220
+# End time: 23:36:12 on Oct 04,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 3

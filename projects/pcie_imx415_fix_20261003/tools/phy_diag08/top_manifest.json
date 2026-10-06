@@ -1,0 +1,27 @@
+{
+  "status": "candidate only, not integrated or hardware tested",
+  "source07_top_sha256": "1dfe6e9303db139b23a297222d1158f206911d9da51703bb6fd673cd5e1edadf",
+  "candidate_top_sha256": "fe69b14bcfd4aadd6b4debfa1d5e6d9cb6978ceb9278bc2c4142a66550339df7",
+  "read_range": "0x0040..0x011C only, 16-bit decode; 0x0128 IRQ alias excluded",
+  "register_map": {
+    "0xe0": "{25'd0,reg_phy_control}",
+    "0xe4": "phy_diag0_status",
+    "0xe8": "phy_diag0[31:0]",
+    "0xec": "phy_diag0[63:32]",
+    "0xf0": "phy_diag0[95:64]",
+    "0xf4": "phy_diag0[127:96]",
+    "0xf8": "phy_diag0[159:128]",
+    "0xfc": "phy_diag0[191:160]",
+    "0x100": "phy_diag1_status",
+    "0x104": "phy_diag1[31:0]",
+    "0x108": "phy_diag1[63:32]",
+    "0x10c": "phy_diag1[95:64]",
+    "0x110": "phy_diag1[127:96]",
+    "0x114": "phy_diag1[159:128]",
+    "0x118": "phy_diag1[191:160]",
+    "0x11c": "{24'd0,phy_diag0[175:168]}"
+  },
+  "manual_default": 0,
+  "manual_is_diagnostic": true,
+  "calibration_best_window_remains_actual": true
+}

@@ -1,0 +1,121 @@
+{
+  "name": "fpga_prj",
+  "device": "PH1A90SEG324",
+  "speed": "-2",
+  "top": "rtc_clock_ds1337",
+  "td_version": "6.2.200067",
+  "project_root": "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc",
+  "source_files": [
+    "uisrc/01_rtl/rtc_clock_ds1337.v",
+    "uisrc/03_ip/uart_tx_block.v",
+    "uisrc/03_ip/uii2c.v",
+    "uisrc/03_ip/uiuart_tx.v",
+    "uisrc/04_pin/fpga_pin.adc",
+    "uisrc/04_pin/timing.sdc"
+  ],
+  "project": "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/fpga_prj.al",
+  "errors": [],
+  "warnings": [],
+  "direct_build": {
+    "schema": 2,
+    "project": "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/fpga_prj.al",
+    "project_sha256": "ddfacdd3350d5a524658b7ec9d5036100971f6b8255cee37c008fc72a7e9ab66",
+    "project_size": 4114,
+    "project_mtime": 1791181020,
+    "name": "fpga_prj",
+    "top": "rtc_clock_ds1337",
+    "device_db": "ph1_90.db",
+    "package": "PH1A90SEG324",
+    "speed": 2,
+    "syn_run": "syn_1",
+    "phy_run": "phy_1",
+    "area_option": "-packarea",
+    "mtbf_mandatory": 0,
+    "adc": [
+      "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/uisrc/04_pin/fpga_pin.adc"
+    ],
+    "sdc": [
+      "E:/qianrufpga/fpga-lab/projects/demo_repair_20261004/03_iic_rtc/uisrc/04_pin/timing.sdc"
+    ],
+    "ip_adc": [],
+    "ip_sdc": [],
+    "stage_files": [
+      [
+        "fpga_prj.al",
+        4114,
+        1791181020,
+        "ddfacdd3350d5a524658b7ec9d5036100971f6b8255cee37c008fc72a7e9ab66"
+      ],
+      [
+        "uisrc/01_rtl/rtc_clock_ds1337.v",
+        7697,
+        1791181197,
+        "7a3aa3e1d285c5328b1701ef4a3eb0f766f7e4bbc796ffcec761fd2e910668d3"
+      ],
+      [
+        "uisrc/03_ip/uart_tx_block.v",
+        4728,
+        1791181197,
+        "e662899eddeed8b4804b470a1b1eaeeaa91c65d28a6ab95c7b2a5abf827e7a48"
+      ],
+      [
+        "uisrc/03_ip/uii2c.v",
+        11606,
+        1781565984,
+        "2094ec4b16811866f01bbd813a8fca7f04741a33b4e52524cd2ca87dc7400e6b"
+      ],
+      [
+        "uisrc/03_ip/uiuart_tx.v",
+        5323,
+        1781565990,
+        "df55e1ad9d9e860f2fd3b71412adaab8e7c9f6635b153c5398d5bb4793802bc6"
+      ],
+      [
+        "uisrc/04_pin/fpga_pin.adc",
+        356,
+        1768694074,
+        "180aa7e9d31bfd9e69eccb0723de5f96ad19d8e094430b25182df8f83ae2d731"
+      ],
+      [
+        "uisrc/04_pin/timing.sdc",
+        325,
+        1791184110,
+        "901bd92492834c45fd34bf615e3cc499f7d348166854af9fcf9b0ea5f3de06ae"
+      ]
+    ],
+    "excluded_ip_constraints": [],
+    "validation": "Configuration parsed only; direct template TD execution pending"
+  },
+  "ip_files": [],
+  "pin_inventory": [
+    {
+      "signal": "I_sysclk",
+      "location": "T16",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    },
+    {
+      "signal": "O_iic_scl",
+      "location": "N14",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    },
+    {
+      "signal": "IO_iic_sda",
+      "location": "U16",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    },
+    {
+      "signal": "O_uart_tx",
+      "location": "U11",
+      "iostandard": "LVCMOS18",
+      "file": "uisrc/04_pin/fpga_pin.adc",
+      "direct_project_constraint": true
+    }
+  ],
+  "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."
+}

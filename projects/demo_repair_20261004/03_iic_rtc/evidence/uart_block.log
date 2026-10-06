@@ -1,0 +1,56 @@
+# do run_uart.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 23:29:55 on Oct 04,2026
+# vlog ../uisrc/03_ip/uiuart_tx.v ../uisrc/03_ip/uart_tx_block.v 
+# -- Compiling module ui_uart_tx
+# -- Compiling module ui_uart_tx_block
+# 
+# Top level modules:
+# 	ui_uart_tx_block
+# End time: 23:29:55 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 23:29:55 on Oct 04,2026
+# vlog -sv tb_uart_block.sv 
+# -- Compiling module uart_case
+# -- Compiling module tb_uart_block
+# 
+# Top level modules:
+# 	tb_uart_block
+# End time: 23:29:55 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_uart_block 
+# Start time: 23:29:55 on Oct 04,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_uart_block(fast)
+# Loading work.uart_case(fast)
+# Loading work.ui_uart_tx_block(fast)
+# Loading work.ui_uart_tx(fast)
+# Loading work.uart_case(fast__1)
+# Loading work.ui_uart_tx_block(fast__1)
+# Loading work.uart_case(fast__2)
+# Loading work.ui_uart_tx_block(fast__2)
+# UART PASS N=1 packets=2 bytes=2
+# UART PASS N=10 packets=2 bytes=20
+# UART PASS N=16 packets=2 bytes=32
+# ALL UART BLOCK CHECKS PASS
+# ** Note: $stop    : tb_uart_block.sv(54)
+#    Time: 356200 ns  Iteration: 2  Instance: /tb_uart_block
+# Break in Module tb_uart_block at tb_uart_block.sv line 54
+# End time: 23:29:57 on Oct 04,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

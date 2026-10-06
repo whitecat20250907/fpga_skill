@@ -1,0 +1,751 @@
+--- driver05/anlogic_pci_lib.c
++++ driver06/anlogic_pci_lib.c
+@@ -1335,12 +1335,14 @@
+ int sgdma_engine_stop(struct anlogic_dma_engine *engine)
+ {
+ 	u32 w;
+-	struct anlogic_dev *sgdev = engine->sgdev;
+ 
+ 	if (!engine) {
+ 		pr_err("dma engine NULL\n");
+ 		return -EINVAL;
+ 	}
++	/* Caller holds engine->lock, except before the engine is published. */
++	engine->poll_generation++;
++	engine->running = 0;
+ 	dbg_tfr("%s(engine=%p)\n", __func__, engine);
+ 
+ #if DESC_BYPASS
+@@ -1379,8 +1381,46 @@
+ 	 * This read is a bus flush, not proof that hardware BUSY is clear. */
+ 	(void)read_register(&engine->regs->status);
+ 	dbg_tfr("%s(%s) done\n", __func__, engine->name);
+-	engine->running = 0;
+ 	return 0;
++}
++
++/* Process context only, with no engine spinlock held. The synchronous submit
++ * caller keeps desc_lock and its request/SG mappings until this returns.
++ * A signal or deadline is not permission to free memory still owned by DMA. */
++static void engine_wait_stopped(struct anlogic_dma_engine *engine)
++{
++	unsigned long flags;
++	unsigned long warn_after = jiffies + HZ;
++	u32 status, control;
++
++	for (;;) {
++		spin_lock_irqsave(&engine->lock, flags);
++		status = read_register(&engine->regs->status);
++		control = read_register(&engine->regs->control);
++		if (!(status & SGDMA_STAT_BUSY) &&
++		    !(control & SGDMA_CTRL_RUN_STOP)) {
++			struct sgdma_poll_wb *wb_data =
++				(struct sgdma_poll_wb *)engine->poll_mode_addr_virt;
++
++			/* Engine idle is distinct from the software poll generation. */
++			dma_rmb();
++			if (wb_data) {
++				WRITE_ONCE(wb_data->completed_desc_count, 0);
++				dma_wmb();
++			}
++			engine->dma_quiescing = false;
++			spin_unlock_irqrestore(&engine->lock, flags);
++			return;
++		}
++		spin_unlock_irqrestore(&engine->lock, flags);
++		if (time_after(jiffies, warn_after)) {
++			pr_err_ratelimited("%s: STOP not confirmed (status=0x%08x control=0x%08x); retaining DMA mappings until RUN=0/BUSY=0\n",
++					   engine->name, status, control);
++		}
++		/* Deliberately uninterruptible: returning would let a killed reader
++		 * or STREAMOFF release an externally owned vb2/user buffer. */
++		usleep_range(1000, 2000);
++	}
+ }
+ 
+ struct sgdma_request_cb * sgdma_request_alloc(unsigned int sdesc_nr)
+@@ -1573,6 +1613,8 @@
+ 		pr_err("dma engine NULL\n");
+ 		return NULL;
+ 	}
++	if (engine->poll_removing || engine->dma_quiescing)
++		return NULL;
+ 
+ 	/* engine must be idle */
+ 	if (engine->running) {
+@@ -1598,6 +1640,8 @@
+ 
+ 	/* engine is no longer shutdown */
+ 	engine->shutdown = ENGINE_SHUTDOWN_NONE;
++	/* Invalidate the previous run before programming any new descriptors. */
++	engine->poll_generation++;
+ 
+ 	dbg_tfr("%s(%s): transfer=0x%p.\n", __func__, engine->name, transfer);
+ 	if (engine->streaming && engine->dir == DMA_FROM_DEVICE)
+@@ -1802,6 +1846,7 @@
+ 			 transfer->desc_num);
+ 
+ 	 /* mark transfer as failed */
++	 engine->dma_quiescing = true;
+ 	 transfer->state = TRANSFER_STATE_FAILED;
+ 	 rv = sgdma_engine_stop(engine);
+ 	 if (rv < 0)
+@@ -2144,34 +2189,46 @@
+ 	spin_unlock_irqrestore(&engine->lock, flags);
+ }
+ 
+-static u32 engine_service_wb_monitor(struct anlogic_dma_engine *engine,
+-					 u32 expected_wb)
++/* Caller holds engine->lock. Never dereference a transfer outside this lock. */
++static bool engine_poll_valid_locked(struct anlogic_dma_engine *engine,
++                                    u64 generation)
++{
++	return !engine->poll_removing && engine->running &&
++	       engine->poll_generation == generation &&
++	       (engine->cyclic_req || !list_empty(&engine->transfer_list));
++}
++
++/* The worker owns an engine lifetime lease, but not a transfer pointer. */
++static int engine_service_wb_monitor(struct anlogic_dma_engine *engine,
++                                    u32 expected_wb, u64 generation,
++                                    u32 *completed_wb)
+ {
+ 	struct sgdma_poll_wb *wb_data;
+ 	u32 desc_wb = 0;
+ 	u32 reg_desc_wb = 0;
+ 	u32 sched_limit = 0;
+-	unsigned long timeout;
+-
+-	if (!engine) {
+-		pr_err("dma engine NULL\n");
+-		return -EINVAL;
+-	}
+-	wb_data = (struct sgdma_poll_wb *)engine->poll_mode_addr_virt;
+-
+-	/*
+-	 * Poll the writeback location for the expected number of
+-	 * descriptors / error events This loop is skipped for cyclic mode,
+-	 * where the expected_desc_count passed in is zero, since it cannot be
+-	 * determined before the function is called
+-	 */
+-
+-	timeout = jiffies + (POLL_TIMEOUT_SECONDS * HZ);
+-	while (expected_wb != 0) {
+-		desc_wb = wb_data->completed_desc_count;
+-
++	unsigned long flags;
++	unsigned long timeout = jiffies + (POLL_TIMEOUT_SECONDS * HZ);
++
++	*completed_wb = 0;
++	if (!expected_wb)
++		return 0;
++
++	for (;;) {
++		/* Cancellation/restart cannot race the WB read or clear. */
++		spin_lock_irqsave(&engine->lock, flags);
++		if (!engine_poll_valid_locked(engine, generation)) {
++			spin_unlock_irqrestore(&engine->lock, flags);
++			return -ECANCELED;
++		}
++		wb_data = (struct sgdma_poll_wb *)engine->poll_mode_addr_virt;
++		if (!wb_data) {
++			spin_unlock_irqrestore(&engine->lock, flags);
++			return -EINVAL;
++		}
++		desc_wb = READ_ONCE(wb_data->completed_desc_count);
+ 		if (desc_wb)
+-			wb_data->completed_desc_count = 0;
++			WRITE_ONCE(wb_data->completed_desc_count, 0);
+ 
+ 		if (!desc_wb && st_c2h_poll_reg_fallback_enabled(engine)) {
+ 			reg_desc_wb = read_register(&engine->regs->completed_desc_count);
+@@ -2182,94 +2239,92 @@
+ 			}
+ 		}
+ 
+-		if (desc_wb & WB_ERR_MASK)
+-			break;
+-		else if ((desc_wb & WB_COUNT_MASK) >= expected_wb)
+-			break;
+-
+-		/* prevent system from hanging in polled mode */
++		if ((desc_wb & WB_ERR_MASK) ||
++		    ((desc_wb & WB_COUNT_MASK) >= expected_wb)) {
++			/* Observe device payload/result writes before completion service. */
++			dma_rmb();
++			*completed_wb = desc_wb;
++			spin_unlock_irqrestore(&engine->lock, flags);
++			return 0;
++		}
++
++		/* Only a still-current, running transfer can time out. */
+ 		if (time_after(jiffies, timeout)) {
+-			pr_info("Polling timeout occurred");
+-			pr_info("desc_wb = 0x%08x, expected 0x%08x\n", desc_wb,
+-				expected_wb);
+-			if (!desc_wb && st_c2h_poll_reg_fallback_enabled(engine)) {
+-				reg_desc_wb = read_register(&engine->regs->completed_desc_count);
+-				if (reg_desc_wb) {
+-					desc_wb = reg_desc_wb;
+-					pr_info("%s: timeout fallback uses completed_desc_count=0x%08x.\n",
+-						engine->name, reg_desc_wb);
+-				}
+-			}
+-			if ((desc_wb & WB_COUNT_MASK) > expected_wb)
+-				desc_wb = expected_wb | WB_ERR_MASK;
+-
+-			break;
+-		}
+-
+-		/*
+-		 * Define NUM_POLLS_PER_SCHED to limit how much time is spent
+-		 * in the scheduler
+-		 */
+-		if (sched_limit != 0) {
+-			if ((sched_limit % NUM_POLLS_PER_SCHED) == 0)
+-				schedule();
+-
+-		}
+-		sched_limit++;
+-	}
+-
+-	return desc_wb;
+-}
+-
+-int engine_service_poll(struct anlogic_dma_engine *engine,
+-				   u32 expected_desc_count)
++			pr_info("%s: Polling timeout occurred: desc_wb=0x%08x, expected=0x%08x\n",
++				engine->name, desc_wb, expected_wb);
++			spin_unlock_irqrestore(&engine->lock, flags);
++			return -ETIMEDOUT;
++		}
++		spin_unlock_irqrestore(&engine->lock, flags);
++
++		/* Never sleep while holding either the engine or work-list lock. */
++		if (++sched_limit % NUM_POLLS_PER_SCHED == 0)
++			cond_resched();
++	}
++}
++
++int engine_service_poll_generation(struct anlogic_dma_engine *engine,
++                                  u32 expected_desc_count, u64 generation)
+ {
+ 	u32 desc_wb = 0;
+ 	unsigned long flags;
++	bool cyclic;
+ 	int rv = 0;
+ 
+-	dbg_tfr("%s service.\n", engine->name);
+-
+-	if (!engine) {
+-		pr_err("dma engine NULL\n");
+-		return -EINVAL;
+-	}
+-
++	if (!engine)
++		return -EINVAL;
++
++	spin_lock_irqsave(&engine->lock, flags);
+ 	if (engine->magic != MAGIC_ENGINE) {
+-		pr_err("%s has invalid magic number %lx\n", engine->name,
+-			   engine->magic);
+-		return -EINVAL;
+-	}
+-
+-	if (engine->cyclic_req == NULL) {
+-		/*
+-		 * Poll the writeback location for the expected number of
+-		 * descriptors / error events This loop is skipped for cyclic mode,
+-		 * where the expected_desc_count passed in is zero, since it cannot be
+-		 * determined before the function is called
+-		 */
+-		desc_wb = engine_service_wb_monitor(engine, expected_desc_count);
+-		if (!desc_wb) {
+-			pr_err("%s not get comp desc at this poll work.\n", engine->name);
+-			return 0;
+-		}
++		spin_unlock_irqrestore(&engine->lock, flags);
++		return -EINVAL;
++	}
++	if (!engine_poll_valid_locked(engine, generation)) {
++		spin_unlock_irqrestore(&engine->lock, flags);
++		return -ECANCELED;
++	}
++	cyclic = engine->cyclic_req != NULL;
++	spin_unlock_irqrestore(&engine->lock, flags);
++
++	if (!cyclic) {
++		rv = engine_service_wb_monitor(engine, expected_desc_count,
++					       generation, &desc_wb);
++		if (rv || !desc_wb)
++			return rv;
+ 	}
+ 
+ 	spin_lock_irqsave(&engine->lock, flags);
++	/* A stop/new start after the WB read must not service the new head. */
++	if (!engine_poll_valid_locked(engine, generation)) {
++		spin_unlock_irqrestore(&engine->lock, flags);
++		return -ECANCELED;
++	}
+ #if RANDOM_TEST
+ 	if (engine->rtest) {
+ 		rv = engine_service_rtest(engine, desc_wb);
+ 	} else
+ #endif
+-	if (engine->cyclic_req) {
++	if (engine->cyclic_req)
+ 		rv = engine_service_cyclic(engine);
+-	} else {
++	else
+ 		rv = engine_service(engine, desc_wb);
+-	}
+-
+ 	spin_unlock_irqrestore(&engine->lock, flags);
+-
+ 	return rv;
++}
++
++/* Keep the existing two-argument API for the synchronous cyclic caller. */
++int engine_service_poll(struct anlogic_dma_engine *engine,
++                        u32 expected_desc_count)
++{
++	unsigned long flags;
++	u64 generation;
++
++	if (!engine)
++		return -EINVAL;
++	spin_lock_irqsave(&engine->lock, flags);
++	generation = engine->poll_generation;
++	spin_unlock_irqrestore(&engine->lock, flags);
++	return engine_service_poll_generation(engine, expected_desc_count, generation);
+ }
+ 
+ /* transfer_queue() - Queue a DMA transfer on the engine
+@@ -2316,7 +2371,8 @@
+ 	put_cpu();
+ 
+ 	/* engine is being shutdown; do not accept new transfers */
+-	if (engine->shutdown & ENGINE_SHUTDOWN_REQUEST) {
++	if (engine->poll_removing || engine->dma_quiescing ||
++	    (engine->shutdown & ENGINE_SHUTDOWN_REQUEST)) {
+ 		pr_info("engine %s offline, transfer 0x%p not queued.\n",
+ 			engine->name, transfer);
+ 		rv = -EBUSY;
+@@ -2325,6 +2381,9 @@
+ 
+ 	/* mark the transfer as submitted */
+ 	transfer->state = TRANSFER_STATE_SUBMITTED;
++	/* A new head is a new poll identity, also for a still-running engine. */
++	if (list_empty(&engine->transfer_list))
++		engine->poll_generation++;
+ 	/* add transfer to the tail of the engine transfer queue */
+ 	list_add_tail(&transfer->entry, &engine->transfer_list);
+ 
+@@ -2448,10 +2507,12 @@
+ 	pr_info("abort transfer 0x%p, desc %d, engine desc queued %d.\n",
+ 		transfer, transfer->desc_num, engine->desc_dequeued);
+ 
+-	head = list_entry(engine->transfer_list.next, struct sgdma_transfer,
+-			  entry);
++	head = list_first_entry_or_null(&engine->transfer_list,
++				       struct sgdma_transfer, entry);
++	engine->dma_quiescing = true;
++	engine->poll_generation++;
+ 	if (head == transfer)
+-		list_del(engine->transfer_list.next);
++		list_del_init(&transfer->entry);
+ 	else
+ 		pr_info("engine %s, transfer 0x%p NOT found, 0x%p.\n",
+ 			engine->name, transfer, head);
+@@ -2836,19 +2897,16 @@
+ 				(wait_rv == 0 && timeout_ms > 0 ? "timeout" : "state error"),
+ 				req->ep_addr);
+ 			rv = engine_status_read(engine, 0, 1);
+-			if (rv < 0) {
++			if (rv < 0)
+ 				pr_err("Failed to read engine status\n");
+-			} else if (rv == 0) {
+-				//engine_status_dump(engine);
+-				rv = transfer_abort(engine, xfer);
+-				if (rv < 0) {
+-					pr_err("Failed to stop engine\n");
+-				} else if (rv == 0) {
+-					rv = sgdma_engine_stop(engine);
+-					if (rv < 0)
+-						pr_err("Failed to stop engine\n");
+-				}
+-			}
++			else
++				engine_status_dump(engine);
++			rv = transfer_abort(engine, xfer);
++			if (rv < 0)
++				pr_err("Failed to abort engine transfer\n");
++			rv = sgdma_engine_stop(engine);
++			if (rv < 0)
++				pr_err("Failed to stop engine\n");
+ 			spin_unlock_irqrestore(&engine->lock, flags);
+ 
+ #ifdef __LIBSGDMA_DEBUG__
+@@ -2860,6 +2918,8 @@
+ 			break;
+ 		}
+ 
++		if (rv < 0)
++			engine_wait_stopped(engine);
+ 		engine->desc_used -= xfer->desc_num;
+ 		transfer_destroy(sgdev, xfer);
+ 
+@@ -3081,19 +3141,16 @@
+ 				(wait_rv == 0 && timeout_ms > 0 ? "timeout" : "state error"),
+ 				req->ep_addr);
+ 			rv = engine_status_read(engine, 0, 1);
+-			if (rv < 0) {
++			if (rv < 0)
+ 				pr_err("Failed to read engine status\n");
+-			} else if (rv == 0) {
++			else
+ 				engine_status_dump(engine);
+-				rv = transfer_abort(engine, xfer);
+-				if (rv < 0) {
+-					pr_err("Failed to stop engine\n");
+-				} else if (rv == 0) {
+-					rv = sgdma_engine_stop(engine);
+-					if (rv < 0)
+-						pr_err("Failed to stop engine\n");
+-				}
+-			}
++			rv = transfer_abort(engine, xfer);
++			if (rv < 0)
++				pr_err("Failed to abort engine transfer\n");
++			rv = sgdma_engine_stop(engine);
++			if (rv < 0)
++				pr_err("Failed to stop engine\n");
+ 			spin_unlock_irqrestore(&engine->lock, flags);
+ 
+ #ifdef __LIBSGDMA_DEBUG__
+@@ -3105,6 +3162,8 @@
+ 			break;
+ 		}
+ 
++		if (rv < 0)
++			engine_wait_stopped(engine);
+ 		engine->desc_used -= xfer->desc_num;
+ 		transfer_destroy(sgdev, xfer);
+ 
+@@ -3934,7 +3993,9 @@
+ 		spin_lock_init(&engine->lock);
+ 		mutex_init(&engine->desc_lock);
+ 		INIT_LIST_HEAD(&engine->transfer_list);
++		INIT_LIST_HEAD(&engine->cmplthp_list);
+ 		init_waitqueue_head(&engine->shutdown_wq);
++		init_waitqueue_head(&engine->poll_idle_wq);
+ 		init_waitqueue_head(&engine->sgdma_perf_wq);
+ 	}
+ 
+@@ -3943,7 +4004,9 @@
+ 		spin_lock_init(&engine->lock);
+ 		mutex_init(&engine->desc_lock);
+ 		INIT_LIST_HEAD(&engine->transfer_list);
++		INIT_LIST_HEAD(&engine->cmplthp_list);
+ 		init_waitqueue_head(&engine->shutdown_wq);
++		init_waitqueue_head(&engine->poll_idle_wq);
+ 		init_waitqueue_head(&engine->sgdma_perf_wq);
+ 	}
+ 
+@@ -4414,6 +4477,8 @@
+ 
+ static int engine_destroy(struct anlogic_dev *sgdev, struct anlogic_dma_engine *engine)
+ {
++	unsigned long flags;
++
+ 	if (!sgdev) {
+ 		pr_err("Invalid sgdev\n");
+ 		return -EINVAL;
+@@ -4426,7 +4491,11 @@
+ 
+ 	dbg_sg("Shutting down engine %s%d", engine->name, engine->channel);
+ 
++	spin_lock_irqsave(&engine->lock, flags);
++	engine->poll_removing = true;
++	engine->dma_quiescing = true;
+ 	engine_service_shutdown(engine);
++	spin_unlock_irqrestore(&engine->lock, flags);
+ 
+ 	/* Disable interrupts to stop processing new events during shutdown */
+ 	write_register(0x0, &engine->regs->interrupt_enable_mask,
+@@ -4446,6 +4515,9 @@
+ 
+ 	if (poll_mode)
+ 		sgdma_thread_remove_work(engine);
++	/* IRQ teardown precedes remove_engines; drain already queued IRQ work. */
++	cancel_work_sync(&engine->work);
++	engine_wait_stopped(engine);
+ 
+ 	/* Release memory use for descriptor writebacks */
+ 	engine_free_resource(engine);
+--- driver05/anlogic_thread.c
++++ driver06/anlogic_thread.c
+@@ -31,48 +31,65 @@
+ 
+ 
+ /* ********************* static function definitions ************************ */
++/* The work-list lock is acquired before engine->lock whenever both are needed. */
+ static int sgdma_thread_cmpl_status_pend(struct list_head *work_item)
+ {
+-    struct anlogic_dma_engine *engine = list_entry(work_item, struct anlogic_dma_engine,
+-                        cmplthp_list);
+-    int pend = 0;
+-    unsigned long flags;
+-
+-    spin_lock_irqsave(&engine->lock, flags);
+-    pend = !list_empty(&engine->transfer_list);
+-    spin_unlock_irqrestore(&engine->lock, flags);
+-
++    struct anlogic_dma_engine *engine = list_entry(work_item,
++                            struct anlogic_dma_engine, cmplthp_list);
++    unsigned long flags;
++    int pend;
++
++    spin_lock_irqsave(&engine->lock, flags);
++    pend = !engine->poll_removing && engine->running &&
++           (engine->cyclic_req || !list_empty(&engine->transfer_list));
++    spin_unlock_irqrestore(&engine->lock, flags);
+     return pend;
+ }
+ 
+ static int sgdma_thread_cmpl_status_proc(struct list_head *work_item)
+ {
++    struct anlogic_dma_engine *engine = list_entry(work_item,
++                            struct anlogic_dma_engine, cmplthp_list);
++    unsigned long flags;
++    u64 generation;
++    u32 expected = 0;
++
++    /* Copy only scalars while the transfer head is protected by its lock. */
++    spin_lock_irqsave(&engine->lock, flags);
++    if (engine->poll_removing || !engine->running ||
++        (!engine->cyclic_req && list_empty(&engine->transfer_list))) {
++        spin_unlock_irqrestore(&engine->lock, flags);
++        return 0;
++    }
++    if (!engine->cyclic_req) {
++        struct sgdma_transfer *head = list_first_entry(&engine->transfer_list,
++                                                     struct sgdma_transfer, entry);
++        expected = head->desc_cmpl_th;
++    }
++    generation = engine->poll_generation;
++    spin_unlock_irqrestore(&engine->lock, flags);
++    return engine_service_poll_generation(engine, expected, generation);
++}
++
++/* Caller holds thp->lock. Lease one engine, then rotate it for fairness.
++ * No next/list pointer survives across fproc or concurrent engine removal. */
++static struct anlogic_dma_engine *xthread_take_work(struct sgdma_kthread *thp)
++{
+     struct anlogic_dma_engine *engine;
+-    struct sgdma_transfer * transfer;
+-
+-    engine = list_entry(work_item, struct anlogic_dma_engine, cmplthp_list);
+-    transfer = list_entry(engine->transfer_list.next, struct sgdma_transfer,
+-            entry);
+-    if (transfer)
+-        engine_service_poll(engine, transfer->desc_cmpl_th);
+-    return 0;
+-}
+-
+-static inline int xthread_work_pending(struct sgdma_kthread *thp)
+-{
+-    struct list_head *work_item, *next;
+-
+-    /* any work items assigned to this thread? */
+-    if (list_empty(&thp->work_list))
+-        return 0;
+-
+-    /* any work item has pending work to do? */
+-    list_for_each_safe(work_item, next, &thp->work_list) {
+-        if (thp->fpending && thp->fpending(work_item))
+-            return 1;
+-
+-    }
+-    return 0;
++    unsigned long flags;
++
++    list_for_each_entry(engine, &thp->work_list, cmplthp_list) {
++        spin_lock_irqsave(&engine->lock, flags);
++        if (!engine->poll_removing && engine->running &&
++            (engine->cyclic_req || !list_empty(&engine->transfer_list))) {
++            engine->poll_worker_active++;
++            spin_unlock_irqrestore(&engine->lock, flags);
++            list_move_tail(&engine->cmplthp_list, &thp->work_list);
++            return engine;
++        }
++        spin_unlock_irqrestore(&engine->lock, flags);
++    }
++    return NULL;
+ }
+ 
+ static inline void xthread_reschedule(struct sgdma_kthread *thp)
+@@ -80,11 +97,13 @@
+     if (thp->timeout) {
+         pr_debug_thread("%s rescheduling for %u seconds",
+                 thp->name, thp->timeout);
+-        wait_event_interruptible_timeout(thp->waitq, thp->schedule,
++        wait_event_interruptible_timeout(thp->waitq,
++                          READ_ONCE(thp->schedule) || kthread_should_stop(),
+                           msecs_to_jiffies(thp->timeout));
+     } else {
+         pr_debug_thread("%s rescheduling", thp->name);
+-        wait_event_interruptible(thp->waitq, thp->schedule);
++        wait_event_interruptible(thp->waitq,
++                                 READ_ONCE(thp->schedule) || kthread_should_stop());
+     }
+ }
+ 
+@@ -100,33 +119,27 @@
+         thp->finit(thp);
+ 
+     while (!kthread_should_stop()) {
+-
+-        struct list_head *work_item, *next;
+-
+-        pr_debug_thread("%s interruptible\n", thp->name);
+-
+-        /* any work to do? */
++        struct anlogic_dma_engine *engine;
++        unsigned long flags;
++
+         lock_thread(thp);
+-        if (!xthread_work_pending(thp)) {
+-            unlock_thread(thp);
++        WRITE_ONCE(thp->schedule, 0);
++        engine = xthread_take_work(thp);
++        unlock_thread(thp);
++        if (!engine) {
+             xthread_reschedule(thp);
+-            lock_thread(thp);
++            continue;
+         }
+-        thp->schedule = 0;
+-
+-        if (thp->work_cnt) {
+-            pr_debug_thread("%s processing %u work items\n",
+-                    thp->name, thp->work_cnt);
+-        	unlock_thread(thp);
+-
+-            /* do work */
+-            list_for_each_safe(work_item, next, &thp->work_list) {
+-                thp->fproc(work_item);
+-            }
+-        } else {
+-        	unlock_thread(thp);
+-		}
+-        schedule();
++
++        /* remove_work waits for this lease before freeing engine/WB memory. */
++        thp->fproc(&engine->cmplthp_list);
++        spin_lock_irqsave(&engine->lock, flags);
++        engine->poll_worker_active--;
++        if (!engine->poll_worker_active)
++            wake_up_all(&engine->poll_idle_wq);
++        spin_unlock_irqrestore(&engine->lock, flags);
++        /* Do not access engine after returning its final lifetime lease. */
++        cond_resched();
+     }
+ 
+     pr_debug_thread("%s, work done.\n", thp->name);
+@@ -191,7 +204,8 @@
+         return 0;
+     }
+ 
+-    thp->schedule = 1;
++    WRITE_ONCE(thp->schedule, 1);
++    wake_up_interruptible(&thp->waitq);
+     rv = kthread_stop(thp->task);
+     if (rv < 0) {
+         pr_warn("kthread %s, stop err %d.\n", thp->name, rv);
+@@ -211,30 +225,26 @@
+     struct sgdma_kthread *cmpl_thread;
+     unsigned long flags;
+ 
+-    spin_lock_irqsave(&engine->lock, flags);
++    /* Release engine->lock before taking the work-list lock: same order as
++     * xthread_take_work. Invalidate any worker that already owns a lease. */
++    spin_lock_irqsave(&engine->lock, flags);
++    engine->poll_removing = true;
++    engine->poll_generation++;
+     cmpl_thread = engine->cmplthp;
+     engine->cmplthp = NULL;
+-
+-//  pr_debug("%s removing from thread %s, %u.\n",
+-//      descq->conf.name, cmpl_thread ? cmpl_thread->name : "?",
+-//      cpu_idx);
+-
+-    spin_unlock_irqrestore(&engine->lock, flags);
+-
+-#if 0
+-    if (cpu_idx < cpu_count) {
+-        spin_lock(&qcnt_lock);
+-        per_cpu_qcnt[cpu_idx]--;
+-        spin_unlock(&qcnt_lock);
+-    }
+-#endif
++    spin_unlock_irqrestore(&engine->lock, flags);
+ 
+     if (cmpl_thread) {
+         lock_thread(cmpl_thread);
+-        list_del(&engine->cmplthp_list);
++        list_del_init(&engine->cmplthp_list);
+         cmpl_thread->work_cnt--;
+         unlock_thread(cmpl_thread);
+     }
++    wait_event(engine->poll_idle_wq, !READ_ONCE(engine->poll_worker_active));
++    /* The counter can reach zero before the worker releases engine->lock.
++     * Wait for that final critical section, including its wake_up, to finish. */
++    spin_lock_irqsave(&engine->lock, flags);
++    spin_unlock_irqrestore(&engine->lock, flags);
+ }
+ 
+ void sgdma_thread_add_work(struct anlogic_dma_engine *engine)
+@@ -274,6 +284,7 @@
+ 
+ 
+     spin_lock_irqsave(&engine->lock, flags);
++    engine->poll_removing = false;
+     engine->cmplthp = thp;
+     spin_unlock_irqrestore(&engine->lock, flags);
+ }
+@@ -317,6 +328,10 @@
+     return 0;
+ 
+ cleanup_threads:
++    /* Earlier kthreads are already live: join them before freeing cs_threads. */
++    thp = cs_threads;
++    for (cpu = 0; cpu < thread_cnt; cpu++, thp++)
++        sgdma_kthread_stop(thp);
+     kfree(cs_threads);
+     cs_threads = NULL;
+     thread_cnt = 0;
+--- driver05/anlogic_pci_lib.h
++++ driver06/anlogic_pci_lib.h
+@@ -621,6 +621,12 @@
+     /* Members associated with polled mode support */
+     u8 *poll_mode_addr_virt;    /* virt addr for descriptor writeback */
+     dma_addr_t poll_mode_bus;   /* bus addr for descriptor writeback */
++    /* Protected by lock: a stopped/restarted run cannot reuse old poll work. */
++    u64 poll_generation;
++    bool poll_removing;
++    bool dma_quiescing; /* aborted run still owns its DMA mappings */
++    unsigned int poll_worker_active;
++    wait_queue_head_t poll_idle_wq; /* engine lifetime, not transfer lifetime */
+ 
+     /* Members associated with interrupt mode support */
+     wait_queue_head_t shutdown_wq;  /* wait queue for shutdown sync */
+@@ -768,6 +774,8 @@
+ void get_perf_stats(struct anlogic_dma_engine* engine);
+ 
+ int engine_service_poll(struct anlogic_dma_engine *engine, u32 expected_desc_count);
++int engine_service_poll_generation(struct anlogic_dma_engine *engine,
++                                  u32 expected_desc_count, u64 generation);
+ 
+ int engine_status_read(struct anlogic_dma_engine *engine, bool clear, bool dump);
+ 

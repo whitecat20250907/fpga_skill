@@ -1,0 +1,1184 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dF:/al_data/H1_CK201-PH1A400/03_demo/3_2_ddr_fdma/01_ddr3_axi_fdma_test/uisrc/02_sim/hdl_srcs
+vAL_DFF
+Z0 !s110 1726296398
+!i10b 1
+!s100 >NbQ6_ZYh00__OB2aGEIB3
+I9G`2UH66Ui4J?HEGzeE?n2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dF:/al_data/H1_CK201-PH1A400/03_demo/3_2_ddr_fdma/01_ddr3_axi_fdma_test/example_top_sim/behav_sim
+Z3 w1718339528
+Z4 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_basic.v
+Z5 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_basic.v
+L0 811
+Z6 OL;L;10.6d;65
+r1
+!s85 0
+31
+Z7 !s108 1726296398.000000
+!s107 E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_shifter.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_memory.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_phy_glbl.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_seq.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mux4.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mult.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_lut.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_basic.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_alu2b.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_adder.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_logic_debughub.v|
+Z8 !s90 -work|common|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_logic_debughub.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_adder.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_alu2b.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_basic.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_lut.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mult.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mux4.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_seq.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_phy_glbl.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_memory.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_shifter.v|
+!i113 0
+Z9 o-work common -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z10 tCvgOpt 0
+n@a@l_@d@f@f
+vAL_DFF_0
+R0
+!i10b 1
+!s100 NW47QWW90WFTRbDadE^SG3
+I60DRRlWAQ?1778QeK>PCi3
+R1
+R2
+R3
+R4
+R5
+L0 375
+R6
+r1
+!s85 0
+31
+R7
+Z11 !s107 E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_shifter.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_memory.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_phy_glbl.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_seq.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mux4.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mult.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_lut.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_basic.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_alu2b.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_adder.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_logic_debughub.v|
+R8
+!i113 0
+R9
+R10
+n@a@l_@d@f@f_0
+vAL_DFF_1
+R0
+!i10b 1
+!s100 E4OXe2;AX^Lc04maOl[l[3
+IkOeaPik[affX;o]XD9_Oa2
+R1
+R2
+R3
+R4
+R5
+L0 438
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@d@f@f_1
+vAL_DFF_W
+R0
+!i10b 1
+!s100 ki3AHVa[HF2JZ?OG0EooA3
+IcZMWgREQfaeiN710kLMoV0
+R1
+R2
+R3
+R4
+R5
+L0 337
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@d@f@f_@w
+vAL_DFF_X
+R0
+!i10b 1
+!s100 W<3a?GA`?GNAd:G6jeR8S2
+I0zoX:7To`jFIg=0a]9d:b2
+R1
+R2
+R3
+R4
+R5
+L0 500
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@d@f@f_@x
+vAL_FADD
+R0
+!i10b 1
+!s100 L7I=o:h1WMeHH82SG2hAb0
+I^f@QIcHP2^`D34H4i<6l31
+R1
+R2
+R3
+R4
+R5
+L0 933
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@f@a@d@d
+vAL_LATCH
+R0
+!i10b 1
+!s100 CbXM@^iJj_[CYlAlZCOSS1
+I3oEh;ogb?;Na^C@HOnLoI3
+R1
+R2
+R3
+R4
+R5
+L0 872
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@a@t@c@h
+vAL_LATCH_0
+R0
+!i10b 1
+!s100 ;mN7@G]P7>cCXI84On3>K0
+I;7@3E]0?CaK2R30R8A7]l1
+R1
+R2
+R3
+R4
+R5
+L0 602
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@a@t@c@h_0
+vAL_LATCH_1
+R0
+!i10b 1
+!s100 XamUF7m2L00KVRL8T`oDz3
+IS?_Af]5D>G=>]Snb^UNJ_3
+R1
+R2
+R3
+R4
+R5
+L0 664
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@a@t@c@h_1
+vAL_LATCH_W
+R0
+!i10b 1
+!s100 iInBAOfSNocIZzTe>TMRi2
+I]_b]0Kk_UC<5QG_zI0S3R3
+R1
+R2
+R3
+R4
+R5
+L0 564
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@a@t@c@h_@w
+vAL_LATCH_X
+R0
+!i10b 1
+!s100 aYnCHL;_YkGnWGXQ?Uzlc0
+I03nmgOAMccgON6E11_Laa2
+R1
+R2
+R3
+R4
+R5
+L0 726
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@a@t@c@h_@x
+vAL_LOGIC_DEBUGHUB
+R0
+!i10b 1
+!s100 6CSTQzh:m<^788]le6:AQ2
+IHb`:FG9<zd=HO;W@]0_^10
+R1
+R2
+R3
+8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_logic_debughub.v
+FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_logic_debughub.v
+Z12 L0 23
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@l@o@g@i@c_@d@e@b@u@g@h@u@b
+vAL_MAP_ADDER
+R0
+!i10b 1
+!s100 SU`aeEET`?c=I6KOcXGH<0
+IZc3<5;Cl]P7^Y<BZ>S>i32
+R1
+R2
+R3
+8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_adder.v
+FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_adder.v
+Z13 L0 24
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@a@d@d@e@r
+vAL_MAP_ALU2B
+R0
+!i10b 1
+!s100 iNA3V]8_k@]jg`n6_R3Ql1
+IBdAPan0eBCnD:JR1A[2J[3
+R1
+R2
+R3
+8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_alu2b.v
+FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_alu2b.v
+Z14 L0 20
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@a@l@u2@b
+vAL_MAP_BLE_MULT18X18
+R0
+!i10b 1
+!s100 oIod9>B`8XdLDMOI]DHJF0
+IIfQCinZzak523ecZEL4[Z0
+R1
+R2
+R3
+Z15 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mult.v
+Z16 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mult.v
+L0 22
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@b@l@e_@m@u@l@t18@x18
+vAL_MAP_BLE_MULT9X9
+R0
+!i10b 1
+!s100 f8B[^jgeEVP<;J<3_D3[Q2
+IHCZkj15dhle<z@bmgglI22
+R1
+R2
+R3
+R15
+R16
+L0 69
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@b@l@e_@m@u@l@t9@x9
+vAL_MAP_CARRY4
+R0
+!i10b 1
+!s100 DCB8U:SfifK@UoDzOGNgE2
+Id[ITg9Y[j8V]2E_ANQ3eW3
+R1
+R2
+R3
+Z17 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_lut.v
+Z18 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_lut.v
+L0 429
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@c@a@r@r@y4
+vAL_MAP_F7MUX
+R0
+!i10b 1
+!s100 AQ`WI@zFHHgRBB2[g7h?^0
+I]N5W[_MILPhXOdZT:PW3Z2
+R1
+R2
+R3
+R17
+R18
+L0 415
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@f7@m@u@x
+vAL_MAP_F8MUX
+R0
+!i10b 1
+!s100 4YVod]@d4Y<jeg;?oiYJC3
+I?j:@0LFV[9CLl;OVlbDkR3
+R1
+R2
+R3
+R17
+R18
+L0 422
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@f8@m@u@x
+vAL_MAP_LLMUX
+R0
+!i10b 1
+!s100 dcoD3Vg;<VhZVHbVg^F4E0
+IgRDaCZXPizO]c`eKCQ7SO2
+R1
+R2
+R3
+R17
+R18
+L0 405
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@l@m@u@x
+vAL_MAP_LUT1
+R0
+!i10b 1
+!s100 :d0AE[3ObbYEP<MC`FYjI2
+InX6C<mc7oE;LM_oab2J9k2
+R1
+R2
+R3
+R17
+R18
+L0 26
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t1
+vAL_MAP_LUT2
+R0
+!i10b 1
+!s100 O_BOT0dVL9JB;Q9WzGD3?3
+I6@??4^EC2[zYaJIi_[c2e3
+R1
+R2
+R3
+R17
+R18
+L0 43
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t2
+vAL_MAP_LUT3
+R0
+!i10b 1
+!s100 3BAY[Io`b2BVT]DjS1:S:3
+I[n?B<QPW8P6H<nCWfM]JT0
+R1
+R2
+R3
+R17
+R18
+L0 76
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t3
+vAL_MAP_LUT4
+R0
+!i10b 1
+!s100 G=g^L_h]JO77T2lHJdYJ40
+IMdVmX`HE8Q^U26<ofl<IB0
+R1
+R2
+R3
+R17
+R18
+L0 123
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t4
+vAL_MAP_LUT5
+R0
+!i10b 1
+!s100 cIaVCE9;]7PoN1Z1:C2;o3
+I8O=H6B7<nh7AT9zJi@[W00
+R1
+R2
+R3
+R17
+R18
+L0 180
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t5
+vAL_MAP_LUT6
+R0
+!i10b 1
+!s100 czi<`jYDfn_S>bYDQCbhS3
+IeQ>Y4@l;JDTMTL60liShU2
+R1
+R2
+R3
+R17
+R18
+L0 299
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t6
+vAL_MAP_LUT6P
+R0
+!i10b 1
+!s100 WJ[HmMCBbkO:k;V5_foCU0
+Ioz;2H8UF<;YfiaQIj]BET0
+R1
+R2
+R3
+R17
+R18
+L0 369
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t6@p
+vAL_MAP_LUT6X
+R0
+!i10b 1
+!s100 1nig8BJMCKJR_VZ?NXZz_3
+ILIYHAef8UT]=gW_1Bl8bh1
+R1
+R2
+R3
+R17
+R18
+L0 386
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@l@u@t6@x
+vAL_MAP_MUX4
+R0
+!i10b 1
+!s100 E@>4UAWzEMnT8TQ7EO77_3
+IID_WOb^>=jWN3galjei>j0
+R1
+R2
+R3
+Z19 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mux4.v
+Z20 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_mux4.v
+R13
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@m@u@x4
+vAL_MAP_SEQ
+Z21 !s110 1726296399
+!i10b 1
+!s100 A2bMM[4`nI;lR=M?]XFAe0
+Ig5:OSn@NUZFDIn;`k06893
+R1
+R2
+R3
+Z22 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_seq.v
+Z23 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_map_seq.v
+R14
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@s@e@q
+vAL_MAP_SEQ_GSR
+R21
+!i10b 1
+!s100 kKM`8>4EDfP<3hjV>aV_P2
+I^a4Q=oz_N5LQ_JfRazUH51
+R1
+R2
+R3
+R22
+R23
+L0 145
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@a@p_@s@e@q_@g@s@r
+vAL_MUX
+R0
+!i10b 1
+!s100 n5iLFFz3nS_m`0<ShD:j81
+IT;1gK48HBa4Val:d1Z:A>0
+R1
+R2
+R3
+R4
+R5
+L0 790
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n@a@l_@m@u@x
+vnIrw/8q6dn5E4WfSEfVoJQ==
+R21
+!i10b 0
+!s100 TgQYAk]Y6Ge_AH>jE4U7g1
+IQTX6XgJ7@T;0AnVzQh=3L3
+R1
+!i119 1
+!i8a 48208288
+R2
+Z24 w1726296399
+Z25 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_memory.v
+Z26 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_memory.v
+Z27 L0 49
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+na966485
+vbO6NBabhv9iva9WG7vERuTWkcO4/6r4JAGbymd9jPrQ=
+R21
+!i10b 0
+!s100 >oR[ZGf7djh^:7UXHjY0Z3
+I;2BhUI3;A_GZT_n_JGij70
+R1
+!i119 1
+!i8a 618670608
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n65aa2ed
+vdrHbfjt7mlhBRjHNSJ5fVaf6f9MDEUmKDv6ma7Ua3vk=
+R21
+!i10b 0
+!s100 9mY8^Zz:dmmVm7m5Pl7TJ2
+IB?nMVNE3N`[;W^@>]5C^R3
+R1
+!i119 1
+!i8a 1155599456
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n965bafd
+v9GQSstTiGRSFNqOKN6zwaOH9cq6tQtHGf5x6L+q9kio=
+R21
+!i10b 0
+!s100 SajTIL[fCTdCTmDeS:jMC0
+I?Z`C_XcQSf9X>j;8Qf>TI2
+R1
+!i119 1
+!i8a 2051869648
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n57762ed
+vaAbF+NOoOyuPTdzIBBvnEJx/t8wKGnZfHwPaIuM50qA=
+R21
+!i10b 0
+!s100 3=Pjb1NFg_=[;@Fz8Umic1
+IRl;ASfT8kYP`UldPh8oBM1
+R1
+!i119 1
+!i8a 2007269968
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n954b9dd
+v+Jn1yqt4fTuNXHRoO65BGRXaV53aUsFYsa2smOTEcrA=
+R21
+!i10b 0
+!s100 A44V[@Snk^SlPdLL@8i>Y1
+IF2SRNT2^CGa;fVdkmn6340
+R1
+!i119 1
+!i8a 552090816
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n954bafd
+v11EAonEXXhQeepUvVsB5S0OxqU2D0cjmoUXHkKs2w9Q=
+R21
+!i10b 0
+!s100 lboYfZ73ciRzcRe5`YXLZ1
+IKoHe5RWakDzic=NIB3e<z1
+R1
+!i119 1
+!i8a 202241760
+R2
+R24
+R25
+R26
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n54762ed
+vI13FXircAJa52vRjwlpTXs8OJVtGmPZDmU/yyHelXzU=
+R21
+!i10b 0
+!s100 cH7M]2oLi<I]oM;=`SE2N2
+Ij[E2U9@iAWeX;FSA8OCS41
+R1
+!i119 1
+!i8a 442432896
+R2
+R24
+Z28 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_shifter.v
+Z29 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm_shifter.v
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+nfdca714
+vi5hw4tvX4q4QPrY5lBK+d/hrShkJ4lOmGsVnDhpx23s=
+R21
+!i10b 0
+!s100 R9MmecZ>Sa:V<nMGADOaW2
+IPQAQP@9`m:76=L7I9Cc0T3
+R1
+!i119 1
+!i8a 576542528
+R2
+R24
+R28
+R29
+R27
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+n2158795
+vglbl
+R21
+!i10b 1
+!s100 oXA=jXNe`S`mA@F3iZO_i1
+I`AQRO[MW:FNIeZA]k<F5G2
+R1
+R2
+R3
+8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_phy_glbl.v
+FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/al_phy_glbl.v
+R12
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vlatch_ar_as_w1
+R0
+!i10b 1
+!s100 z`:fX;G63;dlnD]N]<1=T1
+IH<V?`KH6L1<lVZP<b@Acf1
+R1
+R2
+R3
+R4
+R5
+L0 301
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vlatch_ar_ss_w1
+R0
+!i10b 1
+!s100 nHDkaMiLQ]65]MojGI5dD0
+IZiJ`>kP0j;::]j=oNj3S[3
+R1
+R2
+R3
+R4
+R5
+L0 169
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vlatch_sr_as_w1
+R0
+!i10b 1
+!s100 NZ8>L@YlOMh_Omk9LWG[o3
+I3=_T6BNB6;EG3L3JbfX9Y1
+R1
+R2
+R3
+R4
+R5
+L0 211
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vlatch_sr_ss_w1
+R0
+!i10b 1
+!s100 Qn6465ScbEOQ]eWRIPEhg1
+IJ`d`JIE8V[ekLl13?NXO92
+R1
+R2
+R3
+R4
+R5
+L0 253
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+Ulut_mux4
+R0
+!i10b 1
+!s100 =hHO6IQRZEKEZK7gE^Ize1
+IKZ_IN@3Q=enoW`3OEFK]?1
+R1
+R2
+R3
+R19
+R20
+L0 34
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vPH1_LOGIC_TS
+R0
+!i10b 1
+!s100 IEFgU`=dkaN7PhJVAM_<62
+IX1`8gHJP?EB<[3kARf]>K2
+R1
+R2
+Z30 w1716877036
+Z31 8E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/logic_tvs.v
+Z32 FE:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/logic_tvs.v
+L0 121
+R6
+r1
+!s85 0
+31
+R7
+Z33 !s107 E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/logic_tvs.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/apm_shifter.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/apm_memory.v|
+Z34 !s90 -work|common|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/apm_memory.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/apm_shifter.v|E:/Anlogic/TD_6.0.2_PHX_Release_117864_NL/sim_release/common/apm/logic_tvs.v|
+!i113 0
+R9
+R10
+n@p@h1_@l@o@g@i@c_@t@s
+vPH2_LOGIC_TVS
+R0
+!i10b 1
+!s100 eZ=eH2BKc`O?U8[ZS9^gW2
+Id684ekUmlk1M7Hfo0j@jH2
+R1
+R2
+R30
+R31
+R32
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R33
+R34
+!i113 0
+R9
+R10
+n@p@h2_@l@o@g@i@c_@t@v@s
+vreg_ar_as_w1
+R0
+!i10b 1
+!s100 ITTg_1F:X?cY`S9ODadhN0
+I1Pf_9F1NT9;XJJ1FJD1dj3
+R1
+R2
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vreg_ar_ss_w1
+R0
+!i10b 1
+!s100 2Nl?AX;`Qllb2G7NaS>Bg0
+IgLj>EA2Nfhlkz5g?ZaiZQ2
+R1
+R2
+R3
+R4
+R5
+L0 85
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vreg_sr_as_w1
+R0
+!i10b 1
+!s100 k8cHE4O`4kg`@AA7XgYd[1
+IK8S];5geK2kALnUDNaMCX3
+R1
+R2
+R3
+R4
+R5
+L0 127
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10
+vreg_sr_ss_w1
+R0
+!i10b 1
+!s100 2o6@=dbW7LL7PBVZX^=O03
+IdaT`HPKQRTaUh<Yi1RkMA2
+R1
+R2
+R3
+R4
+R5
+L0 37
+R6
+r1
+!s85 0
+31
+R7
+R11
+R8
+!i113 0
+R9
+R10

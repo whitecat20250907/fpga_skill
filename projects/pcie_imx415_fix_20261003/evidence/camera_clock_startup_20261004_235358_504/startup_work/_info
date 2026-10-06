@@ -1,0 +1,67 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/evidence/camera_clock_startup_20261004_235358_504
+T_opt
+!s110 1791183240
+V8HMVFnlzMF<3k2eQlO5Hg1
+04 23 4 work tb_camera_clock_startup fast 0
+=1-c4c6e6184054-6ac34987-39f-9d94
+o-quiet -auto_acc_if_foreign -work camera_startup +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.5;63
+vcamera_clock_startup
+Z2 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z3 !s110 1791183239
+!i10b 1
+!s100 cm9V`BHIUDno`007b0HUG0
+I00`da6[lcNkCPWb70WhUN3
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s105 camera_clock_startup_v_unit
+S1
+R0
+w1791183056
+8E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/camera_clock_startup.v
+FE:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/camera_clock_startup.v
+L0 7
+Z5 OL;L;10.5;63
+r1
+!s85 0
+31
+Z6 !s108 1791183238.000000
+Z7 !s107 E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/tb_camera_clock_startup.sv|E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/camera_clock_startup.v|
+Z8 !s90 -work|camera_startup|-sv|E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/camera_clock_startup.v|E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/tb_camera_clock_startup.sv|
+!i113 0
+Z9 o-work camera_startup -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vtb_camera_clock_startup
+R2
+R3
+!i10b 1
+!s100 <lj_KoUXAka2H2YCdbOH53
+I@F26DgBLQQfD9`62RV[?f1
+R4
+!s105 tb_camera_clock_startup_sv_unit
+S1
+R0
+w1791183237
+8E:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/tb_camera_clock_startup.sv
+FE:/qianrufpga/fpga-lab/projects/pcie_imx415_fix_20261003/tools/tb_camera_clock_startup.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1

@@ -1,0 +1,31 @@
+## ============================================================
+## SDC for Phase 9: IMX415 Camera + TPG via PCIe (v2 integration)
+## PH2A106FLG676-2, PCIe Gen3 x4
+## Clock domains: sys_clk, sgdma_pll, ui_pll, PCIe, MIPI HS
+## ============================================================
+
+## 100MHz system clock (J23) ¡ª drives sgdma_pll only
+create_clock -name sys_clk -period 10 -waveform {0 5} [get_ports {sys_clk}]
+
+## MIPI HS clock: ~200MHz (DDR 400Mbps/lane for 4-lane 1080p30)
+## This is the recovered clock from the MIPI CSI-2 clock lane
+create_clock -name mipi_hs_clk -period 5.0 [get_ports {mipi_clk_hs_rx_p}]
+
+## Let TD auto-derive all internal clocks (PLL outputs, etc.)
+derive_clocks
+
+## ============================================================
+## Async clock groups
+## 5 independent domains:
+##   1. sgdma_pll outputs (core_clk 300MHz, app_auxclk 50MHz)
+##   2. ui_pll outputs (cam_pclk 150MHz, cam_100m, cam_24m)
+##   3. PCIe internal clocks (auto-derived from refclk)
+##   4. sys_clk (PLL input only)
+##   5. MIPI HS clock (recovered from camera, fully async)
+## ============================================================
+set_clock_groups -asynchronous \
+    -group [get_clocks {u_sgdma_pll/pll_inst.clkc[0] u_sgdma_pll/pll_inst.clkc[1]}] \
+    -group [get_clocks {u_ui_pll/pll_inst.clkc[0] u_ui_pll/pll_inst.clkc[1] u_ui_pll/pll_inst.clkc[2]}] \
+    -group [get_clocks {u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u0_pcie_brg_pcie_core_pcie_top.tl_clk_dpll u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u0_pcie_brg_pcie_core_pcie_top.pl_pclk_phy0_ln0 u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u0_pcie_brg_pcie_core_pcie_top.pl_pclk_user u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u0_pcie_brg_pcie_core_pcie_top.pcs0_ick_pma_tx0_block u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u0_pcie_brg_pcie_core_pcie_top.tl_clk_user u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u2_pcie_brg_pcie_core_phy0_top.ock_tx0_block u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u2_pcie_brg_pcie_core_phy0_top.ock_tx1_block u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u2_pcie_brg_pcie_core_phy0_top.ock_tx2_block u_sgdma_subsys/pcie_brg_ph2$pcie_brg_top/pcie_core_msi$pcie_brg_pcie_core/u2_pcie_brg_pcie_core_phy0_top.ock_tx3_block}] \
+    -group [get_clocks {sys_clk}] \
+    -group [get_clocks {mipi_hs_clk}]

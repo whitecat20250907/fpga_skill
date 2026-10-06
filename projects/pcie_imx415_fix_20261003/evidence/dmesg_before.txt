@@ -1,0 +1,2287 @@
+[    1.832912] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    1.832934] Linux version 6.1.99 (uisrc@ubuntu) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #3 SMP Mon May 11 02:05:54 PDT 2026
+[    1.835918] random: crng init done
+[    1.840664] Machine model: Rockchip RK3576 EVB1 V10 Board
+[    1.853054] earlycon: uart8250 at MMIO32 0x000000002ad40000 (options '')
+[    1.857509] printk: bootconsole [uart8250] enabled
+[    1.860405] efi: UEFI not found.
+[    1.863087] OF: fdt: Reserved memory: failed to reserve memory for node 'drm-cubic-lut@0': base 0x0000000000000000, size 0 MiB
+[    1.915076] Zone ranges:
+[    1.915328]   DMA      [mem 0x0000000040200000-0x00000000bfffffff]
+[    1.915906]   DMA32    empty
+[    1.916175]   Normal   empty
+[    1.916444] Movable zone start for each node
+[    1.916842] Early memory node ranges
+[    1.917174]   node   0: [mem 0x0000000040200000-0x00000000483fffff]
+[    1.917760]   node   0: [mem 0x0000000049400000-0x00000000bfffffff]
+[    1.918346] Initmem setup node 0 [mem 0x0000000040200000-0x00000000bfffffff]
+[    1.919576] On node 0, zone DMA: 512 pages in unavailable ranges
+[    1.927676] On node 0, zone DMA: 4096 pages in unavailable ranges
+[    1.928247] cma: Reserved 16 MiB at 0x00000000be800000
+[    1.929478] psci: probing for conduit method from DT.
+[    1.929952] psci: PSCIv1.1 detected in firmware.
+[    1.930384] psci: Using standard PSCI v0.2 function IDs
+[    1.930874] psci: Trusted OS migration not required
+[    1.931331] psci: SMC Calling Convention v1.2
+[    1.932047] percpu: Embedded 26 pages/cpu s68584 r8192 d29720 u106496
+[    1.932679] pcpu-alloc: s68584 r8192 d29720 u106496 alloc=26*4096
+[    1.932688] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7 
+[    1.932789] Detected VIPT I-cache on CPU0
+[    1.933205] CPU features: detected: ARM erratum 845719
+[    1.933685] alternatives: applying boot alternatives
+[    1.934498] Built 1 zonelists, mobility grouping on.  Total pages: 511496
+[    1.935138] Kernel command line: storagemedia=emmc androidboot.storagemedia=emmc androidboot.mode=normal  androidboot.verifiedbootstate=orange rw rootwait earlycon=uart8250,mmio32,0x2ad40000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rcupdate.rcu_expedited=1 rcu_nocbs=all #uis-06/17/2026 androidboot.fwver=ddr-v1.09-2f85f4b2d4,bl31-v1.14,bl32-v1.05,uboot-41224
+[    1.938322] Unknown kernel command line parameters "#uis-06/17/2026 storagemedia=emmc", will be passed to user space.
+[    1.939568] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    1.940425] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    1.941150] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    1.962609] Memory: 1975068K/2078720K available (20288K kernel code, 3646K rwdata, 7252K rodata, 7552K init, 661K bss, 87268K reserved, 16384K cma-reserved)
+[    1.964013] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    1.964650] ftrace: allocating 62012 entries in 243 pages
+[    2.046503] ftrace: allocated 243 pages with 6 groups
+[    2.047083] trace event string verifier disabled
+[    2.047683] rcu: Hierarchical RCU implementation.
+[    2.048123] rcu: 	RCU event tracing is enabled.
+[    2.048547] 	All grace periods are expedited (rcu_expedited).
+[    2.049079] 	Rude variant of Tasks RCU enabled.
+[    2.049502] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    2.057644] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    2.061427] Root IRQ handler: gic_handle_irq
+[    2.061848] GIC: Using split EOI/Deactivate mode
+[    2.063754] rcu: 	Offload RCU callbacks from CPUs: 0-7.
+[    2.064268] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    2.092345] arch_timer: cp15 timer(s) running at 1000.00MHz (phys).
+[    2.092940] clocksource: arch_sys_counter: mask: 0x1fffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    2.093960] sched_clock: 61 bits at 1000MHz, resolution 1ns, wraps every 4398046511103ns
+[    2.096608] Console: colour dummy device 80x25
+[    2.097052] Calibrating delay loop (skipped), value calculated using timer frequency.. 2000.00 BogoMIPS (lpj=4000000)
+[    2.098023] pid_max: default: 32768 minimum: 301
+[    2.098557] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    2.099240] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    2.100702] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    2.101629] cblist_init_generic: Setting adjustable number of callback queues.
+[    2.102290] cblist_init_generic: Setting shift to 3 and lim to 1.
+[    2.102955] rcu: Hierarchical SRCU implementation.
+[    2.103394] rcu: 	Max phase no-delay instances is 1000.
+[    2.106513] EFI services will not be available.
+[    2.107263] smp: Bringing up secondary CPUs ...
+[    2.108768] Detected VIPT I-cache on CPU1
+[    2.108828] cacheinfo: Unable to detect cache hierarchy for CPU 1
+[    2.108861] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    2.109945] Detected VIPT I-cache on CPU2
+[    2.109987] cacheinfo: Unable to detect cache hierarchy for CPU 2
+[    2.110005] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    2.111059] Detected VIPT I-cache on CPU3
+[    2.111101] cacheinfo: Unable to detect cache hierarchy for CPU 3
+[    2.111117] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    2.112212] CPU features: detected: Spectre-BHB
+[    2.112218] CPU features: detected: ARM erratum 1742098
+[    2.112220] CPU features: detected: ARM errata 1165522, 1319367, or 1530923
+[    2.112223] Detected PIPT I-cache on CPU4
+[    2.112263] cacheinfo: Unable to detect cache hierarchy for CPU 4
+[    2.112282] CPU4: Booted secondary processor 0x0000000100 [0x411fd080]
+[    2.113342] Detected PIPT I-cache on CPU5
+[    2.113376] cacheinfo: Unable to detect cache hierarchy for CPU 5
+[    2.113388] CPU5: Booted secondary processor 0x0000000101 [0x411fd080]
+[    2.114485] Detected PIPT I-cache on CPU6
+[    2.114519] cacheinfo: Unable to detect cache hierarchy for CPU 6
+[    2.114531] CPU6: Booted secondary processor 0x0000000102 [0x411fd080]
+[    2.115578] Detected PIPT I-cache on CPU7
+[    2.115612] cacheinfo: Unable to detect cache hierarchy for CPU 7
+[    2.115624] CPU7: Booted secondary processor 0x0000000103 [0x411fd080]
+[    2.115677] smp: Brought up 1 node, 8 CPUs
+[    2.128165] SMP: Total of 8 processors activated.
+[    2.128597] CPU features: detected: 32-bit EL0 Support
+[    2.129067] CPU features: detected: CRC32 instructions
+[    2.129618] CPU: All CPU(s) started at EL2
+[    2.129993] alternatives: applying system-wide alternatives
+[    2.131889] devtmpfs: initialized
+[    2.150324] Registered cp15_barrier emulation handler
+[    2.150784] Registered setend emulation handler
+[    2.151270] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    2.152141] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    2.152974] pinctrl core: initialized pinctrl subsystem
+[    2.153718] DMI not present or invalid.
+[    2.154206] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    2.155535] DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+[    2.156315] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    2.157103] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    2.159897] Registered FIQ tty driver
+[    2.160406] thermal_sys: Registered thermal governor 'fair_share'
+[    2.160410] thermal_sys: Registered thermal governor 'step_wise'
+[    2.160951] thermal_sys: Registered thermal governor 'user_space'
+[    2.161492] thermal_sys: Registered thermal governor 'power_allocator'
+[    2.162060] cpuidle: using governor menu
+[    2.163136] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    2.163848] ASID allocator initialised with 65536 entries
+[    2.166608] ramoops: dmesg-0	0x18000@0x0000000040110000
+[    2.167078] ramoops: dmesg-1	0x18000@0x0000000040128000
+[    2.167561] ramoops: console	0x80000@0x0000000040140000
+[    2.168032] ramoops: pmsg	0x30000@0x00000000401c0000
+[    2.168719] printk: console [ramoops-1] enabled
+[    2.169123] pstore: Registered ramoops as persistent store backend
+[    2.169673] ramoops: using 0xe0000@0x40110000, ecc: 0
+[    2.172035] platform csi2-dcphy0: Fixed dependency cycle(s) with /mipi0-csi2
+[    2.172699] platform mipi0-csi2: Fixed dependency cycle(s) with /csi2-dcphy0
+[    2.173434] platform csi2-dphy1: Fixed dependency cycle(s) with /mipi1-csi2
+[    2.174080] platform mipi1-csi2: Fixed dependency cycle(s) with /csi2-dphy1
+[    2.174818] platform csi2-dphy3: Fixed dependency cycle(s) with /mipi3-csi2
+[    2.175462] platform mipi3-csi2: Fixed dependency cycle(s) with /csi2-dphy3
+[    2.176396] platform mipi0-csi2: Fixed dependency cycle(s) with /rkcif-mipi-lvds
+[    2.177083] platform rkcif-mipi-lvds: Fixed dependency cycle(s) with /mipi0-csi2
+[    2.177885] platform mipi1-csi2: Fixed dependency cycle(s) with /rkcif-mipi-lvds1
+[    2.178575] platform rkcif-mipi-lvds1: Fixed dependency cycle(s) with /mipi1-csi2
+[    2.179403] platform mipi3-csi2: Fixed dependency cycle(s) with /rkcif-mipi-lvds3
+[    2.180093] platform rkcif-mipi-lvds3: Fixed dependency cycle(s) with /mipi3-csi2
+[    2.180913] platform rkcif-mipi-lvds-sditf: Fixed dependency cycle(s) with /rkisp-vir0
+[    2.181642] platform rkisp-vir0: Fixed dependency cycle(s) with /rkcif-mipi-lvds-sditf
+[    2.182428] platform rkcif-mipi-lvds1-sditf: Fixed dependency cycle(s) with /rkisp-vir1
+[    2.183166] platform rkisp-vir1: Fixed dependency cycle(s) with /rkcif-mipi-lvds1-sditf
+[    2.183963] platform rkcif-mipi-lvds3-sditf: Fixed dependency cycle(s) with /rkisp-vir2
+[    2.184696] platform rkisp-vir2: Fixed dependency cycle(s) with /rkcif-mipi-lvds3-sditf
+[    2.185666] platform rkisp-vir0-sditf: Fixed dependency cycle(s) with /rkvpss-vir0
+[    2.186366] platform rkvpss-vir0: Fixed dependency cycle(s) with /rkisp-vir0-sditf
+[    2.187177] platform rkisp-vir2-sditf: Fixed dependency cycle(s) with /rkvpss-vir2
+[    2.187876] platform rkvpss-vir2: Fixed dependency cycle(s) with /rkisp-vir2-sditf
+[    2.198417] platform 27d00000.vop: Fixed dependency cycle(s) with /dsi@27d80000
+[    2.199114] platform 27d80000.dsi: Fixed dependency cycle(s) with /dsi@27d80000/panel@0
+[    2.199835] platform 27d80000.dsi: Fixed dependency cycle(s) with /vop@27d00000
+[    2.200926] platform 27d00000.vop: Fixed dependency cycle(s) with /hdmi@27da0000
+[    2.201615] platform 27da0000.hdmi: Fixed dependency cycle(s) with /vop@27d00000
+[    2.202505] platform 27e40000.dp: Fixed dependency cycle(s) with /vop@27d00000
+[    2.211260] platform 2b010000.phy: Fixed dependency cycle(s) with /i2c@2ac50000/husb311@4e/connector
+[    2.224239] rockchip-gpio 27320000.gpio: probed /pinctrl/gpio@27320000
+[    2.225138] rockchip-gpio 2ae10000.gpio: probed /pinctrl/gpio@2ae10000
+[    2.226022] rockchip-gpio 2ae20000.gpio: probed /pinctrl/gpio@2ae20000
+[    2.226882] rockchip-gpio 2ae30000.gpio: probed /pinctrl/gpio@2ae30000
+[    2.227686] rockchip-gpio 2ae40000.gpio: probed /pinctrl/gpio@2ae40000
+[    2.228369] rockchip-pinctrl pinctrl: probed pinctrl
+[    2.241091] fiq_debugger fiq_debugger.0: error -ENXIO: IRQ fiq not found
+[    2.241701] fiq_debugger fiq_debugger.0: error -ENXIO: IRQ wakeup not found
+[    2.242325] fiq_debugger_probe: could not install nmi irq handler
+[    2.242912] printk: console [ttyFIQ0] enabled
+[    2.243683] printk: bootconsole [uart8250] disabled
+[    2.244195] Registered fiq debugger ttyFIQ0
+[    2.247426] iommu: Default domain type: Translated 
+[    2.247442] iommu: DMA domain TLB invalidation policy: strict mode 
+[    2.247609] SCSI subsystem initialized
+[    2.247631] libata version 3.00 loaded.
+[    2.247708] usbcore: registered new interface driver usbfs
+[    2.247729] usbcore: registered new interface driver hub
+[    2.247750] usbcore: registered new device driver usb
+[    2.247819] mc: Linux media interface: v0.10
+[    2.247839] videodev: Linux video capture interface: v2.00
+[    2.247878] pps_core: LinuxPPS API ver. 1 registered
+[    2.247884] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    2.247894] PTP clock support registered
+[    2.247917] EDAC MC: Ver: 3.0.0
+[    2.248433] arm-scmi firmware:scmi: Enabled polling mode TX channel - prot_id:16
+[    2.248504] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[    2.248544] arm-scmi firmware:scmi: SCMI Protocol v2.0 'rockchip:' Firmware version 0x0
+[    2.250007] Advanced Linux Sound Architecture Driver Initialized.
+[    2.250226] Bluetooth: Core ver 2.22
+[    2.250247] NET: Registered PF_BLUETOOTH protocol family
+[    2.250253] Bluetooth: HCI device and connection manager initialized
+[    2.250261] Bluetooth: HCI socket layer initialized
+[    2.250268] Bluetooth: L2CAP socket layer initialized
+[    2.250280] Bluetooth: SCO socket layer initialized
+[    2.251628] rockchip-cpuinfo cpuinfo: SoC		: 35760000
+[    2.251639] rockchip-cpuinfo cpuinfo: Serial		: 346cbbfabc606c8d
+[    2.252314] clocksource: Switched to clocksource arch_sys_counter
+[    2.256667] NET: Registered PF_INET protocol family
+[    2.256752] IP idents hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    2.257762] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    2.257786] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    2.257814] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    2.257896] TCP bind hash table entries: 16384 (order: 7, 524288 bytes, linear)
+[    2.258169] TCP: Hash tables configured (established 16384 bind 16384)
+[    2.258224] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.258260] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.258359] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    2.258554] RPC: Registered named UNIX socket transport module.
+[    2.258563] RPC: Registered udp transport module.
+[    2.258568] RPC: Registered tcp transport module.
+[    2.258573] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.259065] PCI: CLS 0 bytes, default 64
+[    2.259809] rockchip-thermal 2ae70000.tsadc: Missing rockchip,grf property
+[    2.262044] thermal thermal_zone0: power_allocator: sustainable_power will be estimated
+[    2.262135] thermal thermal_zone1: power_allocator: sustainable_power will be estimated
+[    2.262309] thermal thermal_zone3: power_allocator: sustainable_power will be estimated
+[    2.262393] thermal thermal_zone4: power_allocator: sustainable_power will be estimated
+[    2.262482] thermal thermal_zone5: power_allocator: sustainable_power will be estimated
+[    2.262740] rockchip-thermal 2ae70000.tsadc: tsadc is probed successfully!
+[    2.263814] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    2.265206] hw perfevents: enabled with armv8_cortex_a72 PMU driver, 7 counters available
+[    2.597474] Initialise system trusted keyrings
+[    2.597580] workingset: timestamp_bits=62 max_order=19 bucket_order=0
+[    2.600012] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.600347] NFS: Registering the id_resolver key type
+[    2.600371] Key type id_resolver registered
+[    2.600377] Key type id_legacy registered
+[    2.600397] ntfs: driver 2.1.32 [Flags: R/O].
+[    2.600470] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    2.600594] fuse: init (API version 7.37)
+[    2.600754] SGI XFS with security attributes, no debug enabled
+[    2.628485] NET: Registered PF_ALG protocol family
+[    2.628498] Key type asymmetric registered
+[    2.628505] Asymmetric key parser 'x509' registered
+[    2.628536] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 242)
+[    2.628543] io scheduler mq-deadline registered
+[    2.628550] io scheduler kyber registered
+[    2.629716] rockchip-csi2-dphy-hw 2b030000.csi2-dphy0-hw: csi2 dphy hw probe successfully!
+[    2.629835] rockchip-csi2-dphy-hw 2b070000.csi2-dphy1-hw: csi2 dphy hw probe successfully!
+[    2.631079] rockchip-usb2phy 2602e000.syscon:usb2-phy@0: error -ENXIO: IRQ index 0 not found
+[    2.631168] rockchip-usb2phy 2602e000.syscon:usb2-phy@0: refclk freq 24000000
+[    2.632729] rockchip-usb2phy 2602e000.syscon:usb2-phy@2000: error -ENXIO: IRQ index 0 not found
+[    2.632816] rockchip-usb2phy 2602e000.syscon:usb2-phy@2000: refclk freq 24000000
+[    2.637317] rockchip-hdptx-phy-hdmi 2b000000.hdmiphy: hdptx phy init success
+[    2.640127] pwm-backlight backlight: supply power not found, using dummy regulator
+[    2.640448] iep: Module initialized.
+[    2.640490] mpp_service mpp-srv: 53c0acb01bce author: Tao Huang 2024-12-09 video: rockchip: mpp: Fix typos in Rockchip copyright notices
+[    2.640499] mpp_service mpp-srv: probe start
+[    2.642683] mpp_rkvenc2 rkvenc-ccu: probing start
+[    2.642696] mpp_rkvenc2 rkvenc-ccu: probing finish
+[    2.643149] mpp_service mpp-srv: probe success
+[    2.652487] dma-pl330 2ab90000.dma-controller: Loaded driver for PL330 DMAC-241330
+[    2.652504] dma-pl330 2ab90000.dma-controller: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-32 Num_Events-16
+[    2.653260] dma-pl330 2abb0000.dma-controller: Loaded driver for PL330 DMAC-241330
+[    2.653270] dma-pl330 2abb0000.dma-controller: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-32 Num_Events-16
+[    2.654030] dma-pl330 2abd0000.dma-controller: Loaded driver for PL330 DMAC-241330
+[    2.654039] dma-pl330 2abd0000.dma-controller: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-32 Num_Events-16
+[    2.654844] rockchip-system-monitor rockchip-system-monitor: system monitor probe
+[    2.655213] arm-scmi firmware:scmi: Failed. SCMI protocol 22 not active.
+[    2.655314] Serial: 8250/16550 driver, 15 ports, IRQ sharing disabled
+[    2.655812] 2ad70000.serial: ttyS4 at MMIO 0x2ad70000 (irq = 42, base_baud = 11718) is a 16550A
+[    2.656088] 2adb0000.serial: ttyS8 at MMIO 0x2adb0000 (irq = 43, base_baud = 11718) is a 16550A
+[    2.662797] dw-mipi-dsi2 27d80000.dsi: Fixed dependency cycle(s) with /dsi@27d80000/panel@0
+[    2.662843] mipi-dsi 27d80000.dsi.0: Fixed dependency cycle(s) with /dsi@27d80000
+[    2.664096] OF: graph: no port node found in /dp@27e40000
+[    2.664362] platform 27d00000.vop: Fixed dependency cycle(s) with /dp@27e40000
+[    2.670145] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    2.670489] brd: module loaded
+[    2.672733] loop: module loaded
+[    2.672890] zram: Added device: zram0
+[    2.673021] lkdtm: No crash points registered, enable through debugfs
+[    2.674814] rockchip-pinctrl pinctrl: pin gpio3-21 already requested by vcc-mipicsi1-regulator; cannot claim for 2ad00000.spi
+[    2.674829] rockchip-pinctrl pinctrl: pin-117 (2ad00000.spi) status -22
+[    2.674836] rockchip-pinctrl pinctrl: could not request pin 117 (gpio3-21) from group spi1m2-pins  on device rockchip-pinctrl
+[    2.674843] rockchip-spi 2ad00000.spi: Error applying setting, reverse things back
+[    2.675601] CAN device driver interface
+[    2.676245] rk3576_canfd 2ac00000.can: CAN info: use_dma = 1, rx_max_data = 18, fifo_depth = 14
+[    2.677398] rk_gmac-dwmac 2a220000.ethernet: IRQ eth_lpi not found
+[    2.677559] rk_gmac-dwmac 2a220000.ethernet: supply phy not found, using dummy regulator
+[    2.677620] rk_gmac-dwmac 2a220000.ethernet: clock input or output? (output).
+[    2.677627] rk_gmac-dwmac 2a220000.ethernet: TX delay(0x21).
+[    2.677634] rk_gmac-dwmac 2a220000.ethernet: Can not read property: rx_delay.
+[    2.677639] rk_gmac-dwmac 2a220000.ethernet: set rx_delay to 0xffffffff
+[    2.677708] rk_gmac-dwmac 2a220000.ethernet: integrated PHY? (no).
+[    2.677718] rk_gmac-dwmac 2a220000.ethernet: cannot get clock mac_clk_rx
+[    2.677724] rk_gmac-dwmac 2a220000.ethernet: cannot get clock mac_clk_tx
+[    2.677739] rk_gmac-dwmac 2a220000.ethernet: cannot get clock clk_mac_speed
+[    2.677960] rk_gmac-dwmac 2a220000.ethernet: init for RGMII_RXID
+[    2.678051] rk_gmac-dwmac 2a220000.ethernet: User ID: 0x30, Synopsys ID: 0x51
+[    2.678060] rk_gmac-dwmac 2a220000.ethernet: 	DWMAC4/5
+[    2.678067] rk_gmac-dwmac 2a220000.ethernet: DMA HW capability register supported
+[    2.678072] rk_gmac-dwmac 2a220000.ethernet: RX Checksum Offload Engine supported
+[    2.678077] rk_gmac-dwmac 2a220000.ethernet: TX Checksum insertion supported
+[    2.678082] rk_gmac-dwmac 2a220000.ethernet: Wake-Up On Lan supported
+[    2.678114] rk_gmac-dwmac 2a220000.ethernet: TSO supported
+[    2.678120] rk_gmac-dwmac 2a220000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    2.678126] rk_gmac-dwmac 2a220000.ethernet: Enabled L3L4 Flow TC (entries=2)
+[    2.678132] rk_gmac-dwmac 2a220000.ethernet: Enabled RFS Flow TC (entries=10)
+[    2.678138] rk_gmac-dwmac 2a220000.ethernet: TSO feature enabled
+[    2.678143] rk_gmac-dwmac 2a220000.ethernet: Using 40/40 bits DMA host/device width
+[    2.813881] rk_gmac-dwmac 2a230000.ethernet: IRQ eth_lpi not found
+[    2.814044] rk_gmac-dwmac 2a230000.ethernet: supply phy not found, using dummy regulator
+[    2.814112] rk_gmac-dwmac 2a230000.ethernet: clock input or output? (output).
+[    2.814119] rk_gmac-dwmac 2a230000.ethernet: TX delay(0x20).
+[    2.814125] rk_gmac-dwmac 2a230000.ethernet: Can not read property: rx_delay.
+[    2.814131] rk_gmac-dwmac 2a230000.ethernet: set rx_delay to 0xffffffff
+[    2.814146] rk_gmac-dwmac 2a230000.ethernet: integrated PHY? (no).
+[    2.814156] rk_gmac-dwmac 2a230000.ethernet: cannot get clock mac_clk_rx
+[    2.814163] rk_gmac-dwmac 2a230000.ethernet: cannot get clock mac_clk_tx
+[    2.814176] rk_gmac-dwmac 2a230000.ethernet: cannot get clock clk_mac_speed
+[    2.814397] rk_gmac-dwmac 2a230000.ethernet: init for RGMII_RXID
+[    2.814491] rk_gmac-dwmac 2a230000.ethernet: User ID: 0x30, Synopsys ID: 0x51
+[    2.814499] rk_gmac-dwmac 2a230000.ethernet: 	DWMAC4/5
+[    2.814507] rk_gmac-dwmac 2a230000.ethernet: DMA HW capability register supported
+[    2.814512] rk_gmac-dwmac 2a230000.ethernet: RX Checksum Offload Engine supported
+[    2.814517] rk_gmac-dwmac 2a230000.ethernet: TX Checksum insertion supported
+[    2.814522] rk_gmac-dwmac 2a230000.ethernet: Wake-Up On Lan supported
+[    2.814553] rk_gmac-dwmac 2a230000.ethernet: TSO supported
+[    2.814558] rk_gmac-dwmac 2a230000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    2.814565] rk_gmac-dwmac 2a230000.ethernet: Enabled L3L4 Flow TC (entries=2)
+[    2.814571] rk_gmac-dwmac 2a230000.ethernet: Enabled RFS Flow TC (entries=10)
+[    2.814577] rk_gmac-dwmac 2a230000.ethernet: TSO feature enabled
+[    2.814583] rk_gmac-dwmac 2a230000.ethernet: Using 40/40 bits DMA host/device width
+[    2.949592] usbcore: registered new interface driver rtl8150
+[    2.949613] usbcore: registered new device driver r8152-cfgselector
+[    2.949632] usbcore: registered new interface driver r8152
+[    2.949648] usbcore: registered new interface driver asix
+[    2.949665] usbcore: registered new interface driver ax88179_178a
+[    2.949681] usbcore: registered new interface driver cdc_ether
+[    2.949696] usbcore: registered new interface driver net1080
+[    2.949714] usbcore: registered new interface driver cdc_subset
+[    2.949729] usbcore: registered new interface driver zaurus
+[    2.949750] usbcore: registered new interface driver cdc_ncm
+[    2.949765] usbcore: registered new interface driver r8153_ecm
+[    2.954255] phy phy-2602e000.syscon:usb2-phy@2000.1: illegal mode
+[    2.954270] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    2.954349] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    2.954418] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220fe64 hci version 0x110 quirks 0x0000808002010010
+[    2.954445] xhci-hcd xhci-hcd.0.auto: irq 64, io mem 0x23400000
+[    2.954513] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    2.954573] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    2.954582] xhci-hcd xhci-hcd.0.auto: Host supports USB 3.0 SuperSpeed
+[    2.954647] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.01
+[    2.954655] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.954662] usb usb1: Product: xHCI Host Controller
+[    2.954667] usb usb1: Manufacturer: Linux 6.1.99 xhci-hcd
+[    2.954673] usb usb1: SerialNumber: xhci-hcd.0.auto
+[    2.954862] hub 1-0:1.0: USB hub found
+[    2.954882] hub 1-0:1.0: 1 port detected
+[    2.955026] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    2.955068] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.01
+[    2.955075] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.955082] usb usb2: Product: xHCI Host Controller
+[    2.955087] usb usb2: Manufacturer: Linux 6.1.99 xhci-hcd
+[    2.955092] usb usb2: SerialNumber: xhci-hcd.0.auto
+[    2.955254] hub 2-0:1.0: USB hub found
+[    2.955269] hub 2-0:1.0: 1 port detected
+[    2.955431] usbcore: registered new interface driver cdc_acm
+[    2.955438] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    2.955517] usbcore: registered new interface driver uas
+[    2.955547] usbcore: registered new interface driver usb-storage
+[    2.955579] usbcore: registered new interface driver usbserial_generic
+[    2.955591] usbserial: USB Serial support registered for generic
+[    2.955607] usbcore: registered new interface driver cp210x
+[    2.955618] usbserial: USB Serial support registered for cp210x
+[    2.955648] usbcore: registered new interface driver ftdi_sio
+[    2.955659] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    2.955688] usbcore: registered new interface driver keyspan
+[    2.955698] usbserial: USB Serial support registered for Keyspan - (without firmware)
+[    2.955708] usbserial: USB Serial support registered for Keyspan 1 port adapter
+[    2.955720] usbserial: USB Serial support registered for Keyspan 2 port adapter
+[    2.955730] usbserial: USB Serial support registered for Keyspan 4 port adapter
+[    2.955749] usbcore: registered new interface driver option
+[    2.955760] usbserial: USB Serial support registered for GSM modem (1-port)
+[    2.955796] usbcore: registered new interface driver oti6858
+[    2.955808] usbserial: USB Serial support registered for oti6858
+[    2.955824] usbcore: registered new interface driver pl2303
+[    2.955835] usbserial: USB Serial support registered for pl2303
+[    2.955853] usbcore: registered new interface driver qcserial
+[    2.955863] usbserial: USB Serial support registered for Qualcomm USB modem
+[    2.955883] usbcore: registered new interface driver sierra
+[    2.955894] usbserial: USB Serial support registered for Sierra USB modem
+[    2.956466] usbcore: registered new interface driver usbtouchscreen
+[    2.956755] .. rk pwm remotectl v2.0 init
+[    2.956895] input: 27330000.pwm as /devices/platform/27330000.pwm/input/input0
+[    2.957034] remotectl-pwm 27330000.pwm: pwm sip wakeup config error!!
+[    2.957041] remotectl-pwm 27330000.pwm: Donot support ATF Wakeup
+[    2.957441] i2c_dev: i2c /dev entries driver
+[    2.957699] rockchip-pinctrl pinctrl: pin gpio0-17 already requested by 2adb0000.serial; cannot claim for 27300000.i2c
+[    2.957708] rockchip-pinctrl pinctrl: pin-17 (27300000.i2c) status -22
+[    2.957715] rockchip-pinctrl pinctrl: could not request pin 17 (gpio0-17) from group i2c0m1-xfer  on device rockchip-pinctrl
+[    2.957722] rk3x-i2c 27300000.i2c: Error applying setting, reverse things back
+[    2.958256] i2c 1-0023: Fixed dependency cycle(s) with /i2c@2ac40000/pmic@23/pinctrl_rk806/rk806_dvs1_pwrdn
+[    2.958272] i2c 1-0023: Fixed dependency cycle(s) with /i2c@2ac40000/pmic@23/pinctrl_rk806/rk806_dvs3_null
+[    2.958283] i2c 1-0023: Fixed dependency cycle(s) with /i2c@2ac40000/pmic@23/pinctrl_rk806/rk806_dvs2_null
+[    2.958294] i2c 1-0023: Fixed dependency cycle(s) with /i2c@2ac40000/pmic@23/pinctrl_rk806/rk806_dvs1_null
+[    2.960042] rk806 1-0023: chip id: RK806,ver:0xa, 0x5
+[    2.960934] rk806 1-0023: ON: 0x40 OFF:0x0
+[    2.961389] rk806 1-0023: dvs-suspend-control-by missing!
+[    2.970417] input: rk805 pwrkey as /devices/platform/2ac40000.i2c/i2c-1/1-0023/rk805-pwrkey.2.auto/input/input1
+[    3.028545] rk806 1-0023: no sleep-setting state
+[    3.028561] rk806 1-0023: no reset-setting pinctrl state
+[    3.028567] rk806 1-0023: no dvs-setting pinctrl state
+[    3.040200] platform 23000000.usb: Fixed dependency cycle(s) with /i2c@2ac50000/husb311@4e
+[    3.040274] i2c 2-004e: Fixed dependency cycle(s) with /usb@23000000
+[    3.045666] rtc-hym8563 2-0051: rtc information is valid
+[    3.054108] rtc-hym8563 2-0051: registered as rtc0
+[    3.055116] rtc-hym8563 2-0051: setting system clock to 2021-01-01T12:00:00 UTC (1609502400)
+[    3.056171] platform csi2-dphy1: Fixed dependency cycle(s) with /i2c@2ac80000/imx415@1a
+[    3.056233] i2c 5-001a: Fixed dependency cycle(s) with /csi2-dphy1
+[    3.056952] platform csi2-dcphy0: Fixed dependency cycle(s) with /i2c@2acb0000/imx415@1a
+[    3.057016] i2c 8-001a: Fixed dependency cycle(s) with /csi2-dcphy0
+[    3.057212] gsensor_icm2060x 8-0068: sensor_register_device: icm2060x_acc, id = 34
+[    3.057221] i2c i2c-8: sensor_probe: icm2060x_acc,000000004b444de8
+[    3.057308] gsensor_icm2060x 8-0068: sensor_chip_init:icm2060x_acc:devid=0x0,ops=0x00000000b198dfde
+[    3.156371] input: gsensor as /devices/platform/2acb0000.i2c/i2c-8/8-0068/input/input2
+[    3.156435] gsensor_icm2060x 8-0068: sensor_irq_init:use polling,delay=30 ms
+[    3.156488] gsensor_icm2060x 8-0068: sensor_misc_device_register:miscdevice: mma8452_daemon
+[    3.156496] gsensor_icm2060x 8-0068: sensor_probe:initialized ok,sensor name:icm2060x_acc,type:2,id=34
+
+[    3.156531] i2c i2c-8: 1 i2c clients have been registered at 0x68
+[    3.157194] platform csi2-dphy3: Fixed dependency cycle(s) with /i2c@2ae80000/fpga@1a
+[    3.157234] i2c 9-001a: Fixed dependency cycle(s) with /csi2-dphy3
+[    3.157596] goodix_ts_probe() start
+[    3.157632] Goodix-TS 9-0014: supply tp not found, using dummy regulator
+[    3.208317] usb 1-1: new high-speed USB device number 2 using xhci-hcd
+[    3.321019] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.356514] usb 1-1: New USB device found, idVendor=1a40, idProduct=0101, bcdDevice= 1.11
+[    3.356529] usb 1-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0
+[    3.356538] usb 1-1: Product: USB 2.0 Hub
+[    3.402732] hub 1-1:1.0: USB hub found
+[    3.402814] hub 1-1:1.0: 4 ports detected
+[    3.429018] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.537017] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.645017] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.753016] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.788322] usb 1-1.1: new high-speed USB device number 3 using xhci-hcd
+[    3.861016] <<-GTP-ERROR->> I2C Read: 0x8000, 10 bytes failed, errcode: -6! Process reset.
+[    3.968316] <<-GTP-ERROR->> I2C read 0x8000, 10 bytes, double check failed!
+[    3.968324] <<-GTP-ERROR->> Failed to get chip-type, set chip type default: GOODIX_GT9
+[    3.969029] <<-GTP-ERROR->> I2C Read: 0x8047, 1 bytes failed, errcode: -6! Process reset.
+[    3.988627] usb 1-1.1: New USB device found, idVendor=a69c, idProduct=8d80, bcdDevice= 1.00
+[    3.988641] usb 1-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.988650] usb 1-1.1: Product: AIC Wlan
+[    3.988658] usb 1-1.1: Manufacturer: aicsemi
+[    3.988666] usb 1-1.1: SerialNumber: 20220103
+[    4.076317] <<-GTP-ERROR->> GTP i2c test failed time 1.
+[    4.097014] <<-GTP-ERROR->> I2C Read: 0x8047, 1 bytes failed, errcode: -6! Process reset.
+[    4.188322] usb 1-1.3: new low-speed USB device number 4 using xhci-hcd
+[    4.204317] <<-GTP-ERROR->> GTP i2c test failed time 2.
+[    4.225013] <<-GTP-ERROR->> I2C Read: 0x8047, 1 bytes failed, errcode: -6! Process reset.
+[    4.332316] <<-GTP-ERROR->> GTP i2c test failed time 3.
+[    4.353012] <<-GTP-ERROR->> I2C Read: 0x8047, 1 bytes failed, errcode: -6! Process reset.
+[    4.412021] usb 1-1.3: New USB device found, idVendor=03f0, idProduct=1f4a, bcdDevice= 1.00
+[    4.412036] usb 1-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[    4.412045] usb 1-1.3: Product: HP USB Optical Mouse
+[    4.412053] usb 1-1.3: Manufacturer: PixArt
+[    4.460317] <<-GTP-ERROR->> GTP i2c test failed time 4.
+[    4.481013] <<-GTP-ERROR->> I2C Read: 0x8047, 1 bytes failed, errcode: -6! Process reset.
+[    4.588316] <<-GTP-ERROR->> GTP i2c test failed time 5.
+[    4.608313] <goodix_ts_probe>_2786    I2C communication ERROR!
+[    4.608320]    <goodix_ts_probe>_2863  prob error !!!!!!!!!!!!!!!
+[    4.608343] ------------[ cut here ]------------
+[    4.608347] WARNING: CPU: 4 PID: 1 at drivers/regulator/core.c:2414 _regulator_put.part.0+0x158/0x160
+[    4.608361] Modules linked in:
+[    4.608369] CPU: 4 PID: 1 Comm: swapper/0 Not tainted 6.1.99 #3
+[    4.608376] Hardware name: Rockchip RK3576 EVB1 V10 Board (DT)
+[    4.608381] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    4.608388] pc : _regulator_put.part.0+0x158/0x160
+[    4.608395] lr : regulator_put+0x3c/0x50
+[    4.608401] sp : ffffffc00a6fb670
+[    4.608406] x29: ffffffc00a6fb670 x28: 0000000000000000 x27: ffffffc009b000c8
+[    4.608417] x26: 0000000000000000 x25: ffffff807fb632f0 x24: 0000000000000001
+[    4.608426] x23: ffffffc00984e318 x22: ffffffc00a6fb728 x21: ffffffc00a6fb728
+[    4.608436] x20: ffffffc00a447960 x19: ffffff80051ae900 x18: 0000000000000030
+[    4.608444] x17: 2121212121212121 x16: 21212120726f7272 x15: ffffffffffffffff
+[    4.608453] x14: 0000000000000000 x13: 2121212121212121 x12: 0000000000000040
+[    4.608462] x11: 0000000000000001 x10: ffffff80051ffaa8 x9 : ffffffc008726470
+[    4.608471] x8 : ffffffc008979a20 x7 : ffffff80051ffaa8 x6 : ffffff80051ffaa8
+[    4.608480] x5 : 0000000000000000 x4 : ffffff807fa42c30 x3 : 0000000000000000
+[    4.608488] x2 : ffffff8003150000 x1 : 0000000000000000 x0 : 0000000000000001
+[    4.608497] Call trace:
+[    4.608501]  _regulator_put.part.0+0x158/0x160
+[    4.608508]  regulator_put+0x3c/0x50
+[    4.608514]  devm_regulator_release+0x18/0x20
+[    4.608522]  devres_release_group+0x120/0x1f4
+[    4.608531]  i2c_device_probe+0x138/0x350
+[    4.608540]  really_probe+0xc4/0x3e0
+[    4.608547]  __driver_probe_device+0x80/0x160
+[    4.608553]  driver_probe_device+0x40/0x110
+[    4.608559]  __device_attach_driver+0xb8/0x150
+[    4.608566]  bus_for_each_drv+0x7c/0xd0
+[    4.608571]  __device_attach+0xac/0x1e4
+[    4.608577]  device_initial_probe+0x18/0x20
+[    4.608584]  bus_probe_device+0x98/0xa0
+[    4.608589]  device_add+0x3d0/0x7d4
+[    4.608598]  device_register+0x24/0x30
+[    4.608606]  i2c_new_client_device+0x184/0x340
+[    4.608613]  of_i2c_register_devices+0x15c/0x210
+[    4.608621]  i2c_register_adapter+0x1e4/0x6b4
+[    4.608628]  __i2c_add_numbered_adapter+0x60/0xac
+[    4.608635]  i2c_add_numbered_adapter+0x20/0x34
+[    4.608643]  rk3x_i2c_probe+0x354/0x500
+[    4.608648]  platform_probe+0x6c/0xd4
+[    4.608656]  really_probe+0xc4/0x3e0
+[    4.608662]  __driver_probe_device+0x80/0x160
+[    4.608668]  driver_probe_device+0x40/0x110
+[    4.608674]  __driver_attach+0xec/0x1f0
+[    4.608680]  bus_for_each_dev+0x74/0xd0
+[    4.608686]  driver_attach+0x28/0x30
+[    4.608691]  bus_add_driver+0x178/0x234
+[    4.608697]  driver_register+0x7c/0x130
+[    4.608704]  __platform_driver_register+0x2c/0x34
+[    4.608711]  rk3x_i2c_driver_init+0x20/0x28
+[    4.608720]  do_one_initcall+0x48/0x250
+[    4.608727]  kernel_init_freeable+0x298/0x300
+[    4.608734]  kernel_init+0x28/0x12c
+[    4.608741]  ret_from_fork+0x10/0x20
+[    4.608747] 
+               PC: 0xffffffc00872642c:
+[    4.608752] 622c  aa1703e0 94328765 2a0003f7 b9004fe0 aa1603e0 94328a48 31008eff 54fffaa1
+[    4.608770] 624c  910fc280 943283d0 f9422260 b5fffb40 f9400260 f9402000 f9404001 b40000a1
+[    4.608787] 626c  aa1303e0 d63f0020 7100001f 54fffacd 90008d40 91158000 17ffffd6 b0008c20
+[    4.608803] 628c  9134e000 d2800134 f9400001 f90002a1 79401000 790012a0 aa1303e0 97fff1ae
+[    4.608819] 62ac  aa1403e0 a94153f3 a9425bf5 f9401bf7 a8c57bfd d65f03c0 b940b260 11000400
+[    4.608835] 62cc  b900b260 17ffffb8 aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 aa0003f3
+[    4.608851] 62ec  a9025bf5 a90363f7 b9402000 350009a0 a9478274 97f74215 91030296 f9400260
+[    4.608867] 630c  b40000c0 39406261 37100861 f9402a61 aa1603e0 97ee65e4 b000e915 912582b5
+[    4.608882] 632c  910fc2b7 91020298 aa1703e0 94328a0a aa1803e0 d2800001 97e61b97 34000460
+[    4.608898] 634c  b940b280 d5384101 11000400 f9005681 b900b280 910fc2a0 9432838b a9408662
+[    4.608914] 636c  f9000441 d2802004 d2802443 f2fbd5a4 f2fbd5a3 aa1403e0 f9000022 a9008e64
+[    4.608930] 638c  b9401281 b9000a9f 51000421 b9001281 97fff171 f9402a60 97ea6147 aa1303e0
+[    4.608945] 63ac  97ea93b9 f9405e80 97e7034b aa1603e0 94091545 a94153f3 a9425bf5 a94363f7
+[    4.608961] 63cc  a8c47bfd d65f03c0 f9405681 d5384100 eb00003f 54000180 aa1703e0 9432836a
+[    4.608977] 63ec  d2800001 aa1803e0 943286f4 2a0003f8 aa1703e0 943289d8 31008f1f 54fffac0
+[    4.608993] 640c  17ffffd0 b940b280 11000400 b900b280 17ffffd1 aa1603e1 94091c73 17ffffbc
+[    4.609009] 642c* d4210000 17ffffb3 aa1e03e9 d503201f a9be7bfd 910003fd a90153f3 b000e914
+[    4.609025] 644c  91258294 aa0003f3 91140280 943289c2 b40000b3 b140067f 54000068 aa1303e0
+[    4.609041] 646c  97ffff9a 91140280 94328347 a94153f3 a8c27bfd d65f03c0 aa1e03e9 d503201f
+[    4.609056] 648c  7100001f 540003ed a9bd7bfd 51000400 52800402 910003fd a9025bf5 9100c036
+[    4.609072] 64ac  b000e915 912582b5 a90153f3 9ba25816 91004033 911402b5 d503201f f9400274
+[    4.609088] 64cc  aa1503e0 943289a4 aa1403e0 b4000094 b140069f 54000048 97ffff7c aa1503e0
+[    4.609104] 64ec  94328329 f802067f eb16027f 54fffe81 a94153f3 a9425bf5 a8c37bfd d65f03c0
+[    4.609120] 650c  d65f03c0 aa1e03e9 d503201f a9bb7bfd 910003fd a90153f3 a9025bf5 f9403c15
+[    4.609135] 652c  f9421ea0 97f74189 b000e900 91258000 91150016 f942a013 f9400274 eb16027f
+[    4.609151] 654c  54000520 a90363f7 d2802458 91140017 a9046bf9 d2802019 f2fbd5b9 f2fbd5b8
+[    4.609167] 656c  14000005 aa1403f3 f9400294 eb16027f 54000360 f9400a60 f9403c01 eb0102bf
+[    4.609183] 658c  54ffff21 f900401f aa1703e0 a9400662 f9000441 f9000022 a9006279 f9400a7a
+[    4.609198] 65ac  9432896d b40000ba b140075f 54000068 aa1a03e0 97ffff45 aa1703e0 943282f2
+[    4.609214] 65cc  aa1303e0 aa1403f3 97ea932f f9400294 eb16027f 54fffd01 d503201f a94363f7
+[    4.609230] 65ec  a9446bf9 f941dea0 97ea9327 aa1503e0 97ea9325 a94153f3 a9425bf5 a8c57bfd
+[    4.609246] 660c  d65f03c0 aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 b000e914 91258294
+[    4.609262] 
+               LR: 0xffffffc008726470:
+[    4.609267] 6270  d63f0020 7100001f 54fffacd 90008d40 91158000 17ffffd6 b0008c20 9134e000
+[    4.609282] 6290  d2800134 f9400001 f90002a1 79401000 790012a0 aa1303e0 97fff1ae aa1403e0
+[    4.609298] 62b0  a94153f3 a9425bf5 f9401bf7 a8c57bfd d65f03c0 b940b260 11000400 b900b260
+[    4.609314] 62d0  17ffffb8 aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 aa0003f3 a9025bf5
+[    4.609330] 62f0  a90363f7 b9402000 350009a0 a9478274 97f74215 91030296 f9400260 b40000c0
+[    4.609346] 6310  39406261 37100861 f9402a61 aa1603e0 97ee65e4 b000e915 912582b5 910fc2b7
+[    4.609362] 6330  91020298 aa1703e0 94328a0a aa1803e0 d2800001 97e61b97 34000460 b940b280
+[    4.609377] 6350  d5384101 11000400 f9005681 b900b280 910fc2a0 9432838b a9408662 f9000441
+[    4.609393] 6370  d2802004 d2802443 f2fbd5a4 f2fbd5a3 aa1403e0 f9000022 a9008e64 b9401281
+[    4.609409] 6390  b9000a9f 51000421 b9001281 97fff171 f9402a60 97ea6147 aa1303e0 97ea93b9
+[    4.609424] 63b0  f9405e80 97e7034b aa1603e0 94091545 a94153f3 a9425bf5 a94363f7 a8c47bfd
+[    4.609440] 63d0  d65f03c0 f9405681 d5384100 eb00003f 54000180 aa1703e0 9432836a d2800001
+[    4.609456] 63f0  aa1803e0 943286f4 2a0003f8 aa1703e0 943289d8 31008f1f 54fffac0 17ffffd0
+[    4.609472] 6410  b940b280 11000400 b900b280 17ffffd1 aa1603e1 94091c73 17ffffbc d4210000
+[    4.609489] 6430  17ffffb3 aa1e03e9 d503201f a9be7bfd 910003fd a90153f3 b000e914 91258294
+[    4.609505] 6450  aa0003f3 91140280 943289c2 b40000b3 b140067f 54000068 aa1303e0 97ffff9a
+[    4.609521] 6470* 91140280 94328347 a94153f3 a8c27bfd d65f03c0 aa1e03e9 d503201f 7100001f
+[    4.609537] 6490  540003ed a9bd7bfd 51000400 52800402 910003fd a9025bf5 9100c036 b000e915
+[    4.609553] 64b0  912582b5 a90153f3 9ba25816 91004033 911402b5 d503201f f9400274 aa1503e0
+[    4.609569] 64d0  943289a4 aa1403e0 b4000094 b140069f 54000048 97ffff7c aa1503e0 94328329
+[    4.609584] 64f0  f802067f eb16027f 54fffe81 a94153f3 a9425bf5 a8c37bfd d65f03c0 d65f03c0
+[    4.609600] 6510  aa1e03e9 d503201f a9bb7bfd 910003fd a90153f3 a9025bf5 f9403c15 f9421ea0
+[    4.609616] 6530  97f74189 b000e900 91258000 91150016 f942a013 f9400274 eb16027f 54000520
+[    4.609632] 6550  a90363f7 d2802458 91140017 a9046bf9 d2802019 f2fbd5b9 f2fbd5b8 14000005
+[    4.609648] 6570  aa1403f3 f9400294 eb16027f 54000360 f9400a60 f9403c01 eb0102bf 54ffff21
+[    4.609664] 6590  f900401f aa1703e0 a9400662 f9000441 f9000022 a9006279 f9400a7a 9432896d
+[    4.609680] 65b0  b40000ba b140075f 54000068 aa1a03e0 97ffff45 aa1703e0 943282f2 aa1303e0
+[    4.609695] 65d0  aa1403f3 97ea932f f9400294 eb16027f 54fffd01 d503201f a94363f7 a9446bf9
+[    4.609711] 65f0  f941dea0 97ea9327 aa1503e0 97ea9325 a94153f3 a9425bf5 a8c57bfd d65f03c0
+[    4.609727] 6610  aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 b000e914 91258294 a9025bf5
+[    4.609743] 6630  910fc295 f9403c13 aa1503e0 b9003fe1 94328948 91020276 d2800001 aa1603e0
+[    4.609759] 6650  97e61ad4 340004e0 b940b260 d5384101 11000400 f9005661 b900b260 910fc280
+[    4.609774] 
+               SP: 0xffffffc00a6fb670:
+[    4.609779] b470  0a6fb490 ffffffc0 08030ebc ffffffc0 00000090 00000000 00000000 00000000
+[    4.609795] b490  0a6fb4e0 ffffffc0 093c1ea0 ffffffc0 0a6fb520 ffffffc0 f2000800 00000000
+[    4.609811] b4b0  00000000 00000000 0872642c ffffffc0 80000005 00000000 00000001 00000000
+[    4.609826] b4d0  0a6fb4e0 ffffffc0 093c1e90 ffffffc0 0a6fb510 ffffffc0 093c34c4 ffffffc0
+[    4.609842] b4f0  051ae900 ffffff80 0a447960 ffffffc0 0a6fb670 ffffffc0 095ba5b8 ffffffc0
+[    4.609858] b510  0a6fb650 ffffffc0 080112e0 ffffffc0 00000001 00000000 00000000 00000000
+[    4.609874] b530  03150000 ffffff80 00000000 00000000 7fa42c30 ffffff80 00000000 00000000
+[    4.609889] b550  051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0 08726470 ffffffc0
+[    4.609905] b570  051ffaa8 ffffff80 00000001 00000000 00000040 00000000 21212121 21212121
+[    4.609921] b590  00000000 00000000 ffffffff ffffffff 726f7272 21212120 21212121 21212121
+[    4.609937] b5b0  00000030 00000000 051ae900 ffffff80 0a447960 ffffffc0 0a6fb728 ffffffc0
+[    4.609953] b5d0  0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000 7fb632f0 ffffff80
+[    4.609968] b5f0  00000000 00000000 09b000c8 ffffffc0 00000000 00000000 0a6fb670 ffffffc0
+[    4.609984] b610  08726470 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0 80000005 00000000
+[    4.610000] b630  0a6fb660 ffffffc0 0896b8e8 ffffffc0 0a6fb670 ffffffc0 081cb318 ffffffc0
+[    4.610016] b650  0a6fb670 ffffffc0 0872642c ffffffc0 00000000 00000000 0a447960 ffffffc0
+[    4.610031] b670* 0a6fb6b0 ffffffc0 08726470 ffffffc0 051ae900 ffffff80 0a447960 ffffffc0
+[    4.610047] b690  0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000
+[    4.610063] b6b0  0a6fb6d0 ffffffc0 0872f76c ffffffc0 051ae800 ffffff80 05239820 ffffff80
+[    4.610079] b6d0  0a6fb6e0 ffffffc0 0897b3a0 ffffffc0 0a6fb740 ffffffc0 08c97a68 ffffffc0
+[    4.610094] b6f0  05239820 ffffff80 fffffffa 00000000 05239800 ffffff80 05239804 ffffff80
+[    4.610110] b710  00000000 00000000 0a464530 ffffffc0 05230000 ffffff80 051ae800 ffffff80
+[    4.610126] b730  051ffa80 ffffff80 4fe58400 da03eb4c 0a6fb780 ffffffc0 08974074 ffffffc0
+[    4.610142] b750  05239820 ffffff80 00000000 00000000 0a49ad30 ffffffc0 00000000 00000000
+[    4.610158] b770  00000000 00000000 0a6803a8 ffffffc0 0a6fb7b0 ffffffc0 08974410 ffffffc0
+[    4.610174] b790  05239820 ffffff80 0a49ad30 ffffffc0 05239820 ffffff80 0a6803a8 ffffffc0
+[    4.610189] b7b0  0a6fb7e0 ffffffc0 08974530 ffffffc0 0a680000 ffffffc0 0a49ad30 ffffffc0
+[    4.610205] b7d0  0a6fb800 ffffffc0 08974c54 ffffffc0 0a6fb820 ffffffc0 08974d48 ffffffc0
+[    4.610221] b7f0  00000001 00000000 0a49ad30 ffffffc0 0a6fb8d8 ffffffc0 05239820 ffffff80
+[    4.610237] b810  0a4643a8 ffffffc0 0a49ad30 ffffffc0 0a6fb850 ffffffc0 0897198c ffffffc0
+[    4.610253] b830  00000000 00000000 0a6fb8d8 ffffffc0 08974c90 ffffffc0 00000001 00000000
+[    4.610268] b850  0a6fb8a0 ffffffc0 0897484c ffffffc0 05239820 ffffff80 05239820 ffffff80
+[    4.610285] 
+               X2: 0xffffff8003150000:
+[    4.610289] fe00  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610304] fe20  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610320] fe40  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610335] fe60  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610351] fe80  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610366] fea0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610382] fec0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610397] fee0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610412] ff00  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610428] ff20  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610443] ff40  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610458] ff60  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610474] ff80  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610489] ffa0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610505] ffc0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610520] ffe0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610536] 0000* 00000008 00000000 00000000 00000001 00000004 00000000 00000000 00000000
+[    4.610551] 0020  0a6f8000 ffffffc0 00000001 00000040 00000000 00000001 00000000 00000000
+[    4.610567] 0040  00000030 00000000 0000002b 00000000 fffedd18 00000000 0350ee00 ffffff80
+[    4.610583] 0060  00000004 00000004 00000001 00000078 00000078 00000078 00000000 00000000
+[    4.610598] 0080  00100000 00000000 00400000 00000000 00000001 00000000 00000000 00000000
+[    4.610614] 00a0  00000000 00000000 7fa40178 ffffff80 7fa40178 ffffff80 00000001 00000000
+[    4.610630] 00c0  95ddecc7 00000000 10871233 00000000 0f3a931c 00000000 10871233 00000000
+[    4.610645] 00e0  00000003 00000000 00000000 00000000 00000000 00000000 7fa3f780 ffffff80
+[    4.610661] 0100  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610676] 0120  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610691] 0140  95ddec00 00000000 00000014 00000000 000054f8 00000000 000049a4 0000037b
+[    4.610707] 0160  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000007
+[    4.610723] 0180  03150180 ffffff80 03150180 ffffff80 00000000 00000000 00000000 00000000
+[    4.610738] 01a0  00000019 00000000 00000000 00000000 031501b0 ffffff80 00000000 00000000
+[    4.610754] 01c0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610769] 01e0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610785] 
+               X4: 0xffffff807fa42c30:
+[    4.610789] 2a30  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610805] 2a50  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610820] 2a70  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610836] 2a90  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610852] 2ab0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610867] 2ad0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610882] 2af0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610898] 2b10  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610913] 2b30  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610929] 2b50  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610944] 2b70  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610959] 2b90  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610975] 2bb0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.610990] 2bd0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611006] 2bf0  04381200 ffffff80 0000004a 00000000 0010e040 fffffffe 00000000 00000000
+[    4.611021] 2c10  042a8400 ffffff80 0000004a 00000000 0010aa00 fffffffe 00000000 00000000
+[    4.611037] 2c30* 051ffa80 ffffff80 0000c73a 00000000 00147fc0 fffffffe 000c3800 fffffffe
+[    4.611053] 2c50  051aeb00 ffffff80 00002012 00000000 00146b80 fffffffe 00000000 00000000
+[    4.611069] 2c70  05234400 ffffff80 0000030f 00000000 00148d00 fffffffe 00000000 00000000
+[    4.611085] 2c90  0523a800 ffffff80 000003fd 00000000 00148e00 fffffffe 000d6400 fffffffe
+[    4.611100] 2cb0  0517f800 ffffff80 000000a5 00000000 00145e00 fffffffe 00000000 00000000
+[    4.611116] 2cd0  05090000 ffffff80 00000f43 00000000 00142400 fffffffe 00000000 00000000
+[    4.611132] 2cf0  05172000 ffffff80 0000000f 00000000 00145c00 fffffffe 00000000 00000000
+[    4.611147] 2d10  02c42200 ffffff80 00000008 00000000 000b1080 fffffffe 00000000 00000000
+[    4.611163] 2d30  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611179] 2d50  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611194] 2d70  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611210] 2d90  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611225] 2db0  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611241] 2dd0  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611256] 2df0  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611271] 2e10  00000000 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.611287] 
+               X6: 0xffffff80051ffaa8:
+[    4.611291] f8a8  00000275 000000bf 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611307] f8c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611323] f8e8  00000000 00000000 00000000 00000000 00000000 00000000 051ff980 ffffff80
+[    4.611339] f908  051ff880 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff600 ffffff80
+[    4.611356] f928  00000009 00000000 03478580 ffffff80 00000001 00000000 00000000 00000000
+[    4.611373] f948  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611388] f968  00000000 00000000 00000000 00000000 00000000 00000000 051ff818 ffffff80
+[    4.611404] f988  051ff900 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff680 ffffff80
+[    4.611420] f9a8  00000008 00000000 03478600 ffffff80 00000001 00000000 00000000 00000000
+[    4.611436] f9c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611451] f9e8  00000000 00000000 00000000 00000000 00000000 00000000 30302d39 ff003431
+[    4.611467] fa08  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611483] fa28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffa80 ffffff80
+[    4.611498] fa48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611514] fa68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 0a6fb728 ffffffc0
+[    4.611530] fa88  051ae800 ffffff80 08979570 ffffffc0 09931ba8 ffffffc0 00000000 00000000
+[    4.611545] faa8* 051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0 051fff80 ffffff80
+[    4.611561] fac8  00000000 00000000 051ffa80 ffffff80 00000002 ffffffff ffffffff ffffffff
+[    4.611577] fae8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.611593] fb08  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611608] fb28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffb80 ffffff80
+[    4.611624] fb48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611640] fb68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.611656] fb88  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611671] fba8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc00 ffffff80
+[    4.611687] fbc8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611703] fbe8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.611719] fc08  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.611734] fc28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc80 ffffff80
+[    4.611750] fc48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611766] fc68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.611782] fc88  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.611798] 
+               X7: 0xffffff80051ffaa8:
+[    4.611802] f8a8  00000275 000000bf 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611818] f8c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611833] f8e8  00000000 00000000 00000000 00000000 00000000 00000000 051ff980 ffffff80
+[    4.611849] f908  051ff880 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff600 ffffff80
+[    4.611864] f928  00000009 00000000 03478580 ffffff80 00000001 00000000 00000000 00000000
+[    4.611880] f948  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611895] f968  00000000 00000000 00000000 00000000 00000000 00000000 051ff818 ffffff80
+[    4.611911] f988  051ff900 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff680 ffffff80
+[    4.611927] f9a8  00000008 00000000 03478600 ffffff80 00000001 00000000 00000000 00000000
+[    4.611942] f9c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.611958] f9e8  00000000 00000000 00000000 00000000 00000000 00000000 30302d39 ff003431
+[    4.611973] fa08  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.611989] fa28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffa80 ffffff80
+[    4.612005] fa48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612021] fa68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 0a6fb728 ffffffc0
+[    4.612036] fa88  051ae800 ffffff80 08979570 ffffffc0 09931ba8 ffffffc0 00000000 00000000
+[    4.612052] faa8* 051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0 051fff80 ffffff80
+[    4.612068] fac8  00000000 00000000 051ffa80 ffffff80 00000002 ffffffff ffffffff ffffffff
+[    4.612084] fae8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.612099] fb08  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612115] fb28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffb80 ffffff80
+[    4.612131] fb48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612147] fb68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.612162] fb88  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612178] fba8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc00 ffffff80
+[    4.612194] fbc8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612210] fbe8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.612225] fc08  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.612241] fc28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc80 ffffff80
+[    4.612257] fc48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.612273] fc68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.612288] fc88  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.612304] 
+               X8: 0xffffffc008979a20:
+[    4.612309] 9820  aa1e03e9 d503201f a9be7bfd 90007dc2 912da042 910003fd a90153f3 aa0103f3
+[    4.612324] 9840  aa0003f4 97ffffab f9400260 eb00027f 54000141 f9415e80 f9015e93 91080281
+[    4.612340] 9860  910ac294 a9000274 f9000013 a94153f3 a8c27bfd d65f03c0 d4210000 d503201f
+[    4.612357] 9880  aa1e03e9 d503201f aa0003e4 aa0003e3 f9400006 eb00003f 54000bc0 aa0003e5
+[    4.612373] 98a0  90000009 9000000a 9115c129 9128814a 52800000 5280000b 14000010 eb03009f
+[    4.612389] 98c0  54000500 a9401ca8 f9000507 11000400 f90000e8 f9400447 f9000443 a9001ca2
+[    4.612405] 98e0  aa0603e5 f90000e3 aa0603e3 f94000c6 eb01007f 540001e0 f94008a7 eb0900ff
+[    4.612420] 9900  54000340 eb0a00ff 54fffda1 d100a0a7 b4fffd67 b90058ff aa0603e3 aa0603e5
+[    4.612436] 9920  1100056b f94000c6 eb01007f 54fffe61 3400062b f9400085 eb04003f 540005c0
+[    4.612452] 9940  90000008 91288108 f9400883 eb09007f 54000120 eb08007f 540000c0 d4210000
+[    4.612468] 9960  f9400084 17ffffd8 aa0503e7 17ffffe9 d100a084 b4ffff44 f9400083 eb03009f
+[    4.612483] 9980  54fffee0 b9405887 9100a086 f940148a 110004e3 b9005883 eb0a00df 540002e0
+[    4.612499] 99a0  51000467 710004ff 54000328 7100087f 540001a1 a9400c87 f90004e3 f9000067
+[    4.612515] 99c0  f9400443 f9000444 a9000c82 f9000064 a9428c87 f90004e3 f9000067 f9001486
+[    4.612531] 99e0  f9001886 aa0503e4 f94000a5 eb04003f 54fffac1 d65f03c0 110008e3 b9005883
+[    4.612546] 9a00  51000467 710004ff 54fffd29 d4210000 52800000 d65f03c0 d503201f d503201f
+[    4.612562] 9a20* aa1e03e9 d503201f d65f03c0 d503201f aa1e03e9 d503201f d65f03c0 d503201f
+[    4.612578] 9a40  aa1e03e9 d503201f a9bd7bfd 910003fd a90153f3 aa0003f3 f90013f5 aa0103f5
+[    4.612594] 9a60  97fffef4 aa0003f4 910aa264 14000014 aa0403e0 52800001 52800022 2a0103e5
+[    4.612610] 9a80  88e57c82 2a0503e0 350002e0 d10202a1 aa1303e0 97ffff63 52800000 910aa261
+[    4.612625] 9aa0  089ffc20 d51b4234 d503201f a94153f3 f94013f5 a8c37bfd d65f03c0 910aa265
+[    4.612641] 9ac0  d2800002 52800023 f98000b1 885ffca0 4a020001 35000061 88017ca3 35ffff81
+[    4.612657] 9ae0  34fffd60 2a0003e1 aa0403e0 9429543d 17ffffe7 d5033f9f a94153f3 f94013f5
+[    4.612673] 9b00  a8c37bfd d65f03c0 d503201f d503201f aa1e03e9 d503201f a9bd7bfd 90007dc4
+[    4.612688] 9b20  12800003 910003fd 912dc084 a90153f3 aa0003f3 90000000 9116d000 a9025bf5
+[    4.612704] 9b40  aa0103f5 aa0203f6 d2800201 52819802 97fffec4 b4000560 a9005416 aa0003f4
+[    4.612720] 9b60  97fffeb4 aa0003f5 910aa263 14000018 aa0303e0 52800001 52800022 2a0103e5
+[    4.612736] 9b80  88e57c62 2a0503e0 2a0003e1 35000341 d1020281 aa1303e0 97ffff22 52800000
+[    4.612751] 9ba0  910aa261 089ffc20 d51b4235 d503201f 52800000 a94153f3 a9425bf5 a8c37bfd
+[    4.612767] 9bc0  d65f03c0 d5033f9f 17fffffa 910aa265 d2800000 52800022 f98000b1 885ffca1
+[    4.612783] 9be0  4a000024 35000064 88047ca2 35ffff84 17ffffe7 aa0303e0 942953fa 17ffffe5
+[    4.612799] 9c00  12800160 17ffffec d503201f d503201f aa1e03e9 d503201f a9bb7bfd 910003fd
+[    4.612815] 
+               X9: 0xffffffc008726470:
+[    4.612819] 6270  d63f0020 7100001f 54fffacd 90008d40 91158000 17ffffd6 b0008c20 9134e000
+[    4.612835] 6290  d2800134 f9400001 f90002a1 79401000 790012a0 aa1303e0 97fff1ae aa1403e0
+[    4.612851] 62b0  a94153f3 a9425bf5 f9401bf7 a8c57bfd d65f03c0 b940b260 11000400 b900b260
+[    4.612867] 62d0  17ffffb8 aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 aa0003f3 a9025bf5
+[    4.612882] 62f0  a90363f7 b9402000 350009a0 a9478274 97f74215 91030296 f9400260 b40000c0
+[    4.612898] 6310  39406261 37100861 f9402a61 aa1603e0 97ee65e4 b000e915 912582b5 910fc2b7
+[    4.612914] 6330  91020298 aa1703e0 94328a0a aa1803e0 d2800001 97e61b97 34000460 b940b280
+[    4.612930] 6350  d5384101 11000400 f9005681 b900b280 910fc2a0 9432838b a9408662 f9000441
+[    4.612945] 6370  d2802004 d2802443 f2fbd5a4 f2fbd5a3 aa1403e0 f9000022 a9008e64 b9401281
+[    4.612961] 6390  b9000a9f 51000421 b9001281 97fff171 f9402a60 97ea6147 aa1303e0 97ea93b9
+[    4.612977] 63b0  f9405e80 97e7034b aa1603e0 94091545 a94153f3 a9425bf5 a94363f7 a8c47bfd
+[    4.612993] 63d0  d65f03c0 f9405681 d5384100 eb00003f 54000180 aa1703e0 9432836a d2800001
+[    4.613009] 63f0  aa1803e0 943286f4 2a0003f8 aa1703e0 943289d8 31008f1f 54fffac0 17ffffd0
+[    4.613024] 6410  b940b280 11000400 b900b280 17ffffd1 aa1603e1 94091c73 17ffffbc d4210000
+[    4.613040] 6430  17ffffb3 aa1e03e9 d503201f a9be7bfd 910003fd a90153f3 b000e914 91258294
+[    4.613056] 6450  aa0003f3 91140280 943289c2 b40000b3 b140067f 54000068 aa1303e0 97ffff9a
+[    4.613071] 6470* 91140280 94328347 a94153f3 a8c27bfd d65f03c0 aa1e03e9 d503201f 7100001f
+[    4.613087] 6490  540003ed a9bd7bfd 51000400 52800402 910003fd a9025bf5 9100c036 b000e915
+[    4.613103] 64b0  912582b5 a90153f3 9ba25816 91004033 911402b5 d503201f f9400274 aa1503e0
+[    4.613118] 64d0  943289a4 aa1403e0 b4000094 b140069f 54000048 97ffff7c aa1503e0 94328329
+[    4.613134] 64f0  f802067f eb16027f 54fffe81 a94153f3 a9425bf5 a8c37bfd d65f03c0 d65f03c0
+[    4.613150] 6510  aa1e03e9 d503201f a9bb7bfd 910003fd a90153f3 a9025bf5 f9403c15 f9421ea0
+[    4.613166] 6530  97f74189 b000e900 91258000 91150016 f942a013 f9400274 eb16027f 54000520
+[    4.613181] 6550  a90363f7 d2802458 91140017 a9046bf9 d2802019 f2fbd5b9 f2fbd5b8 14000005
+[    4.613197] 6570  aa1403f3 f9400294 eb16027f 54000360 f9400a60 f9403c01 eb0102bf 54ffff21
+[    4.613213] 6590  f900401f aa1703e0 a9400662 f9000441 f9000022 a9006279 f9400a7a 9432896d
+[    4.613229] 65b0  b40000ba b140075f 54000068 aa1a03e0 97ffff45 aa1703e0 943282f2 aa1303e0
+[    4.613244] 65d0  aa1403f3 97ea932f f9400294 eb16027f 54fffd01 d503201f a94363f7 a9446bf9
+[    4.613260] 65f0  f941dea0 97ea9327 aa1503e0 97ea9325 a94153f3 a9425bf5 a8c57bfd d65f03c0
+[    4.613276] 6610  aa1e03e9 d503201f a9bc7bfd 910003fd a90153f3 b000e914 91258294 a9025bf5
+[    4.613291] 6630  910fc295 f9403c13 aa1503e0 b9003fe1 94328948 91020276 d2800001 aa1603e0
+[    4.613307] 6650  97e61ad4 340004e0 b940b260 d5384101 11000400 f9005661 b900b260 910fc280
+[    4.613323] 
+               X10: 0xffffff80051ffaa8:
+[    4.613327] f8a8  00000275 000000bf 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613343] f8c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613358] f8e8  00000000 00000000 00000000 00000000 00000000 00000000 051ff980 ffffff80
+[    4.613374] f908  051ff880 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff600 ffffff80
+[    4.613389] f928  00000009 00000000 03478580 ffffff80 00000001 00000000 00000000 00000000
+[    4.613405] f948  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613420] f968  00000000 00000000 00000000 00000000 00000000 00000000 051ff818 ffffff80
+[    4.613436] f988  051ff900 ffffff80 00000003 00000000 033a4e00 ffffff80 051ff680 ffffff80
+[    4.613451] f9a8  00000008 00000000 03478600 ffffff80 00000001 00000000 00000000 00000000
+[    4.613467] f9c8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613482] f9e8  00000000 00000000 00000000 00000000 00000000 00000000 30302d39 ff003431
+[    4.613498] fa08  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613513] fa28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffa80 ffffff80
+[    4.613529] fa48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613545] fa68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 0a6fb728 ffffffc0
+[    4.613561] fa88  051ae800 ffffff80 08979570 ffffffc0 09931ba8 ffffffc0 00000000 00000000
+[    4.613577] faa8* 051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0 051fff80 ffffff80
+[    4.613592] fac8  00000000 00000000 051ffa80 ffffff80 00000002 ffffffff ffffffff ffffffff
+[    4.613608] fae8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.613624] fb08  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613639] fb28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffb80 ffffff80
+[    4.613655] fb48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613671] fb68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 30302d39 742d3431
+[    4.613686] fb88  ffff0070 ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613702] fba8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc00 ffffff80
+[    4.613718] fbc8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613734] fbe8  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.613750] fc08  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.613766] fc28  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 051ffc80 ffffff80
+[    4.613782] fc48  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+[    4.613798] fc68  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 75676572 6f74616c
+[    4.613813] fc88  65723a72 616c7567 2e726f74 692d2d30 393a6332 3130302d ffff0034 ffffffff
+[    4.613830] 
+               X19: 0xffffff80051ae900:
+[    4.613834] e700  051ff580 ffffff80 fdd1ffbc fffffffd 00000002 00000000 030e9a80 ffffff80
+[    4.613850] e720  7fbd06e0 ffffff80 7fbd02c8 ffffff80 00000000 00000000 051ff600 ffffff80
+[    4.613866] e740  fdd1ffbc fffffffd 00000003 00000000 030e9a80 ffffff80 030eda00 ffffff80
+[    4.613882] e760  03478580 ffffff80 00000001 00000000 051ff680 ffffff80 fdd1ffbc fffffffd
+[    4.613897] e780  00000003 00000000 030e9a80 ffffff80 030ed980 ffffff80 03478600 ffffff80
+[    4.613913] e7a0  00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613929] e7c0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613944] e7e0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613959] e800  051ffa80 ffffff80 0a6fb728 ffffffc0 0872f754 ffffffc0 098d24e0 ffffffc0
+[    4.613975] e820  00000008 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.613990] e840  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614006] e860  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614021] e880  051ae900 ffffff80 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614037] e8a0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614053] e8c0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614068] e8e0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614083] e900* 05239820 ffffff80 042b1e08 ffffff80 03af0828 ffffff80 00000005 00000000
+[    4.614099] e920  00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614114] e940  00000000 00000000 00000000 00000000 051ffb00 ffffff80 00000000 00000000
+[    4.614130] e960  00000000 00000000 00000000 00000000 00000000 00000000 03af0800 ffffff80
+[    4.614146] e980  04e08180 ffffff80 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614161] e9a0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614177] e9c0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614192] e9e0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614208] ea00  00000000 00000000 051aea08 ffffff80 051aea08 ffffff80 0896b8a0 ffffffc0
+[    4.614223] ea20  0896b9d0 ffffffc0 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614239] ea40  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614254] ea60  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614270] ea80  00000000 00000000 03633aa0 ffffff80 03633aa8 ffffff80 051ae490 ffffff80
+[    4.614285] eaa0  00000001 00000000 051aeaa8 ffffff80 051aeaa8 ffffff80 00000000 00000000
+[    4.614301] eac0  00000000 00000000 0523a430 ffffff80 00000000 00000000 00000000 00000000
+[    4.614317] eae0  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614332] 
+               X20: 0xffffffc00a447960:
+[    4.614336] 7760  08068400 ffffffc0 3f600004 00000000 0020c400 ffffff80 00000008 00000000
+[    4.614352] 7780  0871cc40 ffffffc0 0a446bb0 ffffffc0 00000000 00000000 0871cc40 ffffffc0
+[    4.614368] 77a0  00000000 00000000 00000000 00000000 098d0a18 ffffffc0 00000000 00000000
+[    4.614384] 77c0  00000000 00000000 00000000 00000000 0a447878 ffffffc0 00000000 00000000
+[    4.614399] 77e0  0871d870 ffffffc0 0871d9f4 ffffffc0 0871e540 ffffffc0 00000000 00000000
+[    4.614415] 7800  0871e080 ffffffc0 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614430] 7820  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.614446] 7840  00000000 00000000 00000000 00000000 00000000 00000000 03631800 ffffff80
+[    4.614461] 7860  00000000 00000000 00000000 08000005 00000000 00000000 094be570 ffffffc0
+[    4.614476] 7880  00000000 00000000 0a447938 ffffffc0 0a447918 ffffffc0 0a4478f8 ffffffc0
+[    4.614492] 78a0  0a4478d8 ffffffc0 0a4478b8 ffffffc0 00000000 00000000 0986cf18 ffffffc0
+[    4.614508] 78c0  00000124 00000000 0871dc00 ffffffc0 00000000 00000000 098a9e80 ffffffc0
+[    4.614524] 78e0  00000124 00000000 0871da30 ffffffc0 00000000 00000000 09958500 ffffffc0
+[    4.614539] 7900  00000124 00000000 0871da70 ffffffc0 00000000 00000000 099d5d80 ffffffc0
+[    4.614555] 7920  00000124 00000000 0871dac0 ffffffc0 00000000 00000000 099c66d0 ffffffc0
+[    4.614570] 7940  00000124 00000000 0871daf4 ffffffc0 00000000 00000000 08721c70 ffffffc0
+[    4.614586] 7960* 098501f0 ffffffc0 00000124 00000000 08725174 ffffffc0 00000000 00000000
+[    4.614602] 7980  098d22d8 ffffffc0 00000124 00000000 087230f4 ffffffc0 00000000 00000000
+[    4.614617] 79a0  09889648 ffffffc0 00000124 00000000 08723190 ffffffc0 00000000 00000000
+[    4.614633] 79c0  098d2298 ffffffc0 00000124 00000000 08725370 ffffffc0 00000000 00000000
+[    4.614649] 79e0  098d2348 ffffffc0 00000124 00000000 08725560 ffffffc0 00000000 00000000
+[    4.614665] 7a00  098d2340 ffffffc0 00000124 00000000 087258f4 ffffffc0 00000000 00000000
+[    4.614681] 7a20  098a49d0 ffffffc0 00000124 00000000 08726150 ffffffc0 00000000 00000000
+[    4.614696] 7a40  09958500 ffffffc0 00000124 00000000 08723070 ffffffc0 00000000 00000000
+[    4.614712] 7a60  098d2818 ffffffc0 00000124 00000000 08722fc0 ffffffc0 00000000 00000000
+[    4.614728] 7a80  098d21e8 ffffffc0 00000124 00000000 08726e90 ffffffc0 00000000 00000000
+[    4.614744] 7aa0  098d21d8 ffffffc0 00000124 00000000 08726e10 ffffffc0 00000000 00000000
+[    4.614759] 7ac0  099d1640 ffffffc0 00000124 00000000 08726d10 ffffffc0 00000000 00000000
+[    4.614775] 7ae0  098d21c8 ffffffc0 00000124 00000000 08726d90 ffffffc0 00000000 00000000
+[    4.614791] 7b00  098d21a0 ffffffc0 00000124 00000000 08726c10 ffffffc0 00000000 00000000
+[    4.614807] 7b20  098d21b8 ffffffc0 00000124 00000000 08726c90 ffffffc0 00000000 00000000
+[    4.614822] 7b40  098d2170 ffffffc0 00000124 00000000 08726b10 ffffffc0 00000000 00000000
+[    4.614838] 
+               X21: 0xffffffc00a6fb728:
+[    4.614842] b528  00000000 00000000 03150000 ffffff80 00000000 00000000 7fa42c30 ffffff80
+[    4.614858] b548  00000000 00000000 051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0
+[    4.614874] b568  08726470 ffffffc0 051ffaa8 ffffff80 00000001 00000000 00000040 00000000
+[    4.614890] b588  21212121 21212121 00000000 00000000 ffffffff ffffffff 726f7272 21212120
+[    4.614905] b5a8  21212121 21212121 00000030 00000000 051ae900 ffffff80 0a447960 ffffffc0
+[    4.614921] b5c8  0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000
+[    4.614937] b5e8  7fb632f0 ffffff80 00000000 00000000 09b000c8 ffffffc0 00000000 00000000
+[    4.614952] b608  0a6fb670 ffffffc0 08726470 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0
+[    4.614968] b628  80000005 00000000 0a6fb660 ffffffc0 0896b8e8 ffffffc0 0a6fb670 ffffffc0
+[    4.614984] b648  081cb318 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0 00000000 00000000
+[    4.615000] b668  0a447960 ffffffc0 0a6fb6b0 ffffffc0 08726470 ffffffc0 051ae900 ffffff80
+[    4.615015] b688  0a447960 ffffffc0 0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0
+[    4.615031] b6a8  00000001 00000000 0a6fb6d0 ffffffc0 0872f76c ffffffc0 051ae800 ffffff80
+[    4.615047] b6c8  05239820 ffffff80 0a6fb6e0 ffffffc0 0897b3a0 ffffffc0 0a6fb740 ffffffc0
+[    4.615063] b6e8  08c97a68 ffffffc0 05239820 ffffff80 fffffffa 00000000 05239800 ffffff80
+[    4.615079] b708  05239804 ffffff80 00000000 00000000 0a464530 ffffffc0 05230000 ffffff80
+[    4.615094] b728* 051ae800 ffffff80 051ffa80 ffffff80 4fe58400 da03eb4c 0a6fb780 ffffffc0
+[    4.615110] b748  08974074 ffffffc0 05239820 ffffff80 00000000 00000000 0a49ad30 ffffffc0
+[    4.615126] b768  00000000 00000000 00000000 00000000 0a6803a8 ffffffc0 0a6fb7b0 ffffffc0
+[    4.615142] b788  08974410 ffffffc0 05239820 ffffff80 0a49ad30 ffffffc0 05239820 ffffff80
+[    4.615158] b7a8  0a6803a8 ffffffc0 0a6fb7e0 ffffffc0 08974530 ffffffc0 0a680000 ffffffc0
+[    4.615174] b7c8  0a49ad30 ffffffc0 0a6fb800 ffffffc0 08974c54 ffffffc0 0a6fb820 ffffffc0
+[    4.615190] b7e8  08974d48 ffffffc0 00000001 00000000 0a49ad30 ffffffc0 0a6fb8d8 ffffffc0
+[    4.615205] b808  05239820 ffffff80 0a4643a8 ffffffc0 0a49ad30 ffffffc0 0a6fb850 ffffffc0
+[    4.615222] b828  0897198c ffffffc0 00000000 00000000 0a6fb8d8 ffffffc0 08974c90 ffffffc0
+[    4.615238] b848  00000001 00000000 0a6fb8a0 ffffffc0 0897484c ffffffc0 05239820 ffffff80
+[    4.615254] b868  05239820 ffffff80 052398a0 ffffff80 08974834 ffffffc0 05239820 ffffff80
+[    4.615269] b888  036342c8 ffffff80 042b9968 ffffff80 4fe58400 da03eb4c 0a6fb8f0 ffffffc0
+[    4.615285] b8a8  08974fe8 ffffffc0 05239820 ffffff80 05239820 ffffff80 0a4a6530 ffffffc0
+[    4.615301] b8c8  0517f0f0 ffffff80 0a6fb8f0 ffffffc0 05239820 ffffff80 00000001 00000000
+[    4.615317] b8e8  4fe58400 da03eb4c 0a6fb900 ffffffc0 08972f18 ffffffc0 0a6fb930 ffffffc0
+[    4.615333] b908  0896fd80 ffffffc0 05239820 ffffff80 0a680348 ffffffc0 00000000 00000000
+[    4.615349] 
+               X22: 0xffffffc00a6fb728:
+[    4.615353] b528  00000000 00000000 03150000 ffffff80 00000000 00000000 7fa42c30 ffffff80
+[    4.615368] b548  00000000 00000000 051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0
+[    4.615384] b568  08726470 ffffffc0 051ffaa8 ffffff80 00000001 00000000 00000040 00000000
+[    4.615400] b588  21212121 21212121 00000000 00000000 ffffffff ffffffff 726f7272 21212120
+[    4.615416] b5a8  21212121 21212121 00000030 00000000 051ae900 ffffff80 0a447960 ffffffc0
+[    4.615431] b5c8  0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000
+[    4.615447] b5e8  7fb632f0 ffffff80 00000000 00000000 09b000c8 ffffffc0 00000000 00000000
+[    4.615463] b608  0a6fb670 ffffffc0 08726470 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0
+[    4.615478] b628  80000005 00000000 0a6fb660 ffffffc0 0896b8e8 ffffffc0 0a6fb670 ffffffc0
+[    4.615494] b648  081cb318 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0 00000000 00000000
+[    4.615510] b668  0a447960 ffffffc0 0a6fb6b0 ffffffc0 08726470 ffffffc0 051ae900 ffffff80
+[    4.615526] b688  0a447960 ffffffc0 0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0
+[    4.615542] b6a8  00000001 00000000 0a6fb6d0 ffffffc0 0872f76c ffffffc0 051ae800 ffffff80
+[    4.615557] b6c8  05239820 ffffff80 0a6fb6e0 ffffffc0 0897b3a0 ffffffc0 0a6fb740 ffffffc0
+[    4.615573] b6e8  08c97a68 ffffffc0 05239820 ffffff80 fffffffa 00000000 05239800 ffffff80
+[    4.615589] b708  05239804 ffffff80 00000000 00000000 0a464530 ffffffc0 05230000 ffffff80
+[    4.615605] b728* 051ae800 ffffff80 051ffa80 ffffff80 4fe58400 da03eb4c 0a6fb780 ffffffc0
+[    4.615620] b748  08974074 ffffffc0 05239820 ffffff80 00000000 00000000 0a49ad30 ffffffc0
+[    4.615636] b768  00000000 00000000 00000000 00000000 0a6803a8 ffffffc0 0a6fb7b0 ffffffc0
+[    4.615652] b788  08974410 ffffffc0 05239820 ffffff80 0a49ad30 ffffffc0 05239820 ffffff80
+[    4.615668] b7a8  0a6803a8 ffffffc0 0a6fb7e0 ffffffc0 08974530 ffffffc0 0a680000 ffffffc0
+[    4.615684] b7c8  0a49ad30 ffffffc0 0a6fb800 ffffffc0 08974c54 ffffffc0 0a6fb820 ffffffc0
+[    4.615699] b7e8  08974d48 ffffffc0 00000001 00000000 0a49ad30 ffffffc0 0a6fb8d8 ffffffc0
+[    4.615715] b808  05239820 ffffff80 0a4643a8 ffffffc0 0a49ad30 ffffffc0 0a6fb850 ffffffc0
+[    4.615731] b828  0897198c ffffffc0 00000000 00000000 0a6fb8d8 ffffffc0 08974c90 ffffffc0
+[    4.615746] b848  00000001 00000000 0a6fb8a0 ffffffc0 0897484c ffffffc0 05239820 ffffff80
+[    4.615762] b868  05239820 ffffff80 052398a0 ffffff80 08974834 ffffffc0 05239820 ffffff80
+[    4.615778] b888  036342c8 ffffff80 042b9968 ffffff80 4fe58400 da03eb4c 0a6fb8f0 ffffffc0
+[    4.615794] b8a8  08974fe8 ffffffc0 05239820 ffffff80 05239820 ffffff80 0a4a6530 ffffffc0
+[    4.615809] b8c8  0517f0f0 ffffff80 0a6fb8f0 ffffffc0 05239820 ffffff80 00000001 00000000
+[    4.615825] b8e8  4fe58400 da03eb4c 0a6fb900 ffffffc0 08972f18 ffffffc0 0a6fb930 ffffffc0
+[    4.615841] b908  0896fd80 ffffffc0 05239820 ffffff80 0a680348 ffffffc0 00000000 00000000
+[    4.615857] 
+               X23: 0xffffffc00984e318:
+[    4.615861] e118  00000a75 00000000 69747268 3d72656d 66207025 74636e75 3d6e6f69 20737025
+[    4.615877] e138  3d776f6e 756c6c25 0000000a 00000000 69747268 3d72656d 000a7025 00000000
+[    4.615892] e158  63696877 64253d68 70786520 73657269 6c6c253d 74692075 6c61765f 253d6575
+[    4.615908] e178  252e646c 646c3630 5f746920 65746e69 6c617672 646c253d 3630252e 000a646c
+[    4.615924] e198  63696877 64253d68 64697020 2064253d 3d776f6e 756c6c25 0000000a 00000000
+[    4.615939] e1b8  656d6974 70253d72 6e756620 6f697463 70253d6e 78652073 65726970 6c253d73
+[    4.615955] e1d8  745b2075 6f656d69 253d7475 205d646c 3d757063 69207525 253d7864 6c662075
+[    4.615970] e1f8  3d736761 000a7325 69747268 3d72656d 63207025 6b636f6c 253d6469 6f6d2073
+[    4.615986] e218  253d6564 00000a73 69747268 3d72656d 66207025 74636e75 3d6e6f69 20737025
+[    4.616002] e238  69707865 3d736572 756c6c25 666f7320 70786574 73657269 6c6c253d 6f6d2075
+[    4.616018] e258  253d6564 00000a73 63637573 3d737365 64206425 6e657065 636e6564 73253d79
+[    4.616033] e278  0000000a 00000000 63733301 75646568 745f656c 6f656d69 203a7475 6e6f7277
+[    4.616049] e298  69742067 756f656d 61762074 2065756c 0a786c25 00000000 656d6974 25203a72
+[    4.616064] e2b8  70205370 6d656572 6c207470 3a6b6165 38302520 3e2d2078 38302520 00000a78
+[    4.616080] e2d8  49534f50 49545f58 0052454d 00000000 46524550 4556455f 0053544e 00000000
+[    4.616096] e2f8  434f4c43 4e555f4b 42415453 0000454c 5f554352 00505845 00534241 00000000
+[    4.616111] e318* 004c4552 00000000 7c534241 4e4e4950 00004445 00000000 7c4c4552 4e4e4950
+[    4.616127] e338  00004445 00000000 7c534241 54464f53 00000000 00000000 7c4c4552 54464f53
+[    4.616143] e358  00000000 00000000 7c534241 4e4e4950 537c4445 0054464f 7c4c4552 4e4e4950
+[    4.616158] e378  537c4445 0054464f 7c534241 44524148 00000000 00000000 7c4c4552 44524148
+[    4.616174] e398  00000000 00000000 7c534241 4e4e4950 487c4445 00445241 7c4c4552 4e4e4950
+[    4.616190] e3b8  487c4445 00445241 434f4c43 45525f4b 49544c41 0000454d 434f4c43 4f4d5f4b
+[    4.616205] e3d8  4f544f4e 0043494e 434f4c43 4f425f4b 4954544f 0000454d 434f4c43 41545f4b
+[    4.616221] e3f8  00000049 00000000 656d6974 696d5f72 74617267 006e6f69 65706564 6e65646e
+[    4.616236] e418  00007963 00000000 63696877 00000068 69736e75 64656e67 6e6f6c20 6f6c2067
+[    4.616252] e438  0000676e 00000000 69707865 00736572 756c6176 65735f65 00000063 00000000
+[    4.616268] e458  756c6176 736e5f65 00006365 00000000 65746e69 6c617672 6365735f 00000000
+[    4.616284] e478  65746e69 6c617672 65736e5f 00000063 69747268 0072656d 00343673 00000000
+[    4.616299] e498  74666f73 69707865 00736572 00000000 6d756e65 74726820 72656d69 646f6d5f
+[    4.616315] e4b8  00000065 00000000 636f6c63 5f64696b 00000074 00000000 636f6c63 0064696b
+[    4.616330] e4d8  65736162 006b6c63 4b434954 5045445f 53414d5f 43525f4b 58455f55 00000050
+[    4.616346] e4f8  4b434954 5045445f 5449425f 5543525f 5058455f 00000000 4b434954 5045445f
+[    4.616362] 
+               X25: 0xffffff807fb632f0:
+[    4.616366] 30f0  7fb63360 ffffff80 7fb62fb0 ffffff80 7fb62fa8 ffffff80 035b9400 ffffff80
+[    4.616382] 3110  0a4d8650 ffffffc0 03891b00 ffffff80 00000001 00000003 00000000 00000000
+[    4.616397] 3130  00000000 00000000 70646e65 746e696f 00000000 00000000 fdd4164d fffffffd
+[    4.616413] 3150  00000004 00000000 fdd1ff38 fffffffd 7fb631a8 ffffff80 03893200 ffffff80
+[    4.616428] 3170  00000124 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.616443] 3190  08f08ad0 ffffffc0 00000000 00000000 00000000 00000000 fdd4165d fffffffd
+[    4.616459] 31b0  00000010 00000000 fdd1ff48 fffffffd 7fb63208 ffffff80 03893400 ffffff80
+[    4.616475] 31d0  00000124 00000000 00000010 00000000 00000000 00000000 00000000 00000000
+[    4.616490] 31f0  08f08ad0 ffffffc0 00000000 00000000 00000000 00000000 fdd41154 fffffffd
+[    4.616505] 3210  00000004 00000000 fdd1ff64 fffffffd 7fb63268 ffffff80 03893500 ffffff80
+[    4.616521] 3230  00000124 00000000 00000004 00000000 00000000 00000000 00000000 00000000
+[    4.616536] 3250  08f08ad0 ffffffc0 00000000 00000000 00000000 00000000 098501f0 ffffffc0
+[    4.616552] 3270  00000009 00000000 7fb632c8 ffffff80 00000000 00000000 03893600 ffffff80
+[    4.616567] 3290  00000124 00000000 00000009 00000000 00000000 00000000 00000000 00000000
+[    4.616582] 32b0  08f08ad0 ffffffc0 00000000 00000000 00000000 00000000 70646e65 746e696f
+[    4.616598] 32d0  00000000 00000000 7fb63898 ffffff80 0000030c 00000000 7fb633a8 ffffff80
+[    4.616614] 32f0* 00000000 00000000 09617028 ffffffc0 05239820 ffffff80 7fb63308 ffffff80
+[    4.616629] 3310  7fb63308 ffffff80 7fb63318 ffffff80 7fb63318 ffffff80 00000001 00000000
+[    4.616645] 3330  7fb633b8 ffffff80 00000000 00000000 7fb62460 ffffff80 00000000 00000000
+[    4.616661] 3350  00000000 00000000 03893780 ffffff80 7fb63928 ffffff80 7fb630f0 ffffff80
+[    4.616676] 3370  7fb624e0 ffffff80 035b9400 ffffff80 0a4d8650 ffffffc0 03891d80 ffffff80
+[    4.616692] 3390  00000001 00000003 00000008 00000000 00000000 00000000 78397467 34314078
+[    4.616708] 33b0  00000000 00000000 fdd40f2c fffffffd 0000000d 00000000 fdd1ff90 fffffffd
+[    4.616723] 33d0  7fb63418 ffffff80 03893700 ffffff80 00000124 00000000 0000000d 00000000
+[    4.616739] 33f0  00000000 00000000 00000000 00000000 08f08ad0 ffffffc0 00000000 00000000
+[    4.616755] 3410  00000000 00000000 fdd4115c fffffffd 00000004 00000000 fdd1ffac fffffffd
+[    4.616770] 3430  7fb63478 ffffff80 03893900 ffffff80 00000124 00000000 00000004 00000000
+[    4.616786] 3450  00000000 00000000 00000000 00000000 08f08ad0 ffffffc0 00000000 00000000
+[    4.616801] 3470  00000000 00000000 fdd41b72 fffffffd 00000008 00000000 fdd1ffbc fffffffd
+[    4.616817] 3490  7fb634d8 ffffff80 03893a00 ffffff80 00000124 00000000 00000008 00000000
+[    4.616833] 34b0  00000000 00000000 00000000 00000000 08f08ad0 ffffffc0 00000000 00000000
+[    4.616848] 34d0  00000000 00000000 fdd41ba4 fffffffd 00000004 00000000 fdd1ffd0 fffffffd
+[    4.616864] 
+               X27: 0xffffffc009b000c8:
+[    4.616868] fec8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616884] fee8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616899] ff08  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616915] ff28  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616930] ff48  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616946] ff68  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616961] ff88  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616977] ffa8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.616992] ffc8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    4.617007] ffe8  00000000 00000000 00000000 00000000 00000000 00000000 aa1e03e9 d503201f
+[    4.617023] 0008  f0005781 52800020 b9000020 d65f03c0 aa1e03e9 d503201f f0003c01 52800142
+[    4.617039] 0028  52800000 b9012822 d65f03c0 aa1e03e9 d503201f f0003c01 52800082 52800000
+[    4.617055] 0048  b9012822 d65f03c0 aa1e03e9 d503201f a9bf7bfd f0005783 f0003b61 910003fd
+[    4.617070] 0068  91220021 d2801f02 f9000460 91002020 52800001 97e17111 52800020 a8c17bfd
+[    4.617086] 0088  d65f03c0 aa1e03e9 d503201f a9bf7bfd aa0003e4 f0003b63 91220063 910003fd
+[    4.617102] 00a8  91002060 d2801f02 52800001 f9008864 97e17102 52800020 a8c17bfd d65f03c0
+[    4.617117] 00c8* aa1e03e9 d503201f 52800000 d65f03c0 aa1e03e9 d503201f a9bc7bfd 910003fd
+[    4.617133] 00e8  a90153f3 b0000e33 aa0003f4 910a0273 a9025bf5 f0ffe9d6 f0ffe9d5 911682d6
+[    4.617149] 0108  911622b5 a90363f7 d0000e37 aa0103f8 910ae2f7 eb17027f 54000382 b9401260
+[    4.617164] 0128  350000c0 aa1503e1 aa1403e0 97e1714f 340001e0 14000013 f9400261 aa1403e0
+[    4.617180] 0148  9795baba 72001c1f 54fffee0 f9400661 aa1803e0 d63f0020 34000140 aa1403e1
+[    4.617196] 0168  aa1603e0 97e21a5e 14000006 f9400260 f0ffe9c1 91164021 97e1713c 34fffe80
+[    4.617211] 0188  91006273 17ffffe4 52800000 a94153f3 a9425bf5 a94363f7 a8c47bfd d65f03c0
+[    4.617227] 01a8  aa1e03e9 d503201f a9bf7bfd f0ffe9c0 91170000 910003fd 97e21a49 52800000
+[    4.617242] 01c8  a8c17bfd d65f03c0 aa1e03e9 d503201f a9be7bfd 910003fd f9000bf3 aa0003f3
+[    4.617258] 01e8  b4000400 f0ffe9c1 91188021 97e1711f 350000e0 f0fff922 f0fff921 52800020
+[    4.617274] 0208  39326040 391a4020 1400001a f0fff3c1 aa1303e0 91352021 97e17114 350000c0
+[    4.617289] 0228  f0fff921 f0fff920 3932603f 391a401f 14000010 b0ffee61 aa1303e0 91076021
+[    4.617305] 0248  97e1710a 350000e0 f0fff920 f0fff922 52800021 3932605f 391a4001 14000005
+[    4.617321] 0268  f0ffe9c0 aa1303e1 9118a000 97e21a1c 52800000 f9400bf3 a8c27bfd d65f03c0
+[    4.617337] 0288  aa1e03e9 d503201f b40003e1 a9be7bfd 910003fd a90153f3 aa0103f3 aa0003f4
+[    4.617352] 02a8  97e17142 91000401 8b010281 eb01027f 54000081 528007a0 381ff260 1400000f
+[    4.617368] 
+               X29: 0xffffffc00a6fb670:
+[    4.617372] b470  0a6fb490 ffffffc0 08030ebc ffffffc0 00000090 00000000 00000000 00000000
+[    4.617388] b490  0a6fb4e0 ffffffc0 093c1ea0 ffffffc0 0a6fb520 ffffffc0 f2000800 00000000
+[    4.617404] b4b0  00000000 00000000 0872642c ffffffc0 80000005 00000000 00000001 00000000
+[    4.617419] b4d0  0a6fb4e0 ffffffc0 093c1e90 ffffffc0 0a6fb510 ffffffc0 093c34c4 ffffffc0
+[    4.617435] b4f0  051ae900 ffffff80 0a447960 ffffffc0 0a6fb670 ffffffc0 095ba5b8 ffffffc0
+[    4.617451] b510  0a6fb650 ffffffc0 080112e0 ffffffc0 00000001 00000000 00000000 00000000
+[    4.617466] b530  03150000 ffffff80 00000000 00000000 7fa42c30 ffffff80 00000000 00000000
+[    4.617482] b550  051ffaa8 ffffff80 051ffaa8 ffffff80 08979a20 ffffffc0 08726470 ffffffc0
+[    4.617498] b570  051ffaa8 ffffff80 00000001 00000000 00000040 00000000 21212121 21212121
+[    4.617513] b590  00000000 00000000 ffffffff ffffffff 726f7272 21212120 21212121 21212121
+[    4.617529] b5b0  00000030 00000000 051ae900 ffffff80 0a447960 ffffffc0 0a6fb728 ffffffc0
+[    4.617545] b5d0  0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000 7fb632f0 ffffff80
+[    4.617560] b5f0  00000000 00000000 09b000c8 ffffffc0 00000000 00000000 0a6fb670 ffffffc0
+[    4.617576] b610  08726470 ffffffc0 0a6fb670 ffffffc0 0872642c ffffffc0 80000005 00000000
+[    4.617592] b630  0a6fb660 ffffffc0 0896b8e8 ffffffc0 0a6fb670 ffffffc0 081cb318 ffffffc0
+[    4.617608] b650  0a6fb670 ffffffc0 0872642c ffffffc0 00000000 00000000 0a447960 ffffffc0
+[    4.617623] b670* 0a6fb6b0 ffffffc0 08726470 ffffffc0 051ae900 ffffff80 0a447960 ffffffc0
+[    4.617639] b690  0a6fb728 ffffffc0 0a6fb728 ffffffc0 0984e318 ffffffc0 00000001 00000000
+[    4.617655] b6b0  0a6fb6d0 ffffffc0 0872f76c ffffffc0 051ae800 ffffff80 05239820 ffffff80
+[    4.617671] b6d0  0a6fb6e0 ffffffc0 0897b3a0 ffffffc0 0a6fb740 ffffffc0 08c97a68 ffffffc0
+[    4.617686] b6f0  05239820 ffffff80 fffffffa 00000000 05239800 ffffff80 05239804 ffffff80
+[    4.617702] b710  00000000 00000000 0a464530 ffffffc0 05230000 ffffff80 051ae800 ffffff80
+[    4.617718] b730  051ffa80 ffffff80 4fe58400 da03eb4c 0a6fb780 ffffffc0 08974074 ffffffc0
+[    4.617733] b750  05239820 ffffff80 00000000 00000000 0a49ad30 ffffffc0 00000000 00000000
+[    4.617749] b770  00000000 00000000 0a6803a8 ffffffc0 0a6fb7b0 ffffffc0 08974410 ffffffc0
+[    4.617765] b790  05239820 ffffff80 0a49ad30 ffffffc0 05239820 ffffff80 0a6803a8 ffffffc0
+[    4.617780] b7b0  0a6fb7e0 ffffffc0 08974530 ffffffc0 0a680000 ffffffc0 0a49ad30 ffffffc0
+[    4.617796] b7d0  0a6fb800 ffffffc0 08974c54 ffffffc0 0a6fb820 ffffffc0 08974d48 ffffffc0
+[    4.617812] b7f0  00000001 00000000 0a49ad30 ffffffc0 0a6fb8d8 ffffffc0 05239820 ffffff80
+[    4.617828] b810  0a4643a8 ffffffc0 0a49ad30 ffffffc0 0a6fb850 ffffffc0 0897198c ffffffc0
+[    4.617844] b830  00000000 00000000 0a6fb8d8 ffffffc0 08974c90 ffffffc0 00000001 00000000
+[    4.617859] b850  0a6fb8a0 ffffffc0 0897484c ffffffc0 05239820 ffffff80 05239820 ffffff80
+[    4.617875] ---[ end trace 0000000000000000 ]---
+[    4.618502] milianke_mipi 9-001a: always_on=1 ignored: mipi-en toggled by s_stream()
+[    4.618514] milianke_mipi 9-001a: milianke MIPI sensor registered: m02_back_FPGA-MIPI 9-001a (FPGA CSI-2, 1920x1080@60fps, link-freq=500000000, mipi-en=yes)
+[    4.619047] rkcifhw 27c10000.rkcif: Adding to iommu group 9
+[    4.619396] rkcifhw 27c10000.rkcif: No reserved memory region assign to CIF
+[    4.619504] rkcif rkcif-mipi-lvds: Adding to iommu group 9
+[    4.619520] rkcif rkcif-mipi-lvds: rkcif driver version: v00.02.00
+[    4.619605] rkcif rkcif-mipi-lvds: attach to cif hw node
+[    4.619611] rkcif rkcif-mipi-lvds: rkcif wait line 0
+[    4.619617] rkcif rkcif-mipi-lvds: rkcif fastboot reserve bufs num 3
+[    4.619626] : terminal subdev does not exist
+[    4.619633] : terminal subdev does not exist
+[    4.619639] : terminal subdev does not exist
+[    4.619645] : terminal subdev does not exist
+[    4.619651] : get_remote_sensor: video pad[0] is null
+[    4.619656] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.619662] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.619668] : get_remote_sensor: video pad[0] is null
+[    4.619673] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.619678] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.619683] : get_remote_sensor: video pad[0] is null
+[    4.619688] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.619693] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.619699] : get_remote_sensor: video pad[0] is null
+[    4.619703] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.619707] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.620426] rkcif rkcif-mipi-lvds: No memory-region-thunderboot specified
+[    4.620581] rkcif rkcif-mipi-lvds1: Adding to iommu group 9
+[    4.620598] rkcif rkcif-mipi-lvds1: rkcif driver version: v00.02.00
+[    4.620652] rkcif rkcif-mipi-lvds1: attach to cif hw node
+[    4.620658] rkcif rkcif-mipi-lvds1: rkcif wait line 0
+[    4.620663] rkcif rkcif-mipi-lvds1: rkcif fastboot reserve bufs num 3
+[    4.620671] : terminal subdev does not exist
+[    4.620678] : terminal subdev does not exist
+[    4.620683] : terminal subdev does not exist
+[    4.620689] : terminal subdev does not exist
+[    4.620694] : get_remote_sensor: video pad[0] is null
+[    4.620699] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.620704] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.620710] : get_remote_sensor: video pad[0] is null
+[    4.620714] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.620719] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.620724] : get_remote_sensor: video pad[0] is null
+[    4.620729] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.620733] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.620739] : get_remote_sensor: video pad[0] is null
+[    4.620743] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.620748] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.621395] rkcif rkcif-mipi-lvds1: No memory-region-thunderboot specified
+[    4.621532] rkcif rkcif-mipi-lvds3: Adding to iommu group 9
+[    4.621548] rkcif rkcif-mipi-lvds3: rkcif driver version: v00.02.00
+[    4.621602] rkcif rkcif-mipi-lvds3: attach to cif hw node
+[    4.621608] rkcif rkcif-mipi-lvds3: rkcif wait line 0
+[    4.621613] rkcif rkcif-mipi-lvds3: rkcif fastboot reserve bufs num 3
+[    4.621622] : terminal subdev does not exist
+[    4.621628] : terminal subdev does not exist
+[    4.621634] : terminal subdev does not exist
+[    4.621639] : terminal subdev does not exist
+[    4.621644] : get_remote_sensor: video pad[0] is null
+[    4.621649] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.621654] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.621660] : get_remote_sensor: video pad[0] is null
+[    4.621664] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.621669] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.621675] : get_remote_sensor: video pad[0] is null
+[    4.621679] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.621684] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.621690] : get_remote_sensor: video pad[0] is null
+[    4.621694] : rkcif_update_sensor_info: stream[0] get remote sensor_sd failed!
+[    4.621699] : rkcif_scale_set_fmt: req(40, 30) src out(0, 0)
+[    4.622338] rkcif rkcif-mipi-lvds3: No memory-region-thunderboot specified
+[    4.623406] rockchip-mipi-csi2-hw 27c80000.mipi0-csi2-hw: enter mipi csi2 hw probe!
+[    4.623527] rockchip-mipi-csi2-hw 27c80000.mipi0-csi2-hw: probe success, v4l2_dev:mipi0-csi2-hw!
+[    4.623564] rockchip-mipi-csi2-hw 27c90000.mipi1-csi2-hw: enter mipi csi2 hw probe!
+[    4.623638] rockchip-mipi-csi2-hw 27c90000.mipi1-csi2-hw: probe success, v4l2_dev:mipi1-csi2-hw!
+[    4.623669] rockchip-mipi-csi2-hw 27ca0000.mipi2-csi2-hw: enter mipi csi2 hw probe!
+[    4.623736] rockchip-mipi-csi2-hw 27ca0000.mipi2-csi2-hw: probe success, v4l2_dev:mipi2-csi2-hw!
+[    4.623768] rockchip-mipi-csi2-hw 27cb0000.mipi3-csi2-hw: enter mipi csi2 hw probe!
+[    4.623835] rockchip-mipi-csi2-hw 27cb0000.mipi3-csi2-hw: probe success, v4l2_dev:mipi3-csi2-hw!
+[    4.623867] rockchip-mipi-csi2-hw 27cc0000.mipi4-csi2-hw: enter mipi csi2 hw probe!
+[    4.623931] rockchip-mipi-csi2-hw 27cc0000.mipi4-csi2-hw: probe success, v4l2_dev:mipi4-csi2-hw!
+[    4.624359] rockchip-mipi-csi2 mipi0-csi2: attach to csi2 hw node
+[    4.624387] rkcif rkcif-mipi-lvds: Entity type for entity rockchip-mipi-csi2 was not initialized!
+[    4.624396] rockchip-mipi-csi2: Async registered subdev
+[    4.624402] rockchip-mipi-csi2: probe success, v4l2_dev:rkcif-mipi-lvds!
+[    4.624623] rockchip-mipi-csi2 mipi1-csi2: attach to csi2 hw node
+[    4.624645] rkcif rkcif-mipi-lvds1: Entity type for entity rockchip-mipi-csi2 was not initialized!
+[    4.624652] rockchip-mipi-csi2: Async registered subdev
+[    4.624657] rockchip-mipi-csi2: probe success, v4l2_dev:rkcif-mipi-lvds1!
+[    4.624852] rockchip-mipi-csi2 mipi3-csi2: attach to csi2 hw node
+[    4.624874] rkcif rkcif-mipi-lvds3: Entity type for entity rockchip-mipi-csi2 was not initialized!
+[    4.624880] rockchip-mipi-csi2: Async registered subdev
+[    4.624885] rockchip-mipi-csi2: probe success, v4l2_dev:rkcif-mipi-lvds3!
+[    4.625721] rkisp_hw 27c00000.isp: Adding to iommu group 8
+[    4.625869] rkisp_hw 27c00000.isp: is_thunderboot: 0
+[    4.625876] rkisp_hw 27c00000.isp: Missing rockchip,grf property
+[    4.625898] rkisp_hw 27c00000.isp: max input:0x0@0fps
+[    4.626018] rkisp_hw 27c00000.isp: no find phandle sram
+[    4.626286] rkisp rkisp-vir0: rkisp driver version: v02.09.00
+[    4.626372] rkisp rkisp-vir0: No memory-region-thunderboot specified
+[    4.626443] rkisp rkisp-vir0: Entity type for entity rkisp-isp-subdev was not initialized!
+[    4.627044] rkisp rkisp-vir1: rkisp driver version: v02.09.00
+[    4.627100] rkisp rkisp-vir1: No memory-region-thunderboot specified
+[    4.627152] rkisp rkisp-vir1: Entity type for entity rkisp-isp-subdev was not initialized!
+[    4.627695] rkisp rkisp-vir2: rkisp driver version: v02.09.00
+[    4.627748] rkisp rkisp-vir2: No memory-region-thunderboot specified
+[    4.627800] rkisp rkisp-vir2: Entity type for entity rkisp-isp-subdev was not initialized!
+[    4.629548] rkvpss_hw 27c30000.vpss: Adding to iommu group 10
+[    4.629790] rkvpss_hw 27c30000.vpss: failed to get cru reset
+[    4.630080] rkvpss rkvpss-vir0: rkvpss driver version: v00.01.00
+[    4.630491] rkvpss-vir0: Async subdev notifier completed
+[    4.630584] rkvpss rkvpss-vir1: rkvpss driver version: v00.01.00
+[    4.630917] rkvpss rkvpss-vir2: rkvpss driver version: v00.01.00
+[    4.631253] rkvpss-vir2: Async subdev notifier completed
+[    4.631517] usbcore: registered new interface driver uvcvideo
+[    4.632281] Bluetooth: HCI UART driver ver 2.3
+[    4.632290] Bluetooth: HCI UART protocol H4 registered
+[    4.632296] Bluetooth: HCI UART protocol ATH3K registered
+[    4.632334] usbcore: registered new interface driver bfusb
+[    4.632361] usbcore: registered new interface driver btusb
+[    4.633743] cpu cpu0: bin=2
+[    4.633927] cpu cpu0: leakage=3
+[    4.636103] cpu cpu0: pvtm=1944
+[    4.636316] usb 1-1.4: new high-speed USB device number 5 using xhci-hcd
+[    4.636626] cpu cpu0: pvtm-volt-sel=6
+[    4.636645] cpu cpu0: soc version=2, speed=6
+[    4.638075] cpu cpu4: bin=2
+[    4.638253] cpu cpu4: leakage=5
+[    4.640415] cpu cpu4: pvtm=2072
+[    4.640931] cpu cpu4: pvtm-volt-sel=6
+[    4.640948] cpu cpu4: soc version=2, speed=6
+[    4.642343] cpu cpu0: avs=0
+[    4.643149] cpu cpu4: avs=0
+[    4.643230] cpu cpu0: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    4.644072] cpu cpu0: EM: OPP:1200000 is inefficient
+[    4.644077] cpu cpu0: EM: OPP:1008000 is inefficient
+[    4.644080] cpu cpu0: EM: OPP:816000 is inefficient
+[    4.644083] cpu cpu0: EM: OPP:600000 is inefficient
+[    4.644085] cpu cpu0: EM: OPP:408000 is inefficient
+[    4.644184] cpu cpu0: EM: created perf domain
+[    4.644854] cpu cpu4: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    4.645702] cpu cpu4: EM: OPP:1416000 is inefficient
+[    4.645707] cpu cpu4: EM: OPP:1200000 is inefficient
+[    4.645710] cpu cpu4: EM: OPP:1008000 is inefficient
+[    4.645714] cpu cpu4: EM: OPP:816000 is inefficient
+[    4.645717] cpu cpu4: EM: OPP:600000 is inefficient
+[    4.645720] cpu cpu4: EM: OPP:408000 is inefficient
+[    4.645847] cpu cpu4: EM: created perf domain
+[    4.647265] sdhci: Secure Digital Host Controller Interface driver
+[    4.647276] sdhci: Copyright(c) Pierre Ossman
+[    4.647281] Synopsys Designware Multimedia Card Interface Driver
+[    4.647678] sdhci-pltfm: SDHCI platform and OF driver helper
+[    4.648528] dwmmc_rockchip 2a310000.mmc: No normal pinctrl state
+[    4.648543] dwmmc_rockchip 2a310000.mmc: No idle pinctrl state
+[    4.648731] dwmmc_rockchip 2a310000.mmc: IDMAC supports 32-bit address mode.
+[    4.648751] dwmmc_rockchip 2a310000.mmc: Using internal DMA controller.
+[    4.648761] dwmmc_rockchip 2a310000.mmc: Version ID is 270a
+[    4.648792] dwmmc_rockchip 2a310000.mmc: DW MMC controller at irq 93,32 bit host data width,256 deep fifo
+[    4.649463] arm-scmi firmware:scmi: Failed. SCMI protocol 17 not active.
+[    4.649500] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    4.649806] rk-crypto 2a400000.crypto: invalid resource
+[    4.649902] mmc0: CQHCI version 5.10
+[    4.650149] rk-crypto 2a400000.crypto: register to cryptodev ok!
+[    4.650161] rk-crypto 2a400000.crypto: CRYPTO V3.0.0.0 multi Accelerator successfully registered
+[    4.650543] cryptodev: driver 1.12 loaded.
+[    4.650567] hid: raw HID events driver (C) Jiri Kosina
+[    4.652258] input: PixArt HP USB Optical Mouse as /devices/platform/23400000.usb/xhci-hcd.0.auto/usb1/1-1/1-1.3/1-1.3:1.0/0003:03F0:1F4A.0001/input/input3
+[    4.652452] hid-generic 0003:03F0:1F4A.0001: input,hidraw0: USB HID v1.11 Mouse [PixArt HP USB Optical Mouse] on usb-xhci-hcd.0.auto-1.3/input0
+[    4.652502] usbcore: registered new interface driver usbhid
+[    4.652507] usbhid: USB HID core driver
+[    4.653694] rockchip,bus bus-a72: bin=2
+[    4.653871] rockchip,bus bus-a72: leakage=14
+[    4.653878] rockchip,bus bus-a72: leakage-volt-sel=1
+[    4.653885] rockchip,bus bus-a72: soc version=2, speed=1
+[    4.654492] rockchip,bus bus-a72: avs=0
+[    4.657962] optee: probing for conduit method.
+[    4.657981] optee: revision 3.13 (9f2aca7d)
+[    4.658266] optee: dynamic shared memory is enabled
+[    4.658368] optee: initialized driver
+[    4.658963] usbcore: registered new interface driver snd-usb-audio
+[    4.662970] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
+[    4.665165] input: headset-keys as /devices/platform/es8388-sound/input/input4
+[    4.681150] mmc0: SDHCI controller on 2a330000.mmc [2a330000.mmc] using ADMA 64-bit
+[    4.724055] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz (slot req 200000000Hz, actual 198000000HZ div = 0)
+[    4.724076] dwmmc_rockchip 2a310000.mmc: Successfully tuned phase to 0
+[    4.724085] mmc1: new ultra high speed SDR104 SDHC card at address 0001
+[    4.724548] mmcblk1: mmc1:0001 MSSD0 29.2 GiB 
+[    4.725676] input: rockchip-es8388 Headset as /devices/platform/es8388-sound/sound/card0/input5
+[    4.725729]  mmcblk1: p1
+[    4.726802] Initializing XFRM netlink socket
+[    4.727125] mmc0: Command Queue Engine enabled
+[    4.727137] mmc0: new HS400 Enhanced strobe MMC card at address 0001
+[    4.727394] NET: Registered PF_INET6 protocol family
+[    4.727579] mmcblk0: mmc0:0001 Y2P032 29.1 GiB 
+[    4.728805] Segment Routing with IPv6
+[    4.728826] In-situ OAM (IOAM) with IPv6
+[    4.728902] NET: Registered PF_PACKET protocol family
+[    4.728913] NET: Registered PF_KEY protocol family
+[    4.728920] can: controller area network core
+[    4.728947] NET: Registered PF_CAN protocol family
+[    4.728954] can: raw protocol
+[    4.728961] can: broadcast manager protocol
+[    4.728969] can: netlink gateway - max_hops=1
+[    4.729143] Bluetooth: RFCOMM socket layer initialized
+[    4.729161] Bluetooth: RFCOMM ver 1.11
+[    4.729175] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    4.729184] Bluetooth: HIDP socket layer initialized
+[    4.729208] [BT_RFKILL]: Enter rfkill_rk_init
+[    4.729214] [WLAN_RFKILL]: Enter rfkill_wlan_init
+[    4.729932] Key type dns_resolver registered
+[    4.730432] gyro_icm2060x 8-0068-1: sensor_register_device: icm2060x_gyro, id = 63
+[    4.730442] i2c i2c-8: sensor_probe: icm2060x_gyro,00000000d19291e5
+[    4.730461] gyro_icm2060x 8-0068-1: sensor_chip_init:icm2060x_gyro:devid=0x0,ops=0x00000000b03466d0
+[    4.731146]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8
+[    4.732192] mmcblk0boot0: mmc0:0001 Y2P032 4.00 MiB 
+[    4.732765] mmcblk0boot1: mmc0:0001 Y2P032 4.00 MiB 
+[    4.733262] mmcblk0rpmb: mmc0:0001 Y2P032 16.0 MiB, chardev (235:0)
+[    4.816532] input: gyro as /devices/platform/2acb0000.i2c/i2c-8/8-0068-1/input/input6
+[    4.816700] gyro_icm2060x 8-0068-1: sensor_irq_init:use polling,delay=30 ms
+[    4.816886] gyro_icm2060x 8-0068-1: sensor_misc_device_register:miscdevice: gyrosensor
+[    4.816896] gyro_icm2060x 8-0068-1: sensor_probe:initialized ok,sensor name:icm2060x_gyro,type:4,id=63
+
+[    4.817196] imx415 5-001a: driver version: 00.01.08
+[    4.817259] imx415 5-001a:  Get hdr mode failed! no hdr default
+[    4.817278] imx415 5-001a: detect imx415 lane 4
+[    4.817467] imx415 5-001a: Failed to get power-gpios
+[    4.817479] imx415 5-001a: could not get default pinstate
+[    4.817486] imx415 5-001a: could not get sleep pinstate
+[    4.817526] imx415 5-001a: supply dvdd not found, using dummy regulator
+[    4.817620] imx415 5-001a: supply dovdd not found, using dummy regulator
+[    4.842214] usb 1-1.4: New USB device found, idVendor=1bcf, idProduct=2d50, bcdDevice= 6.78
+[    4.842230] usb 1-1.4: New USB device strings: Mfr=1, Product=4, SerialNumber=3
+[    4.842238] usb 1-1.4: Product: DECXIN Camera
+[    4.842244] usb 1-1.4: Manufacturer: DECXIN
+[    4.842251] usb 1-1.4: SerialNumber: 01.00.000
+[    4.843881] vendor storage:20190527 ret = 0
+[    4.868830] imx415 5-001a: Unexpected sensor id(000000), ret(-5)
+[    4.869391] imx415 8-001a: driver version: 00.01.08
+[    4.869414] imx415 8-001a:  Get hdr mode failed! no hdr default
+[    4.869432] imx415 8-001a: detect imx415 lane 4
+[    4.869483] imx415 8-001a: Failed to get power-gpios
+[    4.869495] imx415 8-001a: could not get default pinstate
+[    4.869502] imx415 8-001a: could not get sleep pinstate
+[    4.869541] imx415 8-001a: supply dvdd not found, using dummy regulator
+[    4.869652] imx415 8-001a: supply dovdd not found, using dummy regulator
+[    4.907946] usb 1-1.4: Found UVC 1.00 device DECXIN Camera (1bcf:2d50)
+[    4.913508] usb 1-1.4: Failed to query (GET_INFO) UVC control 5 on unit 1: -32 (exp. 1).
+[    4.914461] usb 1-1.4: Failed to query (GET_INFO) UVC control 7 on unit 1: -32 (exp. 1).
+[    4.916443] usb 1-1.4: Failed to query (GET_INFO) UVC control 17 on unit 1: -32 (exp. 1).
+[    4.936876] imx415 8-001a: Unexpected sensor id(000000), ret(-5)
+[    4.937991] Loading compiled-in X.509 certificates
+[    4.939479] pstore: Using crash dump compression: deflate
+[    4.947576] rga2 27920000.rga: Adding to iommu group 2
+[    4.948002] rga2 27920000.rga: probe successfully, irq = 47, hw_version:3.e.19357
+[    4.948196] rga2 27930000.rga: Adding to iommu group 3
+[    4.948687] rga2 27930000.rga: probe successfully, irq = 48, hw_version:3.e.19357
+[    4.948989] rga: IOMMU binding successfully, default mapping core[0x4]
+[    4.949154] rga: Module initialized. v1.3.7
+[    4.969118] rockchip-csi2-dphy csi2-dcphy0: csi2 dphy0 probe successfully!
+[    4.969509] rockchip-csi2-dphy csi2-dphy1: csi2 dphy1 probe successfully!
+[    4.969832] rockchip-csi2-dphy csi2-dphy3: dphy3 matches m02_back_FPGA-MIPI 9-001a:bus type 5
+[    4.970591] rkcif-mipi-lvds3: Async subdev notifier completed
+[    4.970610] rockchip-csi2-dphy csi2-dphy3: csi2 dphy3 probe successfully!
+[    4.970923] rkisp-vir2: Async subdev notifier completed
+[    4.971049] mpp-iep2 27960000.iep: Adding to iommu group 4
+[    4.971365] mpp-iep2 27960000.iep: probe device
+[    4.971579] mpp-iep2 27960000.iep: reset_group->rw_sem_on=0
+[    4.971595] mpp-iep2 27960000.iep: reset_group->rw_sem_on=0
+[    4.971608] mpp-iep2 27960000.iep: reset_group->rw_sem_on=0
+[    4.971671] mpp-iep2 27960000.iep: probing finish
+[    4.971969] mpp_jpgdec 27910000.jpegd: Adding to iommu group 1
+[    4.972235] mpp_jpgdec 27910000.jpegd: probe device
+[    4.972463] mpp_jpgdec 27910000.jpegd: reset_group->rw_sem_on=0
+[    4.972480] mpp_jpgdec 27910000.jpegd: reset_group->rw_sem_on=0
+[    4.972547] mpp_jpgdec 27910000.jpegd: probing finish
+[    4.972797] mpp_jpgenc 27910800.jpege: Adding to iommu group 1
+[    4.972863] mpp_jpgenc 27910800.jpege: probe device
+[    4.973012] mpp_jpgenc 27910800.jpege: reset_group->rw_sem_on=0
+[    4.973024] mpp_jpgenc 27910800.jpege: reset_group->rw_sem_on=0
+[    4.973072] mpp_jpgenc 27910800.jpege: probe finish
+[    4.973366] mpp_rkvdec2 27b00100.rkvdec: Adding to iommu group 7
+[    4.973824] mpp_rkvdec2 27b00100.rkvdec: rkvdec, probing start
+[    4.974170] mpp_rkvdec2 27b00100.rkvdec: shared_niu_a is not found!
+[    4.974182] rkvdec2_init:1198: No niu aclk reset resource define
+[    4.974191] mpp_rkvdec2 27b00100.rkvdec: shared_niu_h is not found!
+[    4.974199] rkvdec2_init:1201: No niu hclk reset resource define
+[    4.974212] mpp_rkvdec2 27b00100.rkvdec: shared_video_cabac is not found!
+[    4.974220] rkvdec2_init:1207: No cabac reset resource define
+[    4.974268] mpp_rkvdec2 27b00100.rkvdec: no regulator, devfreq is disabled
+[    4.974519] mpp_rkvdec2 27b00100.rkvdec: sram_start 0x000000003ff88000
+[    4.974528] mpp_rkvdec2 27b00100.rkvdec: rcb_iova 0x0000000010000000
+[    4.974534] mpp_rkvdec2 27b00100.rkvdec: sram_size 491520
+[    4.974541] mpp_rkvdec2 27b00100.rkvdec: rcb_size 491520
+[    4.974548] mpp_rkvdec2 27b00100.rkvdec: min_width 512
+[    4.974577] mpp_rkvdec2 27b00100.rkvdec: link mode probe finish
+[    4.974626] mpp_rkvdec2 27b00100.rkvdec: probing finish
+[    4.974643] mpp_rkvdec2 27b00100.rkvdec: probing finish
+[    4.974956] mpp_rkvenc2 27a00000.rkvenc-core: Adding to iommu group 5
+[    4.975267] mpp_rkvenc2 27a00000.rkvenc-core: probing start
+[    4.975450] mpp_rkvenc2 27a00000.rkvenc-core: failed to init opp info
+[    4.975458] mpp_rkvenc2 27a00000.rkvenc-core: failed to init_opp_table
+[    4.975464] rkvenc_init:2147: failed to add venc devfreq
+[    4.975526] mpp_rkvenc2 27a00000.rkvenc-core: attach ccu as core 0
+[    4.975565] mpp_rkvenc2 27a00000.rkvenc-core: probing finish
+[    4.975822] mpp_rkvenc2 27a10000.rkvenc-core: Adding to iommu group 6
+[    4.976065] mpp_rkvenc2 27a10000.rkvenc-core: probing start
+[    4.976232] mpp_rkvenc2 27a10000.rkvenc-core: failed to init opp info
+[    4.976240] mpp_rkvenc2 27a10000.rkvenc-core: failed to init_opp_table
+[    4.976246] rkvenc_init:2147: failed to add venc devfreq
+[    4.976293] mpp_rkvenc2 27a10000.rkvenc-core: attach ccu as core 1
+[    4.976357] mpp_rkvenc2 27a10000.rkvenc-core: probing finish
+[    4.976697] rockchip-vop2 27d00000.vop: Adding to iommu group 11
+[    4.977422] panel-simple-dsi 27d80000.dsi.0: Expected bpc in {6,8} but got: 0
+[    4.978060] rockchip-vop2 27d00000.vop: [drm:vop2_bind] vp0 assign plane mask: Esmart0[0x4], primary plane phy id: Esmart0[2]
+[    4.978082] rockchip-vop2 27d00000.vop: [drm:vop2_bind] vp1 assign plane mask: Esmart1[0x8], primary plane phy id: Esmart1[3]
+[    4.978093] rockchip-vop2 27d00000.vop: [drm:vop2_bind] vp2 assign plane mask: Esmart2[0x100], primary plane phy id: Esmart2[8]
+[    4.978329] [drm] unsupported AFBC format NV12 little-endian (0x3231564e)
+[    4.978380] [drm] failed to init overlay plane Cluster0-win1
+[    4.978428] [drm] failed to init overlay plane Cluster1-win1
+[    4.978891] rockchip-vop2 27d00000.vop: bin=2
+[    4.979069] rockchip-vop2 27d00000.vop: leakage=14
+[    4.979081] rockchip-vop2 27d00000.vop: leakage-volt-sel=1
+[    4.979093] rockchip-vop2 27d00000.vop: soc version=2, speed=1
+[    4.979895] rockchip-vop2 27d00000.vop: avs=0
+[    4.979983] rockchip-vop2 27d00000.vop: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    4.980013] debugfs: Directory 'vdd_logic_s0' with parent 'vdd_logic_s0' already present!
+[    4.981002] rockchip-vop2 27d00000.vop: Supported VOP aclk dvfs, normal mode:500000000, reset mode:594000000, advanced mode:702000000
+[    4.981020] rockchip-drm display-subsystem: bound 27d00000.vop (ops 0xffffffc0094e95a0)
+[    4.982168] dwhdmi-rockchip 27da0000.hdmi: registered ddc I2C bus driver
+[    4.982806] rockchip-drm display-subsystem: bound 27da0000.hdmi (ops 0xffffffc009502838)
+[    4.982932] rockchip-drm display-subsystem: bound 27d80000.dsi (ops 0xffffffc0095051f0)
+[    4.983321] rockchip-drm display-subsystem: bound 27e40000.dp (ops 0xffffffc009505848)
+[    4.984786] dw-hdmi-qp-hdcp dw-hdmi-qp-hdcp.7.auto: dw_hdcp_qp_hdcp_probe success
+[    4.985484] [drm] Initialized rockchip 4.0.0 20140818 for display-subsystem on minor 0
+[    5.088373] dwhdmi-rockchip 27da0000.hdmi: i2c read time out!
+[    5.116081] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    5.116213] rockchip-drm display-subsystem: route-dp0: failed to get logo,offset
+[    5.116273] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    5.166395] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    5.168274] dwhdmi-rockchip 27da0000.hdmi: final tmdsclk = 148500000
+[    5.168300] rockchip-hdptx-phy-hdmi 2b000000.hdmiphy: bus_width:0x16a8c8,bit_rate:1485000
+[    5.168354] rockchip-hdptx-phy-hdmi 2b000000.hdmiphy: hdptx phy lane locked!
+[    5.168362] dwhdmi-rockchip 27da0000.hdmi: dw_hdmi_qp_setup DVI mode
+[    5.236736] rockchip-drm display-subsystem: [drm] run display error_event monitor
+[    5.239059] mali 27800000.gpu: Kernel DDK version g25p0-00eac0
+[    5.239339] mali 27800000.gpu: GPU metrics tracepoint support enabled
+[    5.239880] mali 27800000.gpu: bin=2
+[    5.240063] mali 27800000.gpu: leakage=6
+[    5.240095] debugfs: Directory '27800000.gpu-mali' with parent 'vdd_gpu_s0' already present!
+[    5.241789] mali 27800000.gpu: pvtm=781
+[    5.242267] mali 27800000.gpu: pvtm-volt-sel=5
+[    5.242282] mali 27800000.gpu: soc version=2, speed=5
+[    5.242320] debugfs: Directory '27800000.gpu-mali' with parent 'vdd_gpu_s0' already present!
+[    5.243020] mali 27800000.gpu: avs=0
+[    5.243051] W : [File] : drivers/gpu/arm/bifrost/platform/rk/mali_kbase_config_rk.c; [Line] : 144; [Func] : kbase_platform_rk_init(); power-off-delay-ms not available.
+[    5.243694] mali 27800000.gpu: Register LUT 00070200 initialized for GPU arch 0x00070400
+[    5.243718] mali 27800000.gpu: GPU identified as 0x2 arch 7.4.0 r1p0 status 0
+[    5.243836] mali 27800000.gpu: No priority control manager is configured
+[    5.243844] mali 27800000.gpu: Large page allocation set to false after hardware feature check
+[    5.244072] mali 27800000.gpu: No memory group manager is configured
+[    5.244705] mali 27800000.gpu: EM: OPP:600000 is inefficient
+[    5.244711] input: adc-keys as /devices/platform/adc-keys/input/input7
+[    5.244722] mali 27800000.gpu: EM: OPP:500000 is inefficient
+[    5.244726] mali 27800000.gpu: EM: OPP:400000 is inefficient
+[    5.244831] mali 27800000.gpu: EM: created perf domain
+[    5.245424] mali 27800000.gpu: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    5.246470] mali 27800000.gpu: * MALI kbase_mmap_min_addr compiled to CONFIG_DEFAULT_MMAP_MIN_ADDR, no runtime update possible! *
+[    5.246488] mali 27800000.gpu: Probed as mali0
+[    5.261051] rockchip-dmc dmc: bin=2
+[    5.261256] rockchip-dmc dmc: leakage=14
+[    5.261294] rockchip-dmc dmc: leakage-volt-sel=1
+[    5.261309] rockchip-dmc dmc: soc version=2, speed=1
+[    5.263599] rockchip-dmc dmc: avs=0
+[    5.263630] rockchip-dmc dmc: current ATF version 0x100
+[    5.263740] rockchip-dmc dmc: normal_rate = 1560000000
+[    5.263749] rockchip-dmc dmc: reboot_rate = 2112000000
+[    5.263756] rockchip-dmc dmc: suspend_rate = 528000000
+[    5.263762] rockchip-dmc dmc: video_4k_rate = 1560000000
+[    5.263769] rockchip-dmc dmc: video_4k_10b_rate = 1560000000
+[    5.263776] rockchip-dmc dmc: video_svep_rate = 1560000000
+[    5.263783] rockchip-dmc dmc: boost_rate = 2112000000
+[    5.263789] rockchip-dmc dmc: fixed_rate(isp|cif0|cif1|dualview) = 2112000000
+[    5.263796] rockchip-dmc dmc: performance_rate = 2112000000
+[    5.263804] rockchip-dmc dmc: hdmirx_rate = 2112000000
+[    5.263810] rockchip-dmc dmc: deep_suspend_rate = 2112000000
+[    5.263823] rockchip-dmc dmc: failed to get vop pn to msch rl
+[    5.264249] rockchip-dmc dmc: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    5.264281] debugfs: Directory 'vdd_logic_s0' with parent 'vdd_logic_s0' already present!
+[    5.266793] debugfs: File 'Capture' in directory 'dapm' already present!
+[    5.267599] input: rockchip-dp0 rockchip-dp0 as /devices/platform/dp0-sound/sound/card1/input8
+[    5.269816] input: rockchip-hdmi rockchip-hdmi as /devices/platform/hdmi-sound/sound/card2/input9
+[    5.271318] rkcif rkcif-mipi-lvds: clear unready subdev num: 1
+[    5.271640] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.271654] rkcif-mipi-lvds: Async subdev notifier completed
+[    5.271666] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.271672] rkcif-mipi-lvds: There is not terminal subdev, not synchronized with ISP
+[    5.271680] rkcif rkcif-mipi-lvds1: clear unready subdev num: 1
+[    5.271876] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.271890] rkcif-mipi-lvds1: Async subdev notifier completed
+[    5.271902] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.271909] rkcif-mipi-lvds1: There is not terminal subdev, not synchronized with ISP
+[    5.271917] rkcif rkcif-mipi-lvds3: clear unready subdev num: 0
+[    5.271947] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.271955] rkcif-mipi-lvds1: There is not terminal subdev, not synchronized with ISP
+[    5.272002] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    5.272012] rkcif-mipi-lvds: There is not terminal subdev, not synchronized with ISP
+[    5.272792] RKNPU 27700000.npu: Adding to iommu group 0
+[    5.272969] RKNPU 27700000.npu: RKNPU: rknpu iommu is enabled, using iommu mode
+[    5.273131] RKNPU 27700000.npu: can't request region for resource [mem 0x27700000-0x27707fff]
+[    5.273158] RKNPU 27700000.npu: can't request region for resource [mem 0x27708000-0x2770ffff]
+[    5.273451] [drm] Initialized rknpu 0.9.8 20240828 for 27700000.npu on minor 1
+[    5.275424] RKNPU 27700000.npu: bin=2
+[    5.275615] RKNPU 27700000.npu: leakage=5
+[    5.275655] debugfs: Directory '27700000.npu-rknpu' with parent 'vdd_npu_s0' already present!
+[    5.277360] RKNPU 27700000.npu: pvtm=835
+[    5.277853] RKNPU 27700000.npu: pvtm-volt-sel=5
+[    5.277872] RKNPU 27700000.npu: soc version=2, speed=5
+[    5.277923] debugfs: Directory '27700000.npu-rknpu' with parent 'vdd_npu_s0' already present!
+[    5.278756] RKNPU 27700000.npu: avs=0
+[    5.278886] RKNPU 27700000.npu: EM: OPP:600000 is inefficient
+[    5.278893] RKNPU 27700000.npu: EM: OPP:500000 is inefficient
+[    5.278897] RKNPU 27700000.npu: EM: OPP:400000 is inefficient
+[    5.279016] RKNPU 27700000.npu: EM: created perf domain
+[    5.279441] RKNPU 27700000.npu: l=15000 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[    5.280568] RKNPU 27700000.npu: RKNPU: nbuf region: [0x000000003fe80000, 0x000000003ff80000), nbuf size: 0x100000
+[    5.282785] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    5.284358] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    5.284992] cfg80211: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[    5.285068] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    5.285082] cfg80211: failed to load regulatory.db
+[    5.285218] clk: Disabling unused clocks
+[    5.286219] rockchip-pm rockchip-suspend: not set pwm-regulator-config
+[    5.287295] rockchip-suspend not set sleep-mode-config for mem-lite
+[    5.287305] rockchip-suspend not set wakeup-config for mem-lite
+[    5.287314] rockchip-suspend not set sleep-mode-config for mem-ultra
+[    5.287320] rockchip-suspend not set wakeup-config for mem-ultra
+[    5.288286] I : [File] : drivers/gpu/arm/mali400/mali/linux/mali_kernel_linux.c; [Line] : 407; [Func] : mali_module_init(); svn_rev_string_from_arm of this mali_ko is '', rk_ko_ver is '5', built at '00:46:18', on 'Apr 30 2026'.
+[    5.288778] Mali: 
+[    5.288780] Mali device driver loaded
+[    5.288891] rkisp rkisp-vir0: clear unready subdev num: 1
+[    5.289103] rkisp-vir0: Async subdev notifier completed
+[    5.289113] rkisp rkisp-vir1: clear unready subdev num: 1
+[    5.289260] rkisp-vir1: Async subdev notifier completed
+[    5.289270] rkisp rkisp-vir2: clear unready subdev num: 0
+[    5.289280] ALSA device list:
+[    5.289286]   #0: rockchip-es8388
+[    5.289293]   #1: rockchip-dp0
+[    5.289299]   #2: rockchip-hdmi
+[    5.560646] EXT4-fs (mmcblk0p6): recovery complete
+[    5.561181] EXT4-fs (mmcblk0p6): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    5.561239] VFS: Mounted root (ext4 filesystem) on device 179:38.
+[    5.561752] devtmpfs: mounted
+[    5.565342] Freeing unused kernel memory: 7552K
+[    5.565432] Run /sbin/init as init process
+[    5.565440]   with arguments:
+[    5.565445]     /sbin/init
+[    5.565448]     #uis-06/17/2026
+[    5.565452]   with environment:
+[    5.565455]     HOME=/
+[    5.565458]     TERM=linux
+[    5.565461]     storagemedia=emmc
+[    5.662483] systemd[1]: System time before build time, advancing clock.
+[    5.668733] systemd[1]: Failed to find module 'autofs4'
+[    6.096639] aic_bluetooth_mod_init 
+[    6.096658] RELEASE DATE:2024_0712_e2a932c1 
+[    6.096663] AICWFDBG(LOGINFO)	aicwf_prealloc_init enter
+[    6.100617] AICWFDBG(LOGINFO)	pre alloc rxbuff list len: 1000
+[    6.100695] AICWFDBG(LOGINFO)	aicwf_usb_probe vid:0xA69C pid:0x8D80 icl:0x0 isc:0x0 ipr:0x0 
+[    6.100704] AICWFDBG(LOGINFO)	aicloadfw_chipmatch USE AIC8800D80
+[    6.100709] Aic high speed USB device detected
+[    6.101241] chip_id=7, chip_mcu_id = 0
+[    6.101261] aic_load_firmware :firmware path = /vendor/etc/firmware/fw_patch_table_8800d80_u02.bin  
+[    6.104522] file md5:313babc74ae8b1d44dc0e0a4c4c73686
+[    6.104540] ### Upload fw_patch_table_8800d80_u02.bin fw_patch_table, size=23288
+[    6.104601] addr_adid 0x201940, addr_patch 0x1e0000
+[    6.104608] aic_load_firmware :firmware path = /vendor/etc/firmware/fw_adid_8800d80_u02.bin  
+[    6.105093] file md5:f546881a81b960d89a672578eb45a809
+[    6.105110] ### Upload fw_adid_8800d80_u02.bin firmware, @ = 201940  size=1708
+[    6.105716] fw download complete
+
+[    6.105732] aic_load_firmware :firmware path = /vendor/etc/firmware/fw_patch_8800d80_u02.bin  
+[    6.106322] file md5:8e83d7b94620c2a5444b2aaaab1a510d
+[    6.106343] ### Upload fw_patch_8800d80_u02.bin firmware, @ = 1e0000  size=24744
+[    6.112829] fw download complete
+
+[    6.385257] rk_gmac-dwmac 2a230000.ethernet end1: renamed from eth1
+[    6.393033] rk_gmac-dwmac 2a220000.ethernet end0: renamed from eth0
+[    6.538172] aicbt_patch_table_load bt btmode[4]:5 
+[    6.538195] aicbt_patch_table_load bt uart_baud[4]:1500000 
+[    6.538200] aicbt_patch_table_load bt uart_flowctrl[4]:1 
+[    6.538205] aicbt_patch_table_load bt lpm_enable[4]:0 
+[    6.538209] aicbt_patch_table_load bt tx_pwr[4]:28463 
+[    6.543418] patch version - Jul 11 2024 10:38:54 - git 73d2ce5
+[    6.543506] aic_load_firmware :firmware path = /vendor/etc/firmware/fmacfw_8800d80_u02.bin  
+[    6.546672] file md5:34718bf22fd55d5dcde139689998d055
+[    6.546699] ### Upload fmacfw_8800d80_u02.bin firmware, @ = 120000  size=348012
+[    6.615062] fw download complete
+
+[    6.615098] AICWFDBG(LOGERROR)	Read FW mem: 00120198
+[    6.615154] AICWFDBG(LOGERROR)	120198=1749fc
+[    6.615289] AICWFDBG(LOGERROR)	1201a0=176000
+[    6.615406] AICWFDBG(LOGINFO)	rd_version_val=06090101
+[    6.615531] AICWFDBG(LOGINFO)	1201a4=17ed7c
+[    6.617491] usbcore: registered new interface driver aic_load_fw
+
+[    6.633234] **********************************************************
+[    6.633240] **   NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE   **
+[    6.633245] **                                                      **
+[    6.633250] ** trace_printk() being used. Allocating extra memory.  **
+[    6.633255] **                                                      **
+[    6.633268] ** This means that this is a DEBUG kernel and it is     **
+[    6.633273] ** unsafe for production use.                           **
+[    6.633278] **                                                      **
+[    6.633283] ** If you see this message and you are not debugging    **
+[    6.633288] ** the kernel, report this immediately to your vendor!  **
+[    6.633292] **                                                      **
+[    6.633297] **   NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE   **
+[    6.633314] **********************************************************
+[    6.633377] app_cmp
+[    6.633441] app_cmp
+[    6.633579] app_cmp
+[    6.633707] app_cmp
+[    6.633852] app_cmp
+[    6.633956] app_cmp
+[    6.634082] app_cmp
+[    6.688549] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.688604] stream_cif_mipi_id0: update sensor info failed -19
+[    6.688803] AICWFDBG(LOGINFO)	rwnx v6.4.3.0 - 1a4b0054d2M (master)
+[    6.688818] AICWFDBG(LOGINFO)	RELEASE DATE:2024_0712_e2a932c1 
+[    6.688894] usbcore: registered new interface driver aic8800_fdrv
+[    6.690316] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.690347] rkcif_tools_id2: update sensor info failed -19
+[    6.690883] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[    6.690902] stream_cif_mipi_id3: update sensor info failed -19
+[    6.691340] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.691357] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.691366] stream_cif_mipi_id1: update sensor info failed -19
+[    6.691371] rkcif_scale_ch0: update sensor info failed -19
+[    6.693389] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.693419] rkcif_tools_id1: update sensor info failed -19
+[    6.694217] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.694247] rkcif_scale_ch2: update sensor info failed -19
+[    6.695964] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.696012] rkcif_scale_ch1: update sensor info failed -19
+[    6.696358] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.696383] stream_cif_mipi_id2: update sensor info failed -19
+[    6.697556] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.697558] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.697563] stream_cif_mipi_id0: update sensor info failed -19
+[    6.697578] rkcif_tools_id0: update sensor info failed -19
+[    6.698189] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[    6.698189] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.698198] rkcif_scale_ch3: update sensor info failed -19
+[    6.698221] rkcif_scale_ch1: update sensor info failed -19
+[    6.700357] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[    6.700383] rkcif_scale_ch3: update sensor info failed -19
+[    6.700396] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.700405] stream_cif_mipi_id1: update sensor info failed -19
+[    6.701691] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.701709] rkcif_tools_id2: update sensor info failed -19
+[    6.702265] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.702292] rkcif_scale_ch2: update sensor info failed -19
+[    6.704132] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[    6.704150] rkcif_tools_id1: update sensor info failed -19
+[    6.704157] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.704173] rkcif_tools_id0: update sensor info failed -19
+[    6.708716] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[    6.708745] rkcif_scale_ch0: update sensor info failed -19
+[    6.711966] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[    6.711992] stream_cif_mipi_id2: update sensor info failed -19
+[    6.712343] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[    6.712375] stream_cif_mipi_id3: update sensor info failed -19
+[    6.794792] usb 1-1.1: USB disconnect, device number 3
+[    6.822992] aicwf_usb_disconnect enter 
+[    6.823025] aicwf_bus_deinit
+[    7.323192] q_sz/max:  0 /  8 - next tkn: 3266
+[    7.323225] q_sz/max:  0 /  8 - next tkn: 3266
+[    7.323282] usb bustx thread will to stop
+[    7.323290] usb bustx thread stop
+[    7.323312] exit aicwf_bus_deinit
+[    7.323422] usb busrx thread will to stop
+[    7.323429] usb busrx thread stop
+[    7.341758] EXT4-fs (mmcblk0p7): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    7.346922] systemd-journald[309]: Received client request to flush runtime journal.
+[    7.348359] systemd-journald[309]: File /var/log/journal/5efdf69afe5e48fa9b04426938675030/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[    7.354906] EXT4-fs (mmcblk0p8): mounted filesystem with ordered data mode. Quota mode: disabled.
+[    7.515126] EXT4-fs (mmcblk0p7): re-mounted. Quota mode: disabled.
+[    7.515882] EXT4-fs (mmcblk0p8): re-mounted. Quota mode: disabled.
+[    7.542288] EXT4-fs (mmcblk0p6): re-mounted. Quota mode: disabled.
+[    7.644348] usb 1-1.1: new high-speed USB device number 6 using xhci-hcd
+[    7.756704] file system registered
+[    7.848968] usb 1-1.1: New USB device found, idVendor=a69c, idProduct=8d81, bcdDevice= 1.00
+[    7.849007] usb 1-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    7.849018] usb 1-1.1: Product: AIC 8800D80
+[    7.849026] usb 1-1.1: Manufacturer: AICSemi
+[    7.849035] usb 1-1.1: SerialNumber: 20220103
+[    7.871908] read descriptors
+[    7.871947] read strings
+[    7.884443] AICWFDBG(LOGINFO)	aicwf_usb_probe vid:0xA69C pid:0x8D81 icl:0x0 isc:0x0 ipr:0x0 
+[    7.884483] aic_load_fw: probe of 1-1.1:1.2 failed with error -1
+[    7.884557] AICWFDBG(LOGINFO)	aicwf_usb_chipmatch USE AIC8800D81
+[    7.884565] AICWFDBG(LOGINFO)	aicwf_parse_usb endpoints = 4
+[    7.884573] AICWFDBG(LOGINFO)	Aic high speed USB device detected
+[    7.884579] AICWFDBG(LOGINFO)	aicwf_usb_alloc_rx_urb AICWF_USB_RX_URBS:20 
+[    7.884589] AICWFDBG(LOGINFO)	aicwf_usb_alloc_tx_urb AICWF_USB_TX_URBS:200 
+[    7.884648] AICWFDBG(LOGINFO)	aicwf_usb_alloc_msg_rx_urb AICWF_USB_MSG_RX_URBS:100 
+[    7.886265] AICWFDBG(LOGINFO)	usb_busrx_thread the cpu is:3
+[    7.886862] AICWFDBG(LOGINFO)	aicwf_bus_init waiting for rx/tx thread init finish 
+[    7.886888] AICWFDBG(LOGINFO)	usb_bustx_thread the cpu is:0
+[    7.886991] AICWFDBG(LOGINFO)	usb_busrx_thread set_cpu_ret is:0
+[    7.887002] AICWFDBG(LOGINFO)	usb_busrx_thread change cpu to:1
+[    7.887032] AICWFDBG(LOGINFO)	usb_busrx_thread the policy of current thread is:1
+[    7.887039] AICWFDBG(LOGINFO)	usb_busrx_thread the rt_priority of current thread is:1
+[    7.887046] AICWFDBG(LOGINFO)	usb_busrx_thread the current pid is:1319
+[    7.887060] AICWFDBG(LOGINFO)	usb_bustx_thread set_cpu_ret is:0
+[    7.887067] AICWFDBG(LOGINFO)	usb_bustx_thread change cpu to:1
+[    7.887076] AICWFDBG(LOGINFO)	usb_bustx_thread the policy of current thread is:1
+[    7.887083] AICWFDBG(LOGINFO)	usb_bustx_thread the rt_priority of current thread is:1
+[    7.887089] AICWFDBG(LOGINFO)	usb_bustx_thread the current pid is:1320
+[    7.992685] AICWFDBG(LOGINFO)	usb_msg_busrx_thread the policy of current thread is:1
+[    7.992709] AICWFDBG(LOGINFO)	usb_msg_busrx_thread the rt_priority of current thread is:1
+[    7.992716] AICWFDBG(LOGINFO)	usb_msg_busrx_thread the current pid is:1341
+[    7.992981] AICWFDBG(LOGINFO)	rwnx_platform_init rwnx_cfg80211_init enter 
+[    7.993003] AICWFDBG(LOGINFO)	rwnx_cfg80211_init sizeof(struct rwnx_hw):18112 
+[    7.993251] AICWFDBG(LOGINFO)	rwnx_cfg80211_init: FILTER_TCP_ACK
+[    7.993261] ========== tcp ack debug tcp_ack_init 
+[    7.993271] AICWFDBG(LOGINFO)	aicwf_prealloc_txq_alloc size is diff will to be kzalloc 
+[    7.993283] AICWFDBG(LOGINFO)	aicwf_prealloc_txq_alloc txq kzalloc successful 
+[    7.993423] AICWFDBG(LOGINFO)	userconfig file path:aic_userconfig_8800d80.txt 
+[    7.993431] AICWFDBG(LOGINFO)	### Load file aic_userconfig_8800d80.txt
+[    7.993440] AICWFDBG(LOGINFO)	rwnx_load_firmware :firmware path = /vendor/etc/firmware/aic_userconfig_8800d80.txt  
+[    7.994353] AICWFDBG(LOGINFO)	file md5:35c8e99f3edd34d2a39bc9920e1da494
+[    7.994369] AICWFDBG(LOGINFO)	### Load file done: aic_userconfig_8800d80.txt, size=2683
+[    7.994378] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: AIC USERCONFIG 2022/0803/1707
+[    7.994386] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: txpwr_lvl
+[    7.994392] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=enable value=1
+[    7.994406] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_1m_2g4 value=18
+[    7.994415] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_2m_2g4 value=18
+[    7.994423] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_5m5_2g4 value=18
+[    7.994431] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_11m_2g4 value=18
+[    7.994439] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_6m_2g4 value=18
+[    7.994447] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_9m_2g4 value=18
+[    7.994455] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_12m_2g4 value=18
+[    7.994463] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_18m_2g4 value=18
+[    7.994472] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_24m_2g4 value=16
+[    7.994480] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_36m_2g4 value=16
+[    7.994489] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_48m_2g4 value=15
+[    7.994497] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11b_11ag_54m_2g4 value=15
+[    7.994505] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs0_2g4 value=18
+[    7.994514] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs1_2g4 value=18
+[    7.994523] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs2_2g4 value=18
+[    7.994532] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs3_2g4 value=18
+[    7.994540] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs4_2g4 value=16
+[    7.994549] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs5_2g4 value=16
+[    7.994557] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs6_2g4 value=15
+[    7.994566] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs7_2g4 value=15
+[    7.994575] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs8_2g4 value=14
+[    7.994584] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs9_2g4 value=14
+[    7.994593] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs0_2g4 value=18
+[    7.994602] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs1_2g4 value=18
+[    7.994611] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs2_2g4 value=18
+[    7.994620] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs3_2g4 value=18
+[    7.994629] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs4_2g4 value=16
+[    7.994650] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs5_2g4 value=16
+[    7.994659] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs6_2g4 value=15
+[    7.994668] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs7_2g4 value=15
+[    7.994678] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs8_2g4 value=14
+[    7.994687] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs9_2g4 value=14
+[    7.994697] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs10_2g4 value=13
+[    7.994706] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs11_2g4 value=13
+[    7.994716] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_6m_5g value=18
+[    7.994725] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_9m_5g value=18
+[    7.994735] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_12m_5g value=18
+[    7.994745] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_18m_5g value=18
+[    7.994754] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_24m_5g value=16
+[    7.994764] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_36m_5g value=16
+[    7.994773] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_48m_5g value=15
+[    7.994783] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11a_54m_5g value=15
+[    7.994793] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs0_5g value=18
+[    7.994803] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs1_5g value=18
+[    7.994813] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs2_5g value=18
+[    7.994823] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs3_5g value=18
+[    7.994833] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs4_5g value=16
+[    7.994843] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs5_5g value=16
+[    7.994853] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs6_5g value=15
+[    7.994863] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs7_5g value=15
+[    7.994873] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs8_5g value=14
+[    7.994890] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11n_11ac_mcs9_5g value=14
+[    7.994900] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs0_5g value=18
+[    7.994911] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs1_5g value=18
+[    7.994921] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs2_5g value=18
+[    7.994931] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs3_5g value=18
+[    7.994941] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs4_5g value=16
+[    7.994952] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs5_5g value=16
+[    7.994962] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs6_5g value=14
+[    7.994973] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs7_5g value=14
+[    7.994984] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs8_5g value=13
+[    7.994994] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs9_5g value=13
+[    7.995005] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs10_5g value=12
+[    7.995016] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_11ax_mcs11_5g value=12
+[    7.995027] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: txpwr_lvl_adj
+[    7.995034] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_enable value=0
+[    7.995044] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_2g4_chan_1_4 value=0
+[    7.995055] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_2g4_chan_5_9 value=0
+[    7.995066] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_2g4_chan_10_13 value=0
+[    7.995076] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_42 value=0
+[    7.995087] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_58 value=0
+[    7.995098] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_106 value=0
+[    7.995109] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_122 value=0
+[    7.995120] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_138 value=0
+[    7.995131] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=lvl_adj_5g_chan_155 value=0
+[    7.995142] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: txpwr_loss
+[    7.995149] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=loss_enable value=0
+[    7.995158] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=loss_value value=2
+[    7.995168] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: txpwr_ofst
+[    7.995175] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_enable value=0
+[    7.995184] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_11b_chan_1_4 value=0
+[    7.995195] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_11b_chan_5_9 value=0
+[    7.995208] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_11b_chan_10_13 value=0
+[    7.995217] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_highrate_chan_1_4 value=0
+[    7.995225] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_highrate_chan_5_9 value=0
+[    7.995233] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_highrate_chan_10_13 value=0
+[    7.995242] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_lowrate_chan_1_4 value=0
+[    7.995249] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_lowrate_chan_5_9 value=0
+[    7.995257] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_2g4_ofdm_lowrate_chan_10_13 value=0
+[    7.995266] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_42 value=0
+[    7.995274] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_58 value=0
+[    7.995282] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_106 value=0
+[    7.995304] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_122 value=0
+[    7.995313] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_138 value=0
+[    7.995321] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_lowrate_chan_155 value=0
+[    7.995330] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_42 value=0
+[    7.995338] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_58 value=0
+[    7.995346] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_106 value=0
+[    7.995355] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_122 value=0
+[    7.995363] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_138 value=0
+[    7.995372] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_highrate_chan_155 value=0
+[    7.995381] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_42 value=0
+[    7.995389] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_58 value=0
+[    7.995397] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_106 value=0
+[    7.995406] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_122 value=0
+[    7.995415] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_138 value=0
+[    7.995423] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=ofst_5g_ofdm_midrate_chan_155 value=0
+[    7.995432] AICWFDBG(LOGINFO)	rwnx_plat_userconfig_parsing: xtal cap
+[    7.995437] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=xtal_enable value=0
+[    7.995445] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=xtal_cap value=24
+[    7.995453] AICWFDBG(LOGINFO)	rwnx_plat_nvram_set_value:command=xtal_cap_fine value=31
+[    7.995467] AICWFDBG(LOGINFO)	userconfig download complete
+
+[    7.995624] AICWFDBG(LOGINFO)	is 5g support = 1, vendor_info = 0x00
+[    7.995781] AICWFDBG(LOGINFO)	Firmware Version: la Jul 03 2024 15:27:10 - g21266be
+[    7.995790] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:enable:1
+[    7.995796] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_1m_2g4:18
+[    7.995801] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_2m_2g4:18
+[    7.995807] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_5m5_2g4:18
+[    7.995813] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_11m_2g4:18
+[    7.995818] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_6m_2g4:18
+[    7.995824] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_9m_2g4:18
+[    7.995829] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_12m_2g4:18
+[    7.995835] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_18m_2g4:18
+[    7.995840] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_24m_2g4:16
+[    7.995846] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_36m_2g4:16
+[    7.995851] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_48m_2g4:15
+[    7.995857] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_54m_2g4:15
+[    7.995862] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs0_2g4:18
+[    7.995868] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs1_2g4:18
+[    7.995874] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs2_2g4:18
+[    7.995879] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs3_2g4:18
+[    7.995885] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs4_2g4:16
+[    7.995890] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs5_2g4:16
+[    7.995896] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs6_2g4:15
+[    7.995901] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs7_2g4:15
+[    7.995907] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs8_2g4:14
+[    7.995912] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs9_2g4:14
+[    7.995918] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs0_2g4:18
+[    7.995924] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs1_2g4:18
+[    7.995929] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs2_2g4:18
+[    7.995935] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs3_2g4:18
+[    7.995940] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs4_2g4:16
+[    7.995946] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs5_2g4:16
+[    7.995951] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs6_2g4:15
+[    7.995956] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs7_2g4:15
+[    7.995962] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs8_2g4:14
+[    7.995976] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs9_2g4:14
+[    7.995981] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs10_2g4:13
+[    7.995987] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs11_2g4:13
+[    7.995992] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_1m_5g:-128
+[    7.995998] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_2m_5g:-128
+[    7.996003] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_5m5_5g:-128
+[    7.996009] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_11m_5g:-128
+[    7.996014] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_6m_5g:18
+[    7.996020] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_9m_5g:18
+[    7.996025] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_12m_5g:18
+[    7.996031] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_18m_5g:18
+[    7.996037] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_24m_5g:16
+[    7.996042] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_36m_5g:16
+[    7.996048] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_48m_5g:15
+[    7.996053] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_54m_5g:15
+[    7.996058] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs0_5g:18
+[    7.996064] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs1_5g:18
+[    7.996069] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs2_5g:18
+[    7.996075] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs3_5g:18
+[    7.996080] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs4_5g:16
+[    7.996086] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs5_5g:16
+[    7.996091] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs6_5g:15
+[    7.996097] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs7_5g:15
+[    7.996102] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs8_5g:14
+[    7.996108] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs9_5g:14
+[    7.996114] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs0_5g:18
+[    7.996119] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs1_5g:18
+[    7.996124] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs2_5g:18
+[    7.996130] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs3_5g:18
+[    7.996135] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs4_5g:16
+[    7.996141] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs5_5g:16
+[    7.996146] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs6_5g:14
+[    7.996152] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs7_5g:14
+[    7.996157] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs8_5g:13
+[    7.996162] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs9_5g:13
+[    7.996168] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs10_5g:12
+[    7.996174] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs11_5g:12
+[    7.996179] AICWFDBG(LOGINFO)	get_userconfig_txpwr_loss:loss_enable:0
+[    7.996185] AICWFDBG(LOGINFO)	get_userconfig_txpwr_loss:loss_value:2
+[    7.996190] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:enable:1
+[    7.996196] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_1m_2g4:18
+[    7.996202] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_2m_2g4:18
+[    7.996207] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_5m5_2g4:18
+[    7.996212] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_11m_2g4:18
+[    7.996218] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_6m_2g4:18
+[    7.996223] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_9m_2g4:18
+[    7.996229] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_12m_2g4:18
+[    7.996234] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_18m_2g4:18
+[    7.996240] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_24m_2g4:16
+[    7.996245] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_36m_2g4:16
+[    7.996250] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_48m_2g4:15
+[    7.996256] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_54m_2g4:15
+[    7.996261] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs0_2g4:18
+[    7.996267] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs1_2g4:18
+[    7.996272] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs2_2g4:18
+[    7.996278] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs3_2g4:18
+[    7.996283] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs4_2g4:16
+[    7.996288] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs5_2g4:16
+[    7.996294] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs6_2g4:15
+[    7.996299] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs7_2g4:15
+[    7.996315] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs8_2g4:14
+[    7.996321] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs9_2g4:14
+[    7.996327] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs0_2g4:18
+[    7.996332] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs1_2g4:18
+[    7.996337] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs2_2g4:18
+[    7.996343] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs3_2g4:18
+[    7.996348] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs4_2g4:16
+[    7.996354] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs5_2g4:16
+[    7.996359] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs6_2g4:15
+[    7.996364] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs7_2g4:15
+[    7.996370] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs8_2g4:14
+[    7.996375] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs9_2g4:14
+[    7.996380] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs10_2g4:13
+[    7.996386] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs11_2g4:13
+[    7.996391] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_1m_5g:-128
+[    7.996396] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_2m_5g:-128
+[    7.996402] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_5m5_5g:-128
+[    7.996407] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_11m_5g:-128
+[    7.996413] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_6m_5g:18
+[    7.996418] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_9m_5g:18
+[    7.996423] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_12m_5g:18
+[    7.996429] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_18m_5g:18
+[    7.996434] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_24m_5g:16
+[    7.996440] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_36m_5g:16
+[    7.996445] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_48m_5g:15
+[    7.996451] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11a_54m_5g:15
+[    7.996456] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs0_5g:18
+[    7.996461] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs1_5g:18
+[    7.996467] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs2_5g:18
+[    7.996472] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs3_5g:18
+[    7.996477] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs4_5g:16
+[    7.996483] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs5_5g:16
+[    7.996488] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs6_5g:15
+[    7.996494] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs7_5g:15
+[    7.996499] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs8_5g:14
+[    7.996505] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs9_5g:14
+[    7.996510] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs0_5g:18
+[    7.996515] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs1_5g:18
+[    7.996520] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs2_5g:18
+[    7.996526] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs3_5g:18
+[    7.996532] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs4_5g:16
+[    7.996537] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs5_5g:16
+[    7.996542] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs6_5g:14
+[    7.996548] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs7_5g:14
+[    7.996553] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs8_5g:13
+[    7.996558] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs9_5g:13
+[    7.996564] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs10_5g:12
+[    7.996569] AICWFDBG(LOGINFO)	rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs11_5g:12
+[    7.996701] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:enable:0
+[    7.996708] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_1_4:0
+[    7.996714] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_5_9:0
+[    7.996719] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_10_13:0
+[    7.996725] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_42:0
+[    7.996730] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_58:0
+[    7.996736] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_106:0
+[    7.996741] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_122:0
+[    7.996747] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_138:0
+[    7.996752] AICWFDBG(LOGINFO)	get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_155:0
+[    7.996759] AICWFDBG(LOGINFO)	get_userconfig_txpwr_ofst2x_in_fdrv:enable      :0
+[    7.996764] AICWFDBG(LOGINFO)	pwrofst2x 2.4g: [0]:11b, [1]:ofdm_highrate, [2]:ofdm_lowrate
+                 chan=	1-4	5-9	10-13
+[    7.996767] AICWFDBG(LOGINFO)	
+                 [0] =
+[    7.996772] AICWFDBG(LOGINFO)		0
+[    7.996777] AICWFDBG(LOGINFO)		0
+[    7.996781] AICWFDBG(LOGINFO)		0
+[    7.996786] AICWFDBG(LOGINFO)	
+                 [1] =
+[    7.996791] AICWFDBG(LOGINFO)		0
+[    7.996795] AICWFDBG(LOGINFO)		0
+[    7.996800] AICWFDBG(LOGINFO)		0
+[    7.996804] AICWFDBG(LOGINFO)	
+                 [2] =
+[    7.996809] AICWFDBG(LOGINFO)		0
+[    7.996814] AICWFDBG(LOGINFO)		0
+[    7.996818] AICWFDBG(LOGINFO)		0
+[    7.996823] AICWFDBG(LOGINFO)	
+               pwrofst2x 5g: [0]:ofdm_lowrate, [1]:ofdm_highrate, [2]:ofdm_midrate
+                 chan=	36-50	51-64	98-114	115-130	131-146	147-166
+[    7.996828] AICWFDBG(LOGINFO)	
+                 [0] =
+[    7.996834] AICWFDBG(LOGINFO)		0
+[    7.996838] AICWFDBG(LOGINFO)		0
+[    7.996843] AICWFDBG(LOGINFO)		0
+[    7.996847] AICWFDBG(LOGINFO)		0
+[    7.996852] AICWFDBG(LOGINFO)		0
+[    7.996856] AICWFDBG(LOGINFO)		0
+[    7.996861] AICWFDBG(LOGINFO)	
+                 [1] =
+[    7.996866] AICWFDBG(LOGINFO)		0
+[    7.996870] AICWFDBG(LOGINFO)		0
+[    7.996875] AICWFDBG(LOGINFO)		0
+[    7.996879] AICWFDBG(LOGINFO)		0
+[    7.996884] AICWFDBG(LOGINFO)		0
+[    7.996888] AICWFDBG(LOGINFO)		0
+[    7.996893] AICWFDBG(LOGINFO)	
+                 [2] =
+[    7.996898] AICWFDBG(LOGINFO)		0
+[    7.996902] AICWFDBG(LOGINFO)		0
+[    7.996907] AICWFDBG(LOGINFO)		0
+[    7.996911] AICWFDBG(LOGINFO)		0
+[    7.996916] AICWFDBG(LOGINFO)		0
+[    7.996920] AICWFDBG(LOGINFO)		0
+[    7.996925] AICWFDBG(LOGINFO)	
+[    7.996932] AICWFDBG(LOGINFO)	rwnx_send_txpwr_ofst2x_req:Do not use txpwr_ofst2x
+[    7.996938] AICWFDBG(LOGINFO)	get_userconfig_xtal_cap:enable       :0
+[    7.996944] AICWFDBG(LOGINFO)	get_userconfig_xtal_cap:xtal_cap     :24
+[    7.996950] AICWFDBG(LOGINFO)	get_userconfig_xtal_cap:xtal_cap_fine:31
+[    8.009839] android_work: did not send uevent (0 0 0000000000000000)
+[    8.248219] rd 0-7: Disabling EAS, schedutil is mandatory
+[    8.688282] rk_gmac-dwmac 2a220000.ethernet end0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[    8.691429] rk_gmac-dwmac 2a220000.ethernet end0: PHY [stmmac-0:01] driver [YT8531 Gigabit Ethernet] (irq=POLL)
+[    8.691966] dwmac4: Master AXI performs any burst length
+[    8.691991] rk_gmac-dwmac 2a220000.ethernet end0: No Safety Features support found
+[    8.692011] rk_gmac-dwmac 2a220000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported
+[    8.692198] rk_gmac-dwmac 2a220000.ethernet end0: registered PTP clock
+[    8.692693] rk_gmac-dwmac 2a220000.ethernet end0: FPE workqueue start
+[    8.692724] rk_gmac-dwmac 2a220000.ethernet end0: configuring for phy/rgmii-rxid link mode
+[    8.711284] rk_gmac-dwmac 2a230000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+[    8.714563] rk_gmac-dwmac 2a230000.ethernet end1: PHY [stmmac-1:01] driver [YT8531 Gigabit Ethernet] (irq=POLL)
+[    8.715112] dwmac4: Master AXI performs any burst length
+[    8.715134] rk_gmac-dwmac 2a230000.ethernet end1: No Safety Features support found
+[    8.715159] rk_gmac-dwmac 2a230000.ethernet end1: IEEE 1588-2008 Advanced Timestamp supported
+[    8.715346] rk_gmac-dwmac 2a230000.ethernet end1: registered PTP clock
+[    8.715745] rk_gmac-dwmac 2a230000.ethernet end1: FPE workqueue start
+[    8.715766] rk_gmac-dwmac 2a230000.ethernet end1: configuring for phy/rgmii-rxid link mode
+[    8.869969] mali 27800000.gpu: Clearing BASE_MEM_UNCACHED_GPU flag to avoid MMA violation
+[    8.927902] AICWFDBG(LOGINFO)	get macaddr:8c,b5
+[    8.928819] AICWFDBG(LOGINFO)	HT supp 1, VHT supp 1, HE supp 1
+[    8.929189] rwnx_reg_notifier Enter
+[    8.929436] AICWFDBG(LOGINFO)	getRegdomainFromRwnxDB set ccode:00 
+[    8.929459] AICWFDBG(LOGINFO)	rwnx_get_countrycode_channels support channel:1 2 3 4 5 6 7 8 9 10 11 12 13 14 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165 
+[    8.929512] ieee80211 phy0: 
+               *******************************************************
+               ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
+               *******************************************************
+[    8.929820] AICWFDBG(LOGINFO)	rwnx_interface_add: wlan%d, 2, 10
+[    8.929889] AICWFDBG(LOGINFO)	interface add:8c 7a b3 f8 16 b5
+[    8.929899] AICWFDBG(LOGINFO)	aicwf_set_wireless_ext Enter
+[    8.937026] AICWFDBG(LOGINFO)	New interface create wlan0
+[    8.937071] AICWFDBG(LOGINFO)	rwnx_platform_init rwnx_cfg80211_init exit 
+[    8.958888] usb 1-1.1 wlx8c7ab3f816b5: renamed from wlan0
+[    9.023060] AICWFDBG(LOGINFO)	rwnx_virtual_interface_add: 10, p2p-dev-wlx8c7a
+[    9.023084] AICWFDBG(LOGINFO)	rwnx_virtual_interface_add, ifname=p2p-dev-wlx8c7a, wdev=00000000b709df73, vif_idx=1
+[    9.023091] AICWFDBG(LOGERROR)	p2p dev addr=8c 7a b3 f8 16 b4
+[    9.046024] AICWFDBG(LOGINFO)	P2P interface started
+[    9.126731] ttyFIQ ttyFIQ0: tty_port_close_start: tty->count = 1 port count = 2
+[    9.141304] Bluetooth: MGMT ver 1.22
+[    9.224848] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.236452] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.253128] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.269786] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.286449] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.303152] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.319808] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.336431] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.353146] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.369811] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.386489] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.403148] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.419809] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.436475] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.453134] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.469801] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[    9.486467] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   10.611712] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   10.648508] AICWFDBG(LOGINFO)	rwnx_send_sm_connect_req drv_vif_index:0 connect to zjhhh(5) channel:2412 auth_type:0
+[   10.663438] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   10.669863] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   10.967450] AICWFDBG(LOGINFO)	rwnx_rx_sm_connect_ind ind->status_code:0 
+[   10.967472] AICWFDBG(LOGINFO)	rwnx_rx_sm_connect_ind ind->roamed:0 ind->status_code:0 rwnx_vif->drv_conn_state:2
+[   10.967486] AICWFDBG(LOGINFO)	rwnx_rx_sm_connect_ind cfg80211_connect_result pass, rwnx_vif->drv_conn_state:3
+[   10.973994] AICWFDBG(LOGINFO)	need cfm ethertype:    8e88,user_idx=1, skb=000000009b1e1e16 sta_idx:0
+[   10.976069] AICWFDBG(LOGINFO)	usb_host_tx_cfm_handler:used_idx=0, hostid=000000009b1e1e16, 0x00000000f2a62124, status=9
+[   10.979204] AICWFDBG(LOGINFO)	need cfm ethertype:    8e88,user_idx=2, skb=0000000081a70695 sta_idx:0
+[   10.980412] IPv6: ADDRCONF(NETDEV_CHANGE): wlx8c7ab3f816b5: link becomes ready
+[   10.981439] AICWFDBG(LOGINFO)	usb_host_tx_cfm_handler:used_idx=1, hostid=0000000081a70695, 0x00000000f2a62124, status=9
+[   11.206436] systemd-journald[309]: File /var/log/journal/5efdf69afe5e48fa9b04426938675030/user-1000.journal corrupted or uncleanly shut down, renaming and replacing.
+[   11.728847] Freeing drm_logo memory: 5296K
+[   11.862443] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.862464] stream_cif_mipi_id0: update sensor info failed -19
+[   11.862544] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.862553] stream_cif_mipi_id1: update sensor info failed -19
+[   11.862634] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.862644] rkcif_tools_id2: update sensor info failed -19
+[   11.862717] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.862725] stream_cif_mipi_id2: update sensor info failed -19
+[   11.862786] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[   11.862795] stream_cif_mipi_id3: update sensor info failed -19
+[   11.862858] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.862867] rkcif_scale_ch0: update sensor info failed -19
+[   11.862930] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.862939] rkcif_scale_ch1: update sensor info failed -19
+[   11.862995] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.863003] rkcif_scale_ch2: update sensor info failed -19
+[   11.863069] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[   11.863077] rkcif_scale_ch3: update sensor info failed -19
+[   11.863137] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.863144] rkcif_tools_id0: update sensor info failed -19
+[   11.863199] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.863207] rkcif_tools_id1: update sensor info failed -19
+[   11.863285] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.863294] stream_cif_mipi_id0: update sensor info failed -19
+[   11.863356] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.863364] stream_cif_mipi_id1: update sensor info failed -19
+[   11.863422] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.863429] stream_cif_mipi_id2: update sensor info failed -19
+[   11.863496] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[   11.863504] stream_cif_mipi_id3: update sensor info failed -19
+[   11.863563] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.863571] rkcif_scale_ch0: update sensor info failed -19
+[   11.863630] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.863637] rkcif_scale_ch1: update sensor info failed -19
+[   11.863695] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.863703] rkcif_scale_ch2: update sensor info failed -19
+[   11.863761] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[   11.863769] rkcif_scale_ch3: update sensor info failed -19
+[   11.863833] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[   11.863842] rkcif_tools_id0: update sensor info failed -19
+[   11.863903] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[   11.863911] rkcif_tools_id1: update sensor info failed -19
+[   11.863973] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[   11.863981] rkcif_tools_id2: update sensor info failed -19
+[   14.534610] rockchip-vop2 27d00000.vop: [drm:vop2_crtc_atomic_disable] Crtc atomic disable vp1
+[   14.609938] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   14.620021] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   14.669653] rockchip-vop2 27d00000.vop: [drm:vop2_crtc_atomic_enable] Update mode to 800x1280p60, type: 16(if:MIPI0, flag:0x0) for vp1 dclk: 71429000
+[   14.669706] rockchip-vop2 27d00000.vop: [drm:vop2_crtc_atomic_enable] set dclk_vp1 to 71429000, get 71428572
+[   14.846954] dw-mipi-dsi2 27d80000.dsi: [drm:dw_mipi_dsi2_encoder_atomic_enable] final DSI-Link bandwidth: 476193 x 4 Kbps
+[   16.210477] dwhdmi-rockchip 27da0000.hdmi: use tmds mode
+[   17.932668] platform mtd_vendor_storage: deferred probe pending
+[  216.937547] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.937582] stream_cif_mipi_id0: update sensor info failed -19
+[  216.937611] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.937620] stream_cif_mipi_id1: update sensor info failed -19
+[  216.937645] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.937654] stream_cif_mipi_id2: update sensor info failed -19
+[  216.937678] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  216.937687] stream_cif_mipi_id3: update sensor info failed -19
+[  216.937711] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.937720] rkcif_scale_ch0: update sensor info failed -19
+[  216.937743] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.937752] rkcif_scale_ch1: update sensor info failed -19
+[  216.937775] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.937783] rkcif_scale_ch2: update sensor info failed -19
+[  216.937807] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  216.937815] rkcif_scale_ch3: update sensor info failed -19
+[  216.937839] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.937848] rkcif_tools_id0: update sensor info failed -19
+[  216.937871] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.937879] rkcif_tools_id1: update sensor info failed -19
+[  216.937902] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.937911] rkcif_tools_id2: update sensor info failed -19
+[  216.937976] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.937985] stream_cif_mipi_id0: update sensor info failed -19
+[  216.938009] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.938017] stream_cif_mipi_id1: update sensor info failed -19
+[  216.938040] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.938049] stream_cif_mipi_id2: update sensor info failed -19
+[  216.938073] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  216.938081] stream_cif_mipi_id3: update sensor info failed -19
+[  216.938105] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.938114] rkcif_scale_ch0: update sensor info failed -19
+[  216.938137] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.938146] rkcif_scale_ch1: update sensor info failed -19
+[  216.938169] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.938177] rkcif_scale_ch2: update sensor info failed -19
+[  216.938201] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  216.938210] rkcif_scale_ch3: update sensor info failed -19
+[  216.938233] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  216.938241] rkcif_tools_id0: update sensor info failed -19
+[  216.938264] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  216.938272] rkcif_tools_id1: update sensor info failed -19
+[  216.938295] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  216.938304] rkcif_tools_id2: update sensor info failed -19
+[  217.081503] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  217.081523] stream_cif_mipi_id0: update sensor info failed -19
+[  293.541004] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.541022] stream_cif_mipi_id0: update sensor info failed -19
+[  293.541128] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.541135] stream_cif_mipi_id1: update sensor info failed -19
+[  293.541232] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.541238] rkcif_tools_id2: update sensor info failed -19
+[  293.541332] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.541338] stream_cif_mipi_id2: update sensor info failed -19
+[  293.541432] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  293.541438] stream_cif_mipi_id3: update sensor info failed -19
+[  293.541532] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.541537] rkcif_scale_ch0: update sensor info failed -19
+[  293.541632] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.541637] rkcif_scale_ch1: update sensor info failed -19
+[  293.541730] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.541736] rkcif_scale_ch2: update sensor info failed -19
+[  293.541827] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  293.541833] rkcif_scale_ch3: update sensor info failed -19
+[  293.541923] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.541928] rkcif_tools_id0: update sensor info failed -19
+[  293.542108] rkcif-mipi-lvds: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.542117] rkcif_tools_id1: update sensor info failed -19
+[  293.542239] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.542246] stream_cif_mipi_id0: update sensor info failed -19
+[  293.542343] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.542350] stream_cif_mipi_id1: update sensor info failed -19
+[  293.542490] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.542496] stream_cif_mipi_id2: update sensor info failed -19
+[  293.542594] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  293.542600] stream_cif_mipi_id3: update sensor info failed -19
+[  293.542691] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.542696] rkcif_scale_ch0: update sensor info failed -19
+[  293.542790] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.542796] rkcif_scale_ch1: update sensor info failed -19
+[  293.542927] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.542933] rkcif_scale_ch2: update sensor info failed -19
+[  293.543027] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[3] get remote terminal sensor failed!
+[  293.543033] rkcif_scale_ch3: update sensor info failed -19
+[  293.543126] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[0] get remote terminal sensor failed!
+[  293.543132] rkcif_tools_id0: update sensor info failed -19
+[  293.543224] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[1] get remote terminal sensor failed!
+[  293.543229] rkcif_tools_id1: update sensor info failed -19
+[  293.543322] rkcif-mipi-lvds1: rkcif_update_sensor_info: stream[2] get remote terminal sensor failed!
+[  293.543328] rkcif_tools_id2: update sensor info failed -19

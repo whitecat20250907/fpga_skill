@@ -1,0 +1,9 @@
+* -text
+*.bit binary
+*.img binary
+*.gz binary
+*.zip binary
+*.pdf binary
+*.docx binary
+*.v linguist-language=Verilog
+*.sv linguist-language=SystemVerilog

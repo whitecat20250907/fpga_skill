@@ -1,0 +1,50 @@
+{
+  "status": "UNRESOLVED_TD_ERROR_OR_NATIVE_CRASH_OR_NO_REPORT",
+  "cdc_acceptance": "UNRESOLVED",
+  "build_id": "build07_direct",
+  "stage": "pr",
+  "started_utc": "2026-10-05T12:40:54.389510+00:00",
+  "inputs": {
+    "checkpoint": {
+      "path": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\evidence\\direct_build_20261005_050803_12488\\imx415_pcie_4k_pr.db",
+      "sha256": "1b38bd2816c184f1874a5ade062d6e854a14fd94f1c36bc96ca9d0f0257b17f5",
+      "after_sha256": "1b38bd2816c184f1874a5ade062d6e854a14fd94f1c36bc96ca9d0f0257b17f5"
+    },
+    "qualified_bit": {
+      "path": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\evidence\\direct_build_20261005_050803_12488\\imx415_pcie_4k_compress.bit",
+      "sha256": "0bf88feca3e60684a2fa18dd1eab7fa72f859f2c32bd4f9181e362224bb7a979",
+      "after_sha256": "0bf88feca3e60684a2fa18dd1eab7fa72f859f2c32bd4f9181e362224bb7a979"
+    },
+    "timing_status": {
+      "path": "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\evidence\\direct_build_20261005_050803_12488\\imx415_pcie_4k_phy.ts",
+      "sha256": "d84a2275dc6435ba52055375b2a835f1f61aec07bcd122ac89f6428df8c8e320",
+      "after_sha256": "d84a2275dc6435ba52055375b2a835f1f61aec07bcd122ac89f6428df8c8e320"
+    }
+  },
+  "td": {
+    "path": "E:\\qianrufpga\\TD\\bin\\td_commands_prompt.exe",
+    "sha256": "79ec56674f8f7b889e25e11bdca91f7d64c24ba0de99e80680248f00b4f87190"
+  },
+  "scripts": {
+    "tcl_sha256": "e27184c0837487e7780c55a21112659df1b78e57e3c2d7a3fada66028d19a48b",
+    "audit_helper_sha256": "23a1b5fb73efaf1ece6f75bd8e6dd4fb44f57db91abbe37b722b33edc2004b19"
+  },
+  "final_timing": {
+    "SWNS_ns": 0.534,
+    "HWNS_ns": 0.021
+  },
+  "command": [
+    "E:\\qianrufpga\\TD\\bin\\td_commands_prompt.exe",
+    "E:\\qianrufpga\\fpga-lab\\projects\\pcie_imx415_fix_20261003\\tools\\report_mtbf_isolated.tcl"
+  ],
+  "scope": "Read-only isolated import/report. No synth/place/route/bitgen; original placement directives and CDC coverage still require review.",
+  "process_returncode": 0,
+  "last_stage": null,
+  "undefined_present": null,
+  "protected_inputs_unchanged": {
+    "checkpoint": true,
+    "qualified_bit": true,
+    "timing_status": true
+  },
+  "finished_utc": "2026-10-05T12:40:54.860426+00:00"
+}
