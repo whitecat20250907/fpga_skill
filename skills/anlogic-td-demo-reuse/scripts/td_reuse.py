@@ -78,9 +78,32 @@ def project_info(project):
     }
 
 
+def native_registration_errors(project):
+    """Native TD requires explicit CompileOrder on registered file entries.
+
+    Do not enforce uniqueness: TD accepts repeated orders in vendor examples.
+    This is a metadata check only and does not replace native open_project.
+    """
+    errors = []
+    doc = xml(project)
+    registered = doc.findall("./Source_Files/*/File")
+    for entry in doc.findall("./Source_Files//File"):
+        if entry not in registered:
+            errors.append(f"File must be inside a TD source-type group: {entry.get('Path')}")
+    for entry in registered:
+        values = [a.get("Val", "") for a in entry.findall("./FileInfo/Attr")
+                  if a.get("Name") == "CompileOrder"]
+        if len(values) != 1 or not re.fullmatch(r"\d+", values[0].strip()):
+            errors.append(f"Missing/invalid native CompileOrder: {entry.get('Path')}")
+    return errors
+
+
 def direct_config(project, area_option="-packarea", mtbf_mandatory=False, fix_hold_high=False):
     """Current .al metadata, not stale *_Runs settings or checkpoints."""
     project = project.resolve()
+    registration = native_registration_errors(project)
+    if registration:
+        raise ValueError("; ".join(registration))
     root, doc = project.parent, xml(project)
     runs = doc.findall("./Runs/Run")
     physical = [r for r in runs if r.get("Type") == "PhysicalDesign"]
@@ -177,7 +200,7 @@ def audit(project):
     project = project.resolve()
     root = project.parent
     info = project_info(project)
-    errors, warnings, pins, ipfiles = [], [], [], []
+    errors, warnings, pins, ipfiles = native_registration_errors(project), [], [], []
     active = []
     for ref in info["source_files"]:
         p = root / ref
@@ -240,7 +263,7 @@ def audit(project):
     return {**info, "project": project.as_posix(), "errors": errors, "warnings": sorted(set(warnings)),
             "direct_build": build_config,
             "ip_files": ipfiles, "pin_inventory": pins,
-            "scope": "Checks explicit project/IP fileSet references and direct ADC collisions only. "
+            "scope": "Checks explicit native file CompileOrder, project/IP fileSet references and direct ADC collisions only. "
                      "TD compile must validate Verilog includes, encrypted dependencies, IP-generated constraints and timing."}
 
 

@@ -1,0 +1,95 @@
+{
+  "models": [
+    {
+      "name": "face_detector",
+      "bytes": 687254,
+      "policy": "NPU0",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\face_detector.rknn",
+      "sha256": "9ce07f3a3f7f158c496257d5956089e0b05e1f41a93dd62b33537e519a138bd8"
+    },
+    {
+      "name": "face_landmarks_detector",
+      "bytes": 3358455,
+      "policy": "NPU0",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\face_landmarks_detector.rknn",
+      "sha256": "fcaf44c166a1eec660b414e9a0dc20c5ed7fb683c78f5d14df0c3e723fb104fd"
+    },
+    {
+      "name": "hand_detector",
+      "bytes": 4611096,
+      "policy": "AUTO",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\hand_detector.rknn",
+      "sha256": "33cc88d65a791c9823a9a0d6e0437b4b8fa670b7393f1027c04f5054ab3c0b53"
+    },
+    {
+      "name": "hand_landmarks_detector",
+      "bytes": 6026381,
+      "policy": "AUTO",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\hand_landmarks_detector.rknn",
+      "sha256": "3cc5083272bc5a4c0079e1cea72cf61724e87726a9c3a5f7c74fbcb98c1f0f5e"
+    },
+    {
+      "name": "gesture_embedder",
+      "bytes": 559653,
+      "policy": "AUTO",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\gesture_embedder.rknn",
+      "sha256": "37962e13b0fdaa8e8d6be40b30e17d48938b30f0bad81f5ef257819ee692984b"
+    },
+    {
+      "name": "canned_gesture_classifier",
+      "bytes": 89761,
+      "policy": "AUTO",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\vision_npu\\models\\canned_gesture_classifier.rknn",
+      "sha256": "0297f95523c7f908ee741478a48c81c0ec8fa4ebb96fa38b6f9cac7a42908438"
+    },
+    {
+      "name": "MGazeNet",
+      "bytes": 5472730,
+      "policy": "NPU1",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\gaze_app\\GazeFollower\\gazefollower\\res\\model_weights\\original_gaze_fp16.rknn",
+      "sha256": "9eeeaedd671d6cab7c7a637175e8c540b8649d315d2cd25d085a35a4c0801ad2"
+    },
+    {
+      "name": "GestureNet8",
+      "bytes": 89905,
+      "policy": "事件触发；沿用原策略",
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\FPGA_HMI_20261024\\board_root\\userdata\\hmi_v2\\vendor\\gesture8\\model\\gesture8_fp16.rknn",
+      "sha256": "9db629bcc77a70f5e789703cb3526161f56d146b450246f25c405fb4c6ae2ddc"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\npu_parallel_v1.json",
+      "sha256": "23b27062583452dbfd34c105cb07973fabcbb09779cac7ec1992bb53dacac4a2"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\npu_parallel_v2.json",
+      "sha256": "b4161c05b58a1d3e121906e3ba8ba5a256739673c5bdf6daec0bfe9a83b85c08"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\resource_preview_v18_10min.json",
+      "sha256": "d4060edcf106149091f583ea2a14fbd1fef087551d4ec17014d598ed094f485f"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\resource_preview_v18_summary.json",
+      "sha256": "cbded9321914f0f139d14d3711e6f07719da01958d5cca2ac9a063a8f6cf80e8"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\runtime_v20.json",
+      "sha256": "a75bcb1ec128bd39dbf15a9d1ffaf31bd4fffde5695dec1ff04a5ce94f0b4097"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\manual_demo_v20_probe.json",
+      "sha256": "0fea5f934b523be87eef5f2123387f121275df555a4ece27ddbcb12f6ccea7b7"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\hdmi_preview_v20.png",
+      "sha256": "25a6d2432619e5b7ef9e608f5607d50786f65755c9c7a173463a0afb6f63ecd4"
+    }
+  ],
+  "report": {
+    "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\RESOURCE_AND_DEPLOYMENT_v20.md",
+    "sha256": "9d237f492f020ffcd61bcb75fc29a9a90f4d74afe41812b63921b65476611e6f"
+  },
+  "all_complete": false
+}

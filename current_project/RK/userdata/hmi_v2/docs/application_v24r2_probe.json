@@ -1,0 +1,46 @@
+{
+  "status": "PASS_REAL_MENU_UNCALIBRATED_GAME_START_PAGE_AND_DEMO_OPEN",
+  "rows": [
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:1",
+        "context": "GAME",
+        "src_ns": 17363905639964
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:3",
+        "context": "DEMO",
+        "src_ns": 17365486491738
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    }
+  ],
+  "owner_unchanged": true,
+  "final_context": "DEMO",
+  "physical_gestures_tested": false
+}

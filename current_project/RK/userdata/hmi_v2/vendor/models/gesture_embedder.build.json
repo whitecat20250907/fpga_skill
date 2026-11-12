@@ -1,0 +1,10 @@
+{
+  "name": "gesture_embedder",
+  "source_sha256": "54abe78de1d1cd5e3cdaa0dab01db18e3ec7e09a76e7c3b5fa278572f7a60977",
+  "rknn_sha256": "37962e13b0fdaa8e8d6be40b30e17d48938b30f0bad81f5ef257819ee692984b",
+  "bytes": 559653,
+  "seconds": 9.169601678964682,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

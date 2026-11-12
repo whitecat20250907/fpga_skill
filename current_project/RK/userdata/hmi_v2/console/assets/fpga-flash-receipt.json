@@ -1,0 +1,8 @@
+{
+  "state": "FLASH_VERIFIED_RESTORE_PENDING",
+  "observed_utc": "2026-11-02T14:52:42.148524+00:00",
+  "returncode": 0,
+  "bit_sha256": "2a312641673f92b16c6ca2c66bb37d00eb38ee6cc54de560d648558c39db6699",
+  "log_sha256": "ca1d838092fce43e8e2f11b9364e19a01d7ae84d85309788fc493a019e5e760f",
+  "cold_boot_verified": false
+}

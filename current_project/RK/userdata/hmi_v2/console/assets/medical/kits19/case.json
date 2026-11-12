@@ -1,0 +1,106 @@
+{
+  "case": "KiTS19 case_00000",
+  "shape": [
+    171,
+    171,
+    204
+  ],
+  "spacing_mm": [
+    2.759765625,
+    2.759765625,
+    1.5
+  ],
+  "origin_ras_mm": [
+    -470.080078125,
+    -470.080078125,
+    -305.0
+  ],
+  "axes": "RAS",
+  "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+  "source_shape": [
+    512,
+    512,
+    611
+  ],
+  "source_spacing_mm": [
+    0.919921875,
+    0.919921875,
+    0.5
+  ],
+  "stride": 3,
+  "tumor_voxel": [
+    111.67939357885818,
+    62.46884069727616,
+    98.20595605069133
+  ],
+  "tumor_ras_mm": [
+    -161.87112670522146,
+    -297.68071893505623,
+    -157.691065923963
+  ],
+  "mesh_center": [
+    -231.8203125,
+    -111.0,
+    298.5146484375
+  ],
+  "mesh_scale": 0.012524693067479,
+  "segments": [
+    {
+      "name": "kidney_a",
+      "vertices": 14822,
+      "triangles": 29640,
+      "volume_ml": 180.14087672424316
+    },
+    {
+      "name": "kidney_b",
+      "vertices": 15758,
+      "triangles": 31468,
+      "volume_ml": 207.29258557319642
+    },
+    {
+      "name": "tumor",
+      "vertices": 6136,
+      "triangles": 12284,
+      "volume_ml": 7.8240622158050535
+    }
+  ],
+  "window_presets": [
+    {
+      "name": "软组织",
+      "width": 400,
+      "level": 50
+    },
+    {
+      "name": "窄窗对比",
+      "width": 200,
+      "level": 40
+    },
+    {
+      "name": "骨窗",
+      "width": 1600,
+      "level": 400
+    }
+  ],
+  "license": "CC BY-NC-SA 4.0",
+  "source": "https://github.com/neheller/kits19",
+  "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+  "annotation": "Published manual segmentation, not a prediction made by this device.",
+  "part_voxels": {
+    "tumor": [
+      111.67939357885818,
+      62.46884069727616,
+      98.20595605069133
+    ],
+    "kidney_a": [
+      62.0382759933985,
+      55.93842833566079,
+      137.4813380728704
+    ],
+    "kidney_b": [
+      112.57219310344827,
+      64.55845517241379,
+      121.12408275862069
+    ]
+  },
+  "affected_kidney": "kidney_b"
+}

@@ -1,0 +1,26 @@
+{
+  "class_dirs": [
+    "gesture_0",
+    "gesture_L",
+    "gesture_L_flipped",
+    "gesture_L_up",
+    "gesture_L_flipped_up",
+    "gesture_M",
+    "gesture_W",
+    "gesture_Z"
+  ],
+  "class_names": [
+    "0",
+    "L",
+    "L_rev",
+    "L_up",
+    "L_rev_up",
+    "M",
+    "W",
+    "Z"
+  ],
+  "img_size": 28,
+  "num_classes": 8,
+  "val_acc": 0.9487,
+  "arch": "GestureNet"
+}

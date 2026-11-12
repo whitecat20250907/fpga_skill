@@ -1,0 +1,10 @@
+{
+  "name": "face_detector",
+  "source_sha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+  "rknn_sha256": "9ce07f3a3f7f158c496257d5956089e0b05e1f41a93dd62b33537e519a138bd8",
+  "bytes": 687254,
+  "seconds": 7.167889966047369,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

@@ -1,0 +1,781 @@
+{
+  "scenario_requested": "empty",
+  "duration_s": 600.0206910849993,
+  "cpu_npu_percent": {
+    "cpu": {
+      "mean": 53.25240750787214,
+      "p95": 56.32754342431762,
+      "peak": 63.3587786259542,
+      "samples": 596
+    },
+    "cpu0": {
+      "mean": 56.90171145232396,
+      "p95": 62.745098039215684,
+      "peak": 67.32673267326733,
+      "samples": 596
+    },
+    "cpu1": {
+      "mean": 56.566165645080844,
+      "p95": 62.244897959183675,
+      "peak": 66.99029126213593,
+      "samples": 596
+    },
+    "cpu2": {
+      "mean": 72.0343923932073,
+      "p95": 76.0,
+      "peak": 78.78787878787878,
+      "samples": 596
+    },
+    "cpu3": {
+      "mean": 99.0819103045817,
+      "p95": 100.0,
+      "peak": 100.0,
+      "samples": 596
+    },
+    "cpu4": {
+      "mean": 34.2312526638928,
+      "p95": 40.816326530612244,
+      "peak": 51.02040816326531,
+      "samples": 596
+    },
+    "cpu5": {
+      "mean": 42.08770733959971,
+      "p95": 47.95918367346939,
+      "peak": 62.0,
+      "samples": 596
+    },
+    "cpu6": {
+      "mean": 31.64627565902519,
+      "p95": 38.775510204081634,
+      "peak": 50.0,
+      "samples": 596
+    },
+    "cpu7": {
+      "mean": 31.879860796289435,
+      "p95": 39.603960396039604,
+      "peak": 48.484848484848484,
+      "samples": 596
+    },
+    "npu0": {
+      "mean": 12.966442953020135,
+      "p95": 14.0,
+      "peak": 14.0,
+      "samples": 596
+    },
+    "npu1": {
+      "mean": 0.14093959731543623,
+      "p95": 1.0,
+      "peak": 2.0,
+      "samples": 596
+    }
+  },
+  "ring_publish_rate_hz": 40.828643539386036,
+  "rate_hz": {
+    "frame.meta": 37.6653677711232,
+    "vision.hands": 11.544601882768601,
+    "hmi.state": 44.0768133381812,
+    "sys.metrics.fpga-io": 1.9232670091980606,
+    "sys.metrics.console": 1.9549325838728988,
+    "vision.gaze": 9.896325390483609,
+    "vision.face": 9.886325735323133,
+    "sys.metrics.ui": 1.9749318941938492,
+    "sys.metrics.engine": 1.9415997103255984,
+    "sys.metrics.adapters": 1.9782651125806743,
+    "sys.metrics.gaze": 1.9599324114531362,
+    "sys.metrics.hand": 1.9299334459717108,
+    "sys.metrics.hud": 1.9549325838728988
+  },
+  "stable": true,
+  "measurement_complete": true,
+  "scenario_coverage": true,
+  "quality": {
+    "stable": true,
+    "scenario_coverage": true,
+    "time_windows": 5387,
+    "healthy_window_fraction": 1.0,
+    "scenario_window_fraction": 1.0,
+    "max_message_gap_ms": {
+      "frame.meta": 141.034603,
+      "vision.face": 224.765881,
+      "vision.gaze": 225.2241,
+      "vision.hands": 196.744727,
+      "hmi.state": 166.182537,
+      "sys.metrics.fpga-io": 1011.613546,
+      "sys.metrics.gaze": 628.574131,
+      "sys.metrics.hand": 617.580411,
+      "sys.metrics.engine": 629.853275,
+      "sys.metrics.ui": 616.248598,
+      "sys.metrics.hud": 621.768447,
+      "sys.metrics.adapters": 593.666605,
+      "sys.metrics.console": 624.778069
+    },
+    "errors": {},
+    "ring_regressed": false,
+    "ring_publish_rate_hz": 40.828643539386036,
+    "thresholds": {
+      "warmup_ms": 1000,
+      "sample_interval_ms": 100,
+      "data_age_ms": 350,
+      "heartbeat_age_ms": 2000,
+      "max_gap_ms": 2000,
+      "healthy_fraction": 0.95,
+      "scenario_fraction": 0.8
+    }
+  },
+  "epochs": [
+    485792109730829884
+  ],
+  "temperature_celsius": {
+    "little-core-thermal": {
+      "mean": 55.78312080536824,
+      "p95": 56.384,
+      "peak": 57.307,
+      "samples": 596
+    },
+    "soc-thermal": {
+      "mean": 52.72142449664376,
+      "p95": 52.692,
+      "peak": 53.615,
+      "samples": 596
+    },
+    "gpu-thermal": {
+      "mean": 55.44086744966389,
+      "p95": 55.461,
+      "peak": 56.384,
+      "samples": 596
+    },
+    "ddr-thermal": {
+      "mean": 54.310347315436545,
+      "p95": 54.538,
+      "peak": 54.538,
+      "samples": 596
+    },
+    "bigcore-thermal": {
+      "mean": 54.43423993288607,
+      "p95": 55.461,
+      "peak": 55.461,
+      "samples": 596
+    },
+    "npu-thermal": {
+      "mean": 52.74464932885855,
+      "p95": 53.615,
+      "peak": 53.615,
+      "samples": 596
+    }
+  },
+  "cpu_frequency_mhz": {
+    "policy4": {
+      "mean": 2080.268456375839,
+      "p95": 2112.0,
+      "peak": 2112.0,
+      "samples": 596
+    },
+    "policy0": {
+      "mean": 1919.5973154362416,
+      "p95": 1920.0,
+      "peak": 1920.0,
+      "samples": 596
+    }
+  },
+  "age_ms": {
+    "frame.meta": {
+      "mean": 4.229554883399996,
+      "p95": 7.458458,
+      "peak": 69.040619,
+      "samples": 10000
+    },
+    "vision.hands": {
+      "mean": 38.32720746730188,
+      "p95": 67.705733,
+      "peak": 139.930195,
+      "samples": 6927
+    },
+    "hmi.state": {
+      "mean": 1.7698172162000017,
+      "p95": 2.755027,
+      "peak": 74.920408,
+      "samples": 10000
+    },
+    "sys.metrics.fpga-io": {
+      "mean": 16.31556498093588,
+      "p95": 63.189926,
+      "peak": 103.998849,
+      "samples": 1154
+    },
+    "sys.metrics.console": {
+      "mean": 10.4305167766411,
+      "p95": 36.957125,
+      "peak": 98.788112,
+      "samples": 1173
+    },
+    "vision.gaze": {
+      "mean": 40.017637906534134,
+      "p95": 80.710805,
+      "peak": 164.709496,
+      "samples": 5938
+    },
+    "vision.face": {
+      "mean": 40.87370483681722,
+      "p95": 86.41789,
+      "peak": 164.672167,
+      "samples": 5932
+    },
+    "sys.metrics.ui": {
+      "mean": 7.555349667510547,
+      "p95": 36.348994,
+      "peak": 96.756428,
+      "samples": 1185
+    },
+    "sys.metrics.engine": {
+      "mean": 7.95614848154506,
+      "p95": 31.31716,
+      "peak": 107.746591,
+      "samples": 1165
+    },
+    "sys.metrics.adapters": {
+      "mean": 9.26685827716934,
+      "p95": 37.596598,
+      "peak": 92.396125,
+      "samples": 1187
+    },
+    "sys.metrics.gaze": {
+      "mean": 8.620242572278904,
+      "p95": 32.445173,
+      "peak": 98.908923,
+      "samples": 1176
+    },
+    "sys.metrics.hand": {
+      "mean": 8.012667134715016,
+      "p95": 35.717205,
+      "peak": 99.542956,
+      "samples": 1158
+    },
+    "sys.metrics.hud": {
+      "mean": 9.26873610400682,
+      "p95": 28.832116,
+      "peak": 99.52126,
+      "samples": 1173
+    }
+  },
+  "processes": {
+    "105101": {
+      "name": "core.io_service",
+      "start": 1609806,
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 8.530687583510517,
+        "p95": 9.93613273466038,
+        "peak": 10.991673719205652,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 19936826.416107383,
+        "p95": 19947520,
+        "peak": 19947520,
+        "samples": 596
+      }
+    },
+    "105104": {
+      "name": "fpga_io",
+      "start": 1609827,
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 11.592738759342174,
+        "p95": 13.876491551506112,
+        "peak": 14.992373829200222,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 15069184.0,
+        "p95": 15069184,
+        "peak": 15069184,
+        "samples": 596
+      }
+    },
+    "105111": {
+      "name": "vision.gaze_app",
+      "start": 1609908,
+      "affinity": [
+        5
+      ],
+      "cpu_percent_one_core": {
+        "mean": 32.58226244064581,
+        "p95": 35.62787768412679,
+        "peak": 40.88555572816739,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 194458658.36241612,
+        "p95": 200761344,
+        "peak": 200761344,
+        "samples": 596
+      }
+    },
+    "105113": {
+      "name": "vision.hand_service",
+      "start": 1609911,
+      "affinity": [
+        6
+      ],
+      "cpu_percent_one_core": {
+        "mean": 13.81465482575803,
+        "p95": 14.9887792649454,
+        "peak": 15.992613811329976,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 173976940.24161074,
+        "p95": 174075904,
+        "peak": 174075904,
+        "samples": 596
+      }
+    },
+    "105117": {
+      "name": "ui.mipi_composer",
+      "start": 1609915,
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 4.287030386603503,
+        "p95": 5.975254897965588,
+        "peak": 6.993802358108966,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 21159936.0,
+        "p95": 21159936,
+        "peak": 21159936,
+        "samples": 596
+      }
+    },
+    "120372": {
+      "name": "core.interaction.run",
+      "start": 1734406,
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 10.413773609530875,
+        "p95": 12.986172764744705,
+        "peak": 14.958130144451484,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 25502259.543624163,
+        "p95": 25628672,
+        "peak": 25628672,
+        "samples": 596
+      }
+    },
+    "126728": {
+      "name": "ui.hdmi_hud",
+      "start": 1765042,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 4.8324726294331715,
+        "p95": 5.992379359348897,
+        "peak": 6.9488596312824304,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 61182776.69798658,
+        "p95": 61206528,
+        "peak": 61206528,
+        "samples": 596
+      }
+    },
+    "150206": {
+      "name": "console.server",
+      "start": 1901227,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 11.787920777713866,
+        "p95": 13.875456043351468,
+        "peak": 14.984323281123316,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 27778604.67114094,
+        "p95": 27824128,
+        "peak": 27824128,
+        "samples": 596
+      }
+    },
+    "152978": {
+      "name": "adapters.run",
+      "start": 1914161,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 17.042436354600333,
+        "p95": 18.974026947835124,
+        "peak": 20.88749944756235,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 28777334.55033557,
+        "p95": 29331456,
+        "peak": 29331456,
+        "samples": 596
+      }
+    },
+    "153281": {
+      "name": "chromium-bin",
+      "start": 1915664,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 2.4869571292405745,
+        "p95": 2.9998327983182214,
+        "peak": 8.936415677735821,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 195039768.05369127,
+        "p95": 196448256,
+        "peak": 196517888,
+        "samples": 596
+      }
+    },
+    "153286": {
+      "name": "cat",
+      "start": 1915666,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 806912.0,
+        "p95": 806912,
+        "peak": 806912,
+        "samples": 596
+      }
+    },
+    "153287": {
+      "name": "cat",
+      "start": 1915666,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 794624.0,
+        "p95": 794624,
+        "peak": 794624,
+        "samples": 596
+      }
+    },
+    "153290": {
+      "name": "chrome_crashpad",
+      "start": 1915677,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 3206934.33557047,
+        "p95": 3207168,
+        "peak": 3207168,
+        "samples": 596
+      }
+    },
+    "153292": {
+      "name": "chromium-bin",
+      "start": 1915678,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 69087232.0,
+        "p95": 69087232,
+        "peak": 69087232,
+        "samples": 596
+      }
+    },
+    "153293": {
+      "name": "chromium-bin",
+      "start": 1915678,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 69181440.0,
+        "p95": 69181440,
+        "peak": 69181440,
+        "samples": 596
+      }
+    },
+    "153295": {
+      "name": "chrome_crashpad",
+      "start": 1915679,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 2453504.0,
+        "p95": 2453504,
+        "peak": 2453504,
+        "samples": 596
+      }
+    },
+    "153325": {
+      "name": "chromium-bin",
+      "start": 1915777,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 26.16129743952542,
+        "p95": 29.657385016981824,
+        "peak": 30.913468965199733,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 165039158.97986576,
+        "p95": 165572608,
+        "peak": 166035456,
+        "samples": 596
+      }
+    },
+    "153330": {
+      "name": "chromium-bin",
+      "start": 1915780,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 5.62555411347507,
+        "p95": 6.973639642158939,
+        "peak": 6.9994521528997655,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 89580482.147651,
+        "p95": 89915392,
+        "peak": 89989120,
+        "samples": 596
+      }
+    },
+    "153333": {
+      "name": "chromium-bin",
+      "start": 1915784,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.011637737542195433,
+        "p95": 0.0,
+        "peak": 0.9994915886133481,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 38845804.241610736,
+        "p95": 38977536,
+        "peak": 38977536,
+        "samples": 596
+      }
+    },
+    "153371": {
+      "name": "chromium-bin",
+      "start": 1915827,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0016608407080615623,
+        "p95": 0.0,
+        "peak": 0.9898610620046912,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 56848384.0,
+        "p95": 56848384,
+        "peak": 56848384,
+        "samples": 596
+      }
+    },
+    "153372": {
+      "name": "chromium-bin",
+      "start": 1915827,
+      "affinity": [
+        0,
+        1
+      ],
+      "cpu_percent_one_core": {
+        "mean": 28.219486546827564,
+        "p95": 33.70468758279822,
+        "peak": 36.30094091049168,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 126406436.08053692,
+        "p95": 129945600,
+        "peak": 132636672,
+        "samples": 596
+      }
+    },
+    "153927": {
+      "name": "bash",
+      "start": 1917255,
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 3080192.0,
+        "p95": 3080192,
+        "peak": 3080192,
+        "samples": 596
+      }
+    },
+    "153928": {
+      "name": "python",
+      "start": 1917255,
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 17313792.0,
+        "p95": 17313792,
+        "peak": 17313792,
+        "samples": 596
+      }
+    },
+    "161422": {
+      "name": "sudo",
+      "start": 1956462,
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 1
+      },
+      "rss_bytes": {
+        "mean": 4153344.0,
+        "p95": 4153344,
+        "peak": 4153344,
+        "samples": 1
+      }
+    }
+  },
+  "deployed_software": "native23/engine24r2/HUD25/app28/console27; historical measurement filename v26",
+  "config_sha256": "b92d1787e34af3dc93b4eda0ac73f05aaa3c45c72db6ef244506d45b860ddb07",
+  "packet_aborts_delta": 52,
+  "owner_epoch_unchanged": true,
+  "preview_highwater_words": 5390,
+  "preview_blocked_valid_cycles_delta": 0,
+  "source": [
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\resource_apps_v26_10min.json",
+      "sha256": "c997fdd921a7348933e7f5b23ddcd93b59cb01f562c062b3989e18e90ad517b8"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\apps_v26_10min_capture.json",
+      "sha256": "d64f28502058a6b50a88ed9ce020273f05d341f31c1c1aba100925403ecbde1c"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\runtime_f5_v28_after10min.json",
+      "sha256": "84943fac16576e025df90fe237dcfe63a22c9c83257b1a6badf0462ab03dc7b2"
+    }
+  ],
+  "limits": "Empty scene with medical foreground and game start page background; not battle/human FPS. An unchanged epoch does not prove no-inflight DMA recovery. Counts are not all atomic."
+}

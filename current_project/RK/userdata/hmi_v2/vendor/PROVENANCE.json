@@ -1,0 +1,2260 @@
+{
+  "baseline": "app_v51_native_export_20261024 (offline; live revision not asserted)",
+  "files": [
+    {
+      "path": "vendor/gaze_app/async_output.c",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/async_output.c",
+      "sha256": "486a7656c62a6e3289c492ba4dee9dca7274b3c88b918b5e171baae594632527",
+      "bytes": 8039,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/async_output.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/async_output.h",
+      "sha256": "7c421654c1c8cef5c406bc8faeaab306ba51c4f9d239d08ae1a4f07317c56ffb",
+      "bytes": 1811,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/capture_native.c",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/capture_native.c",
+      "sha256": "cfca4bb0620aa87aa8ed522fe435144a8671524e5cedd6fec6482dd94d75a04e",
+      "bytes": 18432,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/check_runtime.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/check_runtime.py",
+      "sha256": "de8146da49015e172560684c709b10af5af1daca51608cce4bf5d3d09964a93b",
+      "bytes": 1712,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/desktop_input.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/desktop_input.py",
+      "sha256": "ae21982545c0f3bd24a1440b02abafed7fda3741774a2933718613b93d9d6956",
+      "bytes": 4895,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/detector_frame.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/detector_frame.py",
+      "sha256": "a81b6a096037735eadeee605f5d141984486c6fffbc4b7d7d06333be3e0b4969",
+      "bytes": 1835,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/eye_quality.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/eye_quality.py",
+      "sha256": "71dc1c66307c450d70dbde46495d9244ad8ec9cdca159349cfaba9bb02c5f95a",
+      "bytes": 707,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/fpga_model_input.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/fpga_model_input.h",
+      "sha256": "26da27054e5eeb77a8835d9c0c3bd54e99d5a533e276eedec442d6a4beba81aa",
+      "bytes": 12197,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/fpga_model_packet.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/fpga_model_packet.h",
+      "sha256": "07f68283208f6694316644e64e832dcefda99ec96ac1da13081c3050cc8af703",
+      "bytes": 4410,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/gaze_runtime.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/gaze_runtime.py",
+      "sha256": "d6152ff9e0571c41a99796b8d67fcc38b96efb87ed4e54e7368d670981f9ebd1",
+      "bytes": 28279,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/head_geometry.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/head_geometry.py",
+      "sha256": "0b5d0a8e165fd743ebb13a746e7bb982f01f3b4d57061ae101af38209ec29a70",
+      "bytes": 15219,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/native_model_export.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/native_model_export.h",
+      "sha256": "cbe93ed3da6cae9f2a977c85ba02b862106ecf4d39912fc5cb634d129bdd96d4",
+      "bytes": 2513,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/overlap_worker.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/overlap_worker.py",
+      "sha256": "7f801a868552ad6092e01f5eb5be68a47f33cc3a2d732806a4bd8dc7d37e2127",
+      "bytes": 4778,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/pcie_capture.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/pcie_capture.py",
+      "sha256": "ad8f1c2985a7233ea8f15dbbdd8ed8bc94119c2b483a749e350e103f52796293",
+      "bytes": 11671,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/preview_snapshot.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/preview_snapshot.h",
+      "sha256": "4ad6a1fad478eb5e2252232e508b475ffc73b06217b8eff5854d47f04528897a",
+      "bytes": 4785,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/profile_overlap.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/profile_overlap.py",
+      "sha256": "6415653f45571417f9974d56bf08796b7bc6077868369fecf673448ebc7577c3",
+      "bytes": 4713,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/profile_pipeline.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/profile_pipeline.py",
+      "sha256": "0c2dd96b9394a88fff2b6f0d94838ab3df8e66e62546038e088f172d5ba5f07f",
+      "bytes": 1808,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/region8.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/region8.py",
+      "sha256": "16ee802b2d0a5421dc89f23842c7809c5ff7f06850afc3c035f268dc0f2f32e7",
+      "bytes": 4189,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/rgb_area3.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/rgb_area3.h",
+      "sha256": "4fdec0fe7c49b327156788b219b1a350932720ef618ef6720513b3235e7af5af",
+      "bytes": 1014,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/rgb_center3.h",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/rgb_center3.h",
+      "sha256": "7bce00aec7ae19c54e53480f730d9df557a93412e4b72fb6a3922e2dc7d7968c",
+      "bytes": 824,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/ridge_isotonic_calibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/ridge_isotonic_calibration.py",
+      "sha256": "17ebfb225a3292dcecc9bc8edbf0c5e0ce214978ac93ec4277aa6222a095e427",
+      "bytes": 7476,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/run_gaze.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/run_gaze.py",
+      "sha256": "a2994a832e9f3ffe2f6f6c499e1e9afaae6e72a34898cb1504cf08356f5130ad",
+      "bytes": 34056,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/settings.json",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/settings.json",
+      "sha256": "29801fa2dfc9d6c0c57a644b859b28bdefb8316894c8b3400ef9266ca83fbd80",
+      "bytes": 739,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/shared_model_frame.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/shared_model_frame.py",
+      "sha256": "8f548ae3c4748bb78de5a6da3ee97277f00a1a8622f12290993872a55fc6a27f",
+      "bytes": 2780,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/shared_preview.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/shared_preview.py",
+      "sha256": "635ada3da65160758d9a96ec6d91791d50b6b06530b47289e505488315b4d259",
+      "bytes": 5627,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/start.sh",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/start.sh",
+      "sha256": "e4a11a93417ce903727bb4eba31e55d1b4a042142ed423ffa9061bb03f176607",
+      "bytes": 564,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/MANIFEST.in",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/MANIFEST.in",
+      "sha256": "a3c416fa6c47e56cce20cf32e0ab612084dc99e6300770d1d55fd5ccab708dd9",
+      "bytes": 83,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/MORE_INFO.md",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/MORE_INFO.md",
+      "sha256": "8b469f306fcc6778dcb7ad803818fbdeaa72f86a2cf7a244ba647046a3f26401",
+      "bytes": 26308,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/README.md",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/README.md",
+      "sha256": "7fc3c2fd982e153248af90911a33b93af145434037b3f0f40bacb5d1b113a57f",
+      "bytes": 6467,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/requirements.txt",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/requirements.txt",
+      "sha256": "74563a79a495584c7dec11760a148d18f86e12ac7625361a43bb705aa2e737b8",
+      "bytes": 75,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/setup.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/setup.py",
+      "sha256": "4201821ccf070c1e2f175130b74a277ada04617663fdf6fa506d13794e916f2f",
+      "bytes": 1861,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/update_log.md",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/update_log.md",
+      "sha256": "7e55240268faa69388882d42565130c44f275a22516bd91fdb987c8836b20d19",
+      "bytes": 351,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/fastest_mnn_ridge_example.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/fastest_mnn_ridge_example.py",
+      "sha256": "a559a654766217ed8a845f78c5a973393bd7f7c9dd00b5ee404f1832ec49f1d6",
+      "bytes": 2568,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/gui_launcher.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/gui_launcher.py",
+      "sha256": "ab4beedb2991fae2e69cec37b58a0d37ba7e4f934425ad4a82de0ccbf13a3a23",
+      "bytes": 14827,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/psychopy_example.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/psychopy_example.py",
+      "sha256": "3cd3f462884c86610d3d815c4b007f55097c09299fe7bdbc9070e77df0fa4cec",
+      "bytes": 2911,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/pygame_example.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/pygame_example.py",
+      "sha256": "3c28c066fbc504a7ee241a5fdffc2ae0d3c78422a1ee7b37749889739250598c",
+      "bytes": 2909,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/quick_start.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/quick_start.py",
+      "sha256": "6b361c714460daeea144e15ffadf73e8fd51acdd3be1d4dba0f5976e068c232e",
+      "bytes": 447,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/example/ridge_calibration_example.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/example/ridge_calibration_example.py",
+      "sha256": "5412f7f5170dc225d9d0bd24154bfb1e03302d7218c99aa43a9db5813953fc99",
+      "bytes": 1895,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/GazeFollower.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/GazeFollower.py",
+      "sha256": "62b548fd04dfccc6702ac38305d3ce9c33197a1b4f98f369b384c0b42097eb01",
+      "bytes": 24517,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/version.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/version.py",
+      "sha256": "044853ab85a5f0af986849e7a3d17f769bc770abae8eaa00bf6c13e955ec5d92",
+      "bytes": 677,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/__init__.py",
+      "sha256": "20655e12ff1d359512929f119088c8e4e1f30e0db5d48ff33606dfc8654838bb",
+      "bytes": 75,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/benchmark_model_speed.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/benchmark_model_speed.py",
+      "sha256": "e7525693f4e685e6bd568c8b2eca675251071b46590cc4037a7d20290d80a71b",
+      "bytes": 2908,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_calibration_controller.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_calibration_controller.py",
+      "sha256": "a10b16f0b039fe6fce67e5b8c697ee4aa5d8ab4a7a1cef55351d8a91e1376354",
+      "bytes": 6549,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_gaze_follower.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_gaze_follower.py",
+      "sha256": "88901f877f3fc22a7568dfbe7966c1923cbdc36aea915774e6c3fc7b1701f139",
+      "bytes": 3170,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_heuristic_filter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_heuristic_filter.py",
+      "sha256": "35dd3b7ae8550529053449d4eed52fa8624222148ec62f9a2b690a6119b312ee",
+      "bytes": 2305,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_misc.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_misc.py",
+      "sha256": "726056523378cd2698c5286d1ca5c65f0f5663a8717d8b27d83948449a2f6aee",
+      "bytes": 3716,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_multiprocessing.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_multiprocessing.py",
+      "sha256": "85b5daedc85edb2286eb3bac7385ae98ae9221390e4f97ea1d9a1f35c389430a",
+      "bytes": 1207,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_multivariate_ridge_calibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_multivariate_ridge_calibration.py",
+      "sha256": "fd2f6f1e00c87062056ff08cb11baf983d6fc7f6659c694a38ffd572d65024ea",
+      "bytes": 2721,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_one_euro_filter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_one_euro_filter.py",
+      "sha256": "50d862bf9bd402bfbe55af69bf0225c05775a4d0e97603398a63e1465f3cec4b",
+      "bytes": 2254,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_pipeline.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_pipeline.py",
+      "sha256": "cc228e6265ec49b75ee0d539300f5ed48825f302a6b1109324fb675721cee1d6",
+      "bytes": 1970,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_svr_calibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_svr_calibration.py",
+      "sha256": "9f8bc61932914f1e2ecf78a760dc0cf38b81580f041c9e3351c352ac4b48944f",
+      "bytes": 2648,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/tests/test_webcam.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/tests/test_webcam.py",
+      "sha256": "55f38cde9256090d3aeb782351608a66b1aac0254f4409722af65d87fa4df33f",
+      "bytes": 2238,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/calibration/Calibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/calibration/Calibration.py",
+      "sha256": "636c5df409ce80c2647718beeeb79f2ed0138567ffe5e2fdcf525b7164546538",
+      "bytes": 2468,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/calibration/CalibrationController.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/calibration/CalibrationController.py",
+      "sha256": "2d5ad7aac740fb7fcf0637c4edc12b84406e2e06855672349d505f9617346e31",
+      "bytes": 13994,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/calibration/MultivariateRidgeCalibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/calibration/MultivariateRidgeCalibration.py",
+      "sha256": "6b28c3ddd1b8d61ed2ee709d0ae583fbef47f1cd052e1c26a947d0c3fffb2bb7",
+      "bytes": 2744,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/calibration/SVRCalibration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/calibration/SVRCalibration.py",
+      "sha256": "a9d401435fb543288c87e44129b0f4ae4c11f0d8ce2b068bb0704853785fb4a4",
+      "bytes": 6634,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/calibration/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/calibration/__init__.py",
+      "sha256": "3fecd0a5f154d695bcb58ee82f9cfaf8d56fd0807a484b28cb4145b090fcdc8f",
+      "bytes": 328,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/camera/Camera.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/camera/Camera.py",
+      "sha256": "21bf0dba21d3004490e044a97917b240f05a008e64381b56d71628b96e009932",
+      "bytes": 7372,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/camera/WebCamCamera.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/camera/WebCamCamera.py",
+      "sha256": "11856e07351c867d48e9263cd11b33e04f2b8c57b0650f97506335426db3317b",
+      "bytes": 5056,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/camera/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/camera/__init__.py",
+      "sha256": "4ea46204a3cb29cb6625a8bdfcf877f2dade1504de1f56d4493b82762856e991",
+      "bytes": 136,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/face_alignment/BlazeFaceAlignment.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/face_alignment/BlazeFaceAlignment.py",
+      "sha256": "9e72bffef093b1403d1689e081ac3b950554907e90b26abacc045a51c2cf0412",
+      "bytes": 12920,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/face_alignment/FaceAlignment.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/face_alignment/FaceAlignment.py",
+      "sha256": "5d8b8442de6e80f69c2711e76b918e7a0ad11959fd32dcd6b06e6f26a6e76630",
+      "bytes": 1604,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/face_alignment/MediaPipeFaceAlignment.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/face_alignment/MediaPipeFaceAlignment.py",
+      "sha256": "7d71ef343ecf5901ce3a67bd516492218db33a8d35fcef72864ba33ff58944b6",
+      "bytes": 26826,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/face_alignment/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/face_alignment/__init__.py",
+      "sha256": "c50bd16c8f58cd59cc4b6e49bf9940f99aa0fad4f7457c1831c0151eb78a2275",
+      "bytes": 102,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/filter/Filter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/filter/Filter.py",
+      "sha256": "46f5b718516c33a0a41510c1d94761202e2ed21924f71fb79e93ae592bcd4276",
+      "bytes": 1216,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/filter/HeuristicFilter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/filter/HeuristicFilter.py",
+      "sha256": "83b6e7e4f5b03852f02a27bbd3534ce46f274272a307fd80fb69f08816c380f4",
+      "bytes": 4213,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/filter/OneEuroFilter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/filter/OneEuroFilter.py",
+      "sha256": "9e3ead12c54da2cb6e62319dd2740a8c2e77b3be0eba95e4e85eb5f15f4d268c",
+      "bytes": 4833,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/filter/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/filter/__init__.py",
+      "sha256": "2bfb7c14155089e1dcbd9f1012bb3af30258652badf8fdf967f24571d2f09b90",
+      "bytes": 184,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/finetuning/README.md",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/finetuning/README.md",
+      "sha256": "862cae44eb01d1efac4ad999e1e965f1c01234720fb4e4401bcd9b4f1b4d5e12",
+      "bytes": 13,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/finetuning/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/finetuning/__init__.py",
+      "sha256": "f88f04c7f363cd486e81a6c02e1872f9f7b59542ca32d76fd6b3b7ead52cbfb2",
+      "bytes": 66,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/gaze_estimator/GazeEstimator.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/gaze_estimator/GazeEstimator.py",
+      "sha256": "c1b631172482a09e6ade706dbaac71e6ebbf1a6a1b7d3e2aa803875c7027834f",
+      "bytes": 1226,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/gaze_estimator/MGazeNetGazeEstimator.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/gaze_estimator/MGazeNetGazeEstimator.py",
+      "sha256": "44a451d66a22fedb261ff8d461c2b717b7860448fca967d59b6b40f771fe106e",
+      "bytes": 6579,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/gaze_estimator/RKNNGazeEstimator.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/gaze_estimator/RKNNGazeEstimator.py",
+      "sha256": "0475b3d8a4aa8f17a48a0b850220785904a786fe0d78a5db673014aad7fecf85",
+      "bytes": 4911,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/gaze_estimator/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/gaze_estimator/__init__.py",
+      "sha256": "9ae4cee689268da56e95fa604a711b582b92f5dc90c1bda6968ac549092d8ceb",
+      "bytes": 92,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/logger/Logger.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/logger/Logger.py",
+      "sha256": "76ac1e2abef2c657deec45f315a0a7bf2ba6f5405d15d7ddbd80db6a0edebddd",
+      "bytes": 2443,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/logger/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/logger/__init__.py",
+      "sha256": "ebec67c4d924bd733dd83e5983ca2641b4248f624fa6d8178a7e83f4c52afd19",
+      "bytes": 93,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/DefaultConfig.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/DefaultConfig.py",
+      "sha256": "ff0ce1b0d873afb85f6183630e02655651d525aecd499874ce8ef72c8c76e2a5",
+      "bytes": 5272,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/Enumeration.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/Enumeration.py",
+      "sha256": "77ea93c644246b6a405b9a87fe59b7817bfae8fb147713c2ab6c806cf81f8997",
+      "bytes": 1441,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/FaceInfo.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/FaceInfo.py",
+      "sha256": "dbaf42d42a2e3a67750199fbfdd372f9c29d7e4c9b050f24764f1b7bd979435e",
+      "bytes": 5794,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/GazeInfo.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/GazeInfo.py",
+      "sha256": "e4b7c38f75e18f46699c964387611081ec2255ebd0fd284c4708b75f8b641529",
+      "bytes": 3782,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/OneEuroFilter.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/OneEuroFilter.py",
+      "sha256": "35a4fde6153f358af9aefc9252c02eef17674d0886f6ca8fab0f11a2467e9f1d",
+      "bytes": 4232,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/Recorder.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/Recorder.py",
+      "sha256": "121e1da605e0d49143464d6c92da5b9cf9917090bbbb51056fc8f50f3a9ac2dc",
+      "bytes": 40305,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/TriggerHandler.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/TriggerHandler.py",
+      "sha256": "f88f04c7f363cd486e81a6c02e1872f9f7b59542ca32d76fd6b3b7ead52cbfb2",
+      "bytes": 66,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/misc/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/misc/__init__.py",
+      "sha256": "0ca6109fd83746940fed7101c5194f9ba7312ca3384dfdf8d9d5f7328a928a53",
+      "bytes": 4862,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/multiprocess/mp_gazefollower.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/multiprocess/mp_gazefollower.py",
+      "sha256": "7573bc31c8e6799e40045993f0f5553bd43663a74de70dc6cd700c39d93d6627",
+      "bytes": 13592,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/multiprocess/mp_worker.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/multiprocess/mp_worker.py",
+      "sha256": "f69c81fcfedaabc73015c41159e2d53a1929b3a3d1f8b1c926a02fe1ac165ca0",
+      "bytes": 7446,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/multiprocess/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/multiprocess/__init__.py",
+      "sha256": "3f734bf56071e42797e5332d011ee18032fcaf31838552035946cbdc4c00bb1f",
+      "bytes": 224,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/BaseUI.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/BaseUI.py",
+      "sha256": "6cc0328f886f2b42539de7474a1b1085b8f4c78be307b5b5317df743137ffd64",
+      "bytes": 2051,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/CalibrationUI.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/CalibrationUI.py",
+      "sha256": "0d0206edac3eb154673c7362549d94c247a618eb929197c17b323d5d97be1c1f",
+      "bytes": 7728,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/CameraPreviewerUI.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/CameraPreviewerUI.py",
+      "sha256": "0c96368ecf5005f28345cf4f9fd573c9b9f738b29f42ca0e1134f787e7c941c4",
+      "bytes": 14195,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/ParticipantInfoDialog.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/ParticipantInfoDialog.py",
+      "sha256": "35aa47f5f177c967f970b127bb3bf289f83ff22d21151bd8c91aa197207733f7",
+      "bytes": 4105,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/UIBackend.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/UIBackend.py",
+      "sha256": "299bb18cd7d44489f7ec3cd50c2e8eb6320e8a71001541b50b7c337e9415078c",
+      "bytes": 25516,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/ui/__init__.py",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/ui/__init__.py",
+      "sha256": "5ecef76c357004f1a32626a3c8b4573c8eef6730a069b94bf5f004ba39936b66",
+      "bytes": 160,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/res/model_weights/base.mnn",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/res/model_weights/base.mnn",
+      "sha256": "2f96b95275fe6d7b79e98df3237ebb96e15ef5522c96968f08167da7e1954a96",
+      "bytes": 6245556,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/res/model_weights/blaze_face.mnn",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/res/model_weights/blaze_face.mnn",
+      "sha256": "c25d44beefefb2e45ea3184b43a35a763c803412ffbed43e463586ec75aeed9c",
+      "bytes": 542360,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/res/model_weights/face_landmarker.task",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/res/model_weights/face_landmarker.task",
+      "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "bytes": 3758596,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gaze_app/GazeFollower/gazefollower/res/model_weights/original_gaze_fp16.rknn",
+      "source": "board_root/userdata/gaze_model_migration_v1_20261014/app_v51_native_export_20261024/GazeFollower/gazefollower/res/model_weights/original_gaze_fp16.rknn",
+      "sha256": "9eeeaedd671d6cab7c7a637175e8c540b8649d315d2cd25d085a35a4c0801ad2",
+      "bytes": 5472730,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/benchmark.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/benchmark.py",
+      "sha256": "ff55d4692ed16e4cc2681c6dc62ab42ad7613370cf8446c7df4c39a5a2eed473",
+      "bytes": 11720,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/benchmark_dual.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/benchmark_dual.py",
+      "sha256": "d470d5bb7dfdd2a98fc8a2f42df5067b900e2fb7dd59b3096e0d1c9964df0654",
+      "bytes": 2775,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/build_bundle.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/build_bundle.py",
+      "sha256": "4a28631a6706d5771040686c728ad24d864b7d8bb00c396eb82454e8a8028369",
+      "bytes": 2075,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/detector_frame.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/detector_frame.py",
+      "sha256": "a81b6a096037735eadeee605f5d141984486c6fffbc4b7d7d06333be3e0b4969",
+      "bytes": 1835,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/fixture_test.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/fixture_test.py",
+      "sha256": "dc2b358b8701fbb69f0d3d270ebdba5db7ce774b786ca0ccb0ea0f2970ead6b5",
+      "bytes": 4222,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/gaze_bridge.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/gaze_bridge.py",
+      "sha256": "4fc41e2b18e629db16a31e5cfb93b8ee4629fb6d51394e01f51b27d8d93b3c79",
+      "bytes": 5464,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/gaze_model.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/gaze_model.py",
+      "sha256": "975205cda57968d4aab40bef70ee2075a231d104c57ccb3bde613afcdb306a0c",
+      "bytes": 2758,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/geometry_array.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/geometry_array.py",
+      "sha256": "38b7283b1036b1f7c8fe3ccb190adb709a601102ae19ab94c8cac5d9371b9a03",
+      "bytes": 8944,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/lifecycle.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/lifecycle.py",
+      "sha256": "a3ac591e5d643882e10f0e5e4203f230b0ddb3e5f215956784cdaab6a1cf338a",
+      "bytes": 5756,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/model_frame_reader.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/model_frame_reader.py",
+      "sha256": "c77de1cf7bde5c05635e0a3bf73bf8da8271d8a35cbc7b576f7f68867927e5b3",
+      "bytes": 4718,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/multi_trajectory.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/multi_trajectory.py",
+      "sha256": "073ba80c85be6f1f5d204a1930cc8b5ca2b58dda82922e4c0a3960623dfce054",
+      "bytes": 1395,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/npu_runtime.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/npu_runtime.py",
+      "sha256": "ef3910246c6a3eefb75a9868a8b72c7886e9fc4ef6f837e98c0029d37cff5e19",
+      "bytes": 3339,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/policy.json",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/policy.json",
+      "sha256": "de309dd664b9943d32c1edf8e7a985232388545a31d51826739a97587a94e95b",
+      "bytes": 546,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/prepare_app.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/prepare_app.py",
+      "sha256": "8e80122680dcd36465f7c1db91f31ee293744a7b019e9481ac839433fbfe891d",
+      "bytes": 3586,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/prepare_local.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/prepare_local.py",
+      "sha256": "ce2e5b7ab054e59ca787f6762dd595175787cfcf5a8721aeece761b1c4e22aef",
+      "bytes": 5240,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/request.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/request.py",
+      "sha256": "7a33907f8d22c27eb03cfbc8d8c693990765d389426bb6c5905fd38b12950ebd",
+      "bytes": 725,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/roi_workers.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/roi_workers.py",
+      "sha256": "ad14477103c916edcce456480f504a030c66c5ad5351d268e69d24e9fa57110e",
+      "bytes": 1874,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/runtime_policy.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/runtime_policy.py",
+      "sha256": "2db520c24f0da793df817417f13a68e1d87b1593aeafc83604d63afb9f9f9b1d",
+      "bytes": 294,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/run_hands.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/run_hands.py",
+      "sha256": "939351f49657cfa0075c7b4dcd6ed99a1e2fe922122b5eb46c673f9066dd9234",
+      "bytes": 3668,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/shared_model_frame.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/shared_model_frame.py",
+      "sha256": "8f548ae3c4748bb78de5a6da3ee97277f00a1a8622f12290993872a55fc6a27f",
+      "bytes": 2780,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/start_job.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/start_job.py",
+      "sha256": "c22c0859490c4376b532eeba35ce2339561d616e861b9366a80476f9da2a9e50",
+      "bytes": 667,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/test_contracts.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/test_contracts.py",
+      "sha256": "a916742fcf8025e0ade334f747137119be0ed499e5340b0160e08cac1304d339",
+      "bytes": 2772,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/test_numerical.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/test_numerical.py",
+      "sha256": "47c5ee930f4b62f314e28368e5d09b15f9bbc79dd7cfcc6cee3b39277904b3ae",
+      "bytes": 4058,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/test_roi_workers.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/test_roi_workers.py",
+      "sha256": "887037e8e679d714f4aeb3715b6da17f69bdd8bf1f7518331836764286b957af",
+      "bytes": 1820,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/test_shared_frame.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/test_shared_frame.py",
+      "sha256": "aeeeb06c63cd2de545b3b9225a1c8257f1eab9eb0f5a10e5b3d228cd37a69dbb",
+      "bytes": 2592,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/vision_pipeline.py",
+      "source": "board_root/userdata/fpga_detector_inputs_20261023/vision_pipeline.py",
+      "sha256": "fe9f2beb49c85c18a41b4d86a34c3d750c8686c79a1e777e182123caed38868d",
+      "bytes": 13215,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.build.json",
+      "sha256": "bac27dd828badfdc6b08904543b7cf579e264b1076a78be4c35a732bc85ad5cf",
+      "bytes": 339,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.io.json",
+      "sha256": "8b3b77a3b92ee5de6a0c8ba0f2fe1fe736c49596b0d9d50f707653ef3b23ba66",
+      "bytes": 296,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.metadata.json",
+      "sha256": "1216b26fd0b2c11e3216c3849091bd29956015119aba114e0c28346086b5413a",
+      "bytes": 1230,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.npu_validation.json",
+      "sha256": "2adcf09ca0fdee0b95209e8cb8e6e2c3b42f64fbce1fe67b1f7d1b6d34d94729",
+      "bytes": 1177,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.onnx",
+      "sha256": "12889e9d5165a34712032b270aa1a4ba472bef808b451889b069dc476c1d7440",
+      "bytes": 5891,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.onnx_validation.json",
+      "sha256": "139ba68e00fb1fe64cc3e808fcb2a72f8a65182fb4b53deb5dc38be46267ce6c",
+      "bytes": 431,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.reference.npz",
+      "sha256": "0fd7dcfc2f8bff6ac55d2166c40df46c51cfa269c656b085c3315e6eb5d50544",
+      "bytes": 3175,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.rknn",
+      "sha256": "0297f95523c7f908ee741478a48c81c0ec8fa4ebb96fa38b6f9cac7a42908438",
+      "bytes": 89761,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/canned_gesture_classifier.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.tflite",
+      "sha256": "62a87ded76da05155f6a59c8babb4c537c138c25138b29450fb030e207a5c0e9",
+      "bytes": 7773,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.build.json",
+      "sha256": "38e6da238afb658f6213b8afe15d7eeacf3316ae749746653c45a78351f0a4b1",
+      "bytes": 332,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.io.json",
+      "sha256": "cf0cc8a1682794a5b43b7ec92ac7632e6742937dc1e90761822d2174504b3687",
+      "bytes": 354,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.npu_validation.json",
+      "sha256": "90822db3fe6ca8bfdb40abfc243be56083a2aacf3cd44b803f938cdbf7d5fca4",
+      "bytes": 1187,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.onnx",
+      "sha256": "766510a687e2a5322e23ebf429c44914feed83466a9bc9540c81af5553fcbd29",
+      "bytes": 1824761,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.onnx_validation.json",
+      "sha256": "b4ecfe415d0c009d4715aca258a968c6226127e5889fcf33fe2d820df3e4fc0d",
+      "bytes": 449,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.reference.npz",
+      "sha256": "382f2946bfd93012d1780e7718c40bb7ec2a062bbd3f70471fb83740af05edd4",
+      "bytes": 6805,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.rknn",
+      "sha256": "b583ebc41d865c8d2dce87ef98dd98ff18d14b9857a2cef49cfa1f400f077ed6",
+      "bytes": 7966884,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_blendshapes.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.tflite",
+      "sha256": "4f36dded049db18d76048567439b2a7f58f1daabc00d78bfe8f3ad396a2d2082",
+      "bytes": 955312,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.build.json",
+      "sha256": "49f7557457032eb17732dd43bee97edb1e2f735309a3d8e882530de975f0ec81",
+      "bytes": 327,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.io.json",
+      "sha256": "43b8316d402948227c7db046f9934a2d4a7276c81281e9789241b8eb679317dc",
+      "bytes": 489,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.metadata.json",
+      "sha256": "8ca60f4cefc25ea0b1b0fce525ed0f5d982cbe3da31f31c784eefc9c2dc785d1",
+      "bytes": 1629,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.npu_validation.json",
+      "sha256": "4e9696a000b3be1a38ec45402030cc85b1ddcac71bc61e8912c59209eb8b6193",
+      "bytes": 1842,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.onnx",
+      "sha256": "4e1d69eb5c81f7ff66fde3f2963a1dec68d25c0a626f597b5379c316320367ed",
+      "bytes": 583340,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.onnx_validation.json",
+      "sha256": "c76e8fe95f9c5c4f4456bcbfc0402b03cf060acf0faf4cc3992c95f1bb424738",
+      "bytes": 858,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.reference.npz",
+      "sha256": "627430468e044e065468a716c58d267c8cc90bf10580174d96c9a4880de40ca5",
+      "bytes": 772825,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.rknn",
+      "sha256": "9ce07f3a3f7f158c496257d5956089e0b05e1f41a93dd62b33537e519a138bd8",
+      "bytes": 687254,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.tflite",
+      "sha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+      "bytes": 229746,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.build.json",
+      "sha256": "15042d275f1622ffd678f3815efa69382cde51aa17974b7bfca724e8d738b78d",
+      "bytes": 338,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.io.json",
+      "sha256": "22ec2afaa7e1c4d82be1ecfe9ad754ce0275363cd7991d231eec515d69c8d98d",
+      "bytes": 600,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.metadata.json",
+      "sha256": "9af1739ae1ae14a5225f097ba22c304bec5c1bdba7cd47e0b10acabec7725f4b",
+      "bytes": 1940,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.npu_validation.json",
+      "sha256": "8d8f26a485acea88b7ff25b02f0eedbf3ae49989748a1624204563568ac4f969",
+      "bytes": 2525,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.onnx",
+      "sha256": "eb727af1ed72b67c62b23b2fcecac84496f53fa3b05fd433080cefc751ae01b4",
+      "bytes": 4857463,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.onnx_validation.json",
+      "sha256": "6c7483d78b4928732519a7239fb946f63ede721afbc4f48634646b65206f3852",
+      "bytes": 1178,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.reference.npz",
+      "sha256": "65f4b429a44e779e51fede011d6189a99e67d9023b1c5eb36defc39b38b593fd",
+      "bytes": 2143532,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.rknn",
+      "sha256": "fcaf44c166a1eec660b414e9a0dc20c5ed7fb683c78f5d14df0c3e723fb104fd",
+      "bytes": 3358455,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/face_landmarks_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.tflite",
+      "sha256": "c7d54204ce0448474c7f3fa9af494787c0965cbdd6f20fc72867e43046bd43d5",
+      "bytes": 2553590,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.build.json",
+      "sha256": "2c387159838c925db5f7b89b7adf52f143c2296596ae19d7cd02e3d96cbe0474",
+      "bytes": 330,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.io.json",
+      "sha256": "1638a5c8cc1808a71e9f1bbac05657bea2b8813deb9a8236940fbfe2b3627c37",
+      "bytes": 655,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.npu_validation.json",
+      "sha256": "4c15fbb1d2b55162e33b5484be84a505ecece9588a472de52a3c6dc04012d7c8",
+      "bytes": 1197,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.onnx",
+      "sha256": "cb7efe07652be34519383e19f68a5e439e00c2820320e8d0183cfda828de8459",
+      "bytes": 548844,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.onnx_validation.json",
+      "sha256": "363c61cc7bd0bad9ead0d88b2575e17dd5fa0d029825c5babfe4940676422567",
+      "bytes": 490,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.reference.npz",
+      "sha256": "090eb5c4dcef2506a27609963512c047977322767fdcea1c13f5790e30040104",
+      "bytes": 5233,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.rknn",
+      "sha256": "37962e13b0fdaa8e8d6be40b30e17d48938b30f0bad81f5ef257819ee692984b",
+      "bytes": 559653,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/gesture_embedder.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.tflite",
+      "sha256": "54abe78de1d1cd5e3cdaa0dab01db18e3ec7e09a76e7c3b5fa278572f7a60977",
+      "bytes": 546000,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.build.json",
+      "sha256": "1f50d4f4f29d9247ceeb54f314f6a00d842c6948c3e249efe3e696e18c989957",
+      "bytes": 328,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.io.json",
+      "sha256": "03a5fed9a333b4eace279b285f3de7055929ccc3ca1d6230d58b40c39e7ea795",
+      "bytes": 487,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.metadata.json",
+      "sha256": "ee5dfbcbeb3a7b0fbe649eb55f1851c6f354c9ff60f3a892a536383356afe373",
+      "bytes": 1931,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.npu_validation.json",
+      "sha256": "39b8229c7d4b1af0664cd955cbb2bf505ebc14c265d3f2f8536ccd7960d1c2f6",
+      "bytes": 1837,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.onnx",
+      "sha256": "49e3d2442cb5a58eb0600f7405b5a0ca8d4ab6c7e169f198a78d89f5690eddcc",
+      "bytes": 4571179,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.onnx_validation.json",
+      "sha256": "6c5bf1444407af4923a231da25d5fe79af6c6a14218c9053d88db4785df435b4",
+      "bytes": 874,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.reference.npz",
+      "sha256": "4c5585ad717db37322d42d2b3ee2413d3b88ca8af4f5772134f9baa8604d9819",
+      "bytes": 1762752,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.rknn",
+      "sha256": "33cc88d65a791c9823a9a0d6e0437b4b8fa670b7393f1027c04f5054ab3c0b53",
+      "bytes": 4611096,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.tflite",
+      "sha256": "60d1bf8d70a80aba35b36290bb2a0e52e784ca2e524937d49ea80e8161a8a384",
+      "bytes": 2339878,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.build.json",
+      "sha256": "fb8a87b0c1c48b8816f393c3bab22c57441c8cd3c70e8e8f4c7760391002d004",
+      "bytes": 339,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.io.json",
+      "sha256": "05e030b24bbc3f1dca0bf4f7263ebf68de44de19153e07908237f760c0878463",
+      "bytes": 670,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.metadata.json",
+      "sha256": "0d94f3ff6371a09d175da23b10fb109cb0bf14b936e927a057e5bb75d339cef2",
+      "bytes": 3008,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.npu_validation.json",
+      "sha256": "6c2ec4fdc157947259762cf07c4d98a46993172260521a8dcc183f72d059be60",
+      "bytes": 3225,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.onnx",
+      "sha256": "1e947c942b7ff6645274dd2cb4057bc5fe5916339d103b80c10b5d834fab943a",
+      "bytes": 10887381,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.onnx_validation.json",
+      "sha256": "e1f3ae7d7daeed723e6e00f5eba7c7bcac2efd764524bc7af9c2a10dbb368db9",
+      "bytes": 1454,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.reference.npz",
+      "sha256": "385fff87f3cc8785583d02e69fe818c66f97f41e2704db5e5e555ba009315e86",
+      "bytes": 1628528,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.rknn",
+      "sha256": "3cc5083272bc5a4c0079e1cea72cf61724e87726a9c3a5f7c74fbcb98c1f0f5e",
+      "bytes": 6026381,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/models/hand_landmarks_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.tflite",
+      "sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+      "bytes": 5478949,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/build_model.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/build_model.py",
+      "sha256": "5a2303bd618487c6c4f3356bd7672144a9bb0cb33384df4f18a97bd7cfa077f6",
+      "bytes": 3822,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/classifier.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/classifier.py",
+      "sha256": "a5a40b61650b27a4b1f63cecf149b4b92e4ca10631e56242443a559c0b6b644d",
+      "bytes": 1996,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/inspect_runtime.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/inspect_runtime.py",
+      "sha256": "f01e39141280e05441f953d58025be1f34b891b9e68e12a5ce1535df01664845",
+      "bytes": 1992,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/probe.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/probe.py",
+      "sha256": "c1d379c0bcc46b016943b3590051156c149c72aef7020a6646653acf06727cae",
+      "bytes": 252,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/README.md",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/README.md",
+      "sha256": "396e45e250ca923bd116a93d11ebf82a5d44d3f17ca539a76decff6f359c6670",
+      "bytes": 4768,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/run_gesture8.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/run_gesture8.py",
+      "sha256": "27633f3db09f9e51f55086c20244b47a5abfc4fef906e795f2ae0849da8b8b72",
+      "bytes": 6283,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/start-rk3576.sh",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/start-rk3576.sh",
+      "sha256": "9cf92b8f9b4e422366ee78bc41ae2dda58f1883dc52555afc06c1140db62a307",
+      "bytes": 131,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/test_trajectory.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/test_trajectory.py",
+      "sha256": "73756859d7e451f1765ab51f8ffc8e5df5b8a661a1ea21c1b1728edce5c321c2",
+      "bytes": 3795,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/trajectory.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/trajectory.py",
+      "sha256": "d0ed2c27b1b5df773a8d9a5a4f7cc66cc72282a7872f5cfa34c1e04362ac4a66",
+      "bytes": 6329,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/validate_npu.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/validate_npu.py",
+      "sha256": "1e94401f24f1158edbc4455aebe6ce89978ccfe801b6964d3670776c9ded65ec",
+      "bytes": 1575,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/model/gesture8.onnx",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/model/gesture8.onnx",
+      "sha256": "8a648a477f68d654423efbd78cb4f490b1e1beb32fc34332a75e3fd049fbc9f4",
+      "bytes": 33763,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/model/gesture8_fp16.rknn",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/model/gesture8_fp16.rknn",
+      "sha256": "9db629bcc77a70f5e789703cb3526161f56d146b450246f25c405fb4c6ae2ddc",
+      "bytes": 89905,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/model/manifest.json",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/model/manifest.json",
+      "sha256": "e6213abcd9bda984e7570946cd5d85a124d906d3b8ae9f8cd0d06e69f34a8966",
+      "bytes": 588,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/model/npu_validation.json",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/model/npu_validation.json",
+      "sha256": "f3b81a8298edbb68ed029569f3657e6a96f8cf0f6390b104dda746fdff411ef3",
+      "bytes": 12424,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/model/vectors.npz",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/model/vectors.npz",
+      "sha256": "62160cd013bb205b790e0a042f12b1cb7044816732627a96953db1136f4979fd",
+      "bytes": 14129,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/original/gesture_8class.pth",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/original/gesture_8class.pth",
+      "sha256": "208d3064346e6c10154851ff12b6e026c076070baa7e25f5355d9c2feaf217ee",
+      "bytes": 40881,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/original/gesture_classes.json",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/original/gesture_classes.json",
+      "sha256": "c7a41826aea9caea6c5ddfbbe3ef44a2d76ba1c743de52e8a10a6179dc22f6b4",
+      "bytes": 399,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/original/infer.py",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/original/infer.py",
+      "sha256": "59263b44f32b3b87215f6af93065bb2e293c78f3fde803be77d7d0825206c83f",
+      "bytes": 19159,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/gesture8/original/readme.txt",
+      "source": "board_root/userdata/gesture8_rk3576_20261021/original/readme.txt",
+      "sha256": "53ef265608411039d203b317dad7ca02bfb4969dc6ae9f01efe84230bfb65edb",
+      "bytes": 340,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/actor_controller.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/actor_controller.py",
+      "sha256": "b11ad6c1a472ed033775ce07d30410a63c7dc0ad56cad58219a6834a41cd059b",
+      "bytes": 21364,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/app_relay.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/app_relay.py",
+      "sha256": "748a13dc7d037cb8f62bc544fc2046ae0d27343f87bee0e0e5852f94fc8b57b4",
+      "bytes": 21239,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/app_scene.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/app_scene.py",
+      "sha256": "ef862aa37789a70579d8a8daf2e16258456ed5ceff79335cc4f38b5ba26f7871",
+      "bytes": 13527,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/controlled_trajectory.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/controlled_trajectory.py",
+      "sha256": "c208ca063ca9836d2d88334f001f703e2deb95805381844f425e5e1319ace2e6",
+      "bytes": 6107,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/demo_trajectory.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/demo_trajectory.py",
+      "sha256": "375c421e500c250e6fe75d6e611eb3cfc0ccd0630b7a85860cb3082144e5a7bd",
+      "bytes": 6923,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/face_set_contract.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/face_set_contract.py",
+      "sha256": "fd07cdef0b84939b2552cf2d068079d3fad4db9012ba0f877bdef68556e63374",
+      "bytes": 9294,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/filtered_ui_export.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/filtered_ui_export.py",
+      "sha256": "0249c8b2d79685fa838f18a4c1648484e22538a36920274315e5ea2a41ab4194",
+      "bytes": 3538,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/gesture_actions.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/gesture_actions.py",
+      "sha256": "b1d2f8cabd3b31d824040ceed9b75923041b7149e5f7ec30e3f9a650e13cc294",
+      "bytes": 4304,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/hft1_common_snapshot.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/hft1_common_snapshot.py",
+      "sha256": "86473f19e38708661f9488aa682726f20c20f2592ab290443b1f29f91865adfa",
+      "bytes": 11131,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/hft2_wire.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/hft2_wire.py",
+      "sha256": "521db13a50ca41c014bd9eaf2828ca394d07a0cee4734ef3bb37a80be21ee87a",
+      "bytes": 3995,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/interaction_ui.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/interaction_ui.py",
+      "sha256": "b2c33c7211da2ea7e270be79fa5b956f34feae98f3d7e09afbce9f9f280caa25",
+      "bytes": 19253,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/menu_page_input.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/menu_page_input.py",
+      "sha256": "dc9f5104a6186a1428dae578ce0e346cd7246064352032386021c3f716223c5c",
+      "bytes": 3552,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/multi_trajectory.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/multi_trajectory.py",
+      "sha256": "60bf1ef69644e70395370cd5f6cc8a72345943750c4a73e115461e5c41e7f680",
+      "bytes": 1547,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/owned_producers.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/owned_producers.py",
+      "sha256": "78d72a382c920eca15ede4c7aeea4d6b75539a9490669acbcabf2faf9cc232a6",
+      "bytes": 7032,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/owner_app_session.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/owner_app_session.py",
+      "sha256": "db1773b3093cca03ec5d3b7c339701dda4752f00ba996432b299e121cd780b8d",
+      "bytes": 8996,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/test_persistence.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/test_persistence.py",
+      "sha256": "c5612638a22a25f4f446f29cf1457f1c09b9ef5b6af512ca66ba845f7bdf66b8",
+      "bytes": 2243,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/twb_sender_app.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/twb_sender_app.py",
+      "sha256": "12a08a83f4857a541c292e2ddbe58aae3dc19fe3c6cf3f2ce629458352c7e24e",
+      "bytes": 7177,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/ui_support/web_console.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/candidate_v4/ui/web_console.py",
+      "sha256": "4d2c1c9b0400b1a7ea6b1ad963be574175fbf83400093ff1d8a7dffec4053362",
+      "bytes": 12770,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/compile_native.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/compile_native.py",
+      "sha256": "681affa64432cd208e78ef1959316ca73ccf8d9bc43f9dde58f22cbba95f3bba",
+      "bytes": 4278,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/MANIFEST.json",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/MANIFEST.json",
+      "sha256": "69cdc347b319f9bcec551018780a126386916929e335adcc64436eed7a225afd",
+      "bytes": 2854,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/twb_core.c",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/twb_core.c",
+      "sha256": "3a4c82169d2a687413faffaf8e4b841b1de3689143c49c5eea2aa25f560d2d36",
+      "bytes": 9187,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/twb_core.h",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/twb_core.h",
+      "sha256": "77225415520831c49409f33218e7b5d81f08b960dc234d3d2fd4386d4218081e",
+      "bytes": 1584,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/twb_mmio.c",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/twb_mmio.c",
+      "sha256": "a9a8164d1bc5f85902070db56d77130822392e97b312b1783a860b3e6c161a85",
+      "bytes": 4084,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/twb_mmio.h",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/twb_mmio.h",
+      "sha256": "1830bdb4ce22f3cf1e2666948f2724908a278ea7df7af323948f45a7d3625765",
+      "bytes": 541,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/twb_native/twb_probe.c",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_native_v1/twb_probe.c",
+      "sha256": "6d43005b628af6de98d96ad5b9dc9c940245bc4209bbab0cbbe57225465ae1ad",
+      "bytes": 480,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/gesture_control.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/gesture_control.py",
+      "sha256": "3a16ca4f0161a50833e16a10e2c3299c7aecae9b10334606637a6f1293575192",
+      "bytes": 3385,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/hand_runtime.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/hand_runtime.py",
+      "sha256": "e2a10d38672a92bfefc78a685c70c330632bae61fdea7a84e183396210540804",
+      "bytes": 2783,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/input_bridge.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/input_bridge.py",
+      "sha256": "ca24ef61fdb1890fd885fc107a21e5089d1a86de31ebc0739e906e96d0a79302",
+      "bytes": 2047,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/launch.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/launch.py",
+      "sha256": "8bb2c29f05ed74633fe6fcb9dc16662f35fea423fb660fb774d3a7e404f60813",
+      "bytes": 4770,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/make_scenario.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/make_scenario.py",
+      "sha256": "d82fb8cdfe4aab9d70910f144fa086ec5fc51fb7c37c4bf6463ab1bf50f5559e",
+      "bytes": 2915,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/pcie_preview_reader.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/pcie_preview_reader.py",
+      "sha256": "2e9ebcf0b7714e5e536aa8ec6f48cc5248fb666e52716d712526e3f7f2e12669",
+      "bytes": 5925,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/project_features.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/project_features.py",
+      "sha256": "a3807bdc164bae0d0d781972a0c40fd6a3c8715254e1741799aab506ee0ffe09",
+      "bytes": 9870,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/project_twin.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/project_twin.py",
+      "sha256": "7b3a10cc185fd669d9cb4f0094c527ad167083cc61130cfa930a2292ced6caae",
+      "bytes": 5874,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/screen_bridge.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/screen_bridge.py",
+      "sha256": "0304887ba577eea85846d08674b33eef24279b976bb45c36dd313aafeaafc0e9",
+      "bytes": 4119,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/semantic_selection.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/semantic_selection.py",
+      "sha256": "24a0c0863dcec21a91c621fecb8672122859841f64abe1769a4f171b0005ddee",
+      "bytes": 3917,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/freeciv_bridge/start_menu.py",
+      "source": "board_root/userdata/freeciv-g03-v12-candidate_20261024/start_menu.py",
+      "sha256": "aa638c44e4357880549e17fb4111e5558b59566d325fc49362ad1307a2fd9262",
+      "bytes": 9096,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/gesture_control.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/gesture_control.py",
+      "sha256": "3a16ca4f0161a50833e16a10e2c3299c7aecae9b10334606637a6f1293575192",
+      "bytes": 3385,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/hand_runtime.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/hand_runtime.py",
+      "sha256": "e2a10d38672a92bfefc78a685c70c330632bae61fdea7a84e183396210540804",
+      "bytes": 2783,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/input_bridge.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/input_bridge.py",
+      "sha256": "ca24ef61fdb1890fd885fc107a21e5089d1a86de31ebc0739e906e96d0a79302",
+      "bytes": 2047,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/pcie_preview_reader.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/pcie_preview_reader.py",
+      "sha256": "2e9ebcf0b7714e5e536aa8ec6f48cc5248fb666e52716d712526e3f7f2e12669",
+      "bytes": 5925,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/project_features.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/project_features.py",
+      "sha256": "a3807bdc164bae0d0d781972a0c40fd6a3c8715254e1741799aab506ee0ffe09",
+      "bytes": 9870,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/screen_bridge.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/screen_bridge.py",
+      "sha256": "0304887ba577eea85846d08674b33eef24279b976bb45c36dd313aafeaafc0e9",
+      "bytes": 4119,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hand_consumer/tools/run_mediapipe_gestures.py",
+      "source": "board_root/userdata/twb_hft2_app_v2_20261023/hand/tools/run_mediapipe_gestures.py",
+      "sha256": "2622f49ab840ebd3838f79a2dd8b4599510b2da3b1fdc4b5f2edbd11383ba961",
+      "bytes": 14140,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/app.js",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/app.js",
+      "sha256": "6aa8602cac23d6c50d8c842d93cfc08ac8fd9498343aa56a961bef41db8b1313",
+      "bytes": 6867,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/gaze_window.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/gaze_window.py",
+      "sha256": "014b6e0808719b0b49b186f4470815723e200b4588151e22555b039cf4fd1632",
+      "bytes": 1136,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/gesture_actions.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/gesture_actions.py",
+      "sha256": "b1d2f8cabd3b31d824040ceed9b75923041b7149e5f7ec30e3f9a650e13cc294",
+      "bytes": 4304,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/index.html",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/index.html",
+      "sha256": "111327b73b8ab9c7258f095fe9d2743ba84c41415863774dc741e775159374d5",
+      "bytes": 3777,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/medical.html",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/medical.html",
+      "sha256": "9840e3f8489ded02b3fa74f7338677bc5da942a7590946ee7989c6b30b8becaf",
+      "bytes": 6973,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/medical.jpg",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/medical.jpg",
+      "sha256": "4cbbcf805291db949e4ff085ca3c7258b2823de21b2857ae684e6c91ff9a38a4",
+      "bytes": 906335,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/medical_source.json",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/medical_source.json",
+      "sha256": "f3bf5687dd5fd0dac4095b6641108cbd065c19a61c7ccc7b6c003426c8e85d58",
+      "bytes": 457,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/receiver.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/receiver.py",
+      "sha256": "42501345d1b4f29475c91fbe7f208c98b9ac6f4e1cb90653cb72cde2e5c9dd2e",
+      "bytes": 16449,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/receiver_gaze_v4.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/receiver_gaze_v4.py",
+      "sha256": "881bee9c78781e5b366b5a3a85aa1974e941313d03ac4315232ad1e7675af024",
+      "bytes": 4436,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/style.css",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/style.css",
+      "sha256": "31f3704db4a8951930201a3e14bbf08f7aacbe1d04e43754f9ec6864620ae724",
+      "bytes": 2396,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/web_console.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/web_console.py",
+      "sha256": "95d6605358ea12e437e3504901da17310d852e8d845aac7a6153ba3231bbcb49",
+      "bytes": 13123,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/web_demo/web_owner_command.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/gesture_demo_release_20261024/web_v4/web_owner_command.py",
+      "sha256": "223174cab2216c2cb07d1ca640556d9204cc4bae749cee74d30efd34f4e64323",
+      "bytes": 1129,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.build.json",
+      "sha256": "bac27dd828badfdc6b08904543b7cf579e264b1076a78be4c35a732bc85ad5cf",
+      "bytes": 339,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.io.json",
+      "sha256": "8b3b77a3b92ee5de6a0c8ba0f2fe1fe736c49596b0d9d50f707653ef3b23ba66",
+      "bytes": 296,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.metadata.json",
+      "sha256": "1216b26fd0b2c11e3216c3849091bd29956015119aba114e0c28346086b5413a",
+      "bytes": 1230,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.npu_validation.json",
+      "sha256": "2adcf09ca0fdee0b95209e8cb8e6e2c3b42f64fbce1fe67b1f7d1b6d34d94729",
+      "bytes": 1177,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.onnx",
+      "sha256": "12889e9d5165a34712032b270aa1a4ba472bef808b451889b069dc476c1d7440",
+      "bytes": 5891,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.onnx_validation.json",
+      "sha256": "139ba68e00fb1fe64cc3e808fcb2a72f8a65182fb4b53deb5dc38be46267ce6c",
+      "bytes": 431,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.reference.npz",
+      "sha256": "0fd7dcfc2f8bff6ac55d2166c40df46c51cfa269c656b085c3315e6eb5d50544",
+      "bytes": 3175,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.rknn",
+      "sha256": "0297f95523c7f908ee741478a48c81c0ec8fa4ebb96fa38b6f9cac7a42908438",
+      "bytes": 89761,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/canned_gesture_classifier.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/canned_gesture_classifier.tflite",
+      "sha256": "62a87ded76da05155f6a59c8babb4c537c138c25138b29450fb030e207a5c0e9",
+      "bytes": 7773,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.build.json",
+      "sha256": "38e6da238afb658f6213b8afe15d7eeacf3316ae749746653c45a78351f0a4b1",
+      "bytes": 332,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.io.json",
+      "sha256": "cf0cc8a1682794a5b43b7ec92ac7632e6742937dc1e90761822d2174504b3687",
+      "bytes": 354,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.npu_validation.json",
+      "sha256": "90822db3fe6ca8bfdb40abfc243be56083a2aacf3cd44b803f938cdbf7d5fca4",
+      "bytes": 1187,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.onnx",
+      "sha256": "766510a687e2a5322e23ebf429c44914feed83466a9bc9540c81af5553fcbd29",
+      "bytes": 1824761,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.onnx_validation.json",
+      "sha256": "b4ecfe415d0c009d4715aca258a968c6226127e5889fcf33fe2d820df3e4fc0d",
+      "bytes": 449,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.reference.npz",
+      "sha256": "382f2946bfd93012d1780e7718c40bb7ec2a062bbd3f70471fb83740af05edd4",
+      "bytes": 6805,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.rknn",
+      "sha256": "b583ebc41d865c8d2dce87ef98dd98ff18d14b9857a2cef49cfa1f400f077ed6",
+      "bytes": 7966884,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_blendshapes.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_blendshapes.tflite",
+      "sha256": "4f36dded049db18d76048567439b2a7f58f1daabc00d78bfe8f3ad396a2d2082",
+      "bytes": 955312,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.build.json",
+      "sha256": "49f7557457032eb17732dd43bee97edb1e2f735309a3d8e882530de975f0ec81",
+      "bytes": 327,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.io.json",
+      "sha256": "43b8316d402948227c7db046f9934a2d4a7276c81281e9789241b8eb679317dc",
+      "bytes": 489,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.metadata.json",
+      "sha256": "8ca60f4cefc25ea0b1b0fce525ed0f5d982cbe3da31f31c784eefc9c2dc785d1",
+      "bytes": 1629,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.npu_validation.json",
+      "sha256": "4e9696a000b3be1a38ec45402030cc85b1ddcac71bc61e8912c59209eb8b6193",
+      "bytes": 1842,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.onnx",
+      "sha256": "4e1d69eb5c81f7ff66fde3f2963a1dec68d25c0a626f597b5379c316320367ed",
+      "bytes": 583340,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.onnx_validation.json",
+      "sha256": "c76e8fe95f9c5c4f4456bcbfc0402b03cf060acf0faf4cc3992c95f1bb424738",
+      "bytes": 858,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.reference.npz",
+      "sha256": "627430468e044e065468a716c58d267c8cc90bf10580174d96c9a4880de40ca5",
+      "bytes": 772825,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.rknn",
+      "sha256": "9ce07f3a3f7f158c496257d5956089e0b05e1f41a93dd62b33537e519a138bd8",
+      "bytes": 687254,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_detector.tflite",
+      "sha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+      "bytes": 229746,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.build.json",
+      "sha256": "15042d275f1622ffd678f3815efa69382cde51aa17974b7bfca724e8d738b78d",
+      "bytes": 338,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.io.json",
+      "sha256": "22ec2afaa7e1c4d82be1ecfe9ad754ce0275363cd7991d231eec515d69c8d98d",
+      "bytes": 600,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.metadata.json",
+      "sha256": "9af1739ae1ae14a5225f097ba22c304bec5c1bdba7cd47e0b10acabec7725f4b",
+      "bytes": 1940,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.npu_validation.json",
+      "sha256": "8d8f26a485acea88b7ff25b02f0eedbf3ae49989748a1624204563568ac4f969",
+      "bytes": 2525,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.onnx",
+      "sha256": "eb727af1ed72b67c62b23b2fcecac84496f53fa3b05fd433080cefc751ae01b4",
+      "bytes": 4857463,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.onnx_validation.json",
+      "sha256": "6c7483d78b4928732519a7239fb946f63ede721afbc4f48634646b65206f3852",
+      "bytes": 1178,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.reference.npz",
+      "sha256": "65f4b429a44e779e51fede011d6189a99e67d9023b1c5eb36defc39b38b593fd",
+      "bytes": 2143532,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.rknn",
+      "sha256": "fcaf44c166a1eec660b414e9a0dc20c5ed7fb683c78f5d14df0c3e723fb104fd",
+      "bytes": 3358455,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/face_landmarks_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/face_landmarks_detector.tflite",
+      "sha256": "c7d54204ce0448474c7f3fa9af494787c0965cbdd6f20fc72867e43046bd43d5",
+      "bytes": 2553590,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.build.json",
+      "sha256": "2c387159838c925db5f7b89b7adf52f143c2296596ae19d7cd02e3d96cbe0474",
+      "bytes": 330,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.io.json",
+      "sha256": "1638a5c8cc1808a71e9f1bbac05657bea2b8813deb9a8236940fbfe2b3627c37",
+      "bytes": 655,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.npu_validation.json",
+      "sha256": "4c15fbb1d2b55162e33b5484be84a505ecece9588a472de52a3c6dc04012d7c8",
+      "bytes": 1197,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.onnx",
+      "sha256": "cb7efe07652be34519383e19f68a5e439e00c2820320e8d0183cfda828de8459",
+      "bytes": 548844,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.onnx_validation.json",
+      "sha256": "363c61cc7bd0bad9ead0d88b2575e17dd5fa0d029825c5babfe4940676422567",
+      "bytes": 490,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.reference.npz",
+      "sha256": "090eb5c4dcef2506a27609963512c047977322767fdcea1c13f5790e30040104",
+      "bytes": 5233,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.rknn",
+      "sha256": "37962e13b0fdaa8e8d6be40b30e17d48938b30f0bad81f5ef257819ee692984b",
+      "bytes": 559653,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/gesture_embedder.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/gesture_embedder.tflite",
+      "sha256": "54abe78de1d1cd5e3cdaa0dab01db18e3ec7e09a76e7c3b5fa278572f7a60977",
+      "bytes": 546000,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.build.json",
+      "sha256": "1f50d4f4f29d9247ceeb54f314f6a00d842c6948c3e249efe3e696e18c989957",
+      "bytes": 328,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.io.json",
+      "sha256": "03a5fed9a333b4eace279b285f3de7055929ccc3ca1d6230d58b40c39e7ea795",
+      "bytes": 487,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.metadata.json",
+      "sha256": "ee5dfbcbeb3a7b0fbe649eb55f1851c6f354c9ff60f3a892a536383356afe373",
+      "bytes": 1931,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.npu_validation.json",
+      "sha256": "39b8229c7d4b1af0664cd955cbb2bf505ebc14c265d3f2f8536ccd7960d1c2f6",
+      "bytes": 1837,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.onnx",
+      "sha256": "49e3d2442cb5a58eb0600f7405b5a0ca8d4ab6c7e169f198a78d89f5690eddcc",
+      "bytes": 4571179,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.onnx_validation.json",
+      "sha256": "6c5bf1444407af4923a231da25d5fe79af6c6a14218c9053d88db4785df435b4",
+      "bytes": 874,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.reference.npz",
+      "sha256": "4c5585ad717db37322d42d2b3ee2413d3b88ca8af4f5772134f9baa8604d9819",
+      "bytes": 1762752,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.rknn",
+      "sha256": "33cc88d65a791c9823a9a0d6e0437b4b8fa670b7393f1027c04f5054ab3c0b53",
+      "bytes": 4611096,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_detector.tflite",
+      "sha256": "60d1bf8d70a80aba35b36290bb2a0e52e784ca2e524937d49ea80e8161a8a384",
+      "bytes": 2339878,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.build.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.build.json",
+      "sha256": "fb8a87b0c1c48b8816f393c3bab22c57441c8cd3c70e8e8f4c7760391002d004",
+      "bytes": 339,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.io.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.io.json",
+      "sha256": "05e030b24bbc3f1dca0bf4f7263ebf68de44de19153e07908237f760c0878463",
+      "bytes": 670,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.metadata.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.metadata.json",
+      "sha256": "0d94f3ff6371a09d175da23b10fb109cb0bf14b936e927a057e5bb75d339cef2",
+      "bytes": 3008,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.npu_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.npu_validation.json",
+      "sha256": "6c2ec4fdc157947259762cf07c4d98a46993172260521a8dcc183f72d059be60",
+      "bytes": 3225,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.onnx",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.onnx",
+      "sha256": "1e947c942b7ff6645274dd2cb4057bc5fe5916339d103b80c10b5d834fab943a",
+      "bytes": 10887381,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.onnx_validation.json",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.onnx_validation.json",
+      "sha256": "e1f3ae7d7daeed723e6e00f5eba7c7bcac2efd764524bc7af9c2a10dbb368db9",
+      "bytes": 1454,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.reference.npz",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.reference.npz",
+      "sha256": "385fff87f3cc8785583d02e69fe818c66f97f41e2704db5e5e555ba009315e86",
+      "bytes": 1628528,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.rknn",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.rknn",
+      "sha256": "3cc5083272bc5a4c0079e1cea72cf61724e87726a9c3a5f7c74fbcb98c1f0f5e",
+      "bytes": 6026381,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/vision_npu/models/hand_landmarks_detector.tflite",
+      "source": "board_root/userdata/all_models_npu_20261022/models/hand_landmarks_detector.tflite",
+      "sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+      "bytes": 5478949,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hardware_reference/dsi_drive_control_v2.c",
+      "source": "board_root/home/linaro/pcie_fix_20261003/dsi_drive_control_v2.c",
+      "sha256": "3c2fe5e34dcb28760806eb35f1db5a62792fe60678785f64e0d9cccca5a05ee2",
+      "bytes": 2504,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hardware_reference/dsi_clock_control_v3.c",
+      "source": "board_root/home/linaro/pcie_fix_20261003/dsi_clock_control_v3.c",
+      "sha256": "a5b3f07678c7b739c4da33ae7e7f902134a9634a6e05ea40e74d7be3743195d6",
+      "bytes": 4408,
+      "path_patch_only": false
+    },
+    {
+      "path": "vendor/hardware_reference/board_actions.py",
+      "source": "board_root/home/linaro/pcie_fix_20261003/hft2_tdm_app_v3_20261023/owner/board_actions.py",
+      "sha256": "bad57fa118f301f2b4d84f4fff450f461fb3ca9caef6a88f9f9a8146f1c655c7",
+      "bytes": 3082,
+      "path_patch_only": false
+    }
+  ],
+  "copied_at": "2026-10-24"
+}

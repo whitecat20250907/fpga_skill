@@ -1,0 +1,312 @@
+// =============================================================================
+// cam_video_source.v — IMX415 Camera Video Source (drop-in replacement for tpg_gen)
+// =============================================================================
+// Pipeline:
+//   mipi_csi_rx (40b @ user_clk via internal sfifo CDC)
+//     → image_correction (crop to active region)
+//       → ui_BLC (black level correction)
+//         → ui_top_demosaic (RAW10 Bayer → 128b RGB)
+//           → FIFO (rate decoupling)
+//             → pack4_rgb24_to_512 (128b→512b, 4 pixels/clk, backpressure)
+//
+// Output interface is identical to tpg_gen: 512-bit AXI-Stream + sof/eof/frame_count.
+// No DDR buffering — pure streaming with frame-drop on DMA backpressure.
+// =============================================================================
+`timescale 1ns / 1ps
+
+module cam_video_source #(
+    parameter MIPI_LAN     = 4,
+    parameter DEVICE       = "PH2",
+    parameter BAYER_MODE   = "RGGB"
+)(
+    // System clock (PCIe user_clk, ~250-300MHz)
+    input  wire          user_clk,
+    input  wire          user_rst_n,
+    input  wire          enable,
+
+    // Runtime resolution parameters (from BAR registers)
+    input  wire [12:0]   cfg_img_width,      // Active image width  (e.g. 1920, 3840, 1280)
+    input  wire [12:0]   cfg_img_height,     // Active image height (e.g. 1080, 2160, 720)
+    input  wire [14:0]   cfg_crop_v_start,   // Crop: first valid line (exclusive >)
+    input  wire [14:0]   cfg_crop_v_end,     // Crop: last  valid line (exclusive <)
+    input  wire [14:0]   cfg_crop_h_end,     // Crop: h beats per line (exclusive <)
+
+    // MIPI CSI-2 physical interface
+    input  wire          mipi_ref_clock,     // PHY reference clock
+    input  wire          mipi_clk_hs_rx_p,   // MIPI clock lane (P)
+    input  wire [MIPI_LAN-1:0] mipi_data_hs_p, // MIPI data lanes (P)
+
+    // Frame control
+    input  wire          frame_request,      // Tie to 1 for camera mode
+
+    // AXI-Stream 512-bit output (same interface as tpg_gen)
+    output wire [511:0]  m_tdata,
+    output wire          m_tvalid,
+    input  wire          m_tready,
+    output wire          m_tlast,
+    output wire          m_frame_last,
+    output wire          sof,
+    output wire          eof,
+    output wire [31:0]   frame_count_out,
+
+    // Status / debug
+    input  wire          debug_button,       // Board debug button (MIPI delay)
+    output wire          mipi_div_clk_out,   // Divided HS clock (debug)
+    output wire          auto_delay_done,    // MIPI PHY auto delay calibration done
+    output wire          mipi_tvalid_out,    // MIPI receiver raw tvalid (for debug)
+    output wire [7:0]    dbg_mipi,           // MIPI 内部调试总线（hs_div_clk 域）
+    output wire [7:0]    dbg_delay,          // delay 调试总线（hs_div_clk 域）
+    output wire [5:0]    dbg_best_len        // eye-scan 最佳区间长度
+);
+
+    // ================================================================
+    // Internal wires
+    // ================================================================
+
+    // mipi_csi_rx → image_correction
+    wire [39:0]  mipi_tdata;
+    wire         mipi_tvalid;
+    assign       mipi_tvalid_out = mipi_tvalid;
+    wire         mipi_tlast;
+    wire         mipi_tuser;
+    wire         mipi_tready;
+
+    // image_correction → ui_BLC
+    wire [39:0]  crop_tdata;
+    wire [9:0]   crop_tdest;
+    wire         crop_tvalid;
+    wire         crop_tlast;
+    wire         crop_tuser;
+    wire         crop_tready;
+
+    // ui_BLC → ui_top_demosaic
+    wire [39:0]  blc_tdata;
+    wire [9:0]   blc_tdest;
+    wire         blc_tvalid;
+    wire         blc_tlast;
+    wire         blc_tuser;
+    wire         blc_tready;
+
+    // ui_top_demosaic → FIFO → pack4_rgb24_to_512
+    wire [127:0] demo_tdata;
+    wire         demo_tvalid;
+    wire         demo_tlast;
+    wire         demo_tuser;
+    wire         demo_tready;
+
+    // FIFO output → pack4_rgb24_to_512
+    wire [127:0] fifo_tdata;
+    wire         fifo_tvalid;
+    wire         fifo_tlast;
+    wire         fifo_tuser;
+    wire         fifo_tready;
+
+    // ---- Pipeline diagnostic sticky flags (injected into frame_count upper byte) ----
+    reg mipi_tuser_ever, mipi_tlast_ever;
+    reg crop_tuser_ever, crop_tlast_ever;
+    reg demo_tuser_ever, demo_tlast_ever;
+    reg pack_sof_ever,   pack_eof_ever;
+    always @(posedge user_clk or negedge user_rst_n) begin
+        if (!user_rst_n) begin
+            mipi_tuser_ever <= 1'b0; mipi_tlast_ever <= 1'b0;
+            crop_tuser_ever <= 1'b0; crop_tlast_ever <= 1'b0;
+            demo_tuser_ever <= 1'b0; demo_tlast_ever <= 1'b0;
+            pack_sof_ever   <= 1'b0; pack_eof_ever   <= 1'b0;
+        end else begin
+            if (mipi_tuser)  mipi_tuser_ever <= 1'b1;
+            if (mipi_tlast)  mipi_tlast_ever <= 1'b1;
+            if (crop_tuser)  crop_tuser_ever <= 1'b1;
+            if (crop_tlast)  crop_tlast_ever <= 1'b1;
+            if (demo_tuser)  demo_tuser_ever <= 1'b1;
+            if (demo_tlast)  demo_tlast_ever <= 1'b1;
+            if (sof)         pack_sof_ever   <= 1'b1;
+            if (eof)         pack_eof_ever   <= 1'b1;
+        end
+    end
+    wire [31:0] raw_frame_count;
+
+    // ================================================================
+    // 1. MIPI CSI-2 Receiver
+    //    CDC: internal sfifo bridges hs_rx_clk → m_axis_video_aclk (user_clk)
+    // ================================================================
+    mipi_csi_rx #(
+        .MIPI_LAN   (MIPI_LAN),
+        .DEVICE     (DEVICE)
+    ) u_mipi_csi_rx (
+        .I_debug_button         (debug_button),
+        .I_ref_clock            (mipi_ref_clock),
+        .I_clk_hs_rx_p          (mipi_clk_hs_rx_p),
+        .I_reset_n              (user_rst_n),
+        .I_hs_data_p            (mipi_data_hs_p),
+        .I_enable               (enable),
+        .O_hs_div_clk           (mipi_div_clk_out),
+        // Output clock domain = user_clk (key CDC point!)
+        .m_axis_video_aclk      (user_clk),
+        .m_axis_video_aresetn   (user_rst_n),
+        .m_axis_video_tready    (mipi_tready),
+        .m_axis_video_tuser     (mipi_tuser),
+        .m_axis_video_tlast     (mipi_tlast),
+        .m_axis_video_tvalid    (mipi_tvalid),
+        .m_axis_video_tdata     (mipi_tdata),
+        .O_auto_delay_done      (auto_delay_done),
+        .O_dbg_mipi             (dbg_mipi),
+        .O_dbg_delay            (dbg_delay),
+        .O_dbg_best_len         (dbg_best_len)
+    );
+
+    // ================================================================
+    // 2. Image Correction (spatial crop to IMG_WIDTH × IMG_HEIGHT)
+    // ================================================================
+    image_correction #(
+        .DATA_WIDTH     (40),
+        .TDEST_WIDTH    (10)
+    ) u_image_correction (
+        .I_clk          (user_clk),
+        .I_rst_n        (user_rst_n),
+        // Runtime crop parameters
+        .I_v_start      (cfg_crop_v_start),
+        .I_v_end        (cfg_crop_v_end),
+        .I_h_end        (cfg_crop_h_end),
+        // Input from MIPI Rx
+        .I_raw_tdata    (mipi_tdata),
+        .I_raw_tdest    (10'd0),
+        .I_raw_tlast    (mipi_tlast),
+        .I_raw_tvalid   (mipi_tvalid),
+        .I_raw_tuser    (mipi_tuser),
+        .I_raw_tready   (mipi_tready),
+        // Output to BLC
+        .O_raw_tdata    (crop_tdata),
+        .O_raw_tdest    (crop_tdest),
+        .O_raw_tlast    (crop_tlast),
+        .O_raw_tvalid   (crop_tvalid),
+        .O_raw_tuser    (crop_tuser),
+        .O_raw_tready   (crop_tready)
+    );
+
+    // ================================================================
+    // 3. Black Level Correction (BLC)
+    // ================================================================
+    ui_BLC #(
+        .Black_level_offset_r0  (10'd15),
+        .Black_level_offset_r1  (10'd15),
+        .Black_level_offset_r2  (10'd15),
+        .Black_level_offset_r3  (10'd15)
+    ) u_blc (
+        .I_clk      (user_clk),
+        .I_rst_n    (user_rst_n),
+        // Input from image_correction
+        .I_tdata    (crop_tdata),
+        .I_tdest    (crop_tdest),
+        .I_tlast    (crop_tlast),
+        .I_tvalid   (crop_tvalid),
+        .I_tuser    (crop_tuser),
+        .I_tready   (crop_tready),
+        // Output to demosaic
+        .O_tdata    (blc_tdata),
+        .O_tdest    (blc_tdest),
+        .O_tlast    (blc_tlast),
+        .O_tvalid   (blc_tvalid),
+        .O_tuser    (blc_tuser),
+        .O_tready   (blc_tready)
+    );
+
+    // ================================================================
+    // 4. Demosaic (RAW10 Bayer → 128-bit RGB)
+    //    128b = 4 pixels × {8'b0, R[7:0], G[7:0], B[7:0]}
+    //    Uses 3 BRAM line buffers (ui_ram_demosaic × 2 + ui_ram_zhenghe × 1)
+    // ================================================================
+    ui_top_demosaic #(
+        .data_complete_delay    (50),
+        .BAYER_MODE             (BAYER_MODE)
+    ) u_demosaic (
+        .I_clk              (user_clk),
+        .I_rst_n            (user_rst_n),
+        // Runtime resolution
+        .I_img_width        (cfg_img_width),
+        .I_img_height       (cfg_img_height),
+        // Input from BLC
+        .I_axi4s_tdata      (blc_tdata),
+        .I_axi4s_tdest      (blc_tdest),
+        .I_axi4s_tlast      (blc_tlast),
+        .I_axi4s_tvalid     (blc_tvalid),
+        .I_axi4s_tuser      (blc_tuser),
+        .I_axi4s_tready     (blc_tready),
+        // Output to FIFO
+        .O_tdata            (demo_tdata),
+        .O_tvalid           (demo_tvalid),
+        .O_tlast            (demo_tlast),
+        .O_tuser            (demo_tuser),
+        .O_tready           (demo_tready)
+    );
+
+    // ================================================================
+    // 4b. Rate-decoupling FIFO (demosaic → pack4)
+    //     Demosaic outputs 480 beats/line at 1 beat/clk.
+    //     pack4 processes 4 pixels/clk (same as demosaic output rate).
+    //     FIFO absorbs bursts when downstream stalls (DMA descriptor).
+    // ================================================================
+    wire fifo_full, fifo_empty;
+    wire [129:0] fifo_rd_data;
+
+    assign demo_tready  = ~fifo_full;
+    assign fifo_tdata   = fifo_rd_data[127:0];
+    assign fifo_tlast   = fifo_rd_data[128];
+    assign fifo_tuser   = fifo_rd_data[129];
+    assign fifo_tvalid  = ~fifo_empty;
+
+    sync_fifo_130 #(
+        .ADDR_WIDTH (10)       // 1024 entries, enough for 960-beat 4K line burst
+    ) u_demo_fifo (
+        .clk      (user_clk),
+        .rst_n    (user_rst_n),
+        .wr_data  ({demo_tuser, demo_tlast, demo_tdata}),
+        .wr_en    (demo_tvalid & ~fifo_full),
+        .full     (fifo_full),
+        .rd_data  (fifo_rd_data),
+        .rd_en    (fifo_tready & ~fifo_empty),
+        .empty    (fifo_empty)
+    );
+
+    // ================================================================
+    // 5. pack4_rgb24_to_512 — 4-pixel parallel RGB24 packer (128b→512b)
+    //    Replaces serializer_128to24 + stdvid_nobp_packer:
+    //      - 4× throughput (12 bytes/clk vs 3 bytes/clk)
+    //      - Full backpressure (no dropped frames)
+    //      - 4K@30fps: 746 MB/s required, 3000 MB/s available
+    // ================================================================
+    pack4_rgb24_to_512 u_pack4 (
+        .clk            (user_clk),
+        .rst_n          (user_rst_n),
+        .enable         (enable),
+        // Input from FIFO (128b AXI-Stream)
+        .s_tdata        (fifo_tdata),
+        .s_tvalid       (fifo_tvalid),
+        .s_tready       (fifo_tready),
+        .s_tlast        (fifo_tlast),
+        .s_tuser        (fifo_tuser),
+        // 512-bit AXI-Stream output
+        .m_tdata        (m_tdata),
+        .m_tvalid       (m_tvalid),
+        .m_tready       (m_tready),
+        .m_tlast        (m_tlast),
+        .m_frame_last   (m_frame_last),
+        .sof            (sof),
+        .eof            (eof),
+        .frame_count_out(raw_frame_count)
+    );
+
+    // Inject diagnostic sticky flags into frame_count_out[31:24]
+    // F[31]: mipi_tuser_ever  F[30]: mipi_tlast_ever
+    // F[29]: crop_tuser_ever  F[28]: crop_tlast_ever
+    // F[27]: demo_tuser_ever  F[26]: demo_tlast_ever
+    // F[25]: pack_sof_ever    F[24]: pack_eof_ever
+    // F[23:0]: actual frame count
+    assign frame_count_out = {
+        mipi_tuser_ever, mipi_tlast_ever,
+        crop_tuser_ever, crop_tlast_ever,
+        demo_tuser_ever, demo_tlast_ever,
+        pack_sof_ever,   pack_eof_ever,
+        raw_frame_count[23:0]
+    };
+
+endmodule

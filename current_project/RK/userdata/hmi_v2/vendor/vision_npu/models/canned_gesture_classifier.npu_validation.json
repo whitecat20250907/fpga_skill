@@ -1,0 +1,48 @@
+{
+  "name": "canned_gesture_classifier",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 6.428360939025879e-05,
+        "normalized_max": 6.428360939025879e-05,
+        "rmse": 3.045644007215742e-05,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 3.0517578125e-05,
+        "normalized_max": 3.0517578125e-05,
+        "rmse": 2.8546581233968027e-05,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 3.0517578125e-05,
+        "normalized_max": 3.0517578125e-05,
+        "rmse": 2.8546581233968027e-05,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 3.0517578125e-05,
+        "normalized_max": 3.0517578125e-05,
+        "rmse": 2.8546581233968027e-05,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "0297f95523c7f908ee741478a48c81c0ec8fa4ebb96fa38b6f9cac7a42908438",
+  "latency_ms": {
+    "median": 0.5775514873676002,
+    "p95": 0.6730922264978288,
+    "min": 0.43760205153375864
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

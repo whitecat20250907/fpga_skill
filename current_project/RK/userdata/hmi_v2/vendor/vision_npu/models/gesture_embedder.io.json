@@ -1,0 +1,46 @@
+{
+  "inputs": [
+    {
+      "name": "t0",
+      "source_name": "hand",
+      "shape": [
+        1,
+        21,
+        3
+      ],
+      "format": "nchw",
+      "active": true
+    },
+    {
+      "name": "t1",
+      "source_name": "handedness",
+      "shape": [
+        1,
+        1
+      ],
+      "format": "nchw",
+      "active": false
+    },
+    {
+      "name": "t2",
+      "source_name": "world_hand",
+      "shape": [
+        1,
+        21,
+        3
+      ],
+      "format": "nchw",
+      "active": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t84",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        128
+      ]
+    }
+  ]
+}

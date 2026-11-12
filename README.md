@@ -1,3 +1,13 @@
+# 最新项目入口（2026-11-12 同步）
+
+完整算法、模型权重、医学/游戏应用、FPGA 源工程及最终位流位于 [`current_project`](current_project/README_代码包说明.md)。项目 FPGA skill 位于 [`skills/anlogic-td-demo-reuse`](skills/anlogic-td-demo-reuse/SKILL.md)。
+
+请先读 [最终交接文档](docs/眼手协同医学交互_最终交付与新会话交接_20261105.md)。历史工程/待办记录不是要求重新执行的任务；当前部署基线是 765 位流、匹配的 720 主机补丁和 920 显示/自启动版本。代码包的逐文件来源与 hash 见 current_project/SOURCE_MANIFEST.json。
+
+此次仅同步源码与 skill、整理本地存储，没有修改开发板程序。个人凭据、软件许可证、环境、构建数据库和运行日志不上传。
+
+---
+
 # 安路 PH1A90 / RK3576 FPGA 工程与复用 Skill
 
 平台：MLK-AFH03/AFC03、PH1A90SEG324 -2、VID005、IMX415、7 寸 DSI 屏，安路 TD 6.2.2.200067 Release_2026.1_SP2。

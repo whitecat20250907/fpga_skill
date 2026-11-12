@@ -1,0 +1,10 @@
+{
+  "name": "canned_gesture_classifier",
+  "source_sha256": "62a87ded76da05155f6a59c8babb4c537c138c25138b29450fb030e207a5c0e9",
+  "rknn_sha256": "0297f95523c7f908ee741478a48c81c0ec8fa4ebb96fa38b6f9cac7a42908438",
+  "bytes": 89761,
+  "seconds": 0.9248261289903894,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

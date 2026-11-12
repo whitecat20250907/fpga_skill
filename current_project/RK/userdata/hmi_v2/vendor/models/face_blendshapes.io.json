@@ -1,0 +1,24 @@
+{
+  "inputs": [
+    {
+      "name": "t0",
+      "source_name": "serving_default_input_points:0",
+      "shape": [
+        1,
+        146,
+        2
+      ],
+      "format": "nchw",
+      "active": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t195",
+      "source_name": "StatefulPartitionedCall:0",
+      "shape": [
+        52
+      ]
+    }
+  ]
+}

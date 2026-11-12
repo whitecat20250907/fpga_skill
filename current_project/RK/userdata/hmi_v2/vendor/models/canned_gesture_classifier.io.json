@@ -1,0 +1,23 @@
+{
+  "inputs": [
+    {
+      "name": "t0",
+      "source_name": "hand_embedding",
+      "shape": [
+        1,
+        128
+      ],
+      "format": "nchw"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t8",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        8
+      ]
+    }
+  ]
+}

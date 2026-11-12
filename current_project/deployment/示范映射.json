@@ -1,0 +1,23 @@
+{
+  "static": {
+    "DESKTOP": {},
+    "GAME": {},
+    "DEMO": {
+      "Thumb_Up": "system.eye_takeover",
+      "Victory": "system.calibrate"
+    },
+    "BASIC": {}
+  },
+  "stroke": {
+    "DESKTOP": {},
+    "GAME": {},
+    "DEMO": {
+      "0": "system.app_demo",
+      "L": "demo.rotate",
+      "M": "demo.next",
+      "W": "demo.cancel",
+      "Z": "system.app_basic"
+    },
+    "BASIC": {}
+  }
+}

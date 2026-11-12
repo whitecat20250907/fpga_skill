@@ -1,0 +1,904 @@
+{
+  "application_thread_affinities": [
+    {
+      "pid": 153197,
+      "tid": 153197,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153278,
+      "tid": 153278,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153281,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153291,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153300,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153301,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153302,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153303,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153304,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153305,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153306,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153307,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153308,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153309,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153315,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153319,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153320,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153321,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153322,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153323,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153324,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153326,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153327,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153328,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153338,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153353,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153369,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153281,
+      "tid": 153407,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153286,
+      "tid": 153286,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153287,
+      "tid": 153287,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153290,
+      "tid": 153290,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153290,
+      "tid": 153296,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153292,
+      "tid": 153292,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153293,
+      "tid": 153293,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153295,
+      "tid": 153295,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153325,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153332,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153342,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153343,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153344,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153345,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153346,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153347,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153348,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153349,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153350,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153351,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153355,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153356,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153357,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153358,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153360,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153412,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153325,
+      "tid": 153439,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153330,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153361,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153362,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153363,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153364,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153365,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153366,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153330,
+      "tid": 153367,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153333,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153335,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153336,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153337,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153339,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153333,
+      "tid": 153340,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153371,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153373,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153377,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153378,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153379,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153380,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153381,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153385,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153389,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153371,
+      "tid": 153390,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153372,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153374,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153375,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153376,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153382,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153383,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153384,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153387,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153388,
+      "cpus": [
+        0,
+        1
+      ]
+    },
+    {
+      "pid": 153372,
+      "tid": 153391,
+      "cpus": [
+        0,
+        1
+      ]
+    }
+  ],
+  "status": "PASS_REAL_MENU_UNCALIBRATED_GAME_START_PAGE_AND_DEMO_OPEN",
+  "rows": [
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:20",
+        "context": "GAME",
+        "src_ns": 19154634947281
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:22",
+        "context": "DEMO",
+        "src_ns": 19156419856762
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:23",
+        "context": "GAME",
+        "src_ns": 19159229804919
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:25",
+        "context": "DEMO",
+        "src_ns": 19160974980166
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:26",
+        "context": "GAME",
+        "src_ns": 19162098487702
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:28",
+        "context": "DEMO",
+        "src_ns": 19163721443823
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:29",
+        "context": "GAME",
+        "src_ns": 19164874517011
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:31",
+        "context": "DEMO",
+        "src_ns": 19166030573656
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "GAME",
+      "active_window": {
+        "window_id": 69206019,
+        "classes": [
+          "launch.py",
+          "Launch.py"
+        ],
+        "title": "b''",
+        "game_protocol_phase": "menu",
+        "explicit_reselect_focused_same_window": true
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:32",
+        "context": "GAME",
+        "src_ns": 19167688583921
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    },
+    {
+      "context": "DEMO",
+      "active_window": {
+        "window_id": 71303172,
+        "classes": [
+          "127.0.0.1__demo",
+          "HmiMedical"
+        ],
+        "title": ""
+      },
+      "request": {
+        "id": "1cbe7fb6fd4f487cb53b5dbed5628960:34",
+        "context": "DEMO",
+        "src_ns": 19169056167825
+      },
+      "calibrated": false,
+      "no_application_actions": true
+    }
+  ],
+  "owner_unchanged": true,
+  "final_context": "DEMO",
+  "physical_gestures_tested": false
+}

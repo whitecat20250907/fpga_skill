@@ -1,0 +1,96 @@
+{
+  "name": "face_landmarks_detector",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 0.9616813659667969,
+        "normalized_max": 0.004532002464153534,
+        "rmse": 0.24424704909324646,
+        "finite": true
+      },
+      {
+        "max_abs": 0.012005805969238281,
+        "normalized_max": 0.0008506916253332168,
+        "rmse": 0.012005805969238281,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00020185974426567554,
+        "normalized_max": 0.00020185974426567554,
+        "rmse": 0.00020185974426567554,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.2274932861328125,
+        "normalized_max": 0.0010277765062795773,
+        "rmse": 0.09130503982305527,
+        "finite": true
+      },
+      {
+        "max_abs": 0.026946067810058594,
+        "normalized_max": 0.002769359814770945,
+        "rmse": 0.026946067810058594,
+        "finite": true
+      },
+      {
+        "max_abs": 0.0018310541054233909,
+        "normalized_max": 0.0018310541054233909,
+        "rmse": 0.0018310541054233909,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.237945556640625,
+        "normalized_max": 0.0011148556553616127,
+        "rmse": 0.09998715668916702,
+        "finite": true
+      },
+      {
+        "max_abs": 0.08359336853027344,
+        "normalized_max": 0.009245615415561164,
+        "rmse": 0.08359336853027344,
+        "finite": true
+      },
+      {
+        "max_abs": 0.0010882019996643066,
+        "normalized_max": 0.0010882019996643066,
+        "rmse": 0.0010882019996643066,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.305023193359375,
+        "normalized_max": 0.0014284505620334848,
+        "rmse": 0.07167987525463104,
+        "finite": true
+      },
+      {
+        "max_abs": 0.01122283935546875,
+        "normalized_max": 0.0013557691155611142,
+        "rmse": 0.01122283935546875,
+        "finite": true
+      },
+      {
+        "max_abs": 0.0006827600300312042,
+        "normalized_max": 0.0006827600300312042,
+        "rmse": 0.0006827600300312042,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "fcaf44c166a1eec660b414e9a0dc20c5ed7fb683c78f5d14df0c3e723fb104fd",
+  "latency_ms": {
+    "median": 10.818734008353204,
+    "p95": 11.46623536478728,
+    "min": 9.878752985969186
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

@@ -1,0 +1,94 @@
+{
+  "task_id": "M13",
+  "title": "RK3576 native Freeciv migration and maintenance",
+  "date": "2026-10-20",
+  "upstream_commit": "89fc30b860a6944c9f9fa29526367168fc547f93",
+  "maintenance_branch": "maintenance/rk3576-native-20261019",
+  "status": "PARTIAL_MEDIAPIPE_DEPLOYED_PENDING_HUMAN_JOINT_TEST",
+  "resume_full_FPGA_and_model_task_list_after_this_task": true,
+  "tasks": [
+    {
+      "id": "FG01",
+      "title": "Repository intake and real board inventory",
+      "status": "DONE"
+    },
+    {
+      "id": "FG02",
+      "title": "Remove previous games and unused old versions",
+      "status": "PARTIAL",
+      "board": "DONE: previous games, old versions and stale launchers removed; about 4.36 GB recovered",
+      "workstation": "Four historical source folders remain because automatic approval rejected permanent recursive deletion",
+      "generated_duplicates_cleanup_bytes": 311881369
+    },
+    {
+      "id": "FG03",
+      "title": "Install build dependencies and native ARM64 build",
+      "status": "DONE"
+    },
+    {
+      "id": "FG04",
+      "title": "Real desktop display and five-action interaction",
+      "status": "DONE"
+    },
+    {
+      "id": "FG05",
+      "title": "Full movement, combat, production, purchase and victory",
+      "status": "DONE"
+    },
+    {
+      "id": "FG06",
+      "title": "Optional gaze and user-authorized MediaPipe gesture UDP integration",
+      "status": "PARTIAL",
+      "code_commit": "23cba483ab7a3449197c2e518b388b2715d8795d",
+      "missing": "Human face/calibration and actual joint control; optional gaze wrapper production lifecycle. User now authorized the separate MediaPipe hand recognizer, so original hand source is no longer a prerequisite.",
+      "real_game_UDP": "PASS",
+      "screen_bridge_unit_tests": "8 PASS on Windows and RK3576",
+      "default_main_changed": false,
+      "main_lock_guard": "2 Linux unit tests and live-original-lock interop PASS; the original wrapper itself adds no inference/camera",
+      "gesture_module": "DONE_SCOPED_ACTUAL_RK3576_CPU_DEPLOYMENT; see FG09"
+    },
+    {
+      "id": "FG07",
+      "title": "Idle, selection, combat and concurrent main-app measurements",
+      "status": "PARTIAL",
+      "game_resources": "DONE: 30s idle/selection/combat alone and parallel",
+      "main_baseline": "DONE: original main, no-face PREVIEW",
+      "real_human_NPU_latency": "NOT_TESTED: zero NPU calls in all windows"
+    },
+    {
+      "id": "FG08",
+      "title": "Board report, launch/update/rollback commands and Git commits",
+      "status": "DONE",
+      "desktop_double_click": "NOT_TESTED; metadata::trusted unsupported. CLI start-rk3576.sh and fresh HDMI scene verified."
+    },
+    {
+      "id": "FG09",
+      "title": "Official MediaPipe hand module in a separate RK3576 environment",
+      "status": "DONE",
+      "scope": "Real ARM64 install, official fixture inference, existing PCIe memfd reuse, software-labelled five-action policy to real game, no-face A/B; excludes human usability and human NPU latency",
+      "user_authorized": "2026-10-20: deploy MediaPipe from GitHub; human joint test deferred",
+      "backend": "MediaPipe Tasks CPU; original gaze remains RKNN NPU",
+      "main_environment_or_drivers_modified": false,
+      "additional_camera_opened": false,
+      "linux_tests_passed": 27,
+      "mapped_official_fixture_classes_above_threshold": 5,
+      "event_policy_to_real_game": "PASS_FIVE_ACTIONS_SOFTWARE_LABEL_AND_GAZE_REPLAY_ONLY",
+      "final_parallel_no_face": {
+        "main_updates_per_second_before": 17.0,
+        "main_updates_per_second_with_hand": 15.95,
+        "hand_cpu_one_core_percent": 36.11,
+        "hand_max_rss_mib": 207.59,
+        "human_NPU_calls": 0
+      },
+      "default_background_or_autostart": false,
+      "documentation": "GESTURE_RK3576.md"
+    }
+  ],
+  "native_game_migration": "VERIFIED_ON_REAL_RK3576",
+  "tested_native_code_commit": "e588af9227549df64d7332cd954dd118fa4bb447",
+  "followups": [
+    "Human face, personal calibration, the new five MediaPipe gestures, real NPU parallel latency and control trial (deferred by user)",
+    "Optional gaze wrapper full production lifecycle before replacing the default main",
+    "Separate FPGA test-helper readiness extension passed 11 pure and 8 actual Linux inert cases, including runuser; fresh CURRENT-bound preparation and a future controlled production lifecycle remain separate acceptance"
+  ]
+}

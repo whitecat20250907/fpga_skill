@@ -1,0 +1,106 @@
+{
+  "case": "KiTS19 case_00002",
+  "assets_base": "/assets/medical/cases/case_00002/",
+  "part_voxels": {
+    "kidney_a": [
+      116.03428658344869,
+      44.784754123128316,
+      52.42207093536519
+    ],
+    "kidney_b": [
+      65.57125977410946,
+      52.69326035331596,
+      36.49771792644078
+    ],
+    "tumor": [
+      56.84679956262091,
+      46.19127765161073,
+      28.23407351333165
+    ]
+  },
+  "shape": [
+    171,
+    171,
+    87
+  ],
+  "spacing_mm": [
+    2.818359375,
+    2.818359375,
+    3.0
+  ],
+  "origin_ras_mm": [
+    -480.060546875,
+    -480.060546875,
+    -260.0
+  ],
+  "axes": "RAS",
+  "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+  "source_shape": [
+    512,
+    512,
+    261
+  ],
+  "source_spacing_mm": [
+    0.939453125,
+    0.939453125,
+    1.0
+  ],
+  "stride": 3,
+  "tumor_voxel": [
+    56.84679956262091,
+    46.19127765161073,
+    28.23407351333165
+  ],
+  "tumor_ras_mm": [
+    -319.84583638894145,
+    -349.8769264623549,
+    -175.29777946000505
+  ],
+  "mesh_center": [
+    -231.34033203125,
+    -125.0,
+    340.5517578125
+  ],
+  "mesh_scale": 0.011827211827211827,
+  "segments": [
+    {
+      "name": "kidney_a",
+      "vertices": 10506,
+      "triangles": 21008,
+      "volume_ml": 288.18805714416504
+    },
+    {
+      "name": "kidney_b",
+      "vertices": 9819,
+      "triangles": 19642,
+      "volume_ml": 253.96014308929443
+    },
+    {
+      "name": "tumor",
+      "vertices": 9214,
+      "triangles": 18456,
+      "volume_ml": 34.976335258483886
+    }
+  ],
+  "window_presets": [
+    {
+      "name": "软组织",
+      "width": 400,
+      "level": 50
+    },
+    {
+      "name": "窄窗对比",
+      "width": 200,
+      "level": 40
+    },
+    {
+      "name": "骨窗",
+      "width": 1600,
+      "level": 400
+    }
+  ],
+  "license": "CC BY-NC-SA 4.0",
+  "source": "https://github.com/neheller/kits19",
+  "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+  "annotation": "Published manual segmentation, not a prediction made by this device."
+}

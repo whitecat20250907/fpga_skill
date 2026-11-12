@@ -1,0 +1,11 @@
+{
+  "rknn_sha256": "9ab33849994d1769f733f7eea42219a26273fa9e753c7b80c9b385bf5f9a5bbd",
+  "onnx_sha256": "d4f0ec0e026db94fd810d3a30e439b7735832b8678a322187565c3dcc5b427c1",
+  "sources": {
+    "gesture_embedder": "cb7efe07652be34519383e19f68a5e439e00c2820320e8d0183cfda828de8459",
+    "canned_gesture_classifier": "12889e9d5165a34712032b270aa1a4ba472bef808b451889b069dc476c1d7440"
+  },
+  "seconds": 14.467631286000142,
+  "format": "FP16",
+  "weights_changed": false
+}

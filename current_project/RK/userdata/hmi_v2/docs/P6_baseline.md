@@ -1,0 +1,91 @@
+# 本轮资源基线
+
+来源：本轮 baseline 正式布线报告。
+
+```json
+{
+  "run": "direct_build_20261024_113713_38624",
+  "source_build_completed": true,
+  "strict_sta_pass": true,
+  "timing_ns": {
+    "SWNS": 0.004,
+    "STNS": 0.0,
+    "HWNS": 0.02,
+    "HTNS": 0.0
+  },
+  "resources": {
+    "lut6": 39969,
+    "reg": 43734,
+    "slice": 46131,
+    "eram": 264,
+    "dsp": 83,
+    "ddr_cal": 0,
+    "ddr_bank": 0
+  },
+  "continuation_from_own_placed_checkpoint": true,
+  "bit_sha256": "3cfbced20323c79f3c6d063e624cbb45bf87ef076e08652c51f4a133f83694b4",
+  "copied_reports": [
+    ".bitgen_param.f",
+    "build.inputs.tcl",
+    "cdc.status",
+    "cdc_attributes_formal_closure.txt",
+    "cdc_attributes_gate.txt",
+    "cdc_attributes_place.txt",
+    "cdc_attributes_route.txt",
+    "cdc_exact_after_reenable.txt",
+    "clock_collections.txt",
+    "clock_monitor_async_before.txt",
+    "clock_monitor_constraints_applied.txt",
+    "formal_async_before.txt",
+    "formal_async_final.txt",
+    "formal_closure.status",
+    "formal_final.ts",
+    "formal_final_all_paths.timing",
+    "formal_forwarded_clock_closure.tcl",
+    "formal_initial.ts",
+    "formal_initial_all_paths.timing",
+    "formal_ip_before.sdc",
+    "formal_ip_final.sdc",
+    "formal_user_before.sdc",
+    "formal_user_final.sdc",
+    "gate.qor",
+    "gate_flow.status",
+    "gate_qor_suggestion.tcl",
+    "imx415_pcie_4k.al",
+    "imx415_pcie_4k.bit",
+    "imx415_pcie_4k_chk.timing",
+    "imx415_pcie_4k_exception.timing",
+    "imx415_pcie_4k_gate.area",
+    "imx415_pcie_4k_gate.timing",
+    "imx415_pcie_4k_gate.ts",
+    "imx415_pcie_4k_phy.area",
+    "imx415_pcie_4k_phy.ts",
+    "imx415_pcie_4k_place.timing",
+    "imx415_pcie_4k_place.ts",
+    "imx415_pcie_4k_pr.timing",
+    "imx415_pcie_4k_rtl.area",
+    "monitor_native_export_after.tcl",
+    "monitor_native_export_before.tcl",
+    "monitor_native_read_registered.tcl",
+    "monitor_registered_export.sdc",
+    "native_mtbf.tcl",
+    "original_user_before_monitor.sdc",
+    "place.qor",
+    "place_clock_utilization.txt",
+    "place_flow.status",
+    "place_qor_suggestion.tcl",
+    "readme.txt",
+    "registered_monitor_user.sdc",
+    "resume_current_run.tcl",
+    "resume_evidence.json",
+    "route.qor",
+    "route_clock_utilization.txt",
+    "route_flow.status",
+    "source_declared_control_attribute.txt",
+    "source_snapshot.status",
+    "staged.inputs.tsv"
+  ]
+}
+```
+
+不从 ERAM 实例总数反推每块 RAM 占用；具体层级见 build_evidence/baseline/imx415_pcie_4k_phy.area。B1–B4 未执行，没有资源回收后的虚构数字。

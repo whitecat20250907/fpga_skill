@@ -1,0 +1,10 @@
+{
+  "name": "face_landmarks_detector",
+  "source_sha256": "c7d54204ce0448474c7f3fa9af494787c0965cbdd6f20fc72867e43046bd43d5",
+  "rknn_sha256": "fcaf44c166a1eec660b414e9a0dc20c5ed7fb683c78f5d14df0c3e723fb104fd",
+  "bytes": 3358455,
+  "seconds": 53.67488473805133,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

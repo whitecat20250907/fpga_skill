@@ -1,0 +1,699 @@
+{
+  "version": 94,
+  "workflow": "renal_review",
+  "default_case": "case_00000",
+  "cases": [
+    {
+      "case": "KiTS19 case_00000",
+      "shape": [
+        171,
+        171,
+        204
+      ],
+      "spacing_mm": [
+        2.759765625,
+        2.759765625,
+        1.5
+      ],
+      "origin_ras_mm": [
+        -470.080078125,
+        -470.080078125,
+        -305.0
+      ],
+      "axes": "RAS",
+      "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+      "source_shape": [
+        512,
+        512,
+        611
+      ],
+      "source_spacing_mm": [
+        0.919921875,
+        0.919921875,
+        0.5
+      ],
+      "stride": 3,
+      "tumor_voxel": [
+        111.67939357885818,
+        62.46884069727616,
+        98.20595605069133
+      ],
+      "tumor_ras_mm": [
+        -161.87112670522146,
+        -297.68071893505623,
+        -157.691065923963
+      ],
+      "mesh_center": [
+        -231.8203125,
+        -111.0,
+        298.5146484375
+      ],
+      "mesh_scale": 0.012524693067479,
+      "segments": [
+        {
+          "name": "kidney_a",
+          "vertices": 14822,
+          "triangles": 29640,
+          "volume_ml": 180.14087672424316
+        },
+        {
+          "name": "kidney_b",
+          "vertices": 15758,
+          "triangles": 31468,
+          "volume_ml": 207.29258557319642
+        },
+        {
+          "name": "tumor",
+          "vertices": 6136,
+          "triangles": 12284,
+          "volume_ml": 7.8240622158050535
+        }
+      ],
+      "window_presets": [
+        {
+          "name": "软组织",
+          "width": 400,
+          "level": 50
+        },
+        {
+          "name": "窄窗对比",
+          "width": 200,
+          "level": 40
+        },
+        {
+          "name": "骨窗",
+          "width": 1600,
+          "level": 400
+        }
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "source": "https://github.com/neheller/kits19",
+      "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+      "annotation": "Published manual segmentation, not a prediction made by this device.",
+      "part_voxels": {
+        "tumor": [
+          111.67939357885818,
+          62.46884069727616,
+          98.20595605069133
+        ],
+        "kidney_a": [
+          62.0382759933985,
+          55.93842833566079,
+          137.4813380728704
+        ],
+        "kidney_b": [
+          112.57219310344827,
+          64.55845517241379,
+          121.12408275862069
+        ]
+      },
+      "affected_kidney": "kidney_b",
+      "id": "case_00000",
+      "assets_base": "/assets/medical/kits19/",
+      "model": "kits19/case_00000.glb",
+      "label": "01",
+      "title": "病例 01",
+      "thumbnail": "kits19/overview89.png",
+      "initial_voxel": [
+        87,
+        60,
+        129
+      ]
+    },
+    {
+      "case": "KiTS19 case_00001",
+      "assets_base": "/assets/medical/cases/case_00001/",
+      "part_voxels": {
+        "kidney_a": [
+          47.83073990222487,
+          80.86201281407418,
+          105.34834963068
+        ],
+        "kidney_b": [
+          125.0607874443636,
+          76.56761132550399,
+          104.5636616839937
+        ],
+        "tumor": [
+          129.0443693001332,
+          79.04917072885102,
+          100.6801780041866
+        ]
+      },
+      "shape": [
+        171,
+        171,
+        201
+      ],
+      "spacing_mm": [
+        2.396484375,
+        2.396484375,
+        1.5
+      ],
+      "origin_ras_mm": [
+        -408.201171875,
+        -408.201171875,
+        -300.5
+      ],
+      "axes": "RAS",
+      "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+      "source_shape": [
+        512,
+        512,
+        602
+      ],
+      "source_spacing_mm": [
+        0.798828125,
+        0.798828125,
+        0.5
+      ],
+      "stride": 3,
+      "tumor_voxel": [
+        129.0443693001332,
+        79.04917072885102,
+        100.6801780041866
+      ],
+      "tumor_ras_mm": [
+        -98.94835716550108,
+        -218.76106936660116,
+        -149.4797329937201
+      ],
+      "mesh_center": [
+        -200.9052734375,
+        -144.5,
+        218.87890625
+      ],
+      "mesh_scale": 0.010334453000632193,
+      "segments": [
+        {
+          "name": "kidney_a",
+          "vertices": 28575,
+          "triangles": 57382,
+          "volume_ml": 237.60699322128295
+        },
+        {
+          "name": "kidney_b",
+          "vertices": 29233,
+          "triangles": 58718,
+          "volume_ml": 237.20529266929626
+        },
+        {
+          "name": "tumor",
+          "vertices": 8928,
+          "triangles": 17844,
+          "volume_ml": 7.2653878231048585
+        }
+      ],
+      "window_presets": [
+        {
+          "name": "软组织",
+          "width": 400,
+          "level": 50
+        },
+        {
+          "name": "窄窗对比",
+          "width": 200,
+          "level": 40
+        },
+        {
+          "name": "骨窗",
+          "width": 1600,
+          "level": 400
+        }
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "source": "https://github.com/neheller/kits19",
+      "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+      "annotation": "Published manual segmentation, not a prediction made by this device.",
+      "id": "case_00001",
+      "model": "cases/case_00001/case_00001.glb",
+      "label": "02",
+      "title": "病例 02",
+      "thumbnail": "cases/case_00001/overview89.png",
+      "initial_voxel": [
+        86,
+        79,
+        105
+      ]
+    },
+    {
+      "case": "KiTS19 case_00002",
+      "assets_base": "/assets/medical/cases/case_00002/",
+      "part_voxels": {
+        "kidney_a": [
+          116.03428658344869,
+          44.784754123128316,
+          52.42207093536519
+        ],
+        "kidney_b": [
+          65.57125977410946,
+          52.69326035331596,
+          36.49771792644078
+        ],
+        "tumor": [
+          56.84679956262091,
+          46.19127765161073,
+          28.23407351333165
+        ]
+      },
+      "shape": [
+        171,
+        171,
+        87
+      ],
+      "spacing_mm": [
+        2.818359375,
+        2.818359375,
+        3.0
+      ],
+      "origin_ras_mm": [
+        -480.060546875,
+        -480.060546875,
+        -260.0
+      ],
+      "axes": "RAS",
+      "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+      "source_shape": [
+        512,
+        512,
+        261
+      ],
+      "source_spacing_mm": [
+        0.939453125,
+        0.939453125,
+        1.0
+      ],
+      "stride": 3,
+      "tumor_voxel": [
+        56.84679956262091,
+        46.19127765161073,
+        28.23407351333165
+      ],
+      "tumor_ras_mm": [
+        -319.84583638894145,
+        -349.8769264623549,
+        -175.29777946000505
+      ],
+      "mesh_center": [
+        -231.34033203125,
+        -125.0,
+        340.5517578125
+      ],
+      "mesh_scale": 0.011827211827211827,
+      "segments": [
+        {
+          "name": "kidney_a",
+          "vertices": 10506,
+          "triangles": 21008,
+          "volume_ml": 288.18805714416504
+        },
+        {
+          "name": "kidney_b",
+          "vertices": 9819,
+          "triangles": 19642,
+          "volume_ml": 253.96014308929443
+        },
+        {
+          "name": "tumor",
+          "vertices": 9214,
+          "triangles": 18456,
+          "volume_ml": 34.976335258483886
+        }
+      ],
+      "window_presets": [
+        {
+          "name": "软组织",
+          "width": 400,
+          "level": 50
+        },
+        {
+          "name": "窄窗对比",
+          "width": 200,
+          "level": 40
+        },
+        {
+          "name": "骨窗",
+          "width": 1600,
+          "level": 400
+        }
+      ],
+      "license": "CC BY-NC-SA 4.0",
+      "source": "https://github.com/neheller/kits19",
+      "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+      "annotation": "Published manual segmentation, not a prediction made by this device.",
+      "id": "case_00002",
+      "model": "cases/case_00002/case_00002.glb",
+      "label": "03",
+      "title": "病例 03",
+      "thumbnail": "cases/case_00002/overview89.png",
+      "initial_voxel": [
+        91,
+        49,
+        44
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "key": "worklist",
+      "title": "选病例",
+      "parts": [],
+      "controls": [
+        {
+          "key": "case_00000",
+          "label": "病例 01",
+          "rect": [
+            0.175,
+            0.25,
+            0.18,
+            0.47
+          ],
+          "content": "case:case_00000",
+          "action": "demo.inspect",
+          "thumbnail": "kits19/overview89.png",
+          "case_id": "case_00000"
+        },
+        {
+          "key": "case_00001",
+          "label": "病例 02",
+          "rect": [
+            0.415,
+            0.25,
+            0.18,
+            0.47
+          ],
+          "content": "case:case_00001",
+          "action": "demo.inspect",
+          "thumbnail": "cases/case_00001/overview89.png",
+          "case_id": "case_00001"
+        },
+        {
+          "key": "case_00002",
+          "label": "病例 03",
+          "rect": [
+            0.655,
+            0.25,
+            0.18,
+            0.47
+          ],
+          "content": "case:case_00002",
+          "action": "demo.inspect",
+          "thumbnail": "cases/case_00002/overview89.png",
+          "case_id": "case_00002"
+        }
+      ]
+    },
+    {
+      "key": "ct",
+      "title": "阅片",
+      "parts": [],
+      "controls": [
+        {
+          "key": "axial",
+          "label": "横断面",
+          "rect": [
+            0.27,
+            0.23,
+            0.4,
+            0.51
+          ],
+          "content": "plane:axial",
+          "action": "demo.inspect",
+          "plane": "axial"
+        },
+        {
+          "key": "coronal",
+          "label": "冠状面",
+          "rect": [
+            0.075,
+            0.25,
+            0.15,
+            0.22
+          ],
+          "content": "plane:coronal",
+          "action": "demo.inspect",
+          "plane": "coronal"
+        },
+        {
+          "key": "sagittal",
+          "label": "矢状面",
+          "rect": [
+            0.075,
+            0.56,
+            0.15,
+            0.22
+          ],
+          "content": "plane:sagittal",
+          "action": "demo.inspect",
+          "plane": "sagittal"
+        },
+        {
+          "key": "kidney_a",
+          "label": "肾脏 A",
+          "rect": [
+            0.54,
+            0.12,
+            0.12,
+            0.052
+          ],
+          "content": "locate:kidney_a",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "kidney_b",
+          "label": "肾脏 B",
+          "rect": [
+            0.3,
+            0.12,
+            0.12,
+            0.052
+          ],
+          "content": "locate:kidney_b",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "annotation",
+          "label": "标注对照",
+          "rect": [
+            0.76,
+            0.67,
+            0.13,
+            0.052
+          ],
+          "content": "annotation",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "mark",
+          "label": "标记疑点",
+          "rect": [
+            0.39,
+            0.8,
+            0.15,
+            0.052
+          ],
+          "content": "mark",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "volume",
+          "label": "三维对照",
+          "rect": [
+            0.735,
+            0.235,
+            0.195,
+            0.33
+          ],
+          "content": "stage:2",
+          "action": "demo.inspect",
+          "model_preview": true
+        }
+      ],
+      "model_viewport": [
+        0.735,
+        0.235,
+        0.195,
+        0.33
+      ],
+      "plane_positions": {
+        "axial": [
+          0.27,
+          0.23,
+          0.4,
+          0.51
+        ],
+        "coronal": [
+          0.075,
+          0.25,
+          0.15,
+          0.22
+        ],
+        "sagittal": [
+          0.075,
+          0.56,
+          0.15,
+          0.22
+        ]
+      }
+    },
+    {
+      "key": "volume",
+      "title": "三维复核",
+      "parts": [
+        {
+          "key": "kidney_a",
+          "label": "肾脏 A",
+          "match": "kidney_a",
+          "rect": [
+            0.37,
+            0.12,
+            0.12,
+            0.052
+          ],
+          "caption": "同病例分割"
+        },
+        {
+          "key": "kidney_b",
+          "label": "肾脏 B",
+          "match": "kidney_b",
+          "rect": [
+            0.72,
+            0.12,
+            0.12,
+            0.052
+          ],
+          "caption": "同病例分割"
+        },
+        {
+          "key": "tumor",
+          "label": "标注病灶",
+          "match": "tumor",
+          "rect": [
+            0.55,
+            0.74,
+            0.13,
+            0.052
+          ],
+          "caption": "公开人工标注"
+        }
+      ],
+      "controls": [
+        {
+          "key": "ct",
+          "label": "切片对照 · 返回阅片",
+          "rect": [
+            0.075,
+            0.255,
+            0.22,
+            0.26
+          ],
+          "content": "stage:1",
+          "action": "demo.inspect",
+          "plane": "axial"
+        },
+        {
+          "key": "record",
+          "label": "支持当前定位",
+          "rect": [
+            0.43,
+            0.84,
+            0.18,
+            0.052
+          ],
+          "content": "record",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "findings",
+          "label": "观察记录",
+          "rect": [
+            0.73,
+            0.74,
+            0.13,
+            0.052
+          ],
+          "content": "stage:3",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "coronal",
+          "label": "冠状面",
+          "rect": [
+            0.075,
+            0.575,
+            0.22,
+            0.24
+          ],
+          "content": "review:coronal",
+          "action": "demo.inspect",
+          "plane": "coronal"
+        }
+      ],
+      "model_viewport": [
+        0.32,
+        0.19,
+        0.58,
+        0.57
+      ]
+    },
+    {
+      "key": "findings",
+      "title": "观察记录",
+      "parts": [],
+      "controls": [
+        {
+          "key": "ct",
+          "label": "定位切片",
+          "rect": [
+            0.22,
+            0.25,
+            0.23,
+            0.35
+          ],
+          "content": "stage:1",
+          "action": "demo.inspect",
+          "plane": "axial"
+        },
+        {
+          "key": "volume",
+          "label": "三维定位",
+          "rect": [
+            0.55,
+            0.25,
+            0.23,
+            0.35
+          ],
+          "content": "stage:2",
+          "action": "demo.inspect",
+          "model_preview": true
+        },
+        {
+          "key": "record",
+          "label": "确认记录",
+          "rect": [
+            0.57,
+            0.8,
+            0.16,
+            0.052
+          ],
+          "content": "record",
+          "action": "demo.inspect"
+        },
+        {
+          "key": "cases",
+          "label": "病例列表",
+          "rect": [
+            0.27,
+            0.8,
+            0.16,
+            0.052
+          ],
+          "content": "stage:0",
+          "action": "demo.inspect"
+        }
+      ]
+    }
+  ],
+  "attribution": "KiTS19 · Heller et al. · CC BY-NC-SA 4.0",
+  "annotation": "公开人工分割；操作记录不构成自动诊断。"
+}

@@ -1,0 +1,26 @@
+[Unit]
+Description=HMI gaze
+PartOf=hmi.target
+After=hmi-fpga-io.service
+BindsTo=hmi-fpga-io.service
+
+[Service]
+Type=simple
+WorkingDirectory=/userdata/hmi_v2
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/linaro/.Xauthority
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=SDL_FRAMEBUFFER_ACCELERATION=0
+ExecStart=/userdata/gaze_model_migration_v1_20261014/app_venv/bin/python -m vision.gaze_app
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=25
+KillMode=control-group
+CPUAffinity=5
+UMask=0077
+
+[Install]
+WantedBy=hmi.target

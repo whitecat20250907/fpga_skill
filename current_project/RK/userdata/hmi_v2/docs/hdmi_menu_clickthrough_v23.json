@@ -1,0 +1,32 @@
+{
+  "scope": "Actual HDMI MENU panel XShape and XTEST event delivery; no model/human accuracy claim",
+  "boot_id": "a0eb23d3-bbf5-46b9-ba46-fb99b491a9d9",
+  "hud_window_id": 54525956,
+  "hud_geometry": {
+    "x": 740,
+    "y": 310,
+    "width": 440,
+    "height": 460
+  },
+  "actual_input_rectangles": [],
+  "status": "PASS_ACTUAL_X11_MENU_CLICK_THROUGH",
+  "events": [
+    {
+      "type": 4,
+      "window_id": 67108864,
+      "detail": 1,
+      "send_event": false
+    },
+    {
+      "type": 5,
+      "window_id": 67108864,
+      "detail": 1,
+      "send_event": false
+    }
+  ],
+  "owner_epoch": 485792109730829884,
+  "model_frames_during_test": 2,
+  "menu_tested": true,
+  "cursor_scorecard_tested": false,
+  "no_application_actions": true
+}

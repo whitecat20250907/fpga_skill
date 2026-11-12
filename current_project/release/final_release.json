@@ -1,0 +1,68 @@
+{
+  "state": "COMPLETE_USER_DEADLINE_STABLE_SUBMISSION",
+  "observed_utc": "2026-11-02T15:06:03.337874+00:00",
+  "authorization": "User superseded unfinished development with a one-hour standalone submission: ROI display cards, autostart, stable FPGA Flash; end unfinished development.",
+  "user_cold_boot_confirmation": "已重启",
+  "user_post_boot_feedback": "没啥问题了",
+  "flash_program_and_readback_verified": true,
+  "cold_boot_verified": true,
+  "cold_boot_id": "165f5167-3034-4ee7-bf11-71e18c88765a",
+  "pc_start_commands_after_user_power_cycle": false,
+  "default_application": "DEMO",
+  "all_eight_services_active": true,
+  "console_reopened_and_authorization_refreshed": true,
+  "mappings_persist_on_board": true,
+  "roi_source": "FPGA640x360 live source, RK browser display crop: head/eyes and hands; not new FPGA1080P ROI hardware.",
+  "preserved_native_sha256": "5e4128b10128aa46059443e22fa6f0006c055fb8fba0002c47798ed950c0176d",
+  "preserved_config_sha256": "83cdd96bada19fe759c88c583c4676a421e42780df473d23f97dedbb8cf0bb8c",
+  "bit_sha256": "2a312641673f92b16c6ca2c66bb37d00eb38ee6cc54de560d648558c39db6699",
+  "resources": {
+    "LUT6": {
+      "used": 44740,
+      "total": 64320
+    },
+    "ERAM": {
+      "used": 262,
+      "total": 272
+    },
+    "DSP": {
+      "used": 127,
+      "total": 240
+    },
+    "SLICE": {
+      "used": 52148,
+      "total": 64320
+    }
+  },
+  "excluded_unfinished": [
+    "Unqualified903/912 full FPGA1080P ROI alternatives",
+    "Full60FPS concurrent HD transport"
+  ],
+  "excluded_status": "Retained but ended for this submission at user deadline; not marked technically complete.",
+  "evidence": [
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\flash_status.json",
+      "sha256": "4d59905728213016a5a83ab80976f1d968e710b23c5fccafe9e3e226103e8108"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\runtime_warm.json",
+      "sha256": "c25ff8a58ae73992008ff1aaa672dbc9157d68d3eff8d687aa57b4fcf74bb0af"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\runtime_reboot.json",
+      "sha256": "1a1e127ab7d33859ac0c84f95131afb0844e923c8c6c2bfa5549b06588970c30"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\runtime_coldboot.json",
+      "sha256": "a0e544ca32208d8ec135fbc477fc747d08b6752b093b5375799d56b1511a0b63"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\deployed_source_manifest.json",
+      "sha256": "4ec20542cdd0eec49d9343442fe7025a542bc88f11722f2b06cce935015dc412"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_optimization_20261027\\F10_submission920\\build_closeout.json",
+      "sha256": "346d954772ca761849c588724e4c441870d8ccab2ba3b375733e149399a4c130"
+    }
+  ]
+}

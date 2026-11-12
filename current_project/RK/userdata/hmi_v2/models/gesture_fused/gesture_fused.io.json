@@ -1,0 +1,54 @@
+{
+  "inputs": [
+    {
+      "name": "embed_t0",
+      "source_name": "hand",
+      "shape": [
+        1,
+        21,
+        3
+      ],
+      "format": "nchw",
+      "active": true
+    },
+    {
+      "name": "embed_t1",
+      "source_name": "handedness",
+      "shape": [
+        1,
+        1
+      ],
+      "format": "nchw",
+      "active": false
+    },
+    {
+      "name": "embed_t2",
+      "source_name": "world_hand",
+      "shape": [
+        1,
+        21,
+        3
+      ],
+      "format": "nchw",
+      "active": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "embed_t84",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        128
+      ]
+    },
+    {
+      "name": "head_t8",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        8
+      ]
+    }
+  ]
+}

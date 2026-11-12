@@ -1,0 +1,6 @@
+[Unit]
+Description=HMI gaze and gesture system
+Wants=hmi-fpga-io.service hmi-gaze.service hmi-hand.service hmi-engine.service hmi-ui.service hmi-hud.service hmi-adapters.service hmi-console.service
+
+[Install]
+WantedBy=multi-user.target

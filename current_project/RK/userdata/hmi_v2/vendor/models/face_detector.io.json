@@ -1,0 +1,36 @@
+{
+  "inputs": [
+    {
+      "name": "t0_nchw",
+      "source_name": "input",
+      "shape": [
+        1,
+        128,
+        128,
+        3
+      ],
+      "format": "nhwc",
+      "active": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t175",
+      "source_name": "regressors",
+      "shape": [
+        1,
+        896,
+        16
+      ]
+    },
+    {
+      "name": "t174",
+      "source_name": "classificators",
+      "shape": [
+        1,
+        896,
+        1
+      ]
+    }
+  ]
+}

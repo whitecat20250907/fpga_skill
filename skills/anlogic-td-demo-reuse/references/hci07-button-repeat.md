@@ -1,0 +1,17 @@
+# I03双按键与连接租约的完整例程
+
+工程入口 `projects/hci07_button_repeat_20261012/fpga_prj.al`，使用当前HCI04完整副本，177个构建输入、9个新增RTL。当前7组数字证据由 `projects/pcie_imx415_bar_contract37_20261010/evidence/hci07_complete_registration_v1/result.json` 绑定当前源SHA；own native/位流与物理按键尚未通过，I03保持PARTIAL。不要把C4原native或GPIO关闭测试转给新的外接按键。
+
+先读该工程README和PROTOCOL。默认完整top只沿用UART U11/V11，`PIN_CONFIG_VERIFIED=0`，按键输入固定0；它可能在native中优化掉关闭的按键逻辑。两个异步输入、实际去抖/长按/连发和队列已经接入参数化hub，bench实例PIN1有真实输入，但实际端口/ADC仍要先完成I02的连接器、球号、Bank电压/上拉和VID005占用核对。禁止把RK侧KEY或候选GPIO直接套到FPGA。
+
+两个键独立确认，候选与确认时刻分别保存；持续时间锚定确认按下。默认5ms去抖、500ms长按、800ms首连发、100ms周期。LONG一次，SHORT与LONG互斥；确认释放收到的周期优先释放并取消后续连发。按键事件层比去抖层晚一系统时钟，记录时间不是物理执行时间。64bit回绕、32bit持续时间饱和、跳时最多发一个REPEAT后从当前时间重新安排，避免恢复时补发一串旧点击。
+
+断联/STOP/expiry对已按键发一次CANCEL；重新激活增加epoch，并要求两键稳定释放后再武装。只检查去抖输出level=0不够：连接启动时未确认的held输入也会暂显0，因此代码还等待原始两FF样本、启动保护与完整释放稳定区间。保持reset/held-reconnect证据；连接租约不能解锁编译GPIO资格或ARM原PWM。
+
+同一UART必须先按HCIC16/HCC4_32/HKB7_24整包框定再分流，不能让多个独立magic解析器扫描其他命令包体。当前真实115200测试验证了在HCIC seq和HCC4 trial中放另一个magic也不会跨解析器。新router曾因sized hex紧贴`?`被词法解析为hex数字而编译失败，条件运算符前保留空格；修复与原失败记录都保留。
+
+事件队列是supplier ERAM的32×64B完整环、每kind一个pending和一个CRC/写入包；满时整事件明确计数，不覆盖在途包。公平仲裁须在有效第一词出现时就锁定owner，即使ready=0；否则更晚出现的另一路可能偷走已经停顿的第一词。保持整8词边界和held数据。断联不截断已发UART包；历史HBT7用epoch/时间标记，不能把排队到达的旧事件直接用作实时交互执行。
+
+未收到HKB7时逐时钟与原四类status/event发送一致；opt-in后才增加HBS7/HBQ7。每100ms一包、六页轮转，同一新增页约600ms，页间不是同一冻结时刻，也不能替代I05的300ms互锁。真实vendor TX的独立引脚解码、832B混合流、生产额外64B、CRC与1024bit损坏拒绝均已通过。发送夹具曾因每clk多次清零/局部改写2880bit总线过慢；改成连续整向量驱动后仍每clk变化，保持同一测试范围通过，不缩短覆盖来签核。
+
+完整数字复验入口及证据边界在工程README。原厂公开ERAM字节分支只作功能仿真；不改SDK或造模型，不推导SDF/MTBF。native须等待当前E3及所有已拥有硬件/原生队列终态和owner退出；观察超时不重启健康TD。最终仍需自己的STA/位流、I02接线、实物波形/周期、断联/reset/拥塞、原视频/RGB和正式37恢复证明。

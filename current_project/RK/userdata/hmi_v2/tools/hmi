@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Explicit lifecycle commands; installation does not enable autostart."""
+from pathlib import Path
+import argparse,hashlib,json,os,subprocess,sys,time
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
+from core.config import load
+SERVICES=['fpga-io','gaze','hand','engine','ui','hud','adapters','console']
+STOP=['adapters','console','hud','ui','engine','hand','gaze','fpga-io']
+
+def verify(originals=None):
+    manifest=json.loads((ROOT/'vendor/PROVENANCE.json').read_text(encoding='utf-8'));errors=[]
+    for row in manifest['files']:
+        p=ROOT/row['path']
+        if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=row['sha256']:errors.append(row['path'])
+        if originals:
+            source=Path(originals)/row['source']
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=row['sha256']:errors.append('original:'+row['source'])
+    result={'status':'FAIL' if errors else 'PASS','files':len(manifest['files']),'errors':errors}
+    print(json.dumps(result,ensure_ascii=False,indent=2));return bool(errors)
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('command',choices=['up','down','status','logs','verify','compat-up','install','check'])
+    p.add_argument('service',nargs='?',choices=SERVICES);p.add_argument('--originals');a=p.parse_args()
+    if a.command=='verify':return verify(a.originals)
+    if a.command=='check':
+        return subprocess.call([sys.executable,str(ROOT/'tools/local_check.py')])
+    if sys.platform!='linux':p.error('Lifecycle commands require target Linux; use verify/check locally')
+    if a.command=='up':
+        try:
+            from core.io_service import request
+            from core.hmibus import Subscriber
+            c=load();run=Path(c['paths']['run'])
+            subprocess.run([sys.executable,str(ROOT/'tools/preflight.py')],check=True)
+            subprocess.run(['systemctl','start','hmi-fpga-io.service'],check=True)
+            deadline=time.monotonic()+45
+            while True:
+                try:ready=json.loads(request(run/'fpga_io.sock',b'STAT'));ok=ready.get('epoch',0)>0 and ready.get('serial',0)>0
+                except (OSError,ValueError):ok=False
+                if ok:break
+                if time.monotonic()>deadline:raise TimeoutError('No validated hardware frame within 45 seconds')
+                time.sleep(.1)
+            for s in SERVICES[1:]:subprocess.run(['systemctl','start','hmi-'+s+'.service'],check=True)
+            sub=Subscriber(['sys.metrics'],run=run);deadline=time.monotonic()+60;seen={}
+            try:
+                while True:
+                    for msg in sub.poll(100).values():
+                        if msg['epoch']==ready['epoch'] and msg.get('ok'):seen[msg['producer']]=time.monotonic()
+                    if all(time.monotonic()-seen.get(s,0)<2 for s in SERVICES):break
+                    if time.monotonic()>deadline:raise TimeoutError('Services did not become healthy: '+str(set(SERVICES)-set(seen)))
+            finally:sub.close()
+            print('All eight services healthy; first validated hardware frame received.')
+        except (subprocess.CalledProcessError,TimeoutError):
+            for s in STOP:subprocess.run(['systemctl','stop','hmi-'+s+'.service'],check=False)
+            raise
+    elif a.command=='down':
+        for s in STOP:subprocess.run(['systemctl','stop','hmi-'+s+'.service'],check=True)
+    elif a.command=='status':return subprocess.call(['systemctl','--no-pager','status',*['hmi-'+s+'.service' for s in SERVICES]])
+    elif a.command=='logs':return subprocess.call(['journalctl','--no-pager','-n','100','-u','hmi-'+(a.service or '*')+'.service'])
+    elif a.command=='compat-up':
+        p.error('Original owner/relay requires live generation binding. Kept for rollback; no unsafe replacement is generated. See docs/P0_REPORT.md.')
+    elif a.command=='install':
+        if os.geteuid()!=0:p.error('Installing systemd unit files requires root')
+        if ROOT!=Path('/userdata/hmi_v2'):p.error('Deploy tree at /userdata/hmi_v2 before installing')
+        import shutil
+        c=load();configured=c['paths']['python']
+        for f in (ROOT/'systemd').glob('hmi*'):
+            content=f.read_text().replace('/userdata/gaze_model_migration_v1_20261014/app_venv/bin/python',configured)
+            if f.suffix=='.service':
+                import re
+                service=f.name.removeprefix('hmi-').removesuffix('.service')
+                content=re.sub(r'^CPUAffinity=.*$', 'CPUAffinity='+' '.join(map(str,c['cpu'][service])),content,flags=re.M)
+            if '[Service]' in content:content=content.replace('KillMode=control-group','KillMode=control-group\nSendSIGKILL=no')
+            (Path('/etc/systemd/system')/f.name).write_text(content)
+        (ROOT/'native/fpga_io/fpga_io').chmod(0o755)
+        subprocess.run(['systemctl','daemon-reload'],check=True)
+        print('Installed unit files; autostart has NOT been enabled.')
+    return 0
+
+if __name__=='__main__':raise SystemExit(main())

@@ -1,0 +1,63 @@
+# I05：表面、人脸与连续300ms互锁
+
+用于复用 `projects/hci08_laser_interlock_20261012` 的I05完整开发工程。当前完整193输入已注册，single-RX hub/128字节回复与原64字节包TX已接top；自己的native与实际引脚/激光驱动仍未验收。联测以当前result和source SHA为准；不得把组件自检、父HCI07位流或其他HCI的STA转为自己的实物验收。
+
+## 几何必须匹配实际坐标系
+
+表面是同一摄像头图像坐标里的凸四角，可以是透视四边形；不能用轴对齐bbox代替。目标光斑投影、全量人脸框、表面四角、尺寸和校准/源代次必须同一绑定。当前几何组件检查CW/CCW、凸性/自交/范围、边界和16脸饱和扩边；超过16、损坏/缺失集合应由命令层拒绝，不能只取前16脸。0脸只能在可信的完整检测结果下使用。
+
+`hci08_cross35`对unsigned16坐标先转为signed17差值，再用signed34乘积和signed35差值，避免最大坐标/负数溢出。乘法/几何tag同拍；新请求撤销旧许可并flush，不能让旧busy结果解锁新目标。`geometry_v1`当前2735输入/2740结果与Shapely2.1.2/GEOS3.13.1独立参考通过；只是功能数字范围，不证明真实人脸检测、标定、光路或器件资源/时序。
+
+## 300ms不能被更新续期
+
+方案要求连续点亮超时。当前实现采用更保守的一个不可续ARM会话预算：首次接受ARM开始计时，心跳、重复ARM、几何刷新和PWM低电平都不续期。只有关闭请求、满足20ms低请求冷却、有效DISARM及新ARM才能开始下一次；20ms是此实现的冷却选择，并非器件认证值。几何刷新时可暂时消隐，但不能借此重启预算。
+
+主域默认25MHz，辅助域默认100MHz，分别做300000us预算。主域每1000拍翻转heartbeat，辅助域两FF同步单bit并在1000us无进展时撤销raw grant。ARM请求是保持至关闭的电平，经辅助域同步/ACK后才开放主域许可；主域2FF ACK允许上升，辅助raw grant的下降直接关闭，相关CDC与实际输出时序仍需自己的native审查。辅助时钟停止时主预算仍有效，主时钟停止时辅助心跳监视仍有效。
+
+`session_guard_v3`的实际结果应先按状态和源码SHA核对。入口`tools/verify_session_guard.py`覆盖真实默认25MHz/100MHz完整300ms及边界场景；不是短计数测试后按比例推称生产时钟已通过。初次自检误把冷却起点写成较晚DISARM而失败；修正测试改从公共armed下降沿计时。第二次生产时钟自检误要求原始异步关断后1ns内主域已进入故障，修正后先核实际关断时间，再等有界主时钟沿检查故障；任一域的预算可能先到，不能强求只有主预算触发。原失败记录保留，RTL、冷却和300ms门槛均未为这两次修测改动。
+
+## 必须保留的失效边界
+
+两路时钟同时停止时，逻辑不能计算已经过去多久。当前自检明确观察仍保持的许可，随后外部异步reset能够关闭；不得把这个负向限制记录写成双停钟保护已通过。物理激光驱动须具备外部关断/独立看门狗，并核对失电电平、实际器件与引脚。GPIO当前默认关闭。
+
+辅助域计数和多位trip输出不能直接逐位采进主域后声称原子快照；接入状态UART时使用完整快照/握手。心跳活跃也不能代替新捕获：命令层仍需捕获age含线上时间、完整脸集合、同frame_id不续鲜、CRC/序号/epoch、目标/姿态有效和移动消隐。真正完成I05仍需完整工程、自己的STA/bit与实物失效证据；数字结果不提供激光器件功率或安全认证。
+
+## HLS8原子记录、同帧cache和联合复验
+
+现有`hci08_profile_rx`、`hci08_profile_freshness`、`hci08_uart_router`、`hci08_interlock_core`与离线`tools/laser_protocol.py`。精确字节偏移及接入规则见该工程`PROTOCOL.md`；协议固定204字节，face_count8最多16、未使用脸全零，不能把count截成5bit后先送几何。flags须明确来自可信捕获/全量脸/校准/姿态，codec没有有效flags默认值。新路由仅有一个真实RX，保留三种旧完整记录，不在已知body中搜索嵌套magic。
+
+接收侧使用第一magic字节真实RX有效时间，88us首字节/量化保护和完整接收跨度；不能用4字节header replay或CRC完成时刻作为age起点。第一次见到epoch/frame的deadline与尺寸/quad/脸数/脸集合/margin身份cache独立保存，DISARM或故障不清cache。同帧可更改目标，但不能扩期限、改变捕获身份或复活已过期帧；新epoch只在关闭后的LOAD中递增绑定。相对age仍依赖实际RK生产者正确累计捕获/NPU/串口排队与时钟误差，当前离线/synthetic证明不能代签真实捕获年龄。
+
+`profile_wire_v1`14有效包/1632bit损坏/47主机语义负例和5framer恢复场景通过；`profile_freshness_v1`16生命周期/回绕/年龄场景及39字段拒绝通过。真实115200联合入口`verify_interlock_UART.py`还接实际25MHz计时器、100MHz辅助、16脸/quad几何与会话，按最新结果状态及源码SHA复核。
+
+首轮UART联合抓到真实候选瞬态：组合输出同时取`!rx_started`与延后一拍的receiving/geometry资格，在脉冲下降而资格寄存更新时产生重新上升。失败run log和旧core源码保留在`interlock_UART_v1/failing_source`。修复让同一个寄存geometry资格在下一源时钟沿消隐，不再在组合输出拼接包头/error短脉冲；原上升沿计数/16脸/表面/完整记录断言不放宽。该修复仍需自己的native输出路径与实物波形，不宣称物理无毛刺已验证。
+
+第二轮600秒自检未终止，查到`geometry_fault`与包含`!external_fault`的`profile_available`之间组合反馈。短复現保留旧core：18us后时间不再前进；新core完成并锁存unsafe第16脸。故障事件应从寄存的done/tag/allowed生成，不能由它自身关闭的资格信号反推；资格在下游单向使用。`geometry_fault_progress_v1`为实际旧失败/新通过证据。VVP的CPU前进不等于仿真时间前进，用事件时间或周期性time及输出刷新核对；不要把这种诊断经验推广成可以取消健康TD。原native44884没有取消或重启。
+
+## 双轴帧界PWM与移动资格
+
+`hci08_servo_pwm`同时在20ms边界应用两轴1000–2000us脉宽；收到新请求不改变当前脉冲。到位名义计时从实际应用边界开始，同脉宽序号刷新可以更新applied_sequence，不能重启等待。边界前撤销未应用目标并返回当前脉宽，未发生机械运动，不应凭请求到达重新计时。当前100ms参数需实际负载/舵机校准，计时结束不能声称轴已到位。
+
+`actuator_pwm_v2`按25MHz实际时钟验证50Hz、整100ms等待和输出边沿；全1001脉宽扫为2200us缩短验证帧，不能当生产50Hz扫。激光PWM为1kHz/256档，最终许可仍受不可续ARM预算限制，低占空比不能反复重启300ms。最新目标duty0必须直接关闭候选输出，不能等旧高PWM帧结束。
+
+执行路径先完成几何，再锁存pan/tilt/sequence整组送PWM，不能把一个延迟command_valid配上之后改变的profile_body。资格同时比较最新profile与已应用脉宽，防止旧settled标志在待移动时短暂放行。CRC记录接收期间可以暂时消隐，但不宜因profile_available短暂下降而截断已有50Hz脉冲；故障/失时/有效DISARM则撤销运动。
+
+LOAD可以在尚未ARM时驱动舵机，因此源停钟关断不能只借ARM会话grant；独立`hci08_clock_watch`以辅助域寄存health作原始下降 veto，并锁存停钟故障至fresh DISARM。外部shutdown原始下降也直接关闭，重新升高仍需同步与故障恢复。所有实际引脚、驱动和校准验证参数默认0；独立字节接口联测、真实UART联测、完整顶层、own STA/bit和真实机械/光路各自留证，不能合并推断。
+
+reset同步链测试必须让低reset经历时钟沿，或明确产生异步assert边沿。首轮PWM测试在首个1MHz时钟沿前release，部分寄存器X导致超时；修正测试并检查公共输出无X，不能修改RTL初值或放宽脉宽门槛掩盖测试台问题。
+
+停钟故障恢复还有跨域清除延迟：fresh DISARM先在主域接受，辅助trip经clear toggle和同步器若干拍后才真正清除。若主域当拍清fault、下一拍直接读取旧trip，会立即重新锁存故障。`hci08_actuator`保留clearing_watch状态，先关闭运动，等辅助清除、fresh heartbeat和同步readiness，再退出恢复等待；新的metadata/失时/外部关断仍可中止恢复。原`actuator_joint_v3`失败与源码留存，新版本以actual结果核对；不要删除旧trip判断或允许自动重启来绕过恢复问题。
+
+辅助多位status使用`hci08_status_snapshot`整组握手：source单拍保存并保持，ACK控制经两FF到destination后再等一拍采bundle；忙时请求计数拒绝，global reset撤销在途事务。`status_snapshot_v1`独立验证1027整组tuple及两侧停钟/reset，完整接入UART另由`full_hub_UART_v3`证明。握手数字功能通过仍需集成后的bundle最坏物理延迟、控制同步链和STA/CDC签核；status不可作执行许可。核对source holding至destination capture的最坏延迟与最早ACK/capture间隔，异步clock-group切除不能证明数据已稳定，不为消负slack扩大false path。
+
+## 实际回复与缺失profile初始化
+
+完整`hci08_control_hub`只用一个真实RX/router，原HCIC/HCC4/HKB7与I05共享；默认旧PWM诊断输出不接执行器GPIO。新的`hci08_uart_mux`发128字节HLA8及旧64字节包；有旧业务时连续ACK上限2，旧状态与事件也轮流服务，否则短周期状态可能在ACK负载下饿死事件。无ACK时与HCI07四/六页逐周期一致，不改变旧100ms默认值。
+
+`hci08_status_reply`实际接AUX reason/clock health，等待1ms无回应仍发STALE状态。迟到ACK只更新cache，不能以没有拥有的新请求发布FRESH；保留owns_request及completed baseline。AUX/main是不同采样时刻，HLA8明确标SEPARATE；不能称跨域全局同时快照。一个待发124字节body保持稳定，通知合并计数且序号区分记录；接受序号是最后accepted记录，CRC错误不能猜测新seq。布局和严格decoder见工程PROTOCOL.md/laser_status.py。回复只做诊断。
+
+profile_body bank刻意不reset1600位，用资格控制有效性。PWM若直接读该bank的duty，会在第一profile之前进入任意值，污染applied_duty/状态CRC。完整UART联测实际发现byte85及CRC为X，修复为have_profile之前输入duty0；不能在host把xx当0或给整个bank随意初值掩盖问题。duty_startup_fix_v1同一bench旧失败/新通过。旧actuator_joint_v5的19场景源码因此被保留为历史；当前actuator_joint_v6以新SHA通过全部19场景，包含真实默认25MHz/100MHz的8场景。原100ms/300ms断言和完整输入保留，主机观察界限延长不等于放宽仿真门槛。
+
+完整193输入top沿用原25MHz sys/T16和100MHz DDR-reference/T13作为名义clock families，所有相机/ISP/预处理/DDR/DSI及ADC保留。两路物理振荡器、bundle/veto延迟及GPIO-on仍需实物/own native，不把SDC频率当实际示波器测量。实际输出默认不接新GPIO，三验证参数和external_shutdown均0。
+
+当前完整源码/13组数字对应检查入口为工程`tools/review_hci08_complete_source.py`；无自己位流的`source_digital_package_v1`只交付源码与记录。I05 native-only排队入口位于`projects/pcie_imx415_bar_contract37_20261010/tools/queue_hci08_native_v1.py`，等待七个前置队列终态、owner退出及TD/BitWriter空闲，绑定193输入/数字证据/封包SHA。即使排队记录为terminal，也应读取自己的native结果和最终setup/hold/TNS/覆盖/bit；不得把队列终态、父位流或GPIO关闭状态当作完整I05实物通过。

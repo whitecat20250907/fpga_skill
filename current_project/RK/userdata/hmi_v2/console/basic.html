@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>基础功能 · HMI Live</title>
+<style>
+:root{color-scheme:dark;--bg:#101317;--panel:#191e24;--line:#303741;--text:#e9eef3;--muted:#98a5b3;--green:#64d6ac;--blue:#78baff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.4 system-ui,"Noto Sans CJK SC",sans-serif}header{height:68px;padding:0 28px;display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--line)}header h1{font-size:21px;letter-spacing:.03em;margin:0;font-weight:600}header small{color:var(--muted);font-size:12px}header .spacer{flex:1}button,a{font:inherit;color:inherit;border:1px solid var(--line);background:transparent;border-radius:4px;padding:7px 13px;text-decoration:none;cursor:pointer}button:hover,a:hover{border-color:var(--green);background:#25332f}.live{font-size:12px;color:var(--green)}.live:before{content:'●';padding-right:7px}main{padding:18px 28px 14px}.flow{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px;margin-bottom:16px}.flow b{color:var(--text);font-weight:500}.flow i{font-style:normal;color:#55616d}.flow .right{margin-left:auto;font-variant-numeric:tabular-nums}.streams{display:grid;grid-template-columns:1fr 1fr .9fr;gap:16px}.tile{border:1px solid var(--line);background:var(--panel);border-radius:5px;overflow:hidden;min-width:0}.tile-head{height:43px;padding:0 14px;display:flex;align-items:center;gap:10px}.tile-head b{font-size:14px;font-weight:500}.tile-head .rate{margin-left:auto;font:600 17px ui-monospace,monospace}.rate small{font:11px system-ui;color:var(--muted)}.chip{font-size:10px;letter-spacing:.04em;color:var(--green);background:#22382f;padding:2px 5px;border-radius:3px}.chip.npu{color:var(--blue);background:#243448}.picture{position:relative;background:#07090c;aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center}.picture canvas{position:absolute;width:100%;height:100%;object-fit:contain;display:none}.picture svg{position:absolute;inset:0;width:100%;height:100%}.placeholder{font-size:13px;color:#637181}.tile-foot{padding:8px 14px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;min-height:31px;font-variant-numeric:tabular-nums}.lower{display:grid;grid-template-columns:1.16fr 1fr 1fr 1.2fr;gap:16px;margin-top:16px}.lower .picture{height:162px;aspect-ratio:auto}.lower .tile-head b{font-size:13px}.lower .tile-head{height:39px}.lower .rate{font-size:15px}.spec{padding:11px 14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);min-height:52px;line-height:1.6}.metrics{padding:0 14px 10px}.metrics div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0;font-size:12px;gap:8px}.metrics span{color:var(--muted)}.metrics strong{font-weight:500;font-variant-numeric:tabular-nums}.requirements{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:16px;border:1px solid var(--line);border-radius:5px}.requirement{padding:10px 14px;border-right:1px solid var(--line);font-size:11px;color:var(--muted)}.requirement:last-child{border:0}.requirement b{display:block;font-weight:500;color:var(--text);font-size:12px;margin-bottom:5px}.ok{color:var(--green)}.pending{color:#dfb97d}footer{margin-top:12px;display:flex;justify-content:space-between;color:var(--muted);font-size:11px;gap:12px}#notice{color:#dfb97d}#authbox{position:fixed;inset:0;z-index:10;background:#101317ee;display:none;place-content:center;gap:14px}#authbox input{font:inherit;padding:12px;border:1px solid var(--line);background:var(--panel);color:white;width:360px}.offline .live{color:#dfb97d}.offline .picture canvas{opacity:.25}.offline .picture svg{display:none}@media(min-height:1000px) and (min-width:1500px){header{height:76px}main{padding-top:24px}.lower .picture{height:200px}.tile-head{height:48px}.tile-head b{font-size:17px}.lower .tile-head b{font-size:15px}.tile-foot,.spec,.requirement,footer{font-size:13px}.requirements{margin-top:20px}.requirement b{font-size:14px}}@media(max-width:1000px){.streams{grid-template-columns:1fr 1fr}.face-detail{grid-column:1/-1}.face-detail .picture{min-height:260px}main{padding:12px}.lower{grid-template-columns:1fr 1fr}.requirements{grid-template-columns:repeat(3,1fr)}header{padding:12px;height:auto;flex-wrap:wrap}.flow{flex-wrap:wrap}}@media(max-width:600px){.streams{grid-template-columns:1fr}.flow .right{margin:0}.requirements{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1001px){body{height:100vh;overflow:hidden}header{height:68px}main{height:calc(100vh - 68px);display:grid;grid-template-rows:22px minmax(160px,1.6fr) minmax(165px,1fr) 68px 28px;gap:12px;padding:14px 24px}.flow,.lower,.requirements,footer{margin:0}.streams,.lower{min-height:0}.tile{display:flex;flex-direction:column}.tile-head,.tile-foot,.spec{flex-shrink:0}.picture,.lower .picture{height:auto;min-height:0;flex:1;aspect-ratio:auto}.metrics{padding-bottom:4px}.metrics div{padding:5px 0;font-size:12px}.requirement{padding:8px 12px;font-size:11px}.requirement b{font-size:12px}.spec{font-size:11px;padding:7px 12px;min-height:46px}footer{font-size:10px;align-items:center}.tile-head{height:39px}.tile-head b{font-size:14px}.tile-foot{font-size:11px;min-height:28px;padding:6px 12px}}
+.resource-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:16px}.resource-body{padding:4px 16px 16px}.resource-row{margin-top:11px}.resource-row>div:first-child{display:flex;justify-content:space-between}.resource-row strong{font:600 15px ui-monospace,monospace}.resource-row small,.resource-note{color:var(--muted);font-size:11px}.meter{height:4px;background:#303741;margin:6px 0;border-radius:2px;overflow:hidden}.meter i{display:block;height:100%;background:var(--green);width:0}.resource-value{font:600 25px ui-monospace,monospace;margin:16px 0 6px}.resource-link{font-size:15px;margin:6px 0}@media(max-width:1000px){.resource-grid{grid-template-columns:1fr}}
+
+/* 711: six content rows; resource metrics must not be clipped by the old five-row grid. */
+@media(min-width:1001px){main{grid-template-rows:22px minmax(190px,1.4fr) minmax(170px,.9fr) 180px 110px 18px;gap:10px}.resource-grid{margin:0;min-height:0}.resource-body{min-height:0}.resource-row{margin-top:7px}.resource-row small{display:block}.resource-grid article:nth-child(-n+2) .resource-body{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.resource-row .meter{margin:4px 0}.resource-value{font-size:20px;margin:6px 0}.resource-link{font-size:13px;margin:4px 0}.requirements{padding-right:460px;grid-template-columns:repeat(3,minmax(0,1fr))}.requirement{padding:6px 10px}.requirement b{margin-bottom:3px}.requirements .requirement:nth-child(3){border-right:0}footer{padding-right:460px}}
+/* Mirror camera pictures only; labels and application controls stay readable. */
+#raw,#model,#shared,#face,#palm,#mesh{transform:scaleX(-1)}
+</style>
+<header><div><h1>实时影像</h1></div><span class="spacer"></span><span class="live" id="live">正在连接</span><button data-cmd="app_demo">医学</button><button data-cmd="app_game">游戏</button><a href="/">控制台</a></header>
+<main>
+<div class="flow"><b>IMX415 · 1080P</b><i>→</i><b>FPGA · AWB / CNR / 并行缩图</b><i>→</i><b>PCIe</b><i>→</i><b>双核 NPU</b><span class="right" id="source">等待源帧</span></div>
+<section class="streams">
+<article class="tile"><div class="tile-head"><span class="chip">FPGA</span><b>独立高清预览</b><span class="rate" id="raw-rate">— <small>FPS</small></span></div><div class="picture"><span class="placeholder" id="raw-placeholder">等待 1080P 共享图像</span><canvas id="raw" aria-label="FPGA 相机独立高清预览"></canvas></div><div class="tile-foot"><span><span id="raw-rates">采集 — · 接收 — · 显示 —</span></span><span><span id="resize-backend">显示缩放 960 × 540 · RK</span></span></div></article>
+<article class="tile"><div class="tile-head"><span class="chip npu">NPU</span><b>实时模型识别</b><span class="rate" id="hand-rate">— <small>FPS · 手部链路</small></span></div><div class="picture"><span class="placeholder">等待真实模型输入</span><canvas id="model" aria-label="模型运行源图与人脸、左右手标注"></canvas><svg id="boxes" viewBox="0 0 640 360" aria-label="模型检测框"></svg></div><div class="tile-foot"><span id="detections">人脸 / 左右手 / 手势类别（有目标时叠加）</span><span id="alignment">最新推理叠加</span></div></article>
+<article class="tile face-detail"><div class="tile-head"><span class="chip npu">NPU</span><b>面部特征点</b><span class="rate" id="mesh-rate">— <small>FPS</small></span></div><div class="picture"><span class="placeholder" id="mesh-placeholder">等待人脸</span><canvas id="mesh" aria-label="实际478点人脸及虹膜特征"></canvas></div><div class="tile-foot"><span id="mesh-count">478 点 · 虹膜</span><span id="mesh-age">等待入镜</span></div></article>
+</section>
+<section class="lower">
+<article class="tile"><div class="tile-head"><span class="chip">01</span><b>共享模型缩图</b><span class="rate model-rate">—</span></div><div class="picture"><span class="placeholder">640 × 360</span><canvas id="shared" aria-label="FPGA 640乘360共享模型平面"></canvas></div><div class="spec">640 × 360 · FPGA 缩图输出<br>脸、眼、手复用同一来源，避免重复采集</div></article>
+<article class="tile"><div class="tile-head"><span class="chip">02</span><b>头部 / 双眼 ROI</b><span class="rate model-rate">—</span></div><div class="picture"><span class="placeholder" id="face-roi-empty">等待人脸</span><canvas id="face" aria-label="实时头部与双眼区域"></canvas></div><div class="spec"><span id="face-roi-info">FPGA 源图 · RK 显示裁剪</span><br>头部与双眼局部实景</div></article>
+<article class="tile"><div class="tile-head"><span class="chip">03</span><b>手部 ROI</b><span class="rate model-rate">—</span></div><div class="picture"><span class="placeholder" id="palm-roi-empty">等待手部</span><canvas id="palm" aria-label="实时左右手区域"></canvas></div><div class="spec"><span id="palm-roi-info">FPGA 源图 · RK 显示裁剪</span><br>实际手部区域 · 同步检测框</div></article>
+<article class="tile"><div class="tile-head"><b>运行观测</b><span class="chip npu">LIVE</span></div><div class="metrics"><div><span>人脸检测 / 关键点链路</span><strong id="face-rate">—</strong></div><div><span>MGaze 眼动推理</span><strong id="gaze-rate">按需启用</strong></div><div><span>CPU / NPU 0 / NPU 1</span><strong id="loads">—</strong></div><div><span>手部耗时 P50 / P95</span><strong id="latency">—</strong></div><div><span>MIPI 提交 / 错误增量</span><strong id="mipi">—</strong></div></div></article>
+</section>
+<section class="resource-grid" aria-label="FPGA 与异构运行观测">
+<article class="tile"><div class="tile-head"><b>FPGA</b><span class="chip" id="resource-version">静态资源</span></div><div class="resource-body" id="fpga-resources"></div></article>
+<article class="tile"><div class="tile-head"><b>计算负载</b><span class="chip npu">LIVE</span></div><div class="resource-body" id="compute-meters"></div></article>
+<article class="tile"><div class="tile-head"><b>PCIe / 图像流水线</b></div><div class="resource-body"><div class="resource-link" id="pcie-link">—</div><div class="resource-value"><span id="pcie-payload">—</span> <small>MB/s</small></div><div class="meter"><i id="pcie-meter"></i></div><div class="resource-note" id="pcie-util"></div><p id="fifo">—</p><p>模型成帧 / 跳帧 <strong id="model-link">—</strong></p><div class="resource-note" id="capture-error">—</div></div></article>
+</section>
+<section class="requirements" aria-label="基础要求与当前证据">
+<div class="requirement"><b>01 高清摄像头采集</b><span id="r-camera">等待实际 1080P 帧</span></div><div class="requirement"><b>02 FPGA 图像预处理</b><span id="r-planes">等待三个实际输出平面</span></div><div class="requirement"><b>03 硬件压缩</b><span class="pending">当前 RGB 链路 · 实测待接入</span></div><div class="requirement"><b>04 PCIe / MIPI 通信</b><span id="r-link">等待传输计数</span></div><div class="requirement"><b>05 NPU 模型识别</b><span id="r-model">等待推理服务</span></div><div class="requirement"><b>06 性能与资源</b><span>帧率 / 延迟 / 动态负载</span><br><span class="pending">功耗 / 压缩比未实测</span></div>
+</section>
+<footer><span id="notice">帧率取自源计数和模型服务；页面刷新与模型推理分开统计。</span><span id="page-rate">页面刷新 — · MENU 基础 / VOL+ 医学 / VOL− 游戏 / ESC 单人，长按双人</span></footer>
+</main><section id="authbox"><h2>连接开发板实时图像</h2><p>请从已配对控制台点击“电脑预览”，或输入管理令牌。</p><input type="password" id="token" autocomplete="off" placeholder="管理令牌"><button id="connect">连接</button><span id="auth-error"></span></section>
+<script src="/assets/fpga-panel.js"></script>
+<script src="/assets/preview-stream.js"></script>
+<script src="/assets/display-rate.js"></script>
+<script>
+const $=s=>document.querySelector(s);let token=decodeURIComponent(location.hash.slice(1))||sessionStorage.getItem('hmi.console.auth')||'',lastFrame=0,lastPage=performance.now(),pageCount=0,pageFps=0,faceCounter=null,gazeCounter=null;
+if(location.hash)history.replaceState(null,'',location.pathname);if(!token)$('#authbox').style.display='grid';
+const n=(v,d=1)=>typeof v==='number'&&Number.isFinite(v)?v.toFixed(d):'—';
+const lastImages=new Map();let lastPresented='',inputCounter=null;const meshDisplayRate=new DisplayRate(),rawDisplayRate=new DisplayRate(),modelDisplayRate=new DisplayRate();
+function unpack(buffer){
+ const view=new DataView(buffer);if(view.byteLength<8||view.getUint32(0,true)!==0x31504248)throw Error('预览格式错误');
+ const size=view.getUint32(4,true);if(size>1048576||size+8>view.byteLength)throw Error('预览元数据错误');
+ const d=JSON.parse(new TextDecoder().decode(new Uint8Array(buffer,8,size)));let offset=8+size;const images=new Map();
+ for(const image of d.images){if(!Number.isInteger(image.length)||image.length<0||offset+image.length>view.byteLength)throw Error('预览图像不完整');images.set(image.key,new Blob([new Uint8Array(buffer,offset,image.length)],{type:image.type}));offset+=image.length;}
+ if(offset!==view.byteLength)throw Error('预览长度不符');
+ d.raw_image=images.get(d.raw_image);d.model_image=images.get(d.model_image);for(const p of d.planes)p.image=images.get(p.image);return d;
+}
+async function showImage(ids,blob,identity){if(!Array.isArray(ids))ids=[ids];const key=ids.join(',');for(const id of ids)$(id).style.display=blob?'block':'none';if(lastImages.get(key)===identity&&blob)return;if(!blob){lastImages.delete(key);return;}
+ const bitmap=await createImageBitmap(blob);
+ try{for(const id of ids){const canvas=$(id);if(canvas.width!==bitmap.width||canvas.height!==bitmap.height){canvas.width=bitmap.width;canvas.height=bitmap.height;}canvas.getContext('2d',{alpha:false}).drawImage(bitmap,0,0);}}finally{bitmap.close();}
+ lastImages.set(key,identity);
+}
+function counter(previous,hb,key){const now=hb.counter_ns,seq=hb.inference?.[key],identity=hb.instance;if(typeof seq!=='number'||!now)return [null,null];let rate=null;if(previous&&previous[2]===identity&&now>previous[0]&&seq>=previous[1])rate=(seq-previous[1])*1e9/(now-previous[0]);if(previous&&now===previous[0])return [previous,previous[3]];return [[now,seq,identity,rate],rate];}
+function drawBoxes(rows){const svg=$('#boxes');svg.replaceChildren();const ns='http://www.w3.org/2000/svg';for(const row of rows){const [sx,y,w,h]=row.rect.map((v,i)=>v*(i%2?360:640)),x=640-sx-w,color=row.kind==='face'?'#78baff':row.kind==='eye0'?'#7bddeb':row.kind==='eye1'?'#e8c078':'#64d6ac';const rect=document.createElementNS(ns,'rect');for(const [k,v]of Object.entries({x,y,width:w,height:h,rx:3,fill:'none',stroke:color,'stroke-width':1.7}))rect.setAttribute(k,v);svg.append(rect);const text=document.createElementNS(ns,'text');text.setAttribute('x',Math.max(5,Math.min(510,x)));text.setAttribute('y',Math.max(18,y-6));text.setAttribute('fill',color);text.setAttribute('font-size',13);text.setAttribute('stroke','#071014');text.setAttribute('stroke-width',3);text.setAttribute('paint-order','stroke');text.textContent=row.label;svg.append(text);}}
+function drawRoiCards(rows){
+ const source=$('#model');
+ function paint(id,selected,cols){
+  const canvas=$('#'+id),ctx=canvas.getContext('2d');
+  if(canvas.width!==640||canvas.height!==360){canvas.width=640;canvas.height=360;}
+  ctx.fillStyle='#07090c';ctx.fillRect(0,0,640,360);
+  canvas.style.display=selected.length?'block':'none';
+  $('#'+(id==='face'?'face':'palm')+'-roi-empty').style.display=selected.length?'none':'';
+  const countRows=Math.ceil(selected.length/cols),cw=640/cols,ch=360/Math.max(1,countRows);let sizes=[];
+  selected.forEach((row,i)=>{
+   const [x,y,w,h]=row.rect,sw=source.width,sh=source.height;
+   const x0=Math.max(0,Math.floor(x*sw)),y0=Math.max(0,Math.floor(y*sh));
+   const x1=Math.min(sw,Math.ceil((x+w)*sw)),y1=Math.min(sh,Math.ceil((y+h)*sh));
+   if(x1<=x0||y1<=y0)return;
+   const rw=x1-x0,rh=y1-y0,scale=Math.min((cw-12)/rw,(ch-12)/rh);
+   const dw=rw*scale,dh=rh*scale;
+   ctx.drawImage(source,x0,y0,rw,rh,(i%cols)*cw+(cw-dw)/2,Math.floor(i/cols)*ch+(ch-dh)/2,dw,dh);
+   sizes.push(rw+'×'+rh);
+  });
+  $('#'+(id==='face'?'face':'palm')+'-roi-info').textContent='RK 显示裁剪'+(sizes.length?' · '+sizes.join(' / '):' · 等待目标');
+ }
+ const faces=rows.filter(r=>r.kind==='face').slice(0,1),eyes=rows.filter(r=>r.kind==='eye0'||r.kind==='eye1').slice(0,2);
+ paint('face',[...faces,...eyes],faces.length+eyes.length>1?3:1);
+ const hands=rows.filter(r=>r.kind==='hand').slice(0,4);paint('palm',hands,hands.length>1?2:1);
+}
+let meshEmpty=false;
+function drawFaceMesh(rows){
+ const canvas=$('#mesh'),ctx=canvas.getContext('2d'),source=$('#model');
+ const faces=rows.filter(f=>[468,478].includes(f.points?.length));
+ if(!faces.length&&meshEmpty)return;meshEmpty=!faces.length;
+ if(canvas.width!==960||canvas.height!==720){canvas.width=960;canvas.height=720;}ctx.clearRect(0,0,960,720);
+ canvas.style.display=faces.length?'block':'none';$('#mesh-placeholder').style.display=faces.length?'none':'';
+ canvas.dataset.pointCount=faces.reduce((sum,f)=>sum+f.points.length,0);
+ $('#mesh-count').textContent=faces.length?faces.map(f=>f.points.length+' 点').join(' / '):'478 点 · 虹膜';
+ $('#mesh-age').textContent=faces.length?'底图偏差 '+n(Math.max(...faces.map(f=>Math.abs(f.offset_ms))))+' ms':'等待入镜';
+ faces.forEach((face,index)=>{
+  const pts=face.points,[sw,sh]=face.source_size,xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  const left=Math.min(...xs),top=Math.min(...ys),width=Math.max(1,Math.max(...xs)-left),height=Math.max(1,Math.max(...ys)-top);
+  const cell=960/faces.length,scale=Math.min((cell-50)/(width*1.3),650/(height*1.3)),ox=cell*index+cell/2-(left+width/2)*scale,oy=360-(top+height/2)*scale;
+  ctx.save();ctx.beginPath();ctx.rect(cell*index,0,cell,720);ctx.clip();
+  ctx.globalAlpha=.72;ctx.drawImage(source,ox,oy,sw*scale,sh*scale);ctx.globalAlpha=1;
+  for(const [start,end,radius,color] of [[0,Math.min(468,pts.length),1.6,'#82e2d0'],[468,pts.length,3.2,'#f2c979']]){if(start>=end)continue;ctx.beginPath();for(let i=start;i<end;i++){const p=pts[i],x=ox+p[0]*scale,y=oy+p[1]*scale;ctx.moveTo(x+radius,y);ctx.arc(x,y,radius,0,Math.PI*2);}ctx.fillStyle=color;ctx.fill();}
+  ctx.restore();
+ });
+}
+
+let lastMetrics=0;
+async function render(d){document.body.classList.remove('offline');$('#live').textContent='实时连接';lastFrame=performance.now();await Promise.all([showImage('#raw',d.raw_image,d.epoch+':'+d.raw_publication),showImage(['#model','#shared'],d.model_image,d.epoch+':'+d.publication_serial),]);drawRoiCards(d.boxes);drawBoxes(d.boxes);drawFaceMesh(d.faces||[]);
+const validFaces=d.faces||[],meshHz=meshDisplayRate.observe(validFaces.length?d.epoch+':'+validFaces.map(f=>f.track_id).join(','):null,validFaces.length?validFaces.map(f=>f.source_sequence).join(','):null,performance.now());
+const rawShown=rawDisplayRate.observe(d.raw_image?d.epoch:null,d.raw_image?d.raw_publication:null,performance.now());
+const modelShown=modelDisplayRate.observe(d.epoch,d.publication_serial,performance.now());
+if(performance.now()-lastMetrics>=200){lastMetrics=performance.now();renderFpga(d);
+$('#resize-backend').textContent='1080P → 960 × 540';$('#raw-rate').innerHTML=n(rawShown)+' <small>FPS · 显示</small>';$('#raw-rates').textContent='采集 '+n(d.telemetry?.fpga_counters?.model_source_frames_hz)+' · 接收 '+n(d.raw_hz)+' · 显示 '+n(rawShown);$('#hand-rate').innerHTML=n(d.metrics.hand?.measurements?.observed_hz)+' <small>FPS · 手部链路</small>';let inputHz;[inputCounter,inputHz]=counter(inputCounter,{counter_ns:d.publication_ns,instance:d.epoch,inference:{publications:d.publication_serial}},'publications');for(const el of document.querySelectorAll('.model-rate'))el.textContent=n(d.input_hz)+' 接收 / '+n(modelShown)+' 显示';$('#source').textContent='模型源 #'+d.sequence+' · 帧龄 '+n(d.age_ms)+' ms';$('#detections').textContent=d.boxes.length?d.boxes.map(r=>r.label).join(' / '):'等待入镜';$('#alignment').textContent=d.boxes.length?'推理与底图相差 ≤ '+n(Math.max(...d.boxes.map(r=>Math.abs(r.offset_ms))))+' ms':'等待目标入镜';
+let f,g;[faceCounter,f]=counter(faceCounter,d.metrics.gaze||{},'face_calls');[gazeCounter,g]=counter(gazeCounter,d.metrics.gaze||{},'gaze_npu_calls');$('#face-rate').textContent=n(f)+' FPS';$('#mesh-rate').innerHTML=n(meshHz)+' <small>FPS · 显示</small>';$('#gaze-rate').textContent=(d.metrics.gaze?.inference?.gaze_hz||0)>0?n(g)+' FPS':'休眠';$('#loads').textContent=n(d.telemetry.cpu_percent,0)+'% / '+n(d.telemetry.npu_percent?.['0'],0)+'% / '+n(d.telemetry.npu_percent?.['1'],0)+'%';const timing=d.metrics.hand?.measurements?.stages?.hand_total||{};$('#latency').textContent=n(timing.p50_ms)+' / '+n(timing.p95_ms)+' ms';$('#mipi').textContent=n(d.telemetry.display_packet_hz)+' Hz / '+n(d.telemetry.display_error_delta,0);$('#r-camera').textContent=d.raw_image?'1080P 独立预览 · 实时':'1080P 预览等待 / 过期';$('#r-camera').className=d.raw_image?'ok':'pending';$('#r-planes').textContent='640×360 / 128² / 192² · 实时';$('#r-planes').className='ok';$('#r-link').textContent=d.telemetry.online?'PCIe 收帧 · MIPI 提交可观测':'等待连接';$('#r-link').className=d.telemetry.online?'ok':'pending';$('#r-model').textContent=d.metrics.hand?'手部在线 · 眼动按需':'等待模型服务';$('#r-model').className=d.metrics.hand?'ok':'pending';$('#notice').textContent='帧处理 '+n(d.encode_ms)+' ms';}
+const presented=d.epoch+':'+d.publication_serial;if(presented!==lastPresented){pageCount++;lastPresented=presented;}if(performance.now()-lastPage>1000){pageFps=pageCount*1000/(performance.now()-lastPage);lastPage=performance.now();pageCount=0;}$('#page-rate').textContent='模型画面 '+n(pageFps)+' FPS';}
+let streamController=null,streamTimer=null,streamGeneration=0,calibrating=false;
+function offline(message){
+ document.body.classList.add('offline');$('#live').textContent='图像暂不可用';$('#notice').textContent=message;$('#boxes').replaceChildren();drawRoiCards([]);drawFaceMesh([]);
+ meshDisplayRate.reset();rawDisplayRate.reset();modelDisplayRate.reset();$('#raw-rates').textContent='采集 — · 接收 — · 显示 —';faceCounter=gazeCounter=inputCounter=null;lastPresented='';pageCount=0;pageFps=0;lastPage=performance.now();
+ for(const el of document.querySelectorAll('.rate'))el.textContent='—';
+ for(const id of ['face-rate','gaze-rate','loads','latency','mipi'])$('#'+id).textContent='—';
+ $('#page-rate').textContent='模型画面 —';$('#source').textContent='等待源帧';$('#detections').textContent='等待入镜';$('#alignment').textContent='等待新推理';
+ for(const id of ['r-camera','r-planes','r-link','r-model']){$('#'+id).textContent='等待实时数据';$('#'+id).className='pending';}
+}
+async function stream(){
+ if(!token||document.hidden||calibrating||streamController)return;
+ const controller=new AbortController(),generation=++streamGeneration;streamController=controller;
+ let watchdog=null,queue=null,reader=null;
+ const resetWatchdog=()=>{clearTimeout(watchdog);watchdog=setTimeout(()=>controller.abort(),4000);};
+ try{
+  resetWatchdog();const r=await fetch('/api/basic/stream',{headers:{Authorization:'Bearer '+token},signal:controller.signal});
+  if(!r.ok){if(r.status===403){token='';$('#authbox').style.display='grid';}const error=await r.json();throw Error(error.error||'图像暂未就绪');}
+  sessionStorage.setItem('hmi.console.auth',token);reader=r.body.getReader();
+  queue=new LatestPreview(async packet=>{if(document.hidden||generation!==streamGeneration)return;const started=performance.now();await render(unpack(packet));document.body.dataset.renderMs=(performance.now()-started).toFixed(1);document.body.dataset.dropped=queue.dropped;if(document.hidden)offline('已暂停');},e=>{offline(e.message);controller.abort();});
+  const parser=new PreviewFrames(packet=>{resetWatchdog();queue.offer(packet);});
+  for(;;){const {value,done}=await reader.read();if(done){parser.finish();break;}parser.feed(value);}
+ }catch(e){if(!document.hidden)offline(e.name==='AbortError'?'正在重新连接':e.message);}
+ finally{clearTimeout(watchdog);queue?.close();if(reader){try{await reader.cancel();}catch(e){}reader.releaseLock();}if(streamController===controller)streamController=null;clearTimeout(streamTimer);if(!document.hidden)streamTimer=setTimeout(stream,200);}
+}
+$('#connect').onclick=()=>{token=$('#token').value.trim();if(token){sessionStorage.setItem('hmi.console.auth',token);$('#authbox').style.display='none';stream();}};
+for(const b of document.querySelectorAll('[data-cmd]'))b.onclick=async()=>{try{const r=await fetch('/api/command',{method:'POST',signal:AbortSignal.timeout(6000),headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({command:b.dataset.cmd})});const d=await r.json();if(!r.ok)throw Error(d.error);$('#notice').textContent='已提交切换，等待应用回执';}catch(e){$('#notice').textContent=e.message;}};
+let phasePolling=false;
+async function phasePoll(){if(phasePolling||document.hidden)return;phasePolling=true;try{const r=await fetch('/api/state',{signal:AbortSignal.timeout(2000)}),s=await r.json();const next=s.hmi_fresh&&s.hmi?.state==='CALIBRATING';if(next!==calibrating){calibrating=next;if(next){streamGeneration++;streamController?.abort();offline('标定中');}else stream();}}catch{}finally{phasePolling=false}}
+phasePoll();setInterval(phasePoll,250);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){streamGeneration++;streamController?.abort();offline('已暂停');}else{stream();}});stream();
+</script></html>

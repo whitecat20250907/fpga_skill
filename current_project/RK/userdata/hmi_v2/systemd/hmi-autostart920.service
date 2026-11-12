@@ -1,0 +1,22 @@
+[Unit]
+Description=Standalone HMI startup and medical presentation
+After=local-fs.target display-manager.service
+Wants=display-manager.service
+RequiresMountsFor=/userdata /home/linaro
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+WorkingDirectory=/userdata/hmi_v2
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/linaro/.Xauthority
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -B /userdata/hmi_v2/tools/autostart920.py
+RemainAfterExit=yes
+TimeoutStartSec=300
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical.target

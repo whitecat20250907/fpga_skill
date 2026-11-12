@@ -1,0 +1,12 @@
+{
+  "face_core": 1,
+  "face_roi_cores": [],
+  "gaze_core": 2,
+  "gaze_cores": [],
+  "hand_roi_cores": [0, 0],
+  "hand_detector_core": 0,
+  "hand_target_fps": 0,
+  "shared_preview_fps": 0,
+  "meaning": "Mask 1 = NPU Core0 face; mask 2 = NPU Core1 gaze; two independent hand owners use AUTO mask 0. No software inference/shared-frame rate cap. UI redraw remains independent.",
+  "selection": "Balanced measured eye/hand latency and throughput; not a claim of a universal optimum. Parallel gaze/face and graph-split alternatives remain in tests."
+}

@@ -1,0 +1,48 @@
+{
+  "name": "gesture_embedder",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 0.00042513012886047363,
+        "normalized_max": 0.00042513012886047363,
+        "rmse": 0.00012099983723601326,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.0012308210134506226,
+        "normalized_max": 0.0006032667949756178,
+        "rmse": 0.0001834454742493108,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.0012845993041992188,
+        "normalized_max": 0.0009151990303102776,
+        "rmse": 0.0002128729538526386,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.0008494853973388672,
+        "normalized_max": 0.0003995503236604327,
+        "rmse": 0.00010264539741910994,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "37962e13b0fdaa8e8d6be40b30e17d48938b30f0bad81f5ef257819ee692984b",
+  "latency_ms": {
+    "median": 0.6675515323877335,
+    "p95": 0.7696492772083728,
+    "min": 0.554132042452693
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

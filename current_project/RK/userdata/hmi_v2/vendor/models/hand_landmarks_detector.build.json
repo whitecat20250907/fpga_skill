@@ -1,0 +1,10 @@
+{
+  "name": "hand_landmarks_detector",
+  "source_sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+  "rknn_sha256": "3cc5083272bc5a4c0079e1cea72cf61724e87726a9c3a5f7c74fbcb98c1f0f5e",
+  "bytes": 6026381,
+  "seconds": 18.575030543957837,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

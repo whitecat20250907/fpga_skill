@@ -137,3 +137,28 @@
 - 区分“图像经 FPGA 回传”与“FPGA 向屏幕显示”。FIFO 回传能证明双向传输，不证明 FPGA 显示端色彩或画面输出；涉及显示时另验对应 DSI/HDMI 输出。
 - BAR RAM 写读只是辅助检查。厂商 `axil_anal.v` 对地址低字节 0x28 有 IRQ 状态别名，RAM 测试须排除此地址，不能把预期特殊寄存器读值误报为 PCIe 数据错误。
 - 检查 PCIe endpoint/root-port AER、速度/宽度、连续传输及重新枚举。交付列出测试位流哈希、boot 哈希、驱动版本、图像比对结果、测试范围和未验证项；不写“所有问题不存在”。
+
+
+## 2026-10-10 当前35/SGDMA36：8/13及新增根因
+
+当前完整证据见`projects/pcie_imx415_elastic_loop35_20261009/evidence/issues1_to8_acceptance36.json`和原任务`reports/current_status_20261010.md`。FPGA35使用160bit payload/KEEP/USER+TLAST的真实AXIS弹性环路FIFO，256词；40k拍元数据、满缓存与指针绕回数字通过，原34错位失败保留。SGDMA35在两个同步成功路径也等待真实RUN/BUSY空闲再释放描述符/SG映射，不能把STOP posted-read当成BUSY清零。
+
+该正确等待暴露了另一缺陷：信用模式环容量1023描述符，1080全帧需6描述符；旧transfer_init按环尾剩余槽截断，导致一次AXI-ST packet在环尾分成两段并在中间STOP，35/SGDMA35长测交付10000但内核拒收47。独立SGDMA36先在真实硬件及软件空闲时选择足够连续的环首，整个拟合请求一条链，超过容量未提交请求返回EMSGSIZE，忙碌不能复用环头。保留成功释放等待，不用减小等待/丢弃短包/放松检测掩盖缺陷。当前1080观察58次真实绕回，10000帧rejected0/error0；720亦10000/0/0。生产selector头文件由原生严格GCC穷举及10000请求测试直接使用，未写替代模型。
+
+当前九色3780采集、13画面10000、同屏九ROI1000/180000行和两档全图30k采集独立复核；167双向整帧969753600B及真实SIGTERM/12s连续kmsg通过。16B实际故障注入仅在独占负测会话，通过私有环路给视频DMA送出一个TLAST；内核拒收1、用户交付0，再STOP/重启恢复。忙碌格式EBUSY、未STREAMOFF活跃close、卸载重载/32整帧恢复及连续232条kmsg通过。负测中的人为拒收不能并入普通相机零拒收记录，也不认证未支持AIO/cyclic/hot unbind。
+
+大文件归档在RK native gzip/tar通过固定主机键SSH流传输，避免板端低磁盘再建大tgz；两端压缩流SHA/尺寸及每个安全提取文件SHA都正确才移走精确列出的native冗余RGB/统计，完整本机两份和板端元数据/内核/CSI/XWD保留。历史dmesg前缀可能滚动：取消静默用read-only/dev/kmsg连续序号，EPIPE/gap失败；普通颜色本轮18条累计STOP和精确1024行pre尾部重合证明测试区间未丢，原严格历史prefix失败原样留存，不能把失去测试区间也当通过。
+
+当前35 setup+.194/hold+.020、四lane PAD正余量、244属性并不替代MTBF。新同build只读report_mtbf最小入口仍在原生TD报0xC0000005，原DB/bit/TS哈希不变；日志/dump与未验证边界保留。剩余USB0实物、六例程、最终交付及BAR AXI-Lite继续，不宣布全13完成。
+
+## 2026-10-10 当前37/SGDMA36：9/13及BAR契约
+
+当前组合为FPGA37/0x56442501、原SGDMA36与V4L2_37，正式记录`projects/pcie_imx415_bar_contract37_20261010/evidence/issues1_to8_and13_acceptance37.json`；已验收第1–8及13项，剩余9–12。35原验收和所有失败不覆盖。37完整317依赖按`build37_sources_v2.json`冻结，仅6文件变化，311不变；220个原CSI/ISP/裁切/打包/约束依赖逐SHA相同，只复用全裁切数字证明，所有物理图像重新采集。
+
+继承AXI-Lite必须独立保存AW/W并在实际成对提交时通知应用，不能以地址/数据总线上相邻周期的值或wr_hit上升沿执行命令。所有WSTRB位只更新对应字节，命令须检查byte0；高BAR地址不能用低位混叠成视频控制。八应用bank共512字采用完整索引，IRQ/legacy命令特殊地址保留。B/R保持到ready，RDATA包含视频读mux的实际AR时快照；仅修厂商AXI-Lite、仍让顶层live ARADDR或计数器追踪响应，会留下背压错误。读通道不应被BVALID背压全程阻塞。
+
+37实际明文模块与逐字生产写/读slice自检覆盖512字/16WSTRB/AW-W错峰/B-R背压/IRQ/高位地址/reset及112响应14224停顿周期，旧35实际源码RDATA停顿变化复现并保留。板上用原生对齐32bit和实际CPU字节MMIO验证gain恰好一次、upper byte无命令、15个高BAR页不混叠及1000组读取。CPU即时读取不等于物理强制RREADY；后者和零WSTRB只属于RTL自检范围，不编加密PCIe/PHY替代模型。
+
+完整TD37 setup+.148/hold+.019/TNS0/覆盖99.97%，244属性、四lane PAD正余量，SRAM版本与bit SHA读回。新720/1080各10000帧、九色3780、13画面10000、同屏九ROI1000、暂停400、启停20轮160、167双向整帧及真实SIGTERM/12s、8负测和16B故障/忙碌格式/活跃关闭/模块重载32帧恢复全部新采集独立复核，8组完整归档两端SHA和每文件SHA正确。颜色日志本轮用持续读取/dev/kmsg序号，400条原始记录及18条STOP逐条验证，无历史prefix滚动豁免。
+
+当前bit SHA391fe012ea487c18e450bf3ba4f6c23cbb7752dbce2d3747be39b521236c3b0a，SGDMA SHA0eae16450705a87f58e055875a8878b3d8a0a01c9adae9535dc3d9f2147a8ef2，V4L2 SHA1e8cfa968ecd51acd3df7c1fec4a0c6e8b8ae409d6d216edcca9f224e903cebb。新同build MTBF仍崩溃0xC0000005，输入前后SHA相同，不是PASS。USB0当前okay/otg、Type-C device/sink、无外接枚举，尚无实物共存证明。06完整新TD生成诊断bit但setup−4.845ns，来自DDR MCU GPIO→FDMA复位，原IP mcu_clk约束空匹配与加载顺序继续检查；不下载失败bit，不用屏蔽整组相关PLL时序来补签核。

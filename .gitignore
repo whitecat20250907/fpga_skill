@@ -37,3 +37,6 @@ license/
 **/direct_build_*/*.db
 **/direct_build_*/*.bit
 **/direct_build_*/*.al
+
+/local_archive/
+/cleanup_*.json

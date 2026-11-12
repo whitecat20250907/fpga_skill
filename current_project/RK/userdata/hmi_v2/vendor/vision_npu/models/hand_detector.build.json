@@ -1,0 +1,10 @@
+{
+  "name": "hand_detector",
+  "source_sha256": "60d1bf8d70a80aba35b36290bb2a0e52e784ca2e524937d49ea80e8161a8a384",
+  "rknn_sha256": "33cc88d65a791c9823a9a0d6e0437b4b8fa670b7393f1027c04f5054ab3c0b53",
+  "bytes": 4611096,
+  "seconds": 42.42083973297849,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

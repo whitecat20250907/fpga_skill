@@ -1,0 +1,45 @@
+{
+  "inputs": [
+    {
+      "name": "t0_nchw",
+      "source_name": "input_12",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "format": "nhwc"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t473",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        1,
+        1,
+        1434
+      ]
+    },
+    {
+      "name": "t472",
+      "source_name": "Identity_1",
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "t475",
+      "source_name": "Identity_2",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  ]
+}

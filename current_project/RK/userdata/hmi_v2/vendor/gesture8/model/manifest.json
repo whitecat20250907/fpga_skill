@@ -1,0 +1,21 @@
+{
+  "classes": [
+    "0",
+    "L",
+    "L_rev",
+    "L_up",
+    "L_rev_up",
+    "M",
+    "W",
+    "Z"
+  ],
+  "source_sha256": "208d3064346e6c10154851ff12b6e026c076070baa7e25f5355d9c2feaf217ee",
+  "rknn_sha256": "9db629bcc77a70f5e789703cb3526161f56d146b450246f25c405fb4c6ae2ddc",
+  "onnx_sha256": "8a648a477f68d654423efbd78cb4f490b1e1beb32fc34332a75e3fd049fbc9f4",
+  "parameters": 7912,
+  "torch_onnx_max_abs": 4.291534423828125e-06,
+  "test_vectors": 26,
+  "input": "float32 NHWC 1x28x28x1, /255 exactly once; no mean/std",
+  "synthetic_vectors": true,
+  "human_accuracy_tested": false
+}

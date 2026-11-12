@@ -1,0 +1,747 @@
+{
+  "scenario_requested": "empty",
+  "duration_s": 120.00305334999939,
+  "boot_id": "a0eb23d3-bbf5-46b9-ba46-fb99b491a9d9",
+  "cpu_npu_percent": {
+    "cpu": {
+      "mean": 53.38229441364112,
+      "p95": 56.8039950062422,
+      "peak": 58.312655086848636,
+      "samples": 119
+    },
+    "cpu0": {
+      "mean": 54.4514316440405,
+      "p95": 60.824742268041234,
+      "peak": 61.61616161616162,
+      "samples": 119
+    },
+    "cpu1": {
+      "mean": 54.16232216462935,
+      "p95": 60.60606060606061,
+      "peak": 63.0,
+      "samples": 119
+    },
+    "cpu2": {
+      "mean": 77.55521644972802,
+      "p95": 81.0,
+      "peak": 82.47422680412372,
+      "samples": 119
+    },
+    "cpu3": {
+      "mean": 99.1572056290388,
+      "p95": 100.0,
+      "peak": 100.0,
+      "samples": 119
+    },
+    "cpu4": {
+      "mean": 33.17867991978721,
+      "p95": 39.795918367346935,
+      "peak": 43.56435643564357,
+      "samples": 119
+    },
+    "cpu5": {
+      "mean": 42.49246658624549,
+      "p95": 48.51485148514851,
+      "peak": 50.48543689320388,
+      "samples": 119
+    },
+    "cpu6": {
+      "mean": 32.303304347728286,
+      "p95": 39.0,
+      "peak": 45.63106796116505,
+      "samples": 119
+    },
+    "cpu7": {
+      "mean": 32.14009049436073,
+      "p95": 39.603960396039604,
+      "peak": 45.54455445544554,
+      "samples": 119
+    },
+    "npu0": {
+      "mean": 12.92436974789916,
+      "p95": 14.0,
+      "peak": 14.0,
+      "samples": 119
+    },
+    "npu1": {
+      "mean": 0.18487394957983194,
+      "p95": 1.0,
+      "peak": 2.0,
+      "samples": 119
+    }
+  },
+  "processes": {
+    "105101": {
+      "name": "core.io_service",
+      "start": 1609806,
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 8.542057033733135,
+        "p95": 9.950232687319929,
+        "peak": 9.992046221280246,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 19919398.722689077,
+        "p95": 19922944,
+        "peak": 19922944,
+        "samples": 119
+      }
+    },
+    "105104": {
+      "name": "fpga_io",
+      "start": 1609827,
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 11.869079096589456,
+        "p95": 13.915279312753633,
+        "peak": 14.811046635871085,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 15069184.0,
+        "p95": 15069184,
+        "peak": 15069184,
+        "samples": 119
+      }
+    },
+    "105111": {
+      "name": "vision.gaze_app",
+      "start": 1609908,
+      "affinity": [
+        5
+      ],
+      "cpu_percent_one_core": {
+        "mean": 32.51160283825989,
+        "p95": 35.59460359149416,
+        "peak": 37.80118154820939,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 235776499.09243697,
+        "p95": 242995200,
+        "peak": 242995200,
+        "samples": 119
+      }
+    },
+    "105113": {
+      "name": "vision.hand_service",
+      "start": 1609911,
+      "affinity": [
+        6
+      ],
+      "cpu_percent_one_core": {
+        "mean": 13.787442814355568,
+        "p95": 14.97873196811023,
+        "peak": 15.958897890376656,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 207257186.9579832,
+        "p95": 208977920,
+        "peak": 208977920,
+        "samples": 119
+      }
+    },
+    "105117": {
+      "name": "ui.mipi_composer",
+      "start": 1609915,
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 4.295644848960899,
+        "p95": 5.972842357827423,
+        "peak": 6.982017827039788,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 21184856.20168067,
+        "p95": 21209088,
+        "peak": 21209088,
+        "samples": 119
+      }
+    },
+    "105119": {
+      "name": "ui.hdmi_hud",
+      "start": 1609917,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 4.311913379442474,
+        "p95": 4.99843019302185,
+        "peak": 5.9918500892353705,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 59246092.90756302,
+        "p95": 60252160,
+        "peak": 60252160,
+        "samples": 119
+      }
+    },
+    "105123": {
+      "name": "console.server",
+      "start": 1609922,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 12.036725545663792,
+        "p95": 13.814654976968542,
+        "peak": 15.914378083677674,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 27309099.025210083,
+        "p95": 27357184,
+        "peak": 27357184,
+        "samples": 119
+      }
+    },
+    "120372": {
+      "name": "core.interaction.run",
+      "start": 1734406,
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 10.301441329030201,
+        "p95": 12.957946139055972,
+        "peak": 13.99004720059806,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 24821381.37815126,
+        "p95": 24866816,
+        "peak": 24866816,
+        "samples": 119
+      }
+    },
+    "120373": {
+      "name": "adapters.run",
+      "start": 1734408,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 16.956737261720857,
+        "p95": 18.745494927264698,
+        "peak": 19.73522139566935,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 28988183.663865548,
+        "p95": 29036544,
+        "peak": 29036544,
+        "samples": 119
+      }
+    },
+    "120728": {
+      "name": "chromium-bin",
+      "start": 1736570,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 2.568412847630614,
+        "p95": 3.9869725631602533,
+        "peak": 5.876348896908767,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 196061751.9327731,
+        "p95": 198078464,
+        "peak": 198688768,
+        "samples": 119
+      }
+    },
+    "120733": {
+      "name": "cat",
+      "start": 1736573,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 811008.0,
+        "p95": 811008,
+        "peak": 811008,
+        "samples": 119
+      }
+    },
+    "120734": {
+      "name": "cat",
+      "start": 1736573,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 806912.0,
+        "p95": 806912,
+        "peak": 806912,
+        "samples": 119
+      }
+    },
+    "120741": {
+      "name": "chrome_crashpad",
+      "start": 1736609,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 3272325.3781512603,
+        "p95": 3272704,
+        "peak": 3272704,
+        "samples": 119
+      }
+    },
+    "120743": {
+      "name": "chrome_crashpad",
+      "start": 1736611,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 1678981.3781512605,
+        "p95": 1679360,
+        "peak": 1679360,
+        "samples": 119
+      }
+    },
+    "120746": {
+      "name": "chromium-bin",
+      "start": 1736613,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 68718282.2184874,
+        "p95": 68780032,
+        "peak": 68780032,
+        "samples": 119
+      }
+    },
+    "120747": {
+      "name": "chromium-bin",
+      "start": 1736613,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 68992714.2184874,
+        "p95": 69054464,
+        "peak": 69054464,
+        "samples": 119
+      }
+    },
+    "120777": {
+      "name": "chromium-bin",
+      "start": 1736713,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 26.331776108519485,
+        "p95": 29.87136824268289,
+        "peak": 31.753122772787975,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 153010726.72268906,
+        "p95": 153321472,
+        "peak": 153825280,
+        "samples": 119
+      }
+    },
+    "120784": {
+      "name": "chromium-bin",
+      "start": 1736718,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 5.738924706739264,
+        "p95": 6.977355613337831,
+        "peak": 7.909911909220925,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 91451082.2184874,
+        "p95": 91586560,
+        "peak": 91693056,
+        "samples": 119
+      }
+    },
+    "120798": {
+      "name": "chromium-bin",
+      "start": 1736744,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.008278711655855236,
+        "p95": 0.0,
+        "peak": 0.9851666870467731,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 40552327.52941176,
+        "p95": 40566784,
+        "peak": 40566784,
+        "samples": 119
+      }
+    },
+    "120842": {
+      "name": "chromium-bin",
+      "start": 1736815,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 56145248.806722686,
+        "p95": 56152064,
+        "peak": 56152064,
+        "samples": 119
+      }
+    },
+    "120843": {
+      "name": "chromium-bin",
+      "start": 1736817,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 28.801238915832343,
+        "p95": 33.782141771634414,
+        "peak": 35.91251875627667,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 125425818.89075631,
+        "p95": 129687552,
+        "peak": 133337088,
+        "samples": 119
+      }
+    },
+    "122131": {
+      "name": "bash",
+      "start": 1742680,
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 119
+      },
+      "rss_bytes": {
+        "mean": 3084288.0,
+        "p95": 3084288,
+        "peak": 3084288,
+        "samples": 119
+      }
+    }
+  },
+  "online_cpu_count": 8,
+  "temperature_celsius": {
+    "little-core-thermal": {
+      "mean": 55.352411764705906,
+      "p95": 55.461,
+      "peak": 55.461,
+      "samples": 119
+    },
+    "soc-thermal": {
+      "mean": 52.38174789915966,
+      "p95": 52.692,
+      "peak": 52.692,
+      "samples": 119
+    },
+    "gpu-thermal": {
+      "mean": 55.07318487394962,
+      "p95": 55.461,
+      "peak": 55.461,
+      "samples": 119
+    },
+    "ddr-thermal": {
+      "mean": 53.70031932773093,
+      "p95": 54.538,
+      "peak": 54.538,
+      "samples": 119
+    },
+    "bigcore-thermal": {
+      "mean": 53.96403361344516,
+      "p95": 54.538,
+      "peak": 54.538,
+      "samples": 119
+    },
+    "npu-thermal": {
+      "mean": 52.567764705882354,
+      "p95": 52.692,
+      "peak": 52.692,
+      "samples": 119
+    }
+  },
+  "cpu_frequency_mhz": {
+    "policy4": {
+      "mean": 2053.714285714286,
+      "p95": 2112.0,
+      "peak": 2112.0,
+      "samples": 119
+    },
+    "policy0": {
+      "mean": 1920.0,
+      "p95": 1920.0,
+      "peak": 1920.0,
+      "samples": 119
+    }
+  },
+  "rate_hz": {
+    "frame.meta": 37.39904839679667,
+    "vision.face": 9.908081226334946,
+    "vision.gaze": 9.908081226334946,
+    "vision.hands": 11.541373001239615,
+    "hmi.state": 43.68222185739932,
+    "sys.metrics.engine": 1.9499503843249602,
+    "sys.metrics.hand": 1.933284141723892,
+    "sys.metrics.gaze": 1.9582835056254941,
+    "sys.metrics.ui": 1.974949748226562,
+    "sys.metrics.hud": 1.9499503843249602,
+    "sys.metrics.console": 1.9499503843249602,
+    "sys.metrics.adapters": 1.974949748226562,
+    "sys.metrics.fpga-io": 1.90828477782229
+  },
+  "ring_publish_rate_hz": 40.7547221501971,
+  "rate_semantics": "rate_hz is subscriber-observed, possibly conflated. ring_publish_rate_hz uses monotonic ring serial delta; producer metrics use producer observations.",
+  "age_ms": {
+    "frame.meta": {
+      "mean": 4.070160059714796,
+      "p95": 7.151041,
+      "peak": 64.078074,
+      "samples": 4488
+    },
+    "vision.face": {
+      "mean": 42.295945133725795,
+      "p95": 88.473103,
+      "peak": 145.946928,
+      "samples": 1189
+    },
+    "vision.gaze": {
+      "mean": 41.396531654331355,
+      "p95": 84.805437,
+      "peak": 138.581811,
+      "samples": 1189
+    },
+    "vision.hands": {
+      "mean": 38.494878731407915,
+      "p95": 65.843374,
+      "peak": 132.157908,
+      "samples": 1385
+    },
+    "hmi.state": {
+      "mean": 1.8447357441816088,
+      "p95": 2.890594,
+      "peak": 77.921618,
+      "samples": 5242
+    },
+    "sys.metrics.engine": {
+      "mean": 9.998660602564103,
+      "p95": 58.113178,
+      "peak": 102.58442,
+      "samples": 234
+    },
+    "sys.metrics.hand": {
+      "mean": 8.00389808189655,
+      "p95": 32.961654,
+      "peak": 100.611109,
+      "samples": 232
+    },
+    "sys.metrics.gaze": {
+      "mean": 8.875238140425534,
+      "p95": 51.934511,
+      "peak": 99.427224,
+      "samples": 235
+    },
+    "sys.metrics.ui": {
+      "mean": 13.37558688607595,
+      "p95": 74.013248,
+      "peak": 99.0646,
+      "samples": 237
+    },
+    "sys.metrics.hud": {
+      "mean": 10.450962346153847,
+      "p95": 45.4579,
+      "peak": 98.645872,
+      "samples": 234
+    },
+    "sys.metrics.console": {
+      "mean": 10.451852452991455,
+      "p95": 36.883312,
+      "peak": 88.086415,
+      "samples": 234
+    },
+    "sys.metrics.adapters": {
+      "mean": 11.058367611814345,
+      "p95": 66.17976,
+      "peak": 96.335081,
+      "samples": 237
+    },
+    "sys.metrics.fpga-io": {
+      "mean": 4.811343978165934,
+      "p95": 8.543788,
+      "peak": 15.534441,
+      "samples": 229
+    }
+  },
+  "face_count_histogram": {
+    "0": 1189
+  },
+  "hand_count_histogram": {
+    "0": 1385
+  },
+  "state_histogram": {
+    "STANDBY": 5242
+  },
+  "epochs": [
+    485792109730829884
+  ],
+  "scenario_coverage": true,
+  "quality": {
+    "stable": true,
+    "scenario_coverage": true,
+    "time_windows": 1069,
+    "healthy_window_fraction": 1.0,
+    "scenario_window_fraction": 1.0,
+    "max_message_gap_ms": {
+      "frame.meta": 135.789668,
+      "vision.face": 213.474143,
+      "vision.gaze": 213.702128,
+      "vision.hands": 187.114048,
+      "hmi.state": 155.579355,
+      "sys.metrics.fpga-io": 1010.55621,
+      "sys.metrics.gaze": 618.785224,
+      "sys.metrics.hand": 612.901383,
+      "sys.metrics.engine": 626.194156,
+      "sys.metrics.ui": 616.924083,
+      "sys.metrics.hud": 609.439987,
+      "sys.metrics.adapters": 597.523781,
+      "sys.metrics.console": 596.714269
+    },
+    "errors": {},
+    "ring_regressed": false,
+    "ring_publish_rate_hz": 40.7547221501971,
+    "thresholds": {
+      "warmup_ms": 1000,
+      "sample_interval_ms": 100,
+      "data_age_ms": 350,
+      "heartbeat_age_ms": 2000,
+      "max_gap_ms": 2000,
+      "healthy_fraction": 0.95,
+      "scenario_fraction": 0.8
+    }
+  },
+  "measurement_complete": true,
+  "missing_loads": [],
+  "stable": true,
+  "denominators": "cpu=all online cores normalized to 100%; cpuN=one CPU core; npu0/1=driver per-core busy%; process CPU=one core 100%, may exceed 100%; no combined FPGA/CPU percentage",
+  "limits": "NPU busy is not attribution to individual models; valid calibrated gaze is separate from inference calls. Human accuracy/false actions require separate trials."
+}

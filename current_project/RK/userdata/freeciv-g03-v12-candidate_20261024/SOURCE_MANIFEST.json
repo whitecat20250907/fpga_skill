@@ -1,0 +1,12 @@
+{
+  "upstream": "https://files.freeciv.org/stable/freeciv-3.2.6.zip",
+  "sha256": "67515a9c981e362fed805ff67e60adebc583509911da7aad9535a15afb88dba1",
+  "modified_client_files": [
+    "client/gui-gtk-3.22/demo_control.h",
+    "client/gui-gtk-3.22/demo_control.inc",
+    "client/gui-gtk-3.22/gui_main.c",
+    "client/gui-gtk-3.22/mapctrl.c",
+    "client/gui-gtk-3.22/mapview.c"
+  ],
+  "license": "GPL-2.0-or-later"
+}

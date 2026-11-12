@@ -1,0 +1,629 @@
+{
+  "pages": [
+    {
+      "key": "heart",
+      "title": "心脏",
+      "subtitle": "腔室与瓣膜",
+      "description": "选择结构查看独立网格 · 手势旋转与缩放 · 再次选择恢复整体",
+      "yaw": -0.32,
+      "parts": [
+        {
+          "key": "left_ventricle",
+          "label": "左心室",
+          "match": "left_ventricle",
+          "rect": [
+            0.035,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "左侧心室 · 查看立体结构",
+          "code": "01"
+        },
+        {
+          "key": "right_ventricle",
+          "label": "右心室",
+          "match": "right_ventricle",
+          "rect": [
+            0.845,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "右侧心室 · 查看立体结构",
+          "code": "02"
+        },
+        {
+          "key": "left_atrium",
+          "label": "左心房",
+          "match": "left_cardiac_atrium",
+          "rect": [
+            0.065,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "左侧心房 · 查看空间关系",
+          "code": "03"
+        },
+        {
+          "key": "right_atrium",
+          "label": "右心房",
+          "match": "right_cardiac_atrium",
+          "rect": [
+            0.815,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "右侧心房 · 查看空间关系",
+          "code": "04"
+        },
+        {
+          "key": "mitral",
+          "label": "二尖瓣",
+          "match": "mitral_valve",
+          "rect": [
+            0.035,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "瓣膜结构 · 局部展开",
+          "code": "05"
+        },
+        {
+          "key": "aortic",
+          "label": "主动脉瓣",
+          "match": "aortic_valve",
+          "rect": [
+            0.845,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "瓣膜结构 · 局部展开",
+          "code": "06"
+        },
+        {
+          "key": "septum",
+          "label": "室间隔",
+          "match": "interventricular_septum",
+          "caption": "腔室分界 · 查看间隔",
+          "rect": [
+            0.065,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "07"
+        },
+        {
+          "key": "tricuspid",
+          "label": "三尖瓣",
+          "match": "tricuspid_valve",
+          "caption": "右侧房室瓣 · 局部结构",
+          "rect": [
+            0.815,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "08"
+        }
+      ],
+      "model": "heart.glb"
+    },
+    {
+      "key": "brain",
+      "title": "脑",
+      "subtitle": "半球与深部结构",
+      "description": "选择结构查看独立网格 · 手势旋转与缩放 · 再次选择恢复整体",
+      "yaw": 0.32,
+      "parts": [
+        {
+          "key": "left",
+          "label": "左侧半球",
+          "match": "__left__",
+          "rect": [
+            0.035,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "半球结构 · 局部观察",
+          "code": "01"
+        },
+        {
+          "key": "right",
+          "label": "右侧半球",
+          "match": "__right__",
+          "rect": [
+            0.845,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "半球结构 · 局部观察",
+          "code": "02"
+        },
+        {
+          "key": "cerebellum",
+          "label": "小脑",
+          "match": "cerebell",
+          "rect": [
+            0.065,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "后下方结构 · 局部观察",
+          "code": "03"
+        },
+        {
+          "key": "stem",
+          "label": "脑干",
+          "match": "__stem__",
+          "rect": [
+            0.815,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "深部结构 · 局部观察",
+          "code": "04"
+        },
+        {
+          "key": "thalamus",
+          "label": "丘脑",
+          "match": "thalamus",
+          "rect": [
+            0.035,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "深部结构 · 局部观察",
+          "code": "05"
+        },
+        {
+          "key": "hippocampus",
+          "label": "海马",
+          "match": "hippocamp",
+          "rect": [
+            0.845,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "深部结构 · 局部观察",
+          "code": "06"
+        },
+        {
+          "key": "caudate",
+          "label": "尾状核",
+          "match": "caudate",
+          "caption": "深部结构 · 双侧对照",
+          "rect": [
+            0.065,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "07"
+        },
+        {
+          "key": "optic_chiasm",
+          "label": "视交叉",
+          "match": "optic_chiasm",
+          "caption": "独立结构 · 局部观察",
+          "rect": [
+            0.815,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "08"
+        }
+      ],
+      "model": "brain.glb"
+    },
+    {
+      "key": "kidney",
+      "title": "肾脏",
+      "subtitle": "皮质与髓质",
+      "description": "选择结构查看独立网格 · 手势旋转与缩放 · 再次选择恢复整体",
+      "yaw": 0.55,
+      "parts": [
+        {
+          "key": "capsule",
+          "label": "肾被膜",
+          "match": "kidney_capsule",
+          "rect": [
+            0.035,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "表层结构 · 局部观察",
+          "code": "01"
+        },
+        {
+          "key": "cortex",
+          "label": "外层皮质",
+          "match": "outer_cortex",
+          "rect": [
+            0.845,
+            0.22,
+            0.12,
+            0.044
+          ],
+          "caption": "皮质结构 · 局部观察",
+          "code": "02"
+        },
+        {
+          "key": "pyramid",
+          "label": "肾锥体",
+          "match": "renal_pyramid",
+          "rect": [
+            0.065,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "髓质结构 · 局部观察",
+          "code": "03"
+        },
+        {
+          "key": "papilla",
+          "label": "肾乳头",
+          "match": "renal_papilla",
+          "rect": [
+            0.815,
+            0.42,
+            0.12,
+            0.044
+          ],
+          "caption": "锥体末端 · 局部观察",
+          "code": "04"
+        },
+        {
+          "key": "column",
+          "label": "肾柱",
+          "match": "renal_column",
+          "rect": [
+            0.035,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "内部结构 · 局部观察",
+          "code": "05"
+        },
+        {
+          "key": "hilum",
+          "label": "肾门",
+          "match": "hilum",
+          "rect": [
+            0.845,
+            0.62,
+            0.12,
+            0.044
+          ],
+          "caption": "肾门区域 · 局部观察",
+          "code": "06"
+        },
+        {
+          "key": "pyramid_a",
+          "label": "肾锥体 A",
+          "match": "renal_pyramid_l_a",
+          "caption": "源模型子区 A · 独立观察",
+          "rect": [
+            0.065,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "07"
+        },
+        {
+          "key": "papilla_a",
+          "label": "肾乳头 A",
+          "match": "renal_papilla_l_a",
+          "caption": "源模型子区 A · 独立观察",
+          "rect": [
+            0.815,
+            0.82,
+            0.12,
+            0.044
+          ],
+          "code": "08"
+        }
+      ],
+      "model": "kidney.glb"
+    },
+    {
+      "key": "kits19",
+      "title": "肾脏肿瘤",
+      "subtitle": "CT × 3D 对照",
+      "description": "同一病例的三维结构与 CT 对照 · 点击影像进入详细阅片",
+      "yaw": 3.14159265,
+      "model": "kits19/case_00000.glb",
+      "case": {
+        "case": "KiTS19 case_00000",
+        "shape": [
+          171,
+          171,
+          204
+        ],
+        "spacing_mm": [
+          2.759765625,
+          2.759765625,
+          1.5
+        ],
+        "origin_ras_mm": [
+          -470.080078125,
+          -470.080078125,
+          -305.0
+        ],
+        "axes": "RAS",
+        "storage": "XYZ C-order int16 little endian HU; uint8 labels 0 background 1 kidney 2 tumor",
+        "source_shape": [
+          512,
+          512,
+          611
+        ],
+        "source_spacing_mm": [
+          0.919921875,
+          0.919921875,
+          0.5
+        ],
+        "stride": 3,
+        "tumor_voxel": [
+          111.67939357885818,
+          62.46884069727616,
+          98.20595605069133
+        ],
+        "tumor_ras_mm": [
+          -161.87112670522146,
+          -297.68071893505623,
+          -157.691065923963
+        ],
+        "mesh_center": [
+          -231.8203125,
+          -111.0,
+          298.5146484375
+        ],
+        "mesh_scale": 0.012524693067479,
+        "segments": [
+          {
+            "name": "kidney_a",
+            "vertices": 14822,
+            "triangles": 29640,
+            "volume_ml": 180.14087672424316
+          },
+          {
+            "name": "kidney_b",
+            "vertices": 15758,
+            "triangles": 31468,
+            "volume_ml": 207.29258557319642
+          },
+          {
+            "name": "tumor",
+            "vertices": 6136,
+            "triangles": 12284,
+            "volume_ml": 7.8240622158050535
+          }
+        ],
+        "window_presets": [
+          {
+            "name": "软组织",
+            "width": 400,
+            "level": 50
+          },
+          {
+            "name": "窄窗对比",
+            "width": 200,
+            "level": 40
+          },
+          {
+            "name": "骨窗",
+            "width": 1600,
+            "level": 400
+          }
+        ],
+        "license": "CC BY-NC-SA 4.0",
+        "source": "https://github.com/neheller/kits19",
+        "imaging_source": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging",
+        "annotation": "Published manual segmentation, not a prediction made by this device.",
+        "part_voxels": {
+          "tumor": [
+            111.67939357885818,
+            62.46884069727616,
+            98.20595605069133
+          ],
+          "kidney_a": [
+            62.0382759933985,
+            55.93842833566079,
+            137.4813380728704
+          ],
+          "kidney_b": [
+            112.57219310344827,
+            64.55845517241379,
+            121.12408275862069
+          ]
+        },
+        "affected_kidney": "kidney_b"
+      },
+      "parts": [
+        {
+          "key": "tumor",
+          "label": "病灶标注",
+          "match": "tumor",
+          "rect": [
+            0.025,
+            0.23,
+            0.13,
+            0.044
+          ],
+          "caption": "人工分割区域 · 联动三向 CT",
+          "code": "01"
+        },
+        {
+          "key": "kidney_a",
+          "label": "对侧肾脏",
+          "match": "kidney_a",
+          "rect": [
+            0.025,
+            0.44,
+            0.13,
+            0.044
+          ],
+          "caption": "查看对应肾脏与切片",
+          "code": "02"
+        },
+        {
+          "key": "kidney_b",
+          "label": "病灶所在肾脏",
+          "match": "kidney_b",
+          "rect": [
+            0.025,
+            0.65,
+            0.13,
+            0.044
+          ],
+          "caption": "查看病灶邻近结构",
+          "code": "03"
+        }
+      ],
+      "controls": [
+        {
+          "key": "ct_axial",
+          "label": "轴位 CT",
+          "action": "demo.inspect",
+          "content": "axial",
+          "rect": [
+            0.76,
+            0.18,
+            0.2,
+            0.18
+          ],
+          "caption": "横断面 · 点击展开",
+          "plane": "axial",
+          "code": "04"
+        },
+        {
+          "key": "ct_coronal",
+          "label": "冠状位 CT",
+          "action": "demo.inspect",
+          "content": "coronal",
+          "rect": [
+            0.76,
+            0.4,
+            0.2,
+            0.18
+          ],
+          "caption": "正面切面 · 点击展开",
+          "plane": "coronal",
+          "code": "05"
+        },
+        {
+          "key": "ct_sagittal",
+          "label": "矢状位 CT",
+          "action": "demo.inspect",
+          "content": "sagittal",
+          "rect": [
+            0.76,
+            0.62,
+            0.2,
+            0.18
+          ],
+          "caption": "侧面切面 · 点击展开",
+          "plane": "sagittal",
+          "code": "06"
+        },
+        {
+          "key": "raw_ct",
+          "label": "原始 CT",
+          "content": "raw_ct",
+          "plane": "axial",
+          "overlay_override": false,
+          "caption": "灰阶影像 · 不叠加分割",
+          "action": "demo.inspect",
+          "code": "07",
+          "rect": [
+            0.025,
+            0.86,
+            0.13,
+            0.044
+          ],
+          "preview": false
+        },
+        {
+          "key": "label_ct",
+          "label": "分割对照",
+          "content": "label_ct",
+          "plane": "axial",
+          "overlay_override": true,
+          "caption": "同层 CT · 人工标注叠加",
+          "action": "demo.inspect",
+          "code": "08",
+          "rect": [
+            0.265,
+            0.86,
+            0.13,
+            0.044
+          ],
+          "preview": false
+        },
+        {
+          "key": "volumes",
+          "label": "体积定量",
+          "content": "volumes",
+          "caption": "公开分割 · 体素体积",
+          "paragraphs": [
+            "病灶标注体积：7.82 mL。由当前降采样分割体素数乘以体素体积计算。",
+            "肾脏 A：180.14 mL；肾脏 B：207.29 mL。使用同一处理网格，未修正降采样产生的边界误差。",
+            "这是公开人工分割的几何统计，不是本设备自动诊断或病理分级。"
+          ],
+          "action": "demo.inspect",
+          "code": "09",
+          "rect": [
+            0.505,
+            0.86,
+            0.13,
+            0.044
+          ]
+        },
+        {
+          "key": "case_note",
+          "label": "病例资料",
+          "action": "demo.inspect",
+          "content": "report",
+          "rect": [
+            0.745,
+            0.86,
+            0.13,
+            0.044
+          ],
+          "caption": "来源 / 定位 / 标注说明",
+          "paragraphs": [
+            "KiTS19 case_00000：CT、肾脏与病灶三维表面来自同一病例。珊瑚色为公开人工病灶标注，青色为肾脏；不是本设备的诊断结果。",
+            "选择病灶或肾脏，三向 CT 与三维光点会定位到同一个结构中心。旋转只改变观察角度，不改变解剖坐标。",
+            "病灶质心 RAS（mm）：-161.87 / -297.68 / -157.69。这是标注的几何中心，不是操作定位坐标。",
+            "原网格 512×512×611，当前 171×171×204；每轴三倍降采样。数据许可 CC BY-NC-SA 4.0，公开教学演示；未提供病理结论。"
+          ],
+          "code": "10"
+        }
+      ],
+      "inspection_rect": [
+        0.205,
+        0.2,
+        0.525,
+        0.61
+      ]
+    }
+  ],
+  "controls": [],
+  "version": 57
+}

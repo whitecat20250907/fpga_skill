@@ -1,0 +1,10 @@
+{
+  "console/basic.html": "a844dca16854470242e495ccf04280850eb85d2e90cdf3754a763fa71ac4d36f",
+  "console/basic_preview.py": "256810cf069e48c14e72a7a3a66ef89d5e44f3a3be994c08e988d43461cdff41",
+  "console/fpga_observation.py": "eefca063177cda9d6cc6c48d71f2e4d1065b1843f0fe896a41d6f8418abefed9",
+  "console/assets/fpga-panel.js": "8a77f57bf496e7f2997f4dde92c23adf500350c4610ba70f94a41f73534ae53a",
+  "console/assets/fpga-deployed.json": "93faa9362a953a6024a0b97fa3d77287a5c511451280acc73bd8985115c374cc",
+  "console/assets/fpga-flash-receipt.json": "4d59905728213016a5a83ab80976f1d968e710b23c5fccafe9e3e226103e8108",
+  "tools/autostart920.py": "2fd05203f2a31d0b9bf7894a4f773295573a360701077b6966c0a2d617071613",
+  "systemd/hmi-autostart920.service": "4d9c9e18f8a1347e286cf4ddcb2758d5db8ae69a7b697e22424b536850018d7b"
+}

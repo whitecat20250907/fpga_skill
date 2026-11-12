@@ -1,0 +1,48 @@
+{
+  "name": "face_blendshapes",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 0.0022402405738830566,
+        "normalized_max": 0.0022402405738830566,
+        "rmse": 0.0007694673840887845,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.001830405555665493,
+        "normalized_max": 0.001830405555665493,
+        "rmse": 0.0008131940849125385,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.0027211904525756836,
+        "normalized_max": 0.0027211904525756836,
+        "rmse": 0.0008580322028137743,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.002104818820953369,
+        "normalized_max": 0.002104818820953369,
+        "rmse": 0.0009666610276326537,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "b583ebc41d865c8d2dce87ef98dd98ff18d14b9857a2cef49cfa1f400f077ed6",
+  "latency_ms": {
+    "median": 6.880305998492986,
+    "p95": 7.029894622974098,
+    "min": 6.473800982348621
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

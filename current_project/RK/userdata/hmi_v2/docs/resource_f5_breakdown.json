@@ -1,0 +1,314 @@
+{
+  "scope": "F5 actual physical ERAM allocation and F5 ten-minute empty-scene process load; no human frame-rate claim",
+  "netlist_sha256": "ff8544ef9c616ea652379440402d3d3c3bc7fa56d393c64f8d63ae88304b754c",
+  "eram_total": 264,
+  "eram_capacity": 272,
+  "eram_disjoint_top_instances": {
+    "auto_created_cwc1": 1,
+    "auto_created_cwc2": 1,
+    "u_c2h_fifo": 52,
+    "u_cam_video_source": 88,
+    "u_image_loop35_fifo": 4,
+    "u_raw_trace": 4,
+    "u_sgdma_subsys": 66,
+    "u_twin_dsi": 2,
+    "u_twin_pcie_ui": 46
+  },
+  "eram_children_breakdown_not_additional": {
+    "auto_created_cwc1": {
+      "auto_created_cwc1/wrapper_cwc_top": 1
+    },
+    "auto_created_cwc2": {
+      "auto_created_cwc2/wrapper_cwc_top": 1
+    },
+    "u_c2h_fifo": {
+      "u_c2h_fifo/ramread0_syn_105": 1,
+      "u_c2h_fifo/ramread0_syn_111": 1,
+      "u_c2h_fifo/ramread0_syn_117": 1,
+      "u_c2h_fifo/ramread0_syn_123": 1,
+      "u_c2h_fifo/ramread0_syn_129": 1,
+      "u_c2h_fifo/ramread0_syn_135": 1,
+      "u_c2h_fifo/ramread0_syn_141": 1,
+      "u_c2h_fifo/ramread0_syn_147": 1,
+      "u_c2h_fifo/ramread0_syn_153": 1,
+      "u_c2h_fifo/ramread0_syn_159": 1,
+      "u_c2h_fifo/ramread0_syn_165": 1,
+      "u_c2h_fifo/ramread0_syn_171": 1,
+      "u_c2h_fifo/ramread0_syn_177": 1,
+      "u_c2h_fifo/ramread0_syn_183": 1,
+      "u_c2h_fifo/ramread0_syn_189": 1,
+      "u_c2h_fifo/ramread0_syn_195": 1,
+      "u_c2h_fifo/ramread0_syn_201": 1,
+      "u_c2h_fifo/ramread0_syn_207": 1,
+      "u_c2h_fifo/ramread0_syn_21": 1,
+      "u_c2h_fifo/ramread0_syn_213": 1,
+      "u_c2h_fifo/ramread0_syn_219": 1,
+      "u_c2h_fifo/ramread0_syn_225": 1,
+      "u_c2h_fifo/ramread0_syn_231": 1,
+      "u_c2h_fifo/ramread0_syn_237": 1,
+      "u_c2h_fifo/ramread0_syn_243": 1,
+      "u_c2h_fifo/ramread0_syn_249": 1,
+      "u_c2h_fifo/ramread0_syn_255": 1,
+      "u_c2h_fifo/ramread0_syn_261": 1,
+      "u_c2h_fifo/ramread0_syn_267": 1,
+      "u_c2h_fifo/ramread0_syn_27": 1,
+      "u_c2h_fifo/ramread0_syn_273": 1,
+      "u_c2h_fifo/ramread0_syn_279": 1,
+      "u_c2h_fifo/ramread0_syn_285": 1,
+      "u_c2h_fifo/ramread0_syn_291": 1,
+      "u_c2h_fifo/ramread0_syn_297": 1,
+      "u_c2h_fifo/ramread0_syn_303": 1,
+      "u_c2h_fifo/ramread0_syn_309": 1,
+      "u_c2h_fifo/ramread0_syn_315": 1,
+      "u_c2h_fifo/ramread0_syn_321": 1,
+      "u_c2h_fifo/ramread0_syn_324": 1,
+      "u_c2h_fifo/ramread0_syn_33": 1,
+      "u_c2h_fifo/ramread0_syn_39": 1,
+      "u_c2h_fifo/ramread0_syn_45": 1,
+      "u_c2h_fifo/ramread0_syn_51": 1,
+      "u_c2h_fifo/ramread0_syn_57": 1,
+      "u_c2h_fifo/ramread0_syn_63": 1,
+      "u_c2h_fifo/ramread0_syn_69": 1,
+      "u_c2h_fifo/ramread0_syn_75": 1,
+      "u_c2h_fifo/ramread0_syn_81": 1,
+      "u_c2h_fifo/ramread0_syn_87": 1,
+      "u_c2h_fifo/ramread0_syn_93": 1,
+      "u_c2h_fifo/ramread0_syn_99": 1
+    },
+    "u_cam_video_source": {
+      "u_cam_video_source/u_chroma_rank42": 50,
+      "u_cam_video_source/u_demosaic": 8,
+      "u_cam_video_source/u_mipi_csi_rx": 17,
+      "u_cam_video_source/u_model_area3": 13
+    },
+    "u_image_loop35_fifo": {
+      "u_image_loop35_fifo/ramread0_syn_104": 1,
+      "u_image_loop35_fifo/ramread0_syn_145": 1,
+      "u_image_loop35_fifo/ramread0_syn_22": 1,
+      "u_image_loop35_fifo/ramread0_syn_63": 1
+    },
+    "u_raw_trace": {
+      "u_raw_trace/u_trace_storage_syn_1": 1,
+      "u_raw_trace/u_trace_storage_syn_12": 1,
+      "u_raw_trace/u_trace_storage_syn_23": 1,
+      "u_raw_trace/u_trace_storage_syn_34": 1
+    },
+    "u_sgdma_subsys": {
+      "u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep": 18,
+      "u_sgdma_subsys/u_sgdma_ip": 48
+    },
+    "u_twin_dsi": {
+      "u_twin_dsi/u_config": 1,
+      "u_twin_dsi/u_pack": 1
+    },
+    "u_twin_pcie_ui": {
+      "u_twin_pcie_ui/u_dashboard": 44,
+      "u_twin_pcie_ui/u_ingress": 2
+    }
+  },
+  "processes": {
+    "78435": {
+      "name": "core.io_service",
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 6.917189969402473,
+        "p95": 7.981783056808128,
+        "peak": 8.985201732159142,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 19554304.0,
+        "p95": 19554304,
+        "peak": 19554304,
+        "samples": 596
+      }
+    },
+    "78438": {
+      "name": "fpga_io",
+      "affinity": [
+        4
+      ],
+      "cpu_percent_one_core": {
+        "mean": 9.437690761569076,
+        "p95": 10.984010268708335,
+        "peak": 15.998074871656367,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 14276264.375838926,
+        "p95": 14782464,
+        "peak": 14782464,
+        "samples": 596
+      }
+    },
+    "78445": {
+      "name": "vision.gaze_app",
+      "affinity": [
+        5
+      ],
+      "cpu_percent_one_core": {
+        "mean": 30.502405799863805,
+        "p95": 31.60056974641493,
+        "peak": 94.56299463422857,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 232209785.98657718,
+        "p95": 243593216,
+        "peak": 243683328,
+        "samples": 596
+      }
+    },
+    "78447": {
+      "name": "vision.hand_service",
+      "affinity": [
+        6
+      ],
+      "cpu_percent_one_core": {
+        "mean": 13.054335703091851,
+        "p95": 13.9933160226424,
+        "peak": 26.99675134592012,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 199946013.20805368,
+        "p95": 209891328,
+        "peak": 209891328,
+        "samples": 596
+      }
+    },
+    "78449": {
+      "name": "core.interaction.run",
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 12.171513570320977,
+        "p95": 13.93595826536178,
+        "peak": 15.855570765544595,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 24909123.00671141,
+        "p95": 25038848,
+        "peak": 25038848,
+        "samples": 596
+      }
+    },
+    "78451": {
+      "name": "ui.mipi_composer",
+      "affinity": [
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 3.749995893999171,
+        "p95": 4.988688592616094,
+        "peak": 12.882651247004983,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 20486790.013422817,
+        "p95": 20746240,
+        "peak": 20746240,
+        "samples": 596
+      }
+    },
+    "78453": {
+      "name": "ui.hdmi_hud",
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 4.567106792535277,
+        "p95": 5.859986647555914,
+        "peak": 7.9277853827722975,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 60108628.18791946,
+        "p95": 60108800,
+        "peak": 60645376,
+        "samples": 596
+      }
+    },
+    "78455": {
+      "name": "adapters.run",
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 16.116451583111875,
+        "p95": 16.998643185309138,
+        "peak": 19.9879293294718,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 28540928.0,
+        "p95": 28540928,
+        "peak": 28540928,
+        "samples": 596
+      }
+    },
+    "78457": {
+      "name": "console.server",
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cpu_percent_one_core": {
+        "mean": 10.37843141181842,
+        "p95": 11.820374329278572,
+        "peak": 12.99215406415667,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 26752082.469798658,
+        "p95": 26755072,
+        "peak": 26755072,
+        "samples": 596
+      }
+    },
+    "79789": {
+      "name": "bash",
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpu_percent_one_core": {
+        "mean": 0.0,
+        "p95": 0.0,
+        "peak": 0.0,
+        "samples": 596
+      },
+      "rss_bytes": {
+        "mean": 3080192.0,
+        "p95": 3080192,
+        "peak": 3080192,
+        "samples": 596
+      }
+    }
+  },
+  "limits": [
+    "Child cells are already included in their parent; do not sum parent and child tables.",
+    "Process CPU uses one core=100%; divide by eight to express contribution to all-core capacity.",
+    "CPU2/CPU3 kernel SGDMA polling is outside the user-process totals.",
+    "Per-model NPU attribution is not available from per-core busy statistics. Fixed-input per-model timing is separate.",
+    "ERAM allocation is static occupancy, not dynamic bandwidth or compute utilization."
+  ]
+}

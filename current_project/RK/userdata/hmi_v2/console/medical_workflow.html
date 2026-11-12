@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>影像复核</title>
+<link rel="stylesheet" href="/assets/medical/workflow.css"><script type="importmap">{"imports":{"three":"/assets/three/three.module.js"}}</script>
+<body><div id="stage" aria-label="同病例三维模型"></div><div id="controls"></div>
+<svg id="annotation" aria-hidden="true"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1L9 5L0 9" fill="none" stroke="#95b5b3" stroke-width="1.5"/></marker></defs><g id="leaders"></g></svg>
+<nav id="steps" aria-label="病例复核流程"><span>病例</span><span>CT 阅片</span><span>三维对照</span><span>观察记录</span></nav><div id="phasebar"><span id="case"></span><i></i><strong id="phase">选病例</strong></div><div id="loading" role="status"></div>
+<section id="record" hidden><strong id="record-status"></strong><span id="record-location"></span><small id="record-views"></small></section>
+<footer><div id="receipt" role="status">就绪</div><details id="credits"><summary>资料</summary><p>KiTS19 · Heller et al.<br>CC BY-NC-SA 4.0 · CT 与公开人工分割<br>位置由操作者确认；未自动生成临床诊断。</p><a href="https://github.com/neheller/kits19" target="_blank" rel="noreferrer">资料来源</a></details></footer>
+<script type="module" src="/assets/medical/workflow.js"></script></body></html>

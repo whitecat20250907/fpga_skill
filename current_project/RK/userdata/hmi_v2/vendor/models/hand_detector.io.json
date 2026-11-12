@@ -1,0 +1,36 @@
+{
+  "inputs": [
+    {
+      "name": "t0_nchw",
+      "source_name": "input_1",
+      "shape": [
+        1,
+        192,
+        192,
+        3
+      ],
+      "format": "nhwc",
+      "active": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t279",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        2016,
+        18
+      ]
+    },
+    {
+      "name": "t276",
+      "source_name": "Identity_1",
+      "shape": [
+        1,
+        2016,
+        1
+      ]
+    }
+  ]
+}

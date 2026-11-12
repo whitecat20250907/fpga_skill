@@ -1,0 +1,10 @@
+{
+  "name": "face_blendshapes",
+  "source_sha256": "4f36dded049db18d76048567439b2a7f58f1daabc00d78bfe8f3ad396a2d2082",
+  "rknn_sha256": "b583ebc41d865c8d2dce87ef98dd98ff18d14b9857a2cef49cfa1f400f077ed6",
+  "bytes": 7966884,
+  "seconds": 22.205661980086006,
+  "format": "FP16 RK3576",
+  "toolkit": "2.3.0",
+  "cpu_fallback": false
+}

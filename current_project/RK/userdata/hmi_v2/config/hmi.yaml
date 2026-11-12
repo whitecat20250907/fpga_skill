@@ -1,0 +1,142 @@
+schema: 1
+paths:
+  run: /run/hmi
+  logs: /home/linaro/pcie_fix_20261003/hmi_v2_state/logs
+  data: /home/linaro/pcie_fix_20261003/hmi_v2_state/data
+  python: /userdata/gaze_model_migration_v1_20261014/app_venv/bin/python
+  game: /userdata/freeciv-g03-v12-candidate_20261024
+display:
+  hdmi: HDMI-1
+  preview_cpu:
+  - 7
+  preview_process: true
+applications:
+  cpu_affinity:
+  - 0
+  - 1
+cpu:
+  fpga-io:
+  - 4
+  gaze:
+  - 5
+  hand:
+  - 6
+  engine:
+  - 7
+  ui:
+  - 7
+  hud:
+  - 0
+  - 1
+  - 2
+  - 3
+  adapters:
+  - 0
+  - 1
+  - 2
+  - 3
+  console:
+  - 0
+  - 1
+  - 2
+  - 3
+npu:
+  face_core: 1
+  gaze_core: 2
+  hand_detector_core: 0
+  hand_roi_cores:
+  - 0
+  - 0
+  fused_gesture: true
+freshness_ms:
+  gaze_action: 250
+  hand: 350
+gestures:
+  confidence: 0.7
+  release_s: 0.3
+  min_frames: 3
+  hold_s:
+    Pointing_Up: 0.4
+    Closed_Fist: 0.6
+    Thumb_Down: 0.4
+    Victory: 0.4
+    Thumb_Up: 0.8
+    Open_Palm: 0.5
+    ILoveYou: 1.0
+  confidence_by_gesture:
+    Thumb_Up: 0.6
+startup:
+  context: DEMO
+  layer: POINT
+  people: single
+health:
+  required:
+  - fpga-io
+  - gaze
+  - hand
+  - ui
+  - hud
+  - adapters
+  - console
+actions:
+  DESKTOP:
+    wake: desktop.wake
+    confirm: desktop.click
+    cancel: desktop.cancel
+    next: desktop.next
+    sleep: desktop.sleep
+  GAME:
+    wake: game.wake
+    confirm: game.confirm
+    cancel: game.cancel
+    next: game.next
+    end: game.end
+    sleep: game.sleep
+  DEMO:
+    wake: demo.wake
+    confirm: demo.confirm
+    cancel: demo.cancel
+    next: demo.next
+    end: demo.zoom_in
+    sleep: demo.sleep
+write_actions:
+  DESKTOP:
+    L: demo.zoom_in
+    L_rev: demo.zoom_out
+    M: demo.focus
+    W: demo.snap
+    '0': demo.reset
+    Z: demo.cancel
+  GAME: {}
+  DEMO:
+    L: demo.zoom_in
+    L_rev: demo.zoom_out
+    M: demo.focus
+    W: demo.snap
+    '0': demo.reset
+    Z: demo.cancel
+gaze:
+  reuse_calibration: false
+  legacy_hotkeys: false
+mipi:
+  scene_hz: 30
+  csr_enabled: true
+  profile: legacy
+  csr_protocol: ui11
+  input_viewer: cycle
+hardware:
+  dma: /dev/ANLOGIC-PCI0_c2h_1
+  bar: /dev/ANLOGIC-PCI0_user
+  preview: true
+  panel_start: true
+  roi_stats: true
+  auto_exposure: true
+  auto_exposure_backend: example_exposure
+console:
+  host: 127.0.0.1
+  port: 8766
+features:
+  pip: false
+  ae: false
+  uint8: false
+  roi1080: false

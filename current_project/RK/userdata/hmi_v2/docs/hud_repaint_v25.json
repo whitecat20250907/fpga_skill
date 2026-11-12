@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ACTUAL_X11_EXPOSE_REPAINT",
+  "rows": [
+    {
+      "iteration": 0,
+      "distinct_colors": 727,
+      "repaint_within_s": 0.040686909000214655
+    },
+    {
+      "iteration": 1,
+      "distinct_colors": 727,
+      "repaint_within_s": 0.01169024099726812
+    },
+    {
+      "iteration": 2,
+      "distinct_colors": 727,
+      "repaint_within_s": 0.016068183002062142
+    }
+  ],
+  "window_id": 54525952,
+  "scope": "Three real XClearArea+Expose events with live medical app; no fake hmi state or model input"
+}

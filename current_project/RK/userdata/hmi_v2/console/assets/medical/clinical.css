@@ -1,0 +1,98 @@
+/* Appearance only. Semantic targets remain defined by medical_spec.json. */
+#stage{background:radial-gradient(ellipse at 44% 46%,#25303a 0,#161c23 48%,#0e1218 90%)}
+.vignette{background:linear-gradient(180deg,#0b101580,transparent 24%,transparent 78%,#0b101580)}
+header .chapter{color:#8f9da9;letter-spacing:.18em;font-weight:500}
+h1{font-weight:500;letter-spacing:.05em;color:#f1f0ec}h1 span{color:#aeb9c2;letter-spacing:.05em}
+header p{color:#a3aeb9;letter-spacing:.03em}
+button.region,button.control{background:#1b252ee8;border:1px solid #485461;border-radius:6px;box-shadow:0 4px 12px #0002;padding-left:1vw}
+button.region:before,button.control:before{content:"";position:absolute;left:0;top:24%;bottom:24%;width:3px;background:#6f8d9c;border-radius:0 2px 2px 0}
+.part-name,body.case-view .part-name,body.case-view button.control .part-name{font-weight:500;color:#eef0f2;letter-spacing:.02em}
+.target-caption{color:#acb7c0;line-height:1.45;top:calc(100% + 9px)}
+button:hover,button:focus-visible{background:#263b45;border-color:#8cd4dc}
+button.selected{background:#223e47;border-color:#94dce1;box-shadow:0 0 0 2px #8bd4dc30;animation:clinical-select 1.1s ease-in-out infinite}
+button.locked{background:#352e25;border-color:#e5b878;box-shadow:0 0 0 1px #e5b87830;animation:none}
+button.selected:before{background:#9be0e4}button.locked:before{background:#e5b878}
+button.focused{border-left:3px solid #8dd3d9}
+button.ct-panel{background:#090d12;border:1px solid #4a5560;border-radius:6px;box-shadow:0 6px 18px #0003}
+.ct-panel strong{left:5%;right:5%;top:3%;text-align:left;line-height:1.2;color:#eef0f2;font-weight:500;padding-bottom:5px;border-bottom:1px solid #ffffff18}
+.ct-panel small{color:#bac4cc;bottom:3%}.ct-panel .orientation{color:#9daab6;font-weight:500}
+.case-report{background:#1a222b;border-color:#4a5560;border-radius:8px;box-shadow:0 10px 36px #0004}
+.case-report h2{color:#f0efeb;letter-spacing:.02em}.case-report p{color:#c1c9d0}.case-report small{color:#98acba}
+#leaders line{stroke:#92abbc66}#leaders circle{fill:#b1d5df}
+#focus-frame{border-color:#86c7d429;background:none;box-shadow:none}
+#focus-frame i{border-color:#8bcbd46b}#focus-frame span{color:#daedf0;letter-spacing:.06em}
+#model-status{color:#9cabb8;letter-spacing:.08em!important}
+footer{border-top:1px solid #56616c44;padding-top:10px;color:#8f9da9}
+#receipt{color:#b8d9dd;font-weight:500}#page{color:#ced7df;letter-spacing:.14em}
+#gesture-guide{color:#8798a7;font-size:.66em}footer small{color:#8d9ba7}
+@keyframes clinical-select{50%{border-color:#517d89;box-shadow:0 0 0 1px #8bd4dc10}}
+@media(prefers-reduced-motion:reduce){button.selected{animation:none}}
+@media(max-width:900px){.target-caption{top:calc(100% + 5px)}footer{padding-top:6px}.ct-panel strong{font-size:clamp(11px,1.65vw,15px)}.ct-panel small{font-size:8px}}
+
+/* Compact imaging workstation. Geometry is shared with the target catalog. */
+#stage{background:radial-gradient(ellipse at 50% 44%,#223540 0,#111d26 42%,#0b121a 82%)}
+header{top:3.6%;left:3.5%;right:25%;padding-bottom:12px;border-bottom:1px solid #60788733}
+header .chapter{font-size:clamp(9px,.62vw,13px);color:#77b9c2;letter-spacing:.17em}
+h1{font-size:clamp(26px,2.2vw,46px);margin:4px 0;letter-spacing:.04em}
+h1 span{font-size:.43em;color:#9eafb9;letter-spacing:.03em}
+header p{font-size:clamp(10px,.72vw,15px);color:#8c9fae;letter-spacing:.03em}
+#study-meta{position:fixed;right:3.5%;top:4%;display:flex;flex-direction:column;align-items:flex-end;gap:5px;pointer-events:none}
+#study-meta span{font:clamp(9px,.6vw,13px) ui-monospace,monospace;letter-spacing:.13em;color:#80a9b8}
+#study-meta strong{font-size:clamp(13px,1vw,21px);font-weight:500;color:#d9e5ec}
+#study-meta small{color:#8d9da8;font-size:clamp(9px,.65vw,14px)}
+button.region,button.control{border-radius:3px;background:linear-gradient(110deg,#1a2b36eb,#14222eea);border:1px solid #5673846b;padding:0 .7vw 0 2.1vw;box-shadow:0 3px 10px #0002;display:flex;flex-direction:column;justify-content:center;gap:2px}
+button.region:before,button.control:before{width:2px;top:18%;bottom:18%;background:#6ca1b2}
+.target-code{position:absolute;left:.55vw;top:50%;transform:translateY(-50%);color:#6fa0b1;font:clamp(8px,.60vw,13px) ui-monospace,monospace;letter-spacing:0}
+.part-name,body.case-view .part-name,body.case-view button.control .part-name{font-size:clamp(12px,1.08vw,23px);font-weight:500;letter-spacing:.015em;line-height:1.2}
+.target-caption{position:static;color:#839eaf;font-size:clamp(8px,.57vw,12px);letter-spacing:0;line-height:1.2;white-space:nowrap}
+body.case-view button.region{padding:0 .6vw 0 2.1vw}
+button:hover,button:focus-visible{background:#23414f;border-color:#a4e2e7;box-shadow:0 0 0 1px #8adbe132}
+button.selected{border-color:#8ae0e8;background:#1c3c49;animation:clinical-select .9s ease-in-out infinite}
+button.locked{border-color:#e8bf80;background:#332e25;box-shadow:inset 0 0 0 1px #e8bf8033}
+button.focused{border-left:2px solid #91d6d6;background:#1d3541}
+#selection-detail{position:fixed;left:25%;width:50%;bottom:11.8%;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;pointer-events:none}
+#selection-detail>span{font:clamp(8px,.58vw,12px) ui-monospace,monospace;letter-spacing:.15em;color:#75a2b4}
+#selection-name{font-size:clamp(16px,1.3vw,27px);font-weight:450;letter-spacing:.06em;color:#dceff3}
+#selection-info{font-size:clamp(9px,.65vw,14px);color:#98adb9}
+#model-status{left:35%;right:35%;top:16.5%;text-align:center;font-size:clamp(8px,.59vw,13px)}
+#focus-frame{left:27%;top:23%;width:46%;height:51%;border-color:#82cad229}
+#focus-frame span{display:none}#focus-frame small{font-size:9px;color:#8ac1cb;letter-spacing:.1em}
+body.case-view #selection-detail{left:19.5%;width:32%;bottom:12%;gap:3px}
+body.case-view #selection-info{font-size:clamp(8px,.6vw,12px)}
+body.case-view #selection-name{font-size:clamp(14px,1.1vw,23px)}
+body.case-view #model-status{left:2.5%;right:auto;top:16%;font-size:clamp(8px,.59vw,12px)}
+body.case-view #focus-frame{left:20%;top:26%;width:31%;height:48%}
+body.case-view.inspect-view #focus-frame{display:none}
+.ct-panel strong{font-size:clamp(11px,.92vw,19px);border-bottom:1px solid #6c9bab40;padding-bottom:5px}
+.ct-panel canvas{margin-top:13%;height:69%;max-width:95%}.ct-panel small{font-size:clamp(8px,.55vw,12px)}
+.ct-panel .orientation{font-size:clamp(7px,.5vw,10px);bottom:15%}
+.case-report{border-radius:4px;padding:1.5vw;background:linear-gradient(145deg,#182b38,#101e29);line-height:1.65;font-size:clamp(12px,.92vw,20px);letter-spacing:.01em;box-shadow:0 8px 38px #0005;z-index:2}
+.case-report h2{font-size:clamp(20px,1.5vw,32px);margin:.5em 0 .9em;color:#dceff2}.case-report p{margin:.8em 0;color:#b4c8d3}.case-report small{font-size:.75em;color:#77a5b7}
+#gesture-guide{bottom:6.7%;font-size:clamp(8px,.59vw,12px);letter-spacing:.02em}body.case-view #gesture-guide{bottom:6.7%;font-size:clamp(8px,.59vw,12px)}
+footer{left:3.5%;right:3.5%;bottom:1.8%;font-size:clamp(9px,.65vw,14px)}
+@media(max-width:900px){header{top:3%}header p{display:none}h1{font-size:23px}.part-name,body.case-view .part-name,body.case-view button.control .part-name{font-size:11px}.target-caption{font-size:7px;line-height:1.1}.target-code{font-size:7px}.case-report{font-size:10px}.case-report h2{font-size:15px}.case-report p{margin:.5em 0}#selection-info{font-size:8px}.ct-panel strong{font-size:10px}.ct-panel small{font-size:7px}}
+
+/* v82: four widely separated label pairs around a larger anatomy stage. */
+button.region{border-radius:18px 5px 18px 5px;background:linear-gradient(115deg,#23404bcc,#152531cc);border-color:#7bafbc70;box-shadow:0 6px 20px #0002}
+button.region[data-side=right]{border-radius:5px 18px 5px 18px}
+button.control{border-radius:22px;background:#1c303bbf}
+button.region:before,button.control:before{display:none}
+.target-code{color:#83b8c6;left:.65vw}
+.part-name,body.case-view .part-name,body.case-view button.control .part-name{font-size:clamp(12px,1.12vw,24px)}
+.target-caption{font-size:clamp(8px,.55vw,12px);color:#a2bac4}
+header{right:63%;border-bottom:0}header p{max-width:32vw;line-height:1.5}
+#model-status{top:15%;color:#95bac5}
+#selection-detail{bottom:10.2%}
+body.case-view #selection-detail{left:21%;width:50%;bottom:17.2%}
+body.case-view #focus-frame{left:21%;top:23%;width:50%;height:48%}
+body.case-view #gesture-guide{bottom:6%;font-size:clamp(8px,.57vw,12px)}
+body.case-view header{right:40%;top:3%}
+.ct-panel{border-radius:9px!important}.ct-panel canvas{height:70%;margin-top:9%}
+.ct-panel strong{font-size:clamp(12px,1vw,21px)}
+.case-report{background:linear-gradient(145deg,#1c3342f8,#101e29fa);font-size:clamp(13px,1.04vw,22px)}
+
+/* v86: quiet operating surface; retain content labels and actual receipts. */
+header,#study-meta,#model-status,#gesture-guide,#selection-detail>span,#selection-info,#focus-frame small{display:none!important}
+footer{border:0;padding-top:0}#selection-name{font-size:clamp(13px,1vw,21px)}
+#credits{font-size:10px;color:#8497a3;text-align:right;pointer-events:auto;max-width:28vw}
+#credits summary{cursor:pointer;list-style:none}#credits[open]{padding:10px;background:#101b25ed;border-radius:8px}

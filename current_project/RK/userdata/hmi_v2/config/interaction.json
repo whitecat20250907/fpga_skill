@@ -1,0 +1,42 @@
+{
+  "gestures": {
+    "confidence": 0.5,
+    "confidence_by_gesture": {
+      "Closed_Fist": 0.5,
+      "Thumb_Up": 0.5,
+      "Open_Palm": 0.45,
+      "Thumb_Down": 0.5
+    },
+    "arm_s": 0.12,
+    "armed_s": 10.0,
+    "pose_gap_s": 0.45,
+    "cancel_hold_s": 0.3,
+    "hold_s": {
+      "Pointing_Up": 0.15,
+      "Closed_Fist": 0.18,
+      "Thumb_Down": 0.18,
+      "Victory": 0.18,
+      "Thumb_Up": 0.22,
+      "Open_Palm": 0.2,
+      "ILoveYou": 0.3
+    },
+    "min_frames": 2,
+    "release_s": 0.12,
+    "eye_lock_hold_s": 0.15,
+    "eye_lock_confidence": 0.5,
+    "trajectory_countdown_s": 0.3,
+    "trajectory_cooldown_s": 0.3,
+    "stroke_confidence": 0.5
+  },
+  "interaction": {
+    "head_display_hz": 15,
+    "shortcut_timeout_s": 15.0,
+    "calibration_stable_s": 0.2,
+    "calibration_entry": {
+      "min_width": 0.12,
+      "max_width": 0.6,
+      "center_x": 0.35,
+      "center_y": 0.3
+    }
+  }
+}

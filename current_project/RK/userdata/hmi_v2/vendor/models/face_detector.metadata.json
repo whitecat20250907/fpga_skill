@@ -1,0 +1,68 @@
+{
+  "name": "Short Range Face Detection",
+  "description": "Detects human face with frontal camera",
+  "version": "1",
+  "subgraph_metadata": [
+    {
+      "input_tensor_metadata": [
+        {
+          "name": "image",
+          "description": "Input image to be detected",
+          "content": {
+            "content_properties_type": "ImageProperties",
+            "content_properties": {
+              "color_space": "RGB"
+            }
+          },
+          "process_units": [
+            {
+              "options_type": "NormalizationOptions",
+              "options": {
+                "mean": [
+                  127.5
+                ],
+                "std": [
+                  127.5
+                ]
+              }
+            }
+          ],
+          "stats": {
+            "max": [
+              1.0
+            ],
+            "min": [
+              -1.0
+            ]
+          }
+        }
+      ],
+      "output_tensor_metadata": [
+        {
+          "name": "raw boxes/keypoints",
+          "description": "Undecoded face bboxes location and keypoints",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          }
+        },
+        {
+          "name": "scores",
+          "description": "Scores of the detected bboxes.",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          }
+        }
+      ]
+    }
+  ],
+  "author": "MediaPipe",
+  "min_parser_version": "1.0.0"
+}

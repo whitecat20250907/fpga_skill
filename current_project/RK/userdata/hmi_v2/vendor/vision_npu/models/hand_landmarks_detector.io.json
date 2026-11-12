@@ -1,0 +1,49 @@
+{
+  "inputs": [
+    {
+      "name": "t0_nchw",
+      "source_name": "input_1",
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "format": "nhwc"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "t165",
+      "source_name": "Identity",
+      "shape": [
+        1,
+        63
+      ]
+    },
+    {
+      "name": "t164",
+      "source_name": "Identity_1",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "t162",
+      "source_name": "Identity_2",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "t166",
+      "source_name": "Identity_3",
+      "shape": [
+        1,
+        63
+      ]
+    }
+  ]
+}

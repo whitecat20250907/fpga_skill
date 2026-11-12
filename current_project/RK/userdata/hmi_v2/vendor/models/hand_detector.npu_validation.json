@@ -1,0 +1,72 @@
+{
+  "name": "hand_detector",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 0.5339508056640625,
+        "normalized_max": 0.003143845791367698,
+        "rmse": 0.0490318238735199,
+        "finite": true
+      },
+      {
+        "max_abs": 0.11110496520996094,
+        "normalized_max": 0.002444313411912569,
+        "rmse": 0.017747249454259872,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.13441991806030273,
+        "normalized_max": 0.0011008710775812648,
+        "rmse": 0.016515929251909256,
+        "finite": true
+      },
+      {
+        "max_abs": 0.02242279052734375,
+        "normalized_max": 0.0013640337620401564,
+        "rmse": 0.005427279509603977,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.121490478515625,
+        "normalized_max": 0.0010164399783384155,
+        "rmse": 0.01623484492301941,
+        "finite": true
+      },
+      {
+        "max_abs": 0.021486282348632812,
+        "normalized_max": 0.0012786305702011315,
+        "rmse": 0.005956037901341915,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.18157190084457397,
+        "normalized_max": 0.0015108962252531857,
+        "rmse": 0.02108859457075596,
+        "finite": true
+      },
+      {
+        "max_abs": 0.03205108642578125,
+        "normalized_max": 0.002064465528376757,
+        "rmse": 0.006360205356031656,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "33cc88d65a791c9823a9a0d6e0437b4b8fa670b7393f1027c04f5054ab3c0b53",
+  "latency_ms": {
+    "median": 13.251723547000438,
+    "p95": 13.622185518033803,
+    "min": 12.94526201672852
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

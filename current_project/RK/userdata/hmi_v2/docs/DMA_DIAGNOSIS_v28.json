@@ -1,0 +1,58 @@
+{
+  "status": "OBSERVED_OVERFLOW_AND_SEALED_SOURCE_TIMEOUT_NOT_FULL_DMA_ROOT_CAUSE",
+  "epoch": 485792109730829884,
+  "sampled_logged_events": 12,
+  "log_policy": "first 8 and powers of two; not every event",
+  "read_bytes": [
+    41008
+  ],
+  "packet_status": 8,
+  "hardware_overflow_before_reset": 1,
+  "credit_to_read_us": [
+    2.657,
+    3.117,
+    3.326,
+    2.025,
+    2.55,
+    3.598,
+    2.672,
+    2.275,
+    6.475,
+    2.475,
+    2.3,
+    3.021
+  ],
+  "read_duration_ms": [
+    1.568767,
+    1.627942,
+    1.499689,
+    1.40009,
+    1.844119,
+    1.716915,
+    1.689863,
+    1.847371,
+    2.939106,
+    1.536669,
+    1.522717,
+    1.79722
+  ],
+  "interpretation": "Current sampled errors include source FIFO overflow before reset and FPGA status8 idle timeout. read returned a sealed packet with errno0. This does not establish the exact host/PCIe stall source, in-flight DMA quiescence, or recovery for missing EOP.",
+  "evidence": [
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\dma_diagnostics_during_v28.log",
+      "sha256": "ca26b91ea4a50a75c57f8bec4d5c47b4bbfbb79de5957e685efc367c1081f7d9"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\runtime_f5_v28.json",
+      "sha256": "64b5bb36905319f9986df08c3a662abb4b74788ed86e35303adba1f4b49752b6"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_fpga_selector_cnr_20261025\\uisrc\\01_rtl\\model_area3\\model_frame_packet.v",
+      "sha256": "ebc36e9c08f5de42e1a92ab30d2899a6946f14ac399b8bf46f11752701032283"
+    },
+    {
+      "path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_fpga_selector_cnr_20261025\\uisrc\\01_rtl\\model_area3\\rgb4_frame_drop_fifo.v",
+      "sha256": "1ac39644c762825353cd7ec9c6d254de04dadb93f12d691fc5a073b31a6c1ed6"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "source_path": "C:\\qianrushifpga\\fpga_skill\\projects\\hmi_v2_upgrade_20261025\\capture_f5_v23_120s.json",
+  "source_sha256": "1874e6204ddfb1230b5c765d438c04dd36b00f4347c85b101bb4adecf702718b",
+  "summary": {
+    "model_publish_hz": 40.94994149481859,
+    "counter_delta_modulo_32bit": {
+      "preview_blocked_valid_cycles": 0,
+      "model_source_frames": 7201,
+      "model_packet_aborts": 1,
+      "model_drops": 2286
+    },
+    "preview_fifo_peak_since_hardware_reset_words": 1,
+    "preview_publish_hz": 18.24069274713504,
+    "model_branch_resettable_counters": {
+      "model_complete_frames": {
+        "first": 249,
+        "last": 6715,
+        "observed_decreases": 1
+      },
+      "model_abort_frames": {
+        "first": 0,
+        "last": 0,
+        "observed_decreases": 0
+      },
+      "model_overflows": {
+        "first": 0,
+        "last": 0,
+        "observed_decreases": 0
+      }
+    }
+  },
+  "correction": "branch complete/abort/overflow counters reset on model enable toggles without epoch change. Do not report interval subtraction as lifetime totals. Raw old evidence retained."
+}

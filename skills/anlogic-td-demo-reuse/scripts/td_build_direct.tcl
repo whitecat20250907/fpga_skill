@@ -201,6 +201,10 @@ if {[catch {
         td_direct_read_user_constraint sdc $td_direct_user_sdc
     }
     insert_debugger
+    # Native IP/OOC/debugger setup can restore switches before optimization.
+    # Keep source async_reg declarations active here, not only before elaborate.
+    set_param rtl directive:async_reg on
+    set_param place async_reg on
     optimize_rtl
     report_area -file ${td_direct_name}_rtl.area
     export_db ${td_direct_name}_rtl.db
@@ -224,6 +228,8 @@ if {[catch {
 
     td_direct_mark place
     insert_debugger
+    set_param rtl directive:async_reg on
+    set_param place async_reg on
     place
     update_timing -mode manhattan
     report_timing_status -file ${td_direct_name}_place.ts

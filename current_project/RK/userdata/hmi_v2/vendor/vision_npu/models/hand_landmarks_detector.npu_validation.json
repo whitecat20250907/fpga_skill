@@ -1,0 +1,120 @@
+{
+  "name": "hand_landmarks_detector",
+  "backend": "RK3576 RKNNLite",
+  "cpu_fallback": false,
+  "synthetic_vectors": 4,
+  "outputs": [
+    [
+      {
+        "max_abs": 0.10028076171875,
+        "normalized_max": 0.0005612780810917012,
+        "rmse": 0.0456429123878479,
+        "finite": true
+      },
+      {
+        "max_abs": 1.0713469237089157e-05,
+        "normalized_max": 1.0713469237089157e-05,
+        "rmse": 1.0713469237089157e-05,
+        "finite": true
+      },
+      {
+        "max_abs": 0.001627206802368164,
+        "normalized_max": 0.001627206802368164,
+        "rmse": 0.001627206802368164,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00024902448058128357,
+        "normalized_max": 0.00024902448058128357,
+        "rmse": 7.831377297407016e-05,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.1001739501953125,
+        "normalized_max": 0.0005493897631238879,
+        "rmse": 0.05091725289821625,
+        "finite": true
+      },
+      {
+        "max_abs": 5.426909774541855e-05,
+        "normalized_max": 5.426909774541855e-05,
+        "rmse": 5.426909774541855e-05,
+        "finite": true
+      },
+      {
+        "max_abs": 0.0006783008575439453,
+        "normalized_max": 0.0006783008575439453,
+        "rmse": 0.0006783008575439453,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00020576268434524536,
+        "normalized_max": 0.00020576268434524536,
+        "rmse": 0.00010918870975729078,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.1097412109375,
+        "normalized_max": 0.0006044739815638798,
+        "rmse": 0.039197809994220734,
+        "finite": true
+      },
+      {
+        "max_abs": 4.369765520095825e-05,
+        "normalized_max": 4.369765520095825e-05,
+        "rmse": 4.369765520095825e-05,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00034415721893310547,
+        "normalized_max": 0.00034415721893310547,
+        "rmse": 0.00034415721893310547,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00019878894090652466,
+        "normalized_max": 0.00019878894090652466,
+        "rmse": 7.240177365019917e-05,
+        "finite": true
+      }
+    ],
+    [
+      {
+        "max_abs": 0.16802978515625,
+        "normalized_max": 0.0009440281816244383,
+        "rmse": 0.05940742418169975,
+        "finite": true
+      },
+      {
+        "max_abs": 8.381251245737076e-05,
+        "normalized_max": 8.381251245737076e-05,
+        "rmse": 8.381251245737076e-05,
+        "finite": true
+      },
+      {
+        "max_abs": 2.5033950805664062e-06,
+        "normalized_max": 2.5033950805664062e-06,
+        "rmse": 2.5033950805664062e-06,
+        "finite": true
+      },
+      {
+        "max_abs": 0.00017894059419631958,
+        "normalized_max": 0.00017894059419631958,
+        "rmse": 7.95250671217218e-05,
+        "finite": true
+      }
+    ]
+  ],
+  "rknn_sha256": "3cc5083272bc5a4c0079e1cea72cf61724e87726a9c3a5f7c74fbcb98c1f0f5e",
+  "latency_ms": {
+    "median": 9.221183485351503,
+    "p95": 9.501339989947155,
+    "min": 8.605251088738441
+  },
+  "status": "PASS",
+  "criterion": "finite and max_abs / max(1, max_abs(reference)) < 0.01; fixture/task checks also required"
+}

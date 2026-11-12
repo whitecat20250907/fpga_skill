@@ -1,0 +1,25 @@
+[Unit]
+Description=HMI console
+PartOf=hmi.target
+After=hmi-engine.service
+
+[Service]
+Type=simple
+WorkingDirectory=/userdata/hmi_v2
+Environment=PYTHONUNBUFFERED=1
+Environment=MALLOC_ARENA_MAX=2
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/linaro/.Xauthority
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+ExecStart=/userdata/gaze_model_migration_v1_20261014/app_venv/bin/python -m console.server
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=25
+KillMode=control-group
+CPUAffinity=0 1 2 3
+UMask=0077
+
+[Install]
+WantedBy=hmi.target

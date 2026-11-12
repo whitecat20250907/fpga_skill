@@ -1,0 +1,30 @@
+{
+  "scope": "Actual HDMI STANDBY pill XShape and XTEST event delivery; no model/human accuracy claim",
+  "boot_id": "a0eb23d3-bbf5-46b9-ba46-fb99b491a9d9",
+  "hud_window_id": 54525952,
+  "hud_geometry": {
+    "x": 1460,
+    "y": 928,
+    "width": 440,
+    "height": 132
+  },
+  "actual_input_rectangles": [],
+  "status": "PASS_ACTUAL_X11_PILL_CLICK_THROUGH",
+  "events": [
+    {
+      "type": 4,
+      "window_id": 67108864,
+      "detail": 1,
+      "send_event": false
+    },
+    {
+      "type": 5,
+      "window_id": 67108864,
+      "detail": 1,
+      "send_event": false
+    }
+  ],
+  "owner_epoch": 485792109730829884,
+  "model_frames_during_test": 1,
+  "menu_cursor_scorecard_tested": false
+}

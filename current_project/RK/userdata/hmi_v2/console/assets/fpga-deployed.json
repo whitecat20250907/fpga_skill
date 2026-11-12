@@ -1,0 +1,31 @@
+{
+  "version": "SAE2 · Flash 提交版",
+  "bit_sha256": "2a312641673f92b16c6ca2c66bb37d00eb38ee6cc54de560d648558c39db6699",
+  "boot_id": "32b88c1d-f45d-4220-a307-ae64a6577945",
+  "programming_receipt_sha256": "0297896eb62296b09da31f1af4441312347ab95426ed4251cc1bb4036dd2b1ed",
+  "active_verified": false,
+  "scope": "Physical resources of the bit programmed and verified in onboard Flash; not runtime busy percentage.",
+  "resources": {
+    "LUT6": {
+      "used": 44740,
+      "total": 64320
+    },
+    "ERAM": {
+      "used": 262,
+      "total": 272
+    },
+    "DSP": {
+      "used": 127,
+      "total": 240
+    },
+    "SLICE": {
+      "used": 52148,
+      "total": 64320
+    }
+  },
+  "timing_ns": {
+    "setup_wns": 0.04,
+    "hold_wns": 0.02
+  },
+  "flash_receipt_sha256": "4d59905728213016a5a83ab80976f1d968e710b23c5fccafe9e3e226103e8108"
+}

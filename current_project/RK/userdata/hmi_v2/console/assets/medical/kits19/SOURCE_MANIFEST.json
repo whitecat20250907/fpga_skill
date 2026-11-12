@@ -1,0 +1,26 @@
+[
+  {
+    "file": "imaging.nii.gz",
+    "url": "https://huggingface.co/datasets/neheller/KiTS-Challenge-Imaging/resolve/main/images/case_00000.nii.gz",
+    "bytes": 225959569,
+    "sha256": "cdae5f3e0fbc7c98ab0430b3de42677abda2c1cf93ae0f86bd29fb8606688cb7"
+  },
+  {
+    "file": "segmentation.nii.gz",
+    "url": "https://raw.githubusercontent.com/neheller/kits19/master/data/case_00000/segmentation.nii.gz",
+    "bytes": 775587,
+    "sha256": "d1019d9a690e193e167cadf3518499e9ed54c1c7757ce520152a3ed072159e09"
+  },
+  {
+    "file": "DATA_LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/neheller/kits19/master/data/LICENSE",
+    "bytes": 20717,
+    "sha256": "b74fbcfc8ced6f7893b729b2685fc23cf221c72bcd716bd04cd884bf8a33bd48"
+  },
+  {
+    "file": "README_SOURCE.md",
+    "url": "https://raw.githubusercontent.com/neheller/kits19/master/README.md",
+    "bytes": 5553,
+    "sha256": "cb48a2eeaffabed0b717fda6bd3fc3d8b631c9ef86e59d86c6eb13785e94f961"
+  }
+]

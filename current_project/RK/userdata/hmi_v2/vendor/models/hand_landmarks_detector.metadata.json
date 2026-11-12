@@ -1,0 +1,116 @@
+{
+  "name": "HandLandmarkDetector",
+  "description": "Identify the predefined landmarks on a potentially present hand andprovide information about their positions within the given image or avideo stream.",
+  "version": "1",
+  "subgraph_metadata": [
+    {
+      "input_tensor_metadata": [
+        {
+          "name": "image",
+          "description": "Input image to be detected.",
+          "content": {
+            "content_properties_type": "ImageProperties",
+            "content_properties": {
+              "color_space": "RGB"
+            }
+          },
+          "process_units": [
+            {
+              "options_type": "NormalizationOptions",
+              "options": {
+                "mean": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "std": [
+                  255.0,
+                  255.0,
+                  255.0
+                ]
+              }
+            }
+          ],
+          "stats": {
+            "max": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "min": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ],
+      "output_tensor_metadata": [
+        {
+          "name": "handedness",
+          "description": "The score of left or right handedness.",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          },
+          "associated_files": [
+            {
+              "name": "handedness.txt",
+              "description": "Labels for categories that the model can recognize.",
+              "type": "TENSOR_AXIS_LABELS"
+            }
+          ]
+        },
+        {
+          "name": "presense score",
+          "description": "The score of hand presence in the image.",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          }
+        },
+        {
+          "name": "landmarks",
+          "description": "The hand landmarks in normalized coordinates.",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          }
+        },
+        {
+          "name": "world landmarks",
+          "description": "The hand landmarks in world coordinates.",
+          "content": {
+            "content_properties_type": "FeatureProperties",
+            "content_properties": {
+            }
+          },
+          "stats": {
+          }
+        }
+      ],
+      "output_tensor_groups": [
+        {
+          "name": "detection_result",
+          "tensor_names": [
+            "landmarks",
+            "presense score",
+            "handedness",
+            "world landmarks"
+          ]
+        }
+      ]
+    }
+  ],
+  "author": "MediaPipe",
+  "min_parser_version": "1.2.0"
+}
